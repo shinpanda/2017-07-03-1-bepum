@@ -25,13 +25,13 @@
 }
 
 .sub-menu a{
-	color: #072622;	
+	color: #727476;	
 	width: max-content;
 }
 
 .sub-menu li.active a,
 .sub-menu li a:hover{
-   color:#55EBFF;
+   color:#072622;
    transition:0.5s all;
    -webkit-transition:0.5s all;
    -moz-transition:0.5s all;

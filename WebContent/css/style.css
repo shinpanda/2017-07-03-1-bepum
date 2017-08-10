@@ -2,13 +2,13 @@
 
 .main-menu li.active a,
 .main-menu li a:hover{
-   color:#55EBFF;
+   color:#F8D9DD;
    transition:0.5s all;
    -webkit-transition:0.5s all;
    -moz-transition:0.5s all;
    -o-transition:0.5s all;
    -ms-transition:0.5s all;
-   border-bottom: 2px solid #55EBFF;
+   border-bottom: 2px solid #F8D9DD;
 }
 
 /*2단 메뉴*/
@@ -76,8 +76,8 @@
 }
 
 #banner_test> a:hover{
-	color: #55EBFF;
-	border:1px solid #55EBFF;
+	color: #F8D9DD;
+	border:1px solid #F8D9DD;
 }
 
 
