@@ -8,6 +8,8 @@ public class Sitter {
  * 기타사항, 자기소개서
  * 베품 가능 시간
  * 공개 여부
+ * 
+ * + 사진 파일, 집 사진....
  */
 	private String id;
 	private String others;
