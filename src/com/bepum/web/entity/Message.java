@@ -9,18 +9,18 @@ public class Message {
 	private String num;
 	private String text;
 	private Date date;
-	private String from_id;
-	private String to_id;
+	private String fromID;
+	private String toID;
 
 	public Message() {
 		
 	}
-	public Message(String num, String text, Date date, String from_id, String to_id) {
+	public Message(String num, String text, Date date, String fromID, String toID) {
 		this.num = num;
 		this.text = text;
 		this.date = date;
-		this.from_id = from_id;
-		this.to_id = to_id;
+		this.fromID = fromID;
+		this.toID = toID;;
 	}
 
 	public String getNum() {
@@ -47,20 +47,20 @@ public class Message {
 		this.date = date;
 	}
 
-	public String getFrom_id() {
-		return from_id;
+	public String getFromID() {
+		return fromID;
 	}
 
-	public void setFrom_id(String from_id) {
-		this.from_id = from_id;
+	public void setFromID(String fromID) {
+		this.fromID = fromID;
 	}
 
-	public String getTo_id() {
-		return to_id;
+	public String getToID() {
+		return toID;
 	}
 
-	public void setTo_id(String to_id) {
-		this.to_id = to_id;
+	public void setToID(String toID) {
+		this.toID = toID;
 	}
 
 }
