@@ -1,5 +1,6 @@
 package com.bepum.web.service.sitter;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.bepum.web.entity.Matching;
@@ -35,9 +36,8 @@ public class MatchingService {
 	}
 
 	// 클릭하면 해당 멤버 정보 보여주고
-	public Member get(String id) {
+	public HashMap<Member, Matching> get(String id) {
 		return null;
-		
 	}
 
 	// 진행사항이 신청일 경우
