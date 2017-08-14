@@ -14,9 +14,9 @@ public class ProfileService {
 	}
 	
 	//공개/비공개 수정
-	public boolean Open(String id) {
-		boolean open = true;
-		return open;
+	public boolean open(String id) {
+		boolean op = true;
+		return op;
 	}
 	
 	//베푸미 정보 수정
