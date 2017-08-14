@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.bepum.web.entity.Matching;
 import com.bepum.web.entity.Member;
+import com.bepum.web.entity.Sitter;
 
 public class MatchingService {
 	// 신청자 베푸미 구분해줘야 함
@@ -36,7 +37,7 @@ public class MatchingService {
 	}
 
 	// 클릭하면 해당 멤버 정보 보여주고
-	public HashMap<Member, Matching> get(String id) {
+	public HashMap<Member, Sitter> get(String id) {
 		return null;
 	}
 

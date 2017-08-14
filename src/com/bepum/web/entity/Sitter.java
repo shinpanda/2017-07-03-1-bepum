@@ -26,7 +26,6 @@ public class Sitter {
 	
 	public Sitter(String id, String others, String intro, Time str_time, Time end_time, String profile_img,
 			String house_img, boolean open) {
-		super();
 		this.id = id;
 		this.others = others;
 		this.intro = intro;
