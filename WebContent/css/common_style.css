@@ -16,6 +16,7 @@ a {
 	text-decoration: none;
 }
 
+/* All Device */
 #content_container {
 	margin: auto;
 	width: 1140px;
@@ -39,11 +40,12 @@ a {
 }
 
 #logo {
-	padding-top: 10px; width : 80px;
+	padding-left:10px;
+	padding-top: 10px; 
+	width : 80px;
 	height: 80px;
 	z-index: 7;
 	float: left;
-	width: 80px;
 }
 
 /* 메뉴 */
@@ -137,6 +139,34 @@ main {
 
 /*footer*/
 #footer {
-	padding-left: 100px;
 	background: lightgrey;
 }
+
+
+
+/* Tablet & Desktop Device */
+@media all and (min-width:768px) and (max-width:1140px){
+	#content_container {
+	margin: auto;
+	width: 100%;
+	min-height: inherit;
+	height: inherit;
+	}
+	
+}
+
+/* Mobile Device 768px 미만의 해상도*/
+@media all and (max-width:768px){
+	#content_container {
+	margin: auto;
+	width: 100%;
+	min-height: inherit;
+	height: inherit;
+	}
+	#body div{
+		padding:0px;
+		padding-top:10px;
+	}
+	
+}
+

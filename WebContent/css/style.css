@@ -80,4 +80,22 @@
 	border:1px solid #F8D9DD;
 }
 
+/* Tablet & Desktop Device */
+@media all and (min-width:768px) and (max-width:1140px){
+	#visual {
+	height: 500px;
+	}
+	#banner_mask {
+	height: 500px;
+	}
+}
 
+@media all and (max-width:768px){
+	#visual{
+		height: 400px;
+	}
+	#banner_mask {
+		height: 400px;
+	}
+	
+}
