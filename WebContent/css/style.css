@@ -35,9 +35,9 @@
 .sub-menu li a{
 	padding: 0px 10px 10px 10px;
 }
-
-
-
+.btn-border{
+	cursor: pointer;
+}
 
 /* visual style */
 #visual {
