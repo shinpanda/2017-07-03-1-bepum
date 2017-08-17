@@ -5,6 +5,48 @@
 <!-- 베푸미 공개 설정 및 자기소개 변경 -->
 <link href="../../css/common_style.css" type="text/css" rel="stylesheet" />
 <link href="../../css/profile.css" type="text/css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+   	var opt = {
+           img: $('#profile-photo'),
+           inputFile: $('#profile_img_edit_btn')
+    };
+	 // onchange
+	$('#profile_img_edit_btn').change(function(){
+	     var inputFile = opt.inputFile.get(0);
+	     var img       = opt.img.get(0);
+	
+	     // FileReader
+	     if (window.FileReader) {
+	         // image 파일만
+	         if (!inputFile.files[0].type.match(/image\//)) return;
+	
+	         // preview
+	         try {
+	             var reader = new FileReader();
+	             reader.onload = function(e){
+	                 img.src = e.target.result;
+	
+	             }
+	             reader.readAsDataURL(inputFile.files[0]);
+	         } catch (e) {
+	             // exception...
+	         }
+	     // img.filters (MSIE)
+	     } else if (img.filters) {
+	         inputFile.select();
+	         inputFile.blur();
+	         var imgSrc = document.selection.createRange().text;
+	
+	         img.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enable='true',sizingMethod='scale',src=\""+imgSrc+"\")";   
+	     // no support
+	     } else {
+	         // Safari5, ...
+	     }
+	});
+});
+</script>
 </head>
 <body>
 	<form action="" method="post" enctype="multipart/form-data" name="bepumi_profile_form">
@@ -20,7 +62,7 @@
 	<div class="profile_body clearfix">
 		<div class="profile_body_left_container">
 			<div id="profile_member_wrapper"> 
-				<img src="../../images/profile.jpg" id="profile_photo" alt="프로필 사진"/>
+				<img src="../../images/profile.jpg" id="profile-photo" alt="프로필 사진"/>
 			  	<p id="name">이름</p>
 			  	<p id="address">주소</p>
 			  	<p id="grade">회원 등급</p>
@@ -73,7 +115,7 @@
 			 		<div id="suc_chart1"></div>
 			 		<div id="suc_chart2"></div>
 			 		<div id="req_chart_center">
-			 			<span class="chart_center">50%</span>
+			 			<span class="chart_center">75%</span>
 			 		</div>
 
 			 	</div>

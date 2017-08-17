@@ -177,6 +177,7 @@
 		    overflow:auto;
 		}
 			.home_photo{
+				display:inline-block;
 				width:120px;
 				height:80px;
 				background:silver;
@@ -221,11 +222,12 @@
 			
 			textarea{
 				margin:0; 
-				padding:0; 
+				padding: 10px 10px 10px 0px; 
 				border:0; 
 				outline:none;
 				resize: none;
 				width:100%;
+				font-family: Malgun Gothic;
 			}
 			.profile_num {
 			    padding: 0;
@@ -287,6 +289,14 @@
 			#suc_chart1 {
 			    clip: rect(0 140px 70px 0);
 			    transform: rotate(90deg);
+			    background: purple;
+			    width: 100%;
+			    height: 100%;
+			    position: absolute;
+			}
+			#suc_chart2 {
+			    clip: rect(0 140px 70px 0);
+			    transform: rotate(180deg);
 			    background: purple;
 			    width: 100%;
 			    height: 100%;
