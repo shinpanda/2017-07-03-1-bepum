@@ -153,7 +153,7 @@ table.type10 .even {
     font-size: 14px;
     overflow: hidden;
 }
-.form-style-7 input[type="text"]{
+.form-style-7 textarea{
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -168,17 +168,18 @@ table.type10 .even {
 }
 .submitBtn input[type="submit"]
 {
+	
 	width: inherit;
 	padding: 10px 10px 10px /* !important */;
 	/* font-size: 18px !important; */
-	background-color: #57d6c7;
-	font-weight: bold;
-	text-shadow: 1px 1px #57D6C7;
-	color: #ffffff;
+	background-color: #d9e8f2;
+	/* font-weight: bold; */
+	text-shadow: 1px 1px #d9e8f2;
+	color: #7a7a7a;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
-	border: 1px solid #57D6C7;
+	border: 1px solid #d9e8f2;
 	cursor: pointer;
 	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
