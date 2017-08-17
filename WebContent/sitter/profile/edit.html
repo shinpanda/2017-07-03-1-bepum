@@ -3,9 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <!-- 베푸미 공개 설정 및 자기소개 변경 -->
-<title>Insert title here</title>
+<link href="../../css/common_style.css" type="text/css" rel="stylesheet" />
+<link href="../../css/profile.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
+	<form action="" method="post" enctype="multipart/form-data" name="bepumi_profile_form">
+	<div id="bg_profile_header">
+		<div id="btn_header">
+			<input id="submit_btn" type="submit" value="변경사항 저장"/>
+		</div>
+		<div id="bepum_definite_wrapper">
+			<p>희망 시급 : <span><input type="text" placeholder="8000" class="profile_num"/></span> 원</p>
+			<p>가능 시간 : <span><input type="text" placeholder="9:00" class="profile_num" pattern = "\d{2}:\d{2}" title="08:00 형식으로 넣어주세요" /></span> ~ <span><input type="text" placeholder="18:00" class="profile_num" pattern = "\d{2}:\d{2}" title="08:00 형식으로 넣어주세요"/></span></p>
+		</div>
+	</div>
+	<div class="profile_body clearfix">
+		<div class="profile_body_left_container">
+			<div id="profile_member_wrapper"> 
+				<img src="../../images/profile.jpg" id="profile_photo" alt="프로필 사진"/>
+			  	<p id="name">이름</p>
+			  	<p id="address">주소</p>
+			  	<p id="grade">회원 등급</p>
+			  	<p id="contact">연락처</p>
+			</div>
+			<div class="profile-box"> 
+				<label for="profile_img_edit_btn">사진 수정</label> 
+				<input type="file" accept=".bmp, .jpg, .png"  id="profile_img_edit_btn">
+			</div>
+		</div>
+		<div class="profile_body_right_container">
+			<div id="home_photos">
+				<div class="home_photo"></div>
+				<div class="home_photo"></div>
+				<div class="home_photo"></div>
+			</div>
+		</div>
+	</div>
+	<div class="profile_body clearfix">
+		<div class="profile_body_left_container">
+			<div id="intro_table">
+				<div class="row">
+					<div class="cell1">기타사항</div>
+					<div class="cell2">
+						<textarea class="table_input" rows="3" cols="65" placeholder="예)운전 가능"></textarea>
+					</div>
+				</div>
+				<div class="row">
+					<div class="cell1">자기소개서</div>
+					<div class="cell2">
+						<textarea class="table_input" rows="4" cols="65"></textarea>
+					</div>
+				</div>
+			</div> 
+		</div>
+		
+		<div class="profile_body_right_container">
+			<div id="bepumi_chart">
+				<!-- 매칭 요청률 -->
+			 	<div id="bepumi_request_chart">
+			 		<div id="req_chart1"></div>
+			 		<div id="req_chart2"></div>
+			 		<div id="req_chart_center">
+			 			<span class="chart_center">50%</span>
+			 		</div>
 
+			 	</div>
+			 	<!-- 매칭 성공률 -->
+			 	<div id="bepumi_success_chart">
+			 		<div id="suc_chart1"></div>
+			 		<div id="suc_chart2"></div>
+			 		<div id="req_chart_center">
+			 			<span class="chart_center">50%</span>
+			 		</div>
+
+			 	</div>
+			</div>
+		</div>
+	</div>
+	</form>
 </body>
 </html>
