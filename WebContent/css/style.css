@@ -35,9 +35,9 @@
 .sub-menu li a{
 	padding: 0px 10px 10px 10px;
 }
-
-
-
+.btn-border{
+	cursor: pointer;
+}
 
 /* visual style */
 #visual {
@@ -90,6 +90,7 @@
 	}
 }
 
+
 @media all and (max-width:768px){
 	#visual{
 		height: 400px;
@@ -98,4 +99,38 @@
 		height: 400px;
 	}
 	
+}
+
+
+
+/*request*/
+table.type10 {
+    border-collapse: collapse;
+    text-align: left;
+     /*  line-height: 1; */
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin: 20px 10px;
+}
+table.type10 thead th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #fff;
+    background: #ec93a9;
+    margin: 20px 10px;
+}
+table.type10 tbody th {
+	color: #6d6d6d;
+    width: 150px;
+    padding: 10px;
+}
+table.type10 td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+}
+table.type10 .even {
+    background: #fdf3f5;
 }
