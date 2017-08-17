@@ -12,7 +12,7 @@
 		<table class="type10">
 	    <thead>
 	    <tr colspan="2">
-	        <th scope="cols">신청 돌보미 확인</th>
+	        <th scope="cols" class="even">신청 돌보미 확인</th>
 	    </tr>
 	    </thead>
 	    <tbody>
@@ -21,25 +21,27 @@
 	        <td>이정진</td>
 	    </tr>
 	    <tr>
-	        <th scope="row" class="even">날짜</th>
-	        <td class="even">2017.08.16</td>
+	        <th scope="row" >날짜</th>
+	        <td >2017.08.16</td>
 	    </tr>
 	    <tr>
 	        <th scope="row">지역</th>
 	        <td>서울특별시 강서구</td>
+	    </tr>
+	    <tr><td></td>
 	    </tr>
 	    </tbody>
 	    
 	    
 	    <thead>
 	    <tr colspan="2">
-	        <th scope="cols">개인정보 확인</th>
+	        <th scope="cols" class="even">개인정보 확인</th>
 	    </tr>
 	    </thead>
 	    <tbody>
 	    <tr>
-	        <th scope="row" class="even">이름</th>
-	        <td class="even">이새미</td>
+	        <th scope="row" >이름</th>
+	        <td>이새미</td>
 	    </tr>
 	    <tr>
 	        <th scope="row">전화번호</th>
@@ -50,38 +52,42 @@
 	    
 	    <thead>
 	    <tr colspan="2">
-	        <th scope="cols">아기 정보</th>
+	        <th scope="cols" class="even">아기 정보</th>
 	    </tr>
 	    </thead>
 	    <tbody>
 	    <tr>
 	        <th scope="row">이름</th>
-	        <td><input type="text"></td>
+	        <td>이아영</td>
 	    </tr>
 	    <tr>
-	        <th scope="row" class="even">나이</th>
-	        <td class="even"><input type="text">개월</td>
+	        <th scope="row">나이</th>
+	        <td >20개월</td>
 	    </tr>
 	    <tr>
 	        <th scope="row">성별</th>
-	        <td><input type="radio" value="gender" checked="checked">남아<input type="radio" value="gender">여아</td>
+	        <td>여</td>
 	    </tr>
 	    </tbody>
 		</table>	
 	</form>
+	
+	<form class="form-style-7">
+		<ul>
+		<li >
+		<label for="name">전달 메시지</label>
+		<textarea id="message" name="name" rows="8" cols="50"></textarea>
 
-
-	<!-- 
-			<tr>
-			<th colspan="2" align="left">전달 메시지</th>
-			</tr>
-			<tr>
-			<td colspan="2" ><input type="text"></td>
-			</tr>
-		</table>
-		<input type="button" value="매칭신청">
+	    </li>
+	    </ul>
 	</form>
-	</div> -->
+	
+	<form class="submitBtn">
+		<input type="submit" value="신청">
+	</form>
+	
+	
+
 
 </body>
 </html>
