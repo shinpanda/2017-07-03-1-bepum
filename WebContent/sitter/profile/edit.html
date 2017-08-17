@@ -7,14 +7,14 @@
 <link href="../../css/profile.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
+	<form action="" method="post" enctype="multipart/form-data" name="bepumi_profile_form">
 	<div id="bg_profile_header">
 		<div id="btn_header">
-			<button type="submit" onclick="">비공개</button>
-			<a href="" id="edit">수정</a>
+			<input id="submit_btn" type="submit" value="변경사항 저장"/>
 		</div>
 		<div id="bepum_definite_wrapper">
-			<p>희망 시급 : <span><input type="text" placeholder="8000"/></span> 원</p>
-			<p>가능 시간 : <span><input type="text" placeholder="9:00"/></span> am ~ <span><input type="text" placeholder="18:00"/></span> pm</p>
+			<p>희망 시급 : <span><input type="text" placeholder="8000" class="profile_num"/></span> 원</p>
+			<p>가능 시간 : <span><input type="text" placeholder="9:00" class="profile_num" pattern = "\d{2}:\d{2}" title="08:00 형식으로 넣어주세요" /></span> ~ <span><input type="text" placeholder="18:00" class="profile_num" pattern = "\d{2}:\d{2}" title="08:00 형식으로 넣어주세요"/></span></p>
 		</div>
 	</div>
 	<div class="profile_body clearfix">
@@ -26,10 +26,16 @@
 			  	<p id="grade">회원 등급</p>
 			  	<p id="contact">연락처</p>
 			</div>
+			<div class="profile-box"> 
+				<label for="profile_img_edit_btn">사진 수정</label> 
+				<input type="file" accept=".bmp, .jpg, .png"  id="profile_img_edit_btn">
+			</div>
 		</div>
 		<div class="profile_body_right_container">
-			<div id="home_photo">
-				<!--집사진 3개-->
+			<div id="home_photos">
+				<div class="home_photo"></div>
+				<div class="home_photo"></div>
+				<div class="home_photo"></div>
 			</div>
 		</div>
 	</div>
@@ -74,6 +80,6 @@
 			</div>
 		</div>
 	</div>
-	
+	</form>
 </body>
 </html>
