@@ -1,7 +1,10 @@
 @charset "UTF-8";
 
 /* 기본  width:1140px  */
-
+body, html{
+	padding:0px;
+	margin: 0px;
+}
 #bg-profile-header{
 	width:100%;
 	height:300px;
@@ -146,27 +149,27 @@
 		
 		#name {
 		    position: relative;
-		    top: 35px;
+		    top: 28px;
 		    left: 5px;
 		    font-size: 30px;
 		    font-weight: 600;
 		}
 		
 		#address {
-		    position: relative;
-		    top: 15px;
-    		left: 10px;
+			position: relative;
+		    top: 8px;
+		    left: 10px;
 		}
 		
 		#grade{
 			position: relative;
-			top: 5px;
+			top:-2px;
 		}
 		
 		#contact {
 			position: relative;
 		    left: -15px;
-		    top: -5px;
+		    top: -10px;
 		}
 		
 		#home-photos{
