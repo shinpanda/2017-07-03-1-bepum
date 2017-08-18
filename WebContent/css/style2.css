@@ -20,10 +20,15 @@
 .sub-menu{
 	position:absolute;
 	width:550px;
-	left:-127px;
+	left:-70px;
 	top: 78px;
 }
-
+.sub-menu li{
+	margin-left: 0px;
+}
+.sub-menu.hidden{
+	display: none;
+}
 .sub-menu a{
 	color: #727476;	
 	width: max-content;
