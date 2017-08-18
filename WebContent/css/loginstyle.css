@@ -275,7 +275,7 @@ html {
 	display: block;
 	position: relative;
 	width: 50%;
-	height: 100px;
+	height: 70px;
 	padding: 11px 24px;
 	border-right: 1px solid #e5e5e5;
 	border-bottom: none;
@@ -318,6 +318,7 @@ html {
 	line-height: 24px;
 }
 
+
 .sminputs .input input {
 	postion: relative;
 	display: inline-block;
@@ -329,7 +330,7 @@ html {
 	vertical-align: middle;
 	box-shadow: none;
 	box-sizing: border-box;
-	width: 100%;
+	width: 70%;
 	height: auto;
 	border: none;
 	padding: 0;
@@ -337,6 +338,8 @@ html {
 	background-color: transparent;
 	color: rgba(75, 89, 102, 0.85);
 }
+
+
 
 .sminputs .hide-password {
 	display: inline-block;

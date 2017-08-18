@@ -187,9 +187,9 @@ table.type10 .even {
     padding: 0;
     resize: none;
 }
+
 .submitBtn input[type="submit"]
-{
-	
+{	
 	width: inherit;
 	padding: 10px 10px 10px /* !important */;
 	/* font-size: 18px !important; */
