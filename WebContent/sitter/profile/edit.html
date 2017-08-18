@@ -3,77 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <!-- 베푸미 공개 설정 및 자기소개 변경 -->
-<link href="../../css/common_style.css" type="text/css" rel="stylesheet" />
+<link href="../../css/common-style.css" type="text/css" rel="stylesheet" />
 <link href="../../css/profile.css" type="text/css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+   	var opt = {
+           img: $('#profile-photo'),
+           inputFile: $('#profile-img-edit-btn')
+    };
+   	
+	 // onchange
+	$('#profile-img-edit-btn').change(function(){
+	     var inputFile = opt.inputFile.get(0);
+	     var img       = opt.img.get(0);
+	
+	     // FileReader
+	     if (window.FileReader) {
+	         // image 파일만
+	         if (!inputFile.files[0].type.match(/image\//)) return;
+	
+	         // preview
+	         try {
+	             var reader = new FileReader();
+	             reader.onload = function(e){
+	                 img.src = e.target.result;
+	
+	             }
+	             reader.readAsDataURL(inputFile.files[0]);
+	         } catch (e) {
+	             // exception...
+	         }
+	     // img.filters (MSIE)
+	     } else if (img.filters) {
+	         inputFile.select();
+	         inputFile.blur();
+	         var imgSrc = document.selection.createRange().text;
+	
+	         img.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enable='true',sizingMethod='scale',src=\""+imgSrc+"\")";   
+	     // no support
+	     } else {
+	         // Safari5, ...
+	     }
+	});
+	
+});
+</script>
 </head>
 <body>
-	<form action="" method="post" enctype="multipart/form-data" name="bepumi_profile_form">
-	<div id="bg_profile_header">
-		<div id="btn_header">
-			<input id="submit_btn" type="submit" value="변경사항 저장"/>
+	<form action="" method="post" enctype="multipart/form-data" name="bepumi-profile-form">
+	<div id="bg-profile-header">
+		<div id="btn-header">
+			<input id="submit-btn" type="submit" value="변경사항 저장"/>
 		</div>
-		<div id="bepum_definite_wrapper">
-			<p>희망 시급 : <span><input type="text" placeholder="8000" class="profile_num"/></span> 원</p>
-			<p>가능 시간 : <span><input type="text" placeholder="9:00" class="profile_num" pattern = "\d{2}:\d{2}" title="08:00 형식으로 넣어주세요" /></span> ~ <span><input type="text" placeholder="18:00" class="profile_num" pattern = "\d{2}:\d{2}" title="08:00 형식으로 넣어주세요"/></span></p>
+		<div id="bepum-definite-wrapper">
+			<p>희망 시급 : <span><input type="text" placeholder="8000" class="profile-num"/></span> 원</p>
+			<p>가능 시간 : <span><input type="text" placeholder="9:00" class="profile-num" pattern = "\d{2}:\d{2}" title="08:00 형식으로 넣어주세요" /></span> ~ <span><input type="text" placeholder="18:00" class="profile-num" pattern = "\d{2}:\d{2}" title="08:00 형식으로 넣어주세요"/></span></p>
 		</div>
 	</div>
-	<div class="profile_body clearfix">
-		<div class="profile_body_left_container">
-			<div id="profile_member_wrapper"> 
-				<img src="../../images/profile.jpg" id="profile_photo" alt="프로필 사진"/>
+	<div class="profile-body clearfix">
+		<div class="profile-body-left-container">
+			<div id="profile-member-wrapper"> 
+				<img src="../../images/profile.jpg" id="profile-photo" alt="프로필 사진"/>
 			  	<p id="name">이름</p>
 			  	<p id="address">주소</p>
 			  	<p id="grade">회원 등급</p>
 			  	<p id="contact">연락처</p>
 			</div>
 			<div class="profile-box"> 
-				<label for="profile_img_edit_btn">사진 수정</label> 
-				<input type="file" accept=".bmp, .jpg, .png"  id="profile_img_edit_btn">
+				<label for="profile-img-edit-btn">사진 수정</label> 
+				<input type="file" accept=".bmp, .jpg, .png"  id="profile-img-edit-btn">
 			</div>
 		</div>
-		<div class="profile_body_right_container">
-			<div id="home_photos">
-				<div class="home_photo"></div>
-				<div class="home_photo"></div>
-				<div class="home_photo"></div>
+		<div class="profile-body-right-container">
+			<div id="home-photos">
+				<div class="home-photo">
+					<label for="home-img-edit-btn1"><img src="../../images/add_icon.png" /></label> 
+					<input type="file" onchange="previewFile()" accept=".bmp, .jpg, .png"  id="home-img-edit-btn1">
+				</div>
+				<script>
+					function previewFile() {
+				   		var file = document.querySelector('#home-img-edit-btn1').files[0];
+				      var reader = new FileReader();
+				      reader.addEventListener("load", function(){
+				          $("#home-img-edit-btn1").parent().css({"background": "url("+reader.result+") no-repeat","background-size": "cover"});
+				      }, false);
+				      if (file) {
+				    reader.readAsDataURL(file);
+				  }
+				}
+				</script>
+				<div class="home-photo">
+					<label for="home-img-edit-btn2"><img src="../../images/add_icon.png" /></label> 
+					<input type="file" onchange="previewFile2()" accept=".bmp, .jpg, .png"  id="home-img-edit-btn2">
+				</div>
+				<script>
+					function previewFile2() {
+				   		var file = document.querySelector('#home-img-edit-btn2').files[0];
+				      var reader = new FileReader();
+				      reader.addEventListener("load", function(){
+				          $("#home-img-edit-btn2").parent().css({"background": "url("+reader.result+") no-repeat","background-size": "cover"});
+				      }, false);
+				      if (file) {
+				    reader.readAsDataURL(file);
+				  }
+				}
+				</script>
+				<div class="home-photo">
+					<label for="home-img-edit-btn3"><img src="../../images/add_icon.png" /></label> 
+					<input type="file" onchange="previewFile3()" accept=".bmp, .jpg, .png"  id="home-img-edit-btn3">
+				</div>
+				<script>
+					function previewFile3() {
+				   		var file = document.querySelector('#home-img-edit-btn3').files[0];
+				      var reader = new FileReader();
+				      reader.addEventListener("load", function(){
+				          $("#home-img-edit-btn3").parent().css({"background": "url("+reader.result+") no-repeat","background-size": "cover"});
+				      }, false);
+				      if (file) {
+				    reader.readAsDataURL(file);
+				  }
+				}
+				</script>
 			</div>
 		</div>
 	</div>
-	<div class="profile_body clearfix">
-		<div class="profile_body_left_container">
-			<div id="intro_table">
+	<div class="profile-body clearfix">
+		<div class="profile-body-left-container">
+			<div id="intro-table">
 				<div class="row">
 					<div class="cell1">기타사항</div>
 					<div class="cell2">
-						<textarea class="table_input" rows="3" cols="65" placeholder="예)운전 가능"></textarea>
+						<textarea class="table-input" rows="3" cols="65" placeholder="예)운전 가능"></textarea>
 					</div>
 				</div>
 				<div class="row">
 					<div class="cell1">자기소개서</div>
 					<div class="cell2">
-						<textarea class="table_input" rows="4" cols="65"></textarea>
+						<textarea class="table-input" rows="4" cols="65"></textarea>
 					</div>
 				</div>
 			</div> 
 		</div>
 		
-		<div class="profile_body_right_container">
-			<div id="bepumi_chart">
+		<div class="profile-body-right-container">
+			<div id="bepumi-chart">
 				<!-- 매칭 요청률 -->
-			 	<div id="bepumi_request_chart">
-			 		<div id="req_chart1"></div>
-			 		<div id="req_chart2"></div>
-			 		<div id="req_chart_center">
-			 			<span class="chart_center">50%</span>
+			 	<div id="bepumi-request-chart">
+			 		<div id="req-chart1"></div>
+			 		<div id="req-chart2"></div>
+			 		<div id="req-chart-center">
+			 			<span class="chart-center">50%</span>
 			 		</div>
 
 			 	</div>
 			 	<!-- 매칭 성공률 -->
-			 	<div id="bepumi_success_chart">
-			 		<div id="suc_chart1"></div>
-			 		<div id="suc_chart2"></div>
-			 		<div id="req_chart_center">
-			 			<span class="chart_center">50%</span>
+			 	<div id="bepumi-success-chart">
+			 		<div id="suc-chart1"></div>
+			 		<div id="suc-chart2"></div>
+			 		<div id="req-chart-center">
+			 			<span class="chart-center">75%</span>
 			 		</div>
 
 			 	</div>

@@ -2,13 +2,13 @@
 
 /* 기본  width:1140px  */
 
-#bg_profile_header{
+#bg-profile-header{
 	width:100%;
 	height:300px;
 	background: orange;
 }
 
-	#btn_header{
+	#btn-header{
 		float: right;
 	    position: relative;
 	    top: 10px;
@@ -32,7 +32,7 @@
 		    width: 55.9517px;
 		    -webkit-appearance: button;
 		}
-		#submit_btn{
+		#submit-btn{
 		    box-sizing: border-box;
 		    border: 1.989px outset rgb(221, 221, 221);
 		    text-decoration: none;
@@ -49,7 +49,7 @@
 		    width: 100px;
 		    -webkit-appearance: button;
 		}
-		#bepum_definite_wrapper {
+		#bepum-definite-wrapper {
 		    width: 300px;
 		    height: 100px;
 		    position: relative;
@@ -57,31 +57,31 @@
 		    float: right;
 		    right: -80px;
 		}
-		#bepum_definite_wrapper p{
+		#bepum-definite-wrapper p{
 			text-align: right;
 			font-size: 12px;
 			font-weight: bold;
 		}
 		
-		#bepum_definite_wrapper span{
+		#bepum-definite-wrapper span{
 		    font-size: 25px;
 		}
 
 /* 중간 부분 */
 
-.profile_body{
+.profile-body{
 	width:100%;
 	min-height:200px;
 }
 
-	.profile_body_left_container{
+	.profile-body-left-container{
 		width: 65%;
 		min-height:inherit;
 		float:left;
 		
 	}
 	
-	.profile_body_right_container{
+	.profile-body-right-container{
 		width:35%;
 		min-height:inherit;
 		float:left;
@@ -95,7 +95,7 @@
 	
 
 	/* 중간 부분 -1 */
-	#profile_member_wrapper{
+	#profile-member-wrapper{
 		position:absolute;
 		top:200px;
 		left:50px;
@@ -103,7 +103,7 @@
 		height:200px;
 	}
 		/*프로필 부분*/
-		#profile_member_wrapper img{
+		#profile-member-wrapper img{
 			width:200px;
 			height:200px;
 			border-radius:50%;
@@ -133,7 +133,7 @@
 			    -webkit-appearance: button;
 			}
 			
-			#profile_img_edit_btn{
+			#profile-img-edit-btn{
 				 position: absolute;
 				 width: 1px;
 				 height: 1px;
@@ -146,7 +146,7 @@
 		
 		#name {
 		    position: relative;
-		    top: 20px;
+		    top: 35px;
 		    left: 5px;
 		    font-size: 30px;
 		    font-weight: 600;
@@ -154,21 +154,22 @@
 		
 		#address {
 		    position: relative;
-		    top: 5px;
-		    left: 10px;
+		    top: 15px;
+    		left: 10px;
 		}
 		
 		#grade{
 			position: relative;
+			top: 5px;
 		}
 		
 		#contact {
-		    position: relative;
-		    left: -20px;
+			position: relative;
+		    left: -15px;
 		    top: -5px;
 		}
 		
-		#home_photos{
+		#home-photos{
 			height:80px;
 		    position: relative;
 		    top: 10px;
@@ -176,20 +177,49 @@
 		    display: inline-block;
 		    overflow:auto;
 		}
-			.home_photo{
+			.home-photo{
+				display:inline-block;
 				width:120px;
 				height:80px;
 				background:silver;
 				float: left;
  			    margin-left: 7px;
 			}
-			.home_photo:first-child{
+			.home-photo:first-child{
  			    margin-left: 0px;
 			}
-		
-
+				
+				.home-preview{
+					display: none;
+				}
+				
+				.home-photo label{
+					padding: 0;
+				    margin: 0;
+				    position: relative;
+				    top: 15px;
+				    left: 35px;
+				}
+					.home-photo label img {
+						width:50px;
+						height:50px;
+						visibility: hidden;
+					}
+					.home-photo label:hover img{
+						visibility: visible;
+					}
+				.home-photo input[type="file"]{		
+					position: absolute;
+				    width: 1px;
+				    height: 1px;
+				    padding: 0;
+				    margin: -1px;
+				    overflow: hidden;
+				    clip: rect(0,0,0,0);
+				    border: 0;
+				}
 /* 프로필 하단 */
-	#intro_table{
+	#intro-table{
 		box-sizing:border-box;
 		width:90%;
 		min-height : 150px;
@@ -199,20 +229,20 @@
 		margin-left: 30px;
 	}
 	
-		#intro_table .row{
+		#intro-table .row{
 			min-height:100px;
 			display: table-row;
 			border-bottom: 1px solid #808080;
 			border-top: 1px solid #808080;
 		}
 		
-			#intro_table .cell1{
+			#intro-table .cell1{
 				display: table-cell;
 				text-align:center; 
 		        vertical-align:middle;
 		        font-weight:bold;
 			}
-			#intro_table .cell2{
+			#intro-table .cell2{
 				display: table-cell;
 				border-left: 1px solid #808080;
 				vertical-align:middle;
@@ -221,13 +251,14 @@
 			
 			textarea{
 				margin:0; 
-				padding:0; 
+				padding: 10px 10px 10px 0px; 
 				border:0; 
 				outline:none;
 				resize: none;
 				width:100%;
+				font-family: Malgun Gothic;
 			}
-			.profile_num {
+			.profile-num {
 			    padding: 0;
 			    width: 75px;
 			    height: 35px;
@@ -240,10 +271,10 @@
 			}
 			
 			
-	#bepumi_chart{
+	#bepumi-chart{
 		float:left;
 	}
-		#bepumi_request_chart {
+		#bepumi-request-chart {
 		    width: 140px;
 		    height: 140px;
 		    background: #a2a2a2;
@@ -252,7 +283,7 @@
 		    margin-left: 10px;
 		    overflow: hidden;
 		}
-			#req_chart1 {
+			#req-chart1 {
 			    clip: rect(0 140px 70px 0);
 			    transform: rotate(90deg);
 			    background: #cba9e2;
@@ -261,7 +292,7 @@
 			    position: absolute;
 			}
 		
-			#req_chart_center {
+			#req-chart-center {
 			    width: 100px;
 			    height: 100px;
 			    background: white;
@@ -271,11 +302,11 @@
 			    left:20px;
 			    text-align: center;
 			}
-			.chart_center {
+			.chart-center {
 			    position: relative;
 			    top: 40px;
 			}
-		#bepumi_success_chart {
+		#bepumi-success-chart {
 		    width: 140px;
 		    height: 140px;
 		    background: gray;
@@ -284,7 +315,7 @@
 		    margin-left: 200px;
 		    overflow: hidden;
 		}
-			#suc_chart1 {
+			#suc-chart1 {
 			    clip: rect(0 140px 70px 0);
 			    transform: rotate(90deg);
 			    background: purple;
@@ -292,8 +323,16 @@
 			    height: 100%;
 			    position: absolute;
 			}
+			#suc-chart2 {
+			    clip: rect(0 140px 70px 0);
+			    transform: rotate(180deg);
+			    background: purple;
+			    width: 100%;
+			    height: 100%;
+			    position: absolute;
+			}
 		
-			#suc_chart_center {
+			#suc-chart-center {
 			    width: 100px;
 			    height: 100px;
 			    background: lime;
