@@ -17,7 +17,7 @@ a {
 }
 
 /* All Device */
-#content_container {
+.content-container {
 	margin: auto;
 	width: 1140px;
 	min-height: inherit;
@@ -146,7 +146,7 @@ main {
 
 /* Tablet & Desktop Device */
 @media all and (min-width:768px) and (max-width:1140px){
-	#content_container {
+	.content-container {
 	margin: auto;
 	width: 100%;
 	min-height: inherit;
@@ -157,7 +157,7 @@ main {
 
 /* Mobile Device 768px 미만의 해상도*/
 @media all and (max-width:768px){
-	#content_container {
+	.content-container {
 	margin: auto;
 	width: 100%;
 	min-height: inherit;
