@@ -1,11 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 베푸미로써의 프로필 -->
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link href="../css/common_style.css" type="text/css" rel="stylesheet" />
+<link href="../css/profile.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
+	<div id="bg-profile-header">
+		<div id="btn-header">
+			<button type="submit" onclick="">비공개</button>
+			<a href="./profile/edit.html" id="edit">수정</a>
+		</div>
+		<div id="bepum-definite-wrapper">
+			<p>희망 시급 : <span>8000</span> 원</p>
+			<p>가능 시간 : <span>9:00</span> am ~ <span>18:00</span> pm</p>
+		</div>
+	</div>
+	<div class="profile-body clearfix">
+		<div class="profile-body-left-container">
+			<div id="profile-member-wrapper"> 
+				<img src="../images/profile.jpg" id="profile-photo" alt="프로필 사진"/>
+			  	<p id="name">이름</p>
+			  	<p id="address">주소</p>
+			  	<p id="grade">회원 등급</p>
+			  	<p id="contact">연락처</p>
+			</div>
+		</div>
+		<div class="profile-body-right-container">
+			<div id="home-photos">
+				<!--집사진 3개-->
+				<div class="home-photo"></div>
+				<div class="home-photo"></div>
+				<div class="home-photo"></div>
+			</div>
+		</div>
+	</div>
+	<div class="profile-body clearfix">
+		<div class="profile-body-left-container">
+			<div id="intro-table">
+				<div class="row">
+					<div class="cell1">기타사항</div>
+					<div class="cell2">
+						운전 가능<br/>
+						요리 능숙<br/>
+						시간 협의 가능
+					</div>
+				</div>
+				<div class="row">
+					<div class="cell1">자기소개서</div>
+					<div class="cell2">
+						유치원 및 초등학교 급식 조리사로 오랫동안 근무했으며<br />
+						근래까지 예쁜 아가들을 돌봐왔답니다.<br />
+						도움이 필요하시면 정성을 다해서 돌보겠습니다.
+						
+					</div>
+				</div>
+			</div> 
+		</div>
+		
+		<div class="profile-body-right-container">
+			<div id="bepumi-chart">
+				<!-- 매칭 요청률 -->
+			 	<div id="bepumi-request-chart">
+			 		<div id="req-chart1"></div>
+			 		<div id="req-chart2"></div>
+			 		<div id="req-chart-center">
+			 			<span class="chart-center">50%</span>
+			 		</div>
 
+			 	</div>
+			 	<!-- 매칭 성공률 -->
+			 	<div id="bepumi-success-chart">
+			 		<div id="suc-chart1"></div>
+			 		<div id="suc-chart2"></div>
+			 		<div id="req-chart-center">
+			 			<span class="chart-center">75%</span>
+			 		</div>
+
+			 	</div>
+			</div>
+		</div>
+	</div>
+	
 </body>
 </html>
