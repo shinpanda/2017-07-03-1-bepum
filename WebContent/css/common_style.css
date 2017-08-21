@@ -15,6 +15,10 @@ a {
 	text-decoration: none;
 }
 
+.hidden{
+	display: none;
+}
+
 /* All Device */
 .content-container {
 	margin: auto;
@@ -133,12 +137,7 @@ main {
 
 #body div {
 	padding: 50px;
-	min-height: 70px;
-}
-
-
-#body .intro1 {
-	padding-left:0px;
+	min-height: 100px;
 }
 
 

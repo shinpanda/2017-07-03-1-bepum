@@ -117,13 +117,19 @@
 /*메인페이지>소개*/
 
 #body h3{
-	padding : 50px;
+	padding :0px;
 }
 
-#intro {
-	min-height : 100px;
+#body .intro1 {
+	padding:0px;
+	padding-top: 50px;
 }
 
+#body .intro2 {
+	padding:0px;
+	padding-bottom:60px;
+	min-height:100px;
+}
 
 
 /*searching>bepumi>request*/
