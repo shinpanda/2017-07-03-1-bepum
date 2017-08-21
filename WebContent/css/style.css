@@ -103,6 +103,18 @@
 
 
 
+/*메인페이지>소개*/
+
+#body h3{
+	padding : 50px;
+}
+
+#intro {
+	min-height : 100px;
+}
+
+
+
 /*searching>bepumi>request*/
 
 table.type10 {
