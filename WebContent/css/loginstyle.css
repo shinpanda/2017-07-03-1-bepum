@@ -40,8 +40,8 @@ html {
 	display: block;
 	position: absolute;
 	right: 50%;
-	background: url("../images/close_box.png") no-repeat /* scroll  */
-		center /* 0% 0% transparent */;
+	background: url("../images/close_box.png") no-repeat /* scroll  */ 
+		 center /* 0% 0% transparent */;
 	background-size: contain;
 	text-indent: 100%;
 	white-space: nowrap;
@@ -270,7 +270,6 @@ html {
 	content: "";
 	display: table;
 }
-
 .sminputs .input {
 	display: block;
 	position: relative;
@@ -287,11 +286,23 @@ html {
 	-moz-appearance: none;
 	appearance: none;
 }
-.sminputs #user-gender{
+
+.sminputs #user-gender {
 	border-right: none;
+}
 
-	}
+.sminputs #user-birth {
+	border-right: none;
+	
+}
 
+.sminputs select {
+	display: inline-block;
+	font-size: 13px;
+	width: 28%;
+	height: 25px;
+	margin-right: 4%;
+}
 .sminputs .input.active {
 	background: #eee;
 }
@@ -303,7 +314,6 @@ html {
 .sminputs .input.full {
 	width: 100%;
 }
-
 .sminputs .input div { /* class= string optional */
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -318,12 +328,11 @@ html {
 	line-height: 24px;
 }
 
-
 .sminputs .input input {
 	postion: relative;
 	display: inline-block;
 	height: 24px;
-	font-size: 20px;
+	font-size: 16px;
 	line-height: 19.2px;
 	color: #555;
 	border-radius: 4px;
@@ -338,8 +347,6 @@ html {
 	background-color: transparent;
 	color: rgba(75, 89, 102, 0.85);
 }
-
-
 
 .sminputs .hide-password {
 	display: inline-block;
@@ -362,7 +369,6 @@ html {
 	line-height: 24px;
 	font-family: "Lato", sans-serif;
 }
-
 .btn, .simform__actions .sumbit {
 	display: inline-block;
 	line-height: normal;
