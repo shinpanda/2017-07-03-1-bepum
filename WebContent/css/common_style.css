@@ -91,7 +91,7 @@ a {
 			float:left;
 		}
 		
-		.main-menu li a{
+		.main-menu > li > a{
 			color: #727476;
 			font-size: 15px;
 			text-align: center;
@@ -135,6 +135,7 @@ main {
 	padding: 50px;
 	min-height: 70px;
 }
+
 
 #body .intro1 {
 	padding-left:0px;
