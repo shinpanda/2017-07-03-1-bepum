@@ -1,4 +1,5 @@
-<html><head>
+<html>
+<head>
 <meta charset="UTF-8">
 <link href="../css/common_style.css" type="text/css" rel="stylesheet">
 <link href="../css/style2.css" type="text/css" rel="stylesheet">
@@ -9,10 +10,11 @@
 <body>
 	<header id="header">
 		<div class="content-container">
-			<a href="./index.html"><img src="../images/1616.png" id="logo" alt="베품"></a>
+			<a href="./index.html"><img src="../images/1616.png" id="logo"
+				alt="베품"></a>
 			<section id="menu-container">
 				<nav class="menu-wrapper">
-					
+
 					<ul class="main-menu">
 						<li><a href="">소개</a>
 							<ul class="sub-menu">
@@ -35,28 +37,29 @@
 								<li><a href="">신고게시판</a></li>
 							</ul></li>
 					</ul>
-					
+
 				</nav>
 				<nav class="menu-wrapper">
 					<ul id="login">
 						<li><a href="" class="btn-border">Sign in</a></li>
 					</ul>
 				</nav>
-				
+
 				<div id="sub-bg"></div>
 			</section>
 		</div>
 	</header>
 
 	<div id="body">
-		<div class="content-container">
-			<main>
-			<div id="bg-profile-header">
-				<div id="btn-header">
+
+		<main>
+		<div class="bg-profile-header">
+			<div class="content-container">
+				<div class="btn-header">
 					<button type="submit" onclick="">비공개</button>
 					<a href="./profile/edit.html" id="edit">수정</a>
 				</div>
-				<div id="bepum-definite-wrapper">
+				<div class="bepum-definite-wrapper">
 					<p>
 						희망 시급 : <span>8000</span> 원
 					</p>
@@ -65,50 +68,49 @@
 					</p>
 				</div>
 			</div>
-			<div class="profile-body clearfix">
-				<div class="profile-member-container">
-					<div id="profile-member-wrapper">
-						<img src="../images/profile.jpg" id="profile-photo" alt="프로필 사진">
-						<p id="name">홍길동</p>
-						<p id="address">서울 강서구</p>
-						<p id="grade">일반 베푸미</p>
-						<p id="contact">010-2222-2222</p>
-					</div>
+		</div>
+		<div class="content-container">
+			<div class="profile-member-container">
+				<div class="profile-member-wrapper">
+					<img src="../images/profile.jpg" id="profile-photo" alt="프로필 사진">
+					<p id="name">홍길동</p>
+					<p id="address">서울 강서구</p>
+					<p id="grade">일반 베푸미</p>
+					<p id="contact">010-2222-2222</p>
 				</div>
-				
 			</div>
 			<div class="home-photo-container">
-					<div id="home-photos">
-						<!--집사진 3개-->
-						<div class="home-photo"></div>
-						<div class="home-photo"></div>
-						<div class="home-photo"></div>
-					</div>
-				</div><div class="profile-body clearfix">
-				<div class="table-container">
-					<div id="intro-table">
-						<div class="row">
-							<div class="cell1">기타사항</div>
-							<div class="cell2" style="
-">
-								운전 가능<br> 요리 능숙<br> 시간 협의 가능
-							</div>
+				<div class="home-photo-wrapper">
+					<!--집사진 3개-->
+					<div class="home-photo"></div>
+					<div class="home-photo"></div>
+					<div class="home-photo"></div>
+				</div>
+			</div>
+			<div class="table-wrapper">
+				<div class="intro-table">
+					<div class="row">
+						<div class="cell1">기타사항</div>
+						<div class="cell2" style="">
+							운전 가능<br> 요리 능숙<br> 시간 협의 가능
 						</div>
-						<div class="row">
-							<div class="cell1">자기소개서</div>
-							<div class="cell2">
-								유치원 및 초등학교 급식 조리사로 오랫동안 근무했으며<br> 근래까지 예쁜 아가들을 돌봐왔답니다.<br>
-								도움이 필요하시면 정성을 다해서 돌보겠습니다.
+					</div>
+					<div class="row">
+						<div class="cell1">자기소개서</div>
+						<div class="cell2">
+							유치원 및 초등학교 급식 조리사로 오랫동안 근무했으며<br> 근래까지 예쁜 아가들을 돌봐왔답니다.<br>
+							도움이 필요하시면 정성을 다해서 돌보겠습니다.
 
-							</div>
 						</div>
 					</div>
 				</div>
+			</div>
 
-				<div class="chart-container">
-					<div id="bepumi-chart">
-						<!-- 매칭 요청률 -->
-    			<div id="request-chart-wrapper">
+			<div class="chart-container">
+					<!-- 차트 함수화할 것! -->
+				<div class="chart-wrapper">
+					<!-- 매칭 요청률 -->
+					<div class="request-chart-wrapper">
 						<div id="bepumi-request-chart">
 							<div id="req-chart1"></div>
 							<div id="req-chart2"></div>
@@ -116,9 +118,9 @@
 								<span class="chart-center">50%</span>
 							</div>
 						</div>
-    <p class="chart-name">매칭 요청률</p>
-    </div>
-    <div id="success-chart-wrapper">
+						<p class="chart-name">매칭 요청률</p>
+					</div>
+					<div class="success-chart-wrapper">
 						<!-- 매칭 성공률 -->
 						<div id="bepumi-success-chart">
 							<div id="suc-chart1"></div>
@@ -128,12 +130,15 @@
 							</div>
 
 						</div>
-    
-					<p class="chart-name2">매칭 성공률</p></div></div>
+
+						<p class="chart-name2">매칭 성공률</p>
 					</div>
-			</div></main>
+				</div>
+			</div>
 		</div>
+		</main>
 	</div>
+
 	<footer id="footer">
 		<div class="content-container">
 			<h2>베품</h2>
@@ -149,4 +154,5 @@
 	</footer>
 
 
-</body></html>
+</body>
+</html>
