@@ -92,7 +92,7 @@ a {
 			float:left;
 		}
 		
-		.main-menu li a{
+		.main-menu > li > a{
 			color: #727476;
 			font-size: 15px;
 			text-align: center;
@@ -132,10 +132,6 @@ main {
 	text-align: center;
 }
 
-#body div {
-	padding: 50px;
-	min-height: 300px;
-}
 
 /*footer*/
 #footer {
