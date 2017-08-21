@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <!-- 베푸미 공개 설정 및 자기소개 변경 -->
-<link href="../../css/common-style.css" type="text/css" rel="stylesheet" />
+<link href="../../css/common_style.css" type="text/css" rel="stylesheet" />
 <link href="../../css/profile.css" type="text/css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
@@ -78,52 +78,30 @@ $(document).ready(function(){
 		<div class="profile-body-right-container">
 			<div id="home-photos">
 				<div class="home-photo">
-					<label for="home-img-edit-btn1"><img src="../../images/add_icon.png" /></label> 
-					<input type="file" onchange="previewFile()" accept=".bmp, .jpg, .png"  id="home-img-edit-btn1">
+					<label for="home-img-edit1"><img src="../../images/add_icon.png" /></label> 
+					<input type="file" onchange="previewFile(1)" accept=".bmp, .jpg, .png"  id="home-img-edit1">
 				</div>
-				<script>
-					function previewFile() {
-				   		var file = document.querySelector('#home-img-edit-btn1').files[0];
-				      var reader = new FileReader();
-				      reader.addEventListener("load", function(){
-				          $("#home-img-edit-btn1").parent().css({"background": "url("+reader.result+") no-repeat","background-size": "cover"});
-				      }, false);
-				      if (file) {
-				    reader.readAsDataURL(file);
-				  }
-				}
-				</script>
+				
 				<div class="home-photo">
-					<label for="home-img-edit-btn2"><img src="../../images/add_icon.png" /></label> 
-					<input type="file" onchange="previewFile2()" accept=".bmp, .jpg, .png"  id="home-img-edit-btn2">
+					<label for="home-img-edit2"><img src="../../images/add_icon.png" /></label> 
+					<input type="file" onchange="previewFile(2)" accept=".bmp, .jpg, .png"  id="home-img-edit2">
 				</div>
-				<script>
-					function previewFile2() {
-				   		var file = document.querySelector('#home-img-edit-btn2').files[0];
-				      var reader = new FileReader();
-				      reader.addEventListener("load", function(){
-				          $("#home-img-edit-btn2").parent().css({"background": "url("+reader.result+") no-repeat","background-size": "cover"});
-				      }, false);
-				      if (file) {
-				    reader.readAsDataURL(file);
-				  }
-				}
-				</script>
+				
 				<div class="home-photo">
-					<label for="home-img-edit-btn3"><img src="../../images/add_icon.png" /></label> 
-					<input type="file" onchange="previewFile3()" accept=".bmp, .jpg, .png"  id="home-img-edit-btn3">
+					<label for="home-img-edit3"><img src="../../images/add_icon.png" /></label> 
+					<input type="file" onchange="previewFile(3)" accept=".bmp, .jpg, .png"  id="home-img-edit3">
 				</div>
 				<script>
-					function previewFile3() {
-				   		var file = document.querySelector('#home-img-edit-btn3').files[0];
-				      var reader = new FileReader();
-				      reader.addEventListener("load", function(){
-				          $("#home-img-edit-btn3").parent().css({"background": "url("+reader.result+") no-repeat","background-size": "cover"});
-				      }, false);
-				      if (file) {
-				    reader.readAsDataURL(file);
-				  }
-				}
+					function previewFile(num) {
+					   	var file = document.querySelector('#home-img-edit'+num).files[0];
+					    var reader = new FileReader();
+					    reader.addEventListener("load", function(){
+					        $("#home-img-edit"+num).parent().css({"background": "url("+reader.result+") no-repeat","background-size": "cover"});
+					    }, false);
+					    if (file) {
+					    	reader.readAsDataURL(file);
+					 	}
+					}
 				</script>
 			</div>
 		</div>
