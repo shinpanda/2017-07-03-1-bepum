@@ -67,14 +67,20 @@
 	-ms-background-size: cover;
 }
 
-#banner-mask {
+ #banner-mask {
 	background-color: rgba(20, 19, 19, 0.38);
 	height: 650px;
 	margin-bottom:80px;
-	/* position: relative;*/
-	/* top: 180px; */
+	position: relative;
 	text-align: center;
 	color: white;
+} 
+
+#banner-test img {
+    position: relative;
+    top: -40px;
+    width: 500px;
+    left: 10px;
 }
 
 #banner-test {
@@ -104,7 +110,7 @@
   color: #fff;
   cursor: pointer;
   display: block;
-  font-size:16px;
+  font-size:18px;
   font-weight: 400;
   line-height: 45px;
   margin: 0 auto 2em;
@@ -151,10 +157,9 @@
   
    width: 150px;
    height: 25px;
-   background: rgba($white, 0);
    color: white;
    line-height: 1.4;
-   padding: 10px;
+   padding: 15px;
    text-decoration: none;
     
     &:hover {
