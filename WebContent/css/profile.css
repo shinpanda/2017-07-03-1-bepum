@@ -2,6 +2,13 @@
 
 /* 기본  width:1140px  */
 
+h3 {
+    padding-bottom: 30px;
+    border-bottom: 2px solid #a2a2a2;
+    width: max-content;
+    margin: auto;
+    margin-bottom: 50px;
+}
 
 .bg-profile-header{
 	width:100%;
@@ -52,9 +59,9 @@
 		}
 		.bepum-definite-wrapper {
 		    width: 300px;
-		    height: 100px;
+		    height: 50px;
 		    position: relative;
-		    top: 190px;
+		    top: 240px;
 		    float: right;
 		    right: -80px;
 		}
@@ -127,9 +134,14 @@
 				    font-weight: 600;
 				}
 				
-		.home-photo-container{
-			margin:30px;
-			text-align:center;
+		.home-photo-container {
+		    margin: 30px;
+		    text-align: center;
+		    padding: 50px;
+		    border-bottom: 1px solid #a2a2a2;
+		    width: 65%;
+  			margin: auto;
+  			box-sizing: border-box;
 		}
 			.home-photo-wrapper{
 				height:80px;
@@ -178,9 +190,49 @@
 					    clip: rect(0,0,0,0);
 					    border: 0;
 					}
-/* 프로필 하단 */
-.table-wrapper {
+					
+.time-table {
+    border-bottom: 1px solid #a2a2a2;
+    padding: 50px;
     width: 65%;
+    margin: auto;
+    box-sizing: border-box;
+}
+	.bepumi-day {
+    	font-size: 18px;
+	}
+	
+	.bepumi-day label {
+    	color:gray;
+	}
+	#bepumi-day1{
+		color:black;
+	}
+/* 		.bepumi-day input[type="checkbox"]{
+			position: absolute;
+		    width: 1px;
+		    height: 1px;
+		    padding: 0;
+		    margin: -1px;
+		    overflow: hidden;
+		    clip: rect(0,0,0,0);
+		    border: 0;		
+		} */
+	
+		.bepumi-time span {
+		    font-size: 30px;
+		}
+/* 프로필 하단 */
+.table-contatiner {
+    box-sizing: border-box;
+    width: 65%;
+    margin: auto;
+    padding: 50px;
+    border-bottom: 1px solid #a2a2a2;
+}
+
+.table-wrapper {
+    width: 100%;
     margin: auto;
 }
 	.intro-table{
@@ -239,16 +291,17 @@
 			
 .chart-container {
     box-sizing: border-box;
-    width: 400px;
-    height: 180px;
-    margin:auto;
+    width: 65%;
+    height: 300px;
+    margin: auto;
     margin-top: 30px;
     margin-bottom: 30px;
-    text-align:center;
+    text-align: center;
 }
 	.chart-wrapper {
 	    width: 340px;
 	    height: 180px;
+	    margin: auto;
 	}
 		.chart-wrapper-default{
         	width: 140px;

@@ -63,7 +63,7 @@
 </script>
 </head>
 <body>
-<header id="header">
+	<header id="header">
 		<div class="content-container">
 			<a href="./index.html"><img src="../../images/1616.png" id="logo"
 				alt="베품"></a>
@@ -120,23 +120,18 @@
 							희망 시급 : <span><input type="text" placeholder="8000"
 								class="profile-num" /></span> 원
 						</p>
-						<p>
-							가능 시간 : <span><input type="text" placeholder="9:00"
-								class="profile-num" pattern="\d{2}:\d{2}"
-								title="08:00 형식으로 넣어주세요" /></span> ~ <span><input type="text"
-								placeholder="18:00" class="profile-num" pattern="\d{2}:\d{2}"
-								title="08:00 형식으로 넣어주세요" /></span>
-						</p>
+
 					</div>
 				</div>
 			</div>
 			<div class="content-container">
 				<div class="profile-member-container">
 					<div class="profile-member-wrapper">
-						<img src="../../images/profile.jpg" id="profile-photo" alt="프로필 사진">
+						<img src="../../images/profile.jpg" id="profile-photo"
+							alt="프로필 사진">
 						<div class="profile-box">
-							<label for="profile-img-edit-btn">사진 수정</label> <input type="file"
-								accept=".bmp, .jpg, .png" id="profile-img-edit-btn">
+							<label for="profile-img-edit-btn">사진 수정</label> <input
+								type="file" accept=".bmp, .jpg, .png" id="profile-img-edit-btn">
 						</div>
 						<p id="name">이름</p>
 						<p id="address">주소</p>
@@ -145,6 +140,7 @@
 					</div>
 				</div>
 				<div class="home-photo-container">
+					<h3>집 사진</h3>
 					<div class="home-photo-wrapper">
 						<div class="home-photo">
 							<label for="home-img-edit1"><img
@@ -152,14 +148,14 @@
 								onchange="previewFile(1)" accept=".bmp, .jpg, .png"
 								id="home-img-edit1">
 						</div>
-	
+
 						<div class="home-photo">
 							<label for="home-img-edit2"><img
 								src="../../images/add_icon.png" /></label> <input type="file"
 								onchange="previewFile(2)" accept=".bmp, .jpg, .png"
 								id="home-img-edit2">
 						</div>
-	
+
 						<div class="home-photo">
 							<label for="home-img-edit3"><img
 								src="../../images/add_icon.png" /></label> <input type="file"
@@ -168,8 +164,8 @@
 						</div>
 						<script>
 							function previewFile(num) {
-								var file = document.querySelector('#home-img-edit'
-										+ num).files[0];
+								var file = document
+										.querySelector('#home-img-edit' + num).files[0];
 								var reader = new FileReader();
 								reader.addEventListener("load", function() {
 									$("#home-img-edit" + num).parent().css(
@@ -187,26 +183,59 @@
 						</script>
 					</div>
 				</div>
-	
-				<div class="table-wrapper">
-					<div class="intro-table">
-						<div class="row">
-							<div class="cell1">기타사항</div>
-							<div class="cell2">
-								<textarea class="table-input" rows="3" cols="65"
-									placeholder="예)운전 가능"></textarea>
-							</div>
+				<div class="time-table">
+					<h3>가능 시간</h3>
+						<div class = "bepumi-day">
+						<!-- 안먹히므로 div 영역으로 감싸줄것--> 
+							<label for="bepumi-day1">월</label> <input type="checkbox" id="bepumi-day1" name="Mon">
+							<label for="bepumi-day2">화</label> <input type="checkbox" id="bepumi-day2" name="Tue">
+							<label for="bepumi-day3">수</label> <input type="checkbox" id="bepumi-day3" name="Wed">
+							<label for="bepumi-day4">목</label> <input type="checkbox" id="bepumi-day4" name="Thu">
+							<label for="bepumi-day5">금</label> <input type="checkbox" id="bepumi-day5" name="Fri">
+							<label for="bepumi-day6">토</label> <input type="checkbox" id="bepumi-day6" name="Sat">
+							<label for="bepumi-day7">일</label> <input type="checkbox" id="bepumi-day7" name="Sun">
 						</div>
-						<div class="row">
-							<div class="cell1">자기소개서</div>
-							<div class="cell2">
-								<textarea class="table-input" rows="4" cols="65"></textarea>
+						<script>
+						 $(".bepumi-day input[type=\"checkbox\"]").change(function(){
+						        if($(".bepumi-day input[type=\"checkbox\"]").is(":checked")){
+						        	$(this).attr('id').css("color", "black");// label 적용 해야함
+						        }else{
+						        	$(this).attr('id').css("color", "gray");
+						        }
+						    });
+						 </script>
+					<p>
+						<span><input type="text" placeholder="9:00"
+							class="profile-num" pattern="\d{2}:\d{2}"
+							title="08:00 형식으로 넣어주세요" /></span> ~ <span><input type="text"
+							placeholder="18:00" class="profile-num" pattern="\d{2}:\d{2}"
+							title="08:00 형식으로 넣어주세요" /></span>
+					</p>
+				</div>
+
+				<div class="table-contatiner">
+					<h3>소개</h3>
+					<div class="table-wrapper">
+
+						<div class="intro-table">
+							<div class="row">
+								<div class="cell1">기타사항</div>
+								<div class="cell2">
+									<textarea class="table-input" rows="3" cols="65"
+										placeholder="예)운전 가능"></textarea>
+								</div>
+							</div>
+							<div class="row">
+								<div class="cell1">자기소개서</div>
+								<div class="cell2">
+									<textarea class="table-input" rows="4" cols="65"></textarea>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-	
 				<div class="chart-container">
+					<h3>매칭</h3>
 					<div class="chart-wrapper">
 						<!-- 매칭 요청률 -->
 						<div class="chart-wrapper-default request-chart-wrapper">
@@ -233,22 +262,33 @@
 					</div>
 				</div>
 				<script>
-				   var setChart = function(c, per, color){
-				   		var c_name = '.'+c;
-				        if(per>= 50){
-				            var d = (per/100*360)-90; 
-				            $(c_name).find(".chart1").css({"background": color});
-				            $(c_name).find(".chart2").css({"transform": "rotate("+d+"deg)", "background": color});
-				        }
-				        else{
-				            var d = ((per+50)/100*360)-90;
-				            $(c_name).children(".chart1").css({"background": color});
-				            $(c_name).children(".chart2").css({"transform": "rotate("+d+"deg)", "background": "#a2a2a2"});
-				        }
-				        
+					var setChart = function(c, per, color) {
+						var c_name = '.' + c;
+						if (per >= 50) {
+							var d = (per / 100 * 360) - 90;
+							$(c_name).find(".chart1").css({
+								"background" : color
+							});
+							$(c_name).find(".chart2").css({
+								"transform" : "rotate(" + d + "deg)",
+								"background" : color
+							});
+						} else {
+							var d = ((per + 50) / 100 * 360) - 90;
+							$(c_name).find(".chart1").css({
+								"background" : color
+							});
+							$(c_name).find(".chart2").css({
+								"transform" : "rotate(" + d + "deg)",
+								"background" : "#a2a2a2"
+							});
+						}
+						$(c_name).find(".chart-center").children("span").text(
+								per + "%");
+
 					};
-				    setChart("bepumi-request-chart",50, "#85DDC8");
-				    setChart("bepumi-success-chart",75, "#cba9e2");			
+					setChart("bepumi-request-chart", 50, "#85DDC8");
+					setChart("bepumi-success-chart", 75, "#cba9e2");
 				</script>
 			</div>
 		</form>
