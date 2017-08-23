@@ -200,6 +200,7 @@ h3 {
 }
 	.bepumi-day {
     	font-size: 18px;
+    	display: inline-block;
 	}
 	
 	.bepumi-day label {
@@ -208,7 +209,7 @@ h3 {
 	#bepumi-day1{
 		color:black;
 	}
-/* 		.bepumi-day input[type="checkbox"]{
+ 		.bepumi-day input[type="checkbox"]{
 			position: absolute;
 		    width: 1px;
 		    height: 1px;
@@ -217,7 +218,7 @@ h3 {
 		    overflow: hidden;
 		    clip: rect(0,0,0,0);
 		    border: 0;		
-		} */
+		} 
 	
 		.bepumi-time span {
 		    font-size: 30px;

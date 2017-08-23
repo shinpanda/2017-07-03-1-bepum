@@ -118,7 +118,7 @@
 					<div class="bepum-definite-wrapper">
 						<p>
 							희망 시급 : <span><input type="text" placeholder="8000"
-								class="profile-num" /></span> 원
+								class="profile-num" name = "pay"/></span> 원
 						</p>
 
 					</div>
@@ -131,7 +131,7 @@
 							alt="프로필 사진">
 						<div class="profile-box">
 							<label for="profile-img-edit-btn">사진 수정</label> <input
-								type="file" accept=".bmp, .jpg, .png" id="profile-img-edit-btn">
+								type="file" accept=".bmp, .jpg, .png" id="profile-img-edit-btn" name="profile-img">
 						</div>
 						<p id="name">이름</p>
 						<p id="address">주소</p>
@@ -146,21 +146,21 @@
 							<label for="home-img-edit1"><img
 								src="../../images/add_icon.png" /></label> <input type="file"
 								onchange="previewFile(1)" accept=".bmp, .jpg, .png"
-								id="home-img-edit1">
+								id="home-img-edit1" name="home-photo1">
 						</div>
 
 						<div class="home-photo">
 							<label for="home-img-edit2"><img
 								src="../../images/add_icon.png" /></label> <input type="file"
 								onchange="previewFile(2)" accept=".bmp, .jpg, .png"
-								id="home-img-edit2">
+								id="home-img-edit2" name="home-photo2">
 						</div>
 
 						<div class="home-photo">
 							<label for="home-img-edit3"><img
 								src="../../images/add_icon.png" /></label> <input type="file"
 								onchange="previewFile(3)" accept=".bmp, .jpg, .png"
-								id="home-img-edit3">
+								id="home-img-edit3" name="home-photo3">
 						</div>
 						<script>
 							function previewFile(num) {
@@ -185,30 +185,52 @@
 				</div>
 				<div class="time-table">
 					<h3>가능 시간</h3>
-						<div class = "bepumi-day">
-						<!-- 안먹히므로 div 영역으로 감싸줄것--> 
-							<label for="bepumi-day1">월</label> <input type="checkbox" id="bepumi-day1" name="Mon">
-							<label for="bepumi-day2">화</label> <input type="checkbox" id="bepumi-day2" name="Tue">
-							<label for="bepumi-day3">수</label> <input type="checkbox" id="bepumi-day3" name="Wed">
-							<label for="bepumi-day4">목</label> <input type="checkbox" id="bepumi-day4" name="Thu">
-							<label for="bepumi-day5">금</label> <input type="checkbox" id="bepumi-day5" name="Fri">
-							<label for="bepumi-day6">토</label> <input type="checkbox" id="bepumi-day6" name="Sat">
-							<label for="bepumi-day7">일</label> <input type="checkbox" id="bepumi-day7" name="Sun">
-						</div>
-						<script>
-						 $(".bepumi-day input[type=\"checkbox\"]").change(function(){
-						        if($(".bepumi-day input[type=\"checkbox\"]").is(":checked")){
-						        	$(this).attr('id').css("color", "black");// label 적용 해야함
-						        }else{
-						        	$(this).attr('id').css("color", "gray");
-						        }
-						    });
-						 </script>
+					<div class="bepumi-day Mon">
+						<label for="bepumi-day1">월</label> <input type="checkbox"
+							id="bepumi-day1" name="Mon">
+					</div>
+					<div class="bepumi-day Tue">
+						<label for="bepumi-day2">화</label> <input type="checkbox"
+							id="bepumi-day2" name="Tue">
+					</div>
+					<div class="bepumi-day Wed">
+						<label for="bepumi-day3">수</label> <input type="checkbox"
+							id="bepumi-day3" name="Wed">
+					</div>
+					<div class="bepumi-day Thu">
+						<label for="bepumi-day4">목</label> <input type="checkbox"
+							id="bepumi-day4" name="Thu">
+					</div>
+					<div class="bepumi-day Fri">
+						<label for="bepumi-day5">금</label> <input type="checkbox"
+							id="bepumi-day5" name="Fri">
+					</div>
+					<div class="bepumi-day Sat">
+						<label for="bepumi-day6">토</label> <input type="checkbox"
+							id="bepumi-day6" name="Sat">
+					</div>
+					<div class="bepumi-day Sun">
+						<label for="bepumi-day7">일</label> <input type="checkbox"
+							id="bepumi-day7" name="Sun">
+					</div>
+					<script>
+						$(".bepumi-day input[type=\"checkbox\"]")
+								.change(
+										function() {
+											if ($(
+													".bepumi-day input[type=\"checkbox\"]")
+													.is(":checked")) {
+												$(this).parent().children("label").css("color","black");// label 적용 해야함
+											} else {
+												$(this).parent().children("label").css("color","gray");
+											}
+										});
+					</script>
 					<p>
 						<span><input type="text" placeholder="9:00"
-							class="profile-num" pattern="\d{2}:\d{2}"
+							class="profile-num" pattern="[0-2]\d:[0-5]\d"
 							title="08:00 형식으로 넣어주세요" /></span> ~ <span><input type="text"
-							placeholder="18:00" class="profile-num" pattern="\d{2}:\d{2}"
+							placeholder="18:00" class="profile-num" pattern="[0-2]\d:[0-5]\d"
 							title="08:00 형식으로 넣어주세요" /></span>
 					</p>
 				</div>
