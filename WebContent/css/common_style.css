@@ -145,7 +145,12 @@ main {
 
 /*footer*/
 #footer {
-	background: lightgrey;
+	background: rgba(253, 243, 245, 0.95);
+	color: #5d5d5d;
+	padding-top: 20px;
+	padding-bottom :20px;
+	font-size: 14px;
+	line-height: 15px;
 }
 
 
