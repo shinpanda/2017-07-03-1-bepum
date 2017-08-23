@@ -204,23 +204,33 @@ h3 {
     	display: inline-block;
 	}
 	
+<<<<<<< HEAD
 	.bepumi-day label {
     	color:gray;
 	}
 	#bepumi-day1{
 		color:black;
 	}
- /* 		.bepumi-day input[type="checkbox"]{
-			position: absolute;
-		    width: 1px;
-		    height: 1px;
-		    padding: 0;
-		    margin: -1px;
-		    overflow: hidden;
-		    clip: rect(0,0,0,0);
-		    border: 0;		
-		} 
-	 */
+
+ 	.bepumi-day input[type="checkbox"]{
+		position: absolute;
+	    width: 1px;
+	    height: 1px;
+	    padding: 0;
+	    margin: -1px;
+	    overflow: hidden;
+	    clip: rect(0,0,0,0);
+	    border: 0;		
+	} 
+
+		}  
+		.bepumi-day input[type="checkbox"] + label {
+    		color:gray;
+		}
+		.bepumi-day input[type="checkbox"]:checked + label {
+			color:black;
+		}
+
 		.bepumi-time span {
 		    font-size: 30px;
 		}
