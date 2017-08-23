@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+.main{
+	text-align:unset;
+	padding:50px;
+}
+
+.main > div{
+	margin-left: 10px;
+	
+}
+
+/* --------------progress------------------ */
+
+.main h3{
+	font-size:25px;
+	margin-left:71px;
+	padding-bottom: 30px;
+}
+.document-wrapper {
+    margin: 30px 0px;
+    width: max-content;
+}
+	.document-wrapper div{
+		margin-left:1px;
+		margin-bottom:10px;
+	}
+.title-box{
+		text-align:center;
+		width:200px;
+		padding:10px;
+		
+}
+	.title{
+		border: 2px solid #a2a2a2;
+		margin-left:51px;
+	}
+	
+	.dc-name{
+		border: 1px solid #a2a2a2;
+		float:left;
+	}
+
+	.edit-box-container{
+		float: left;
+	    line-height: 23px;
+	    vertical-align: middle;
+	    margin-right: 5px;
+	    width: 46px;
+	    padding-top: 10px;
+	}
+		.edit-box-wrapper{
+			width:inherit;
+			
+		}
+		.edit{
+			box-sizing: border-box;
+		    border: 1.989px outset rgb(221, 221, 221);
+		    text-decoration: none;
+		    display: inline-block;
+		    font-family: Arial;
+		    font-size: 13.3333px;
+		    height: 24.1477px;
+		    letter-spacing: normal;
+		    line-height: normal;
+		    padding: 1px 6px;
+		    text-align: center;
+		    text-rendering: auto;
+		    width: 45px;
+		    -webkit-appearance: button;
+		}
+.progress {
+    line-height: 43px;
+    display: inline-block;
+    background: url(../images/status_bg.png);
+}
+		
+	.progress span {
+	    border: 1px solid #a2a2a2;
+	    border-radius: 6px;
+	    padding: 10px;
+	    margin-left: 7px;
+	    background:white;
+	}
+
+	.progress span:first-child {
+	    margin-left: 10px;
+	}
+	
+		.progress .progress-status{
+			background: #fbe5d6;
+		}		
+	
+	
+/* ---------request--------- */
+
+.req-progress-container{
+    width: 760px;
+    margin: auto;
+}
+	.req-progress-wrapper{
+		display: inline-block;
+	}
+
+	.req-progress{
+		float: left;
+	    width: 190px;
+	    background: url(../images/allow-bg.png) no-repeat center;
+	    background-size: contain;
+	    
+	}
+		.req-progress p{
+			text-align: center;
+			color:white;
+			margin: 10px;
+		}
+			.step {
+			    font-size: 20px;
+			}
+	
+
+
