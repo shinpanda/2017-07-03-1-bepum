@@ -59,7 +59,7 @@
 	background-image: url("../images/main_image.png");
 	width: 100%;
 	height: 650px;
-	margin-bottom:80px;
+/* 	margin-bottom:80px; */
 	background-size: cover;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -70,7 +70,7 @@
  #banner-mask {
 	background-color: rgba(20, 19, 19, 0.38);
 	height: 650px;
-	margin-bottom:80px;
+/* 	margin-bottom:80px; */
 	position: relative;
 	text-align: center;
 	color: white;
@@ -208,10 +208,19 @@
 	padding :0px;
 }
 
+#body .intro0{
+	border-bottom: 1px solid rgba(128, 128, 128, 0.15);
+}
+
+#body .intro0:last-child{
+	border-bottom: none;
+}
+
 #body .intro1 {
 	padding:0px;
-	padding-top: 50px;
+	padding-top: 100px;
 	padding-bottom:60px;
+	
 }
 
 #body .intro2 {
@@ -219,6 +228,11 @@
 	padding-bottom:60px;
 	min-height:100px;
 }
+
+#body .main-process1{
+	left:-40px;
+}
+
 
 
 /*searching>bepumi>request*/
