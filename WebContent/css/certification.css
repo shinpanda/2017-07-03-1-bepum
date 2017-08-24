@@ -127,9 +127,34 @@
 		padding:30px;
 	}
 		.bepumi-agreement{
+			width:660px;
+			margin:auto;
+			margin-bottom: 10px;
 		}
+			.agree-title{
+				height: 44px;
+			    width: 660px;
+			    box-sizing: border-box;
+			    border: 1px solid #c8ccd0;
+    			border-bottom: 0;
+    			padding:10px;
+			}
+			
+			.agreement-content{
+				font-size: 14px;
+			    color: #3b4045;
+			    background: #FFF;
+			    border: 1px solid #c8ccd0;
+			    height:200px;
+			    overflow: auto;
+			}
 
-		
+			.agree-btn-container p, 
+			.agree-btn-container a{
+				float:left;
+				padding:10px;
+				
+			}
 		
 		
 		

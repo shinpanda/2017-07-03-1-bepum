@@ -14,6 +14,7 @@ public class Sitter {
 	private String id;
 	private String others;
 	private String intro;
+	private String bepumi_day;
 	private Time str_time;
 	private Time end_time;
 	private String profile_img;
@@ -24,11 +25,12 @@ public class Sitter {
 		
 	}
 	
-	public Sitter(String id, String others, String intro, Time str_time, Time end_time, String profile_img,
+	public Sitter(String id, String others, String intro, String bepumi_day, Time str_time, Time end_time, String profile_img,
 			String house_img, boolean open) {
 		this.id = id;
 		this.others = others;
 		this.intro = intro;
+		this.bepumi_day = bepumi_day;
 		this.str_time = str_time;
 		this.end_time = end_time;
 		this.profile_img = profile_img;
@@ -91,6 +93,14 @@ public class Sitter {
 
 	public void setHouse_img(String house_img) {
 		this.house_img = house_img;
+	}
+
+	public String getBepumi_day() {
+		return bepumi_day;
+	}
+
+	public void setBepumi_day(String bepumi_day) {
+		this.bepumi_day = bepumi_day;
 	}
 	
 	
