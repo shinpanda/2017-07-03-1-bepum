@@ -94,9 +94,9 @@
 	
 /* ---------request--------- */
 
-.req-progress-container{
+.main .req-progress-container{
     width: 760px;
-    margin: auto;
+    margin: 20px auto;
 }
 	.req-progress-wrapper{
 		display: inline-block;
@@ -107,7 +107,7 @@
 	    width: 190px;
 	    background: url(../images/allow-bg.png) no-repeat center;
 	    background-size: contain;
-	    
+	    opacity: 0.5;
 	}
 		.req-progress p{
 			text-align: center;
@@ -118,5 +118,11 @@
 			    font-size: 20px;
 			}
 	
-
-
+			.present{
+				opacity: 1;
+			}
+	.agreement-container{
+		padding:30px;
+	}
+		.bepumi-agreement{
+		}
