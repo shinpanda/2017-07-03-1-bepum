@@ -64,131 +64,198 @@
 <body>
 
 	<form action="" method="post" enctype="multipart/form-data"
-		name="bepumi-profile-form">
-		<div class="bg-profile-header">
-			<div class="content-container">
-				<div class="btn-header">
-					<input id="submit-btn" type="submit" value="변경사항 저장" />
+			name="bepumi-profile-form">
+			<div class="bg-profile-header">
+				<div class="content-container">
+					<div class="btn-header">
+						<input id="submit-btn" type="submit" value="변경사항 저장" />
+					</div>
+					<div class="bepum-definite-wrapper">
+						<p>
+							희망 시급 : <span><input type="text" placeholder="8000"
+								class="profile-num" name = "pay"/></span> 원
+						</p>
+
+					</div>
 				</div>
-				<div class="bepum-definite-wrapper">
+			</div>
+			<div class="content-container">
+				<div class="profile-member-container">
+					<div class="profile-member-wrapper">
+						<img src="../../images/profile.jpg" id="profile-photo"
+							alt="프로필 사진">
+						<div class="profile-box">
+							<label for="profile-img-edit-btn">사진 수정</label> <input
+								type="file" accept=".bmp, .jpg, .png" id="profile-img-edit-btn" name="profile-img">
+						</div>
+						<p id="name">이름</p>
+						<p id="address">주소</p>
+						<p id="grade">회원 등급</p>
+						<p id="contact">연락처</p>
+					</div>
+				</div>
+				<div class="home-photo-container">
+					<h3>집 사진</h3>
+					<div class="home-photo-wrapper">
+						<div class="home-photo">
+							<label for="home-img-edit1"><img
+								src="../../images/add_icon.png" /></label> <input type="file"
+								onchange="previewFile(1)" accept=".bmp, .jpg, .png"
+								id="home-img-edit1" name="home-photo1">
+						</div>
+
+						<div class="home-photo">
+							<label for="home-img-edit2"><img
+								src="../../images/add_icon.png" /></label> <input type="file"
+								onchange="previewFile(2)" accept=".bmp, .jpg, .png"
+								id="home-img-edit2" name="home-photo2">
+						</div>
+
+						<div class="home-photo">
+							<label for="home-img-edit3"><img
+								src="../../images/add_icon.png" /></label> <input type="file"
+								onchange="previewFile(3)" accept=".bmp, .jpg, .png"
+								id="home-img-edit3" name="home-photo3">
+						</div>
+						<script>
+							function previewFile(num) {
+								var file = document
+										.querySelector('#home-img-edit' + num).files[0];
+								var reader = new FileReader();
+								reader.addEventListener("load", function() {
+									$("#home-img-edit" + num).parent().css(
+											{
+												"background" : "url("
+														+ reader.result
+														+ ") no-repeat",
+												"background-size" : "cover"
+											});
+								}, false);
+								if (file) {
+									reader.readAsDataURL(file);
+								}
+							}
+						</script>
+					</div>
+				</div>
+				<div class="time-table">
+					<h3>가능 시간</h3>
+					<div class="bepumi-day">
+						 <input type="checkbox"
+							id="bepumi-day1" name="bepumi-day" value="Mon">
+						<label for="bepumi-day1">월</label>
+
+						 <input type="checkbox"
+							id="bepumi-day2"  name="bepumi-day" value="Tue">
+							<label for="bepumi-day2">화</label>
+
+						<input type="checkbox"
+							id="bepumi-day3"  name="bepumi-day" value="Wed">
+						<label for="bepumi-day3">수</label> 
+
+						<input type="checkbox"
+							id="bepumi-day4"  name="bepumi-day" value="Thu">
+						<label for="bepumi-day4">목</label> 
+
+						<input type="checkbox"
+							id="bepumi-day5"  name="bepumi-day" value="Fri">
+							<label for="bepumi-day5">금</label> 
+
+						<input type="checkbox"
+							id="bepumi-day6"  name="bepumi-day" value="Sat">
+							<label for="bepumi-day6">토</label> 
+	
+						 <input type="checkbox"
+							id="bepumi-day7"  name="bepumi-day" value="Sun">
+							<label for="bepumi-day7">일</label>
+					</div>
 					<p>
-						희망 시급 : <span><input type="text" placeholder="8000"
-							class="profile-num" /></span> 원
-					</p>
-					<p>
-						가능 시간 : <span><input type="text" placeholder="9:00"
-							class="profile-num" pattern="\d{2}:\d{2}"
+						<span><input type="text" placeholder="9:00"
+							class="profile-num" pattern="[0-2]\d:[0-5]\d"
 							title="08:00 형식으로 넣어주세요" /></span> ~ <span><input type="text"
-							placeholder="18:00" class="profile-num" pattern="\d{2}:\d{2}"
+							placeholder="18:00" class="profile-num" pattern="[0-2]\d:[0-5]\d"
 							title="08:00 형식으로 넣어주세요" /></span>
 					</p>
 				</div>
-			</div>
-		</div>
-		<div class="content-container">
-			<div class="profile-member-container">
-				<div class="profile-member-wrapper">
-					<img src="../../images/profile.jpg" id="profile-photo" alt="프로필 사진">
-					<div class="profile-box">
-						<label for="profile-img-edit-btn">사진 수정</label> <input type="file"
-							accept=".bmp, .jpg, .png" id="profile-img-edit-btn">
+
+				<div class="table-contatiner">
+					<h3>소개</h3>
+					<div class="table-wrapper">
+
+						<div class="intro-table">
+							<div class="row">
+								<div class="cell1">기타사항</div>
+								<div class="cell2">
+									<textarea class="table-input" rows="3" cols="65"
+										placeholder="예)운전 가능"></textarea>
+								</div>
+							</div>
+							<div class="row">
+								<div class="cell1">자기소개서</div>
+								<div class="cell2">
+									<textarea class="table-input" rows="4" cols="65"></textarea>
+								</div>
+							</div>
+						</div>
 					</div>
-					<p id="name">이름</p>
-					<p id="address">주소</p>
-					<p id="grade">회원 등급</p>
-					<p id="contact">연락처</p>
 				</div>
-			</div>
-			<div class="home-photo-container">
-				<div class="home-photo-wrapper">
-					<div class="home-photo">
-						<label for="home-img-edit1"><img
-							src="../../images/add_icon.png" /></label> <input type="file"
-							onchange="previewFile(1)" accept=".bmp, .jpg, .png"
-							id="home-img-edit1">
+				<div class="chart-container">
+					<h3>매칭</h3>
+					<div class="chart-wrapper">
+						<!-- 매칭 요청률 -->
+						<div class="chart-wrapper-default request-chart-wrapper">
+							<div class="chart-default bepumi-request-chart">
+								<div class="chart1"></div>
+								<div class="chart2"></div>
+								<div class="chart-center">
+									<span>50%</span>
+								</div>
+							</div>
+							<p class="chart-name">매칭 요청률</p>
+						</div>
+						<div class="chart-wrapper-default success-chart-wrapper">
+							<!-- 매칭 성공률 -->
+							<div class="chart-default bepumi-success-chart">
+								<div class="chart1"></div>
+								<div class="chart2"></div>
+								<div class="chart-center">
+									<span>75%</span>
+								</div>
+							</div>
+							<p class="chart-name2">매칭 성공률</p>
+						</div>
 					</div>
-
-					<div class="home-photo">
-						<label for="home-img-edit2"><img
-							src="../../images/add_icon.png" /></label> <input type="file"
-							onchange="previewFile(2)" accept=".bmp, .jpg, .png"
-							id="home-img-edit2">
-					</div>
-
-					<div class="home-photo">
-						<label for="home-img-edit3"><img
-							src="../../images/add_icon.png" /></label> <input type="file"
-							onchange="previewFile(3)" accept=".bmp, .jpg, .png"
-							id="home-img-edit3">
-					</div>
-					<script>
-						function previewFile(num) {
-							var file = document.querySelector('#home-img-edit'
-									+ num).files[0];
-							var reader = new FileReader();
-							reader.addEventListener("load", function() {
-								$("#home-img-edit" + num).parent().css(
-										{
-											"background" : "url("
-													+ reader.result
-													+ ") no-repeat",
-											"background-size" : "cover"
-										});
-							}, false);
-							if (file) {
-								reader.readAsDataURL(file);
-							}
+				</div>
+				<script>
+					var setChart = function(c, per, color) {
+						var c_name = '.' + c;
+						if (per >= 50) {
+							var d = (per / 100 * 360) - 90;
+							$(c_name).find(".chart1").css({
+								"background" : color
+							});
+							$(c_name).find(".chart2").css({
+								"transform" : "rotate(" + d + "deg)",
+								"background" : color
+							});
+						} else {
+							var d = ((per + 50) / 100 * 360) - 90;
+							$(c_name).find(".chart1").css({
+								"background" : color
+							});
+							$(c_name).find(".chart2").css({
+								"transform" : "rotate(" + d + "deg)",
+								"background" : "#a2a2a2"
+							});
 						}
-					</script>
-				</div>
-			</div>
+						$(c_name).find(".chart-center").children("span").text(
+								per + "%");
 
-			<div class="table-wrapper">
-				<div class="intro-table">
-					<div class="row">
-						<div class="cell1">기타사항</div>
-						<div class="cell2">
-							<textarea class="table-input" rows="3" cols="65"
-								placeholder="예)운전 가능"></textarea>
-						</div>
-					</div>
-					<div class="row">
-						<div class="cell1">자기소개서</div>
-						<div class="cell2">
-							<textarea class="table-input" rows="4" cols="65"></textarea>
-						</div>
-					</div>
-				</div>
+					};
+					setChart("bepumi-request-chart", 50, "#85DDC8");
+					setChart("bepumi-success-chart", 75, "#cba9e2");
+				</script>
 			</div>
-
-			<div class="chart-container">
-				<div class="chart-wrapper">
-					<!-- 매칭 요청률 -->
-					<div class="request-chart-wrapper">
-						<div id="bepumi-request-chart">
-							<div id="req-chart1"></div>
-							<div id="req-chart2"></div>
-							<div id="req-chart-center">
-								<span class="chart-center">50%</span>
-							</div>
-						</div>
-						<p class="chart-name">매칭 요청률</p>
-					</div>
-					<div class="success-chart-wrapper">
-						<!-- 매칭 성공률 -->
-						<div id="bepumi-success-chart">
-							<div id="suc-chart1"></div>
-							<div id="suc-chart2"></div>
-							<div id="suc-chart-center">
-								<span class="chart-center">75%</span>
-							</div>
-						</div>
-						<p class="chart-name2">매칭 성공률</p>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</form>
+		</form>
 </body>
 </html>
