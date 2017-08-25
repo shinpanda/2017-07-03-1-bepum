@@ -27,10 +27,10 @@ a {
 	}
 /* All Device */
 .content-container {
-	margin: auto;
+ 	margin: auto;
 	width: 1140px;
 	min-height: inherit;
-	height: inherit;
+	height: inherit; 
 }
 
 .btn-border {
