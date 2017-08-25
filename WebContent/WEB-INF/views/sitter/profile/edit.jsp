@@ -1,10 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <!-- 베푸미 공개 설정 및 자기소개 변경 -->
-<link href="../../css/common_style.css" type="text/css" rel="stylesheet" />
-<link href="../../css/profile.css" type="text/css" rel="stylesheet" />
+<link href="../css/common_style.css" type="text/css" rel="stylesheet" />
+<link href="../css/style2.css" type="text/css" rel="stylesheet">
+<link href="../css/profile.css" type="text/css" rel="stylesheet" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
@@ -62,8 +66,12 @@
 </script>
 </head>
 <body>
+	<jsp:include page="../inc/header.jsp"></jsp:include>
 
-	<form action="" method="post" enctype="multipart/form-data"
+	<div id="body">
+
+		<main id="main">
+		<form action="" method="post" enctype="multipart/form-data"
 			name="bepumi-profile-form">
 			<div class="bg-profile-header">
 				<div class="content-container">
@@ -82,7 +90,7 @@
 			<div class="content-container">
 				<div class="profile-member-container">
 					<div class="profile-member-wrapper">
-						<img src="../../images/profile.jpg" id="profile-photo"
+						<img src="../images/profile.jpg" id="profile-photo"
 							alt="프로필 사진">
 						<div class="profile-box">
 							<label for="profile-img-edit-btn">사진 수정</label> <input
@@ -257,5 +265,10 @@
 				</script>
 			</div>
 		</form>
+		</main>
+	</div>
+
+	<jsp:include page="../../inc/footer.jsp"></jsp:include>
+
 </body>
 </html>
