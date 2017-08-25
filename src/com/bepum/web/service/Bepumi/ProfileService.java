@@ -1,15 +1,15 @@
-package com.bepum.web.service.sitter;
+package com.bepum.web.service.Bepumi;
 
 import java.util.HashMap;
 
 import com.bepum.web.entity.Member;
-import com.bepum.web.entity.Sitter;
+import com.bepum.web.entity.Bepumi;
 
 public class ProfileService {
 	
 	
 	//화면이 로드 될 때
-	public HashMap<Member, Sitter> getMemberProfile(String id) {
+	public HashMap<Member, Bepumi> getMemberProfile(String id) {
 		return null;
 	}
 	

@@ -2,7 +2,7 @@ package com.bepum.web.entity;
 
 import java.sql.Time;
 
-public class Sitter {
+public class Bepumi {
 /* 베푸미 활동관리
  * 아이디
  * 기타사항, 자기소개서
@@ -21,11 +21,11 @@ public class Sitter {
 	private String house_img;
 	private boolean open;
 
-	public Sitter() {
+	public Bepumi() {
 		
 	}
 	
-	public Sitter(String id, String others, String intro, String bepumi_day, Time str_time, Time end_time, String profile_img,
+	public Bepumi(String id, String others, String intro, String bepumi_day, Time str_time, Time end_time, String profile_img,
 			String house_img, boolean open) {
 		this.id = id;
 		this.others = others;

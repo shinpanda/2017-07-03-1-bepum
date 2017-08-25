@@ -1,8 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <meta charset="UTF-8">
 <link href="../css/common_style.css" type="text/css" rel="stylesheet">
-<link href="../css/style2.css" type="text/css" rel="stylesheet">
+
 <link href="../css/profile.css" type="text/css" rel="stylesheet">
 <title>베품</title>
 <script
@@ -10,15 +13,15 @@
 </head>
 
 <body>
-
+	<jsp:include page="../inc/header.jsp"></jsp:include>
 	<div id="body">
-
+		
 		<main id="main">
 		<div class="bg-profile-header">
 			<div class="content-container">
 				<div class="btn-header">
 					<button type="submit" onclick="">비공개</button>
-					<a href="./profile/edit2.html" id="edit">수정</a>
+					<a href="./profile-edit" id="edit">수정</a>
 				</div>
 				<div class="bepum-definite-wrapper">
 					<p>
@@ -142,7 +145,9 @@
 				setChart("bepumi-success-chart", 75, "#cba9e2");
 			</script>
 		</div>
+		
 		</main>
 	</div>
+	<jsp:include page="../../inc/footer.jsp"></jsp:include>
 </body>
 </html>
