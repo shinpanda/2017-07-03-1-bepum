@@ -22,7 +22,7 @@
 	display:none;
 } */
 
-.on{
+.sub-menu .on{
    color:#072622;
    transition:0.5s all;
    -webkit-transition:0.5s all;
@@ -37,6 +37,7 @@
 	width:550px;
 	left:-70px;
 	top: 78px;
+	color: #727476;	
 }
 .sub-menu li{
 	margin-left: 0px;
@@ -51,7 +52,6 @@
 }
 
 .sub-menu > li > a{
-			color: #727476;
 			font-size: 15px;
 			text-align: center;
 			font-weight: 500;

@@ -11,10 +11,10 @@
 	$(document).ready(function(){
 		var str=$(location).attr('pathname');
 		var index = str.indexOf('/', 8);
-		alert(index);
 		var res = str.substr(index);
-		alert(res);
 		alert($("a[href$='"+res+"']").text());
+		$("a[href$='"+res+"']").parents(".sub-menu").removeClass('hidden');
+		$("a[href$='"+res+"']").addClass("on");
 	});
 </script>
 </head>
