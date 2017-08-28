@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,55 +9,12 @@
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 <title>베:품</title>
 
-<!-- LOGIN팝업  -->
-<script language="javascript">
-	function showPopup() {
-		window.open("member/sign.html", "로그인/회원가입",
-				"resizable=no width=562, height=800, left=600, top=50");
-		
-	}
-</script>
+
 </head>
 <body>
 
-	<header id="header">
-		<div class="content-container">
-			<a href="./index.html"><img src="images/1616.png" id="logo"
-				alt="베품" /></a>
-			<section id="menu-container">
-				<nav class="menu-wrapper">
-					<ul class="main-menu">
-						<li><a href="">소개</a>
-							<ul class="sub-menu">
-								<li><a href="./sub-page.html">서비스 소개</a></li>
-								<li><a href="">이용방법</a></li>
-							</ul></li>
-						<li><a href="">베푸미 찾기</a>
-							<ul class="sub-menu">
-								<li><a href="">조건별 베푸미 찾기</a></li>
-								<li><a href="">매칭 내역</a></li>
-							</ul></li>
-						<li><a href="">커뮤니티</a>
-							<ul class="sub-menu">
-								<li><a href="">자유게시판</a></li>
-								<li><a href="">후기게시판</a></li>
-							</ul></li>
-						<li><a href="">문의/FAQ</a>
-							<ul class="sub-menu">
-								<li><a href="">문의게시판</a></li>
-								<li><a href="">신고게시판</a></li>
-							</ul></li>
-					</ul>
-				</nav>
-				<nav class="menu-wrapper">
-					<ul id="login">
-<!-- 						<li><a href="member/sign.html" class="btn-border">Sign in</a></li> -->
-						<li><a onclick="showPopup();" class="btn-border">Sign in</a></li>
-					</ul>
-				</nav>
-			</section>
-		</div>
-	</header>
+<!-- 헤더집중화 -->
+	<jsp:include page="inc/header.jsp"></jsp:include>
 
 	<div id="visual">
 		<div id="banner-mask">
@@ -109,18 +69,12 @@
 			</main>
 		</div>
 	</div>
-	<footer id="footer">
-		<div class="content-container">
-			<h2>베품</h2>
-			<br />
-			<div>
-				<p>상호:베품</p>
-				<p>전화번호:010-000-000</p>
-				<p>관리자 이메일:admin@bepum.com</p>
-			</div>
-			<p>Copyright ⓒ bepum.com 2017-2017 All Right Reserved. Contact
-				admin@bepum.com for more information</p>
-		</div>
-	</footer>
+
+</body>
+</html>
+
+<!--  footer 집중화 -->
+	<jsp:include page="inc/footer.jsp"></jsp:include>
+	
 </body>
 </html>

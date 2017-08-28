@@ -15,12 +15,13 @@
 
 <!-- header 집중화 -->
 	<jsp:include page="../../inc/header.jsp"></jsp:include>
-
+	
 	<div id="body">
 	
+	<div class="content-container">	
 	<main class="main">
 	<h3>심사 진행 상황</h3>
-		<div class="content-container">			
+				
 			<div class="certfi-container">
 				<div class="title-box title">전화번호 인증</div>
 				<div></div>
@@ -76,9 +77,8 @@
 					</div>
 				</div>
 			</div>
-			
-		</div>
-	</main>
+		</main>
+	</div>
 	</div>
 	
 <!--  footer 집중화 -->
