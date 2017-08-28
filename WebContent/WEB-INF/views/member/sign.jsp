@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,18 +11,9 @@
 	src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="../js/index.js"></script>
 
-<!-- LOGIN팝업  -->
- <script language="javascript">
-	function showPopup() {
-		window.open("${p}/member/sign.html", "로그인/회원가입",
-				"resizable=no width=562, height=800, left=600, top=50");
-		
-	}
-</script>
-
 </head>
 
-<body onload="javascript:showPopup;">
+<body>
 	<div class="logmod">
 		<div class="logmod__wrapper">
 			<!-- <span class="logmod__close" onclick="javascript:window.close();">Close</span> -->
@@ -301,6 +295,20 @@
 										<!-- <span class="hide-password">Show</span> -->
 									</div>
 								</div>
+								<div class="simform__actions">
+									<input class="sumbit" name="commit" type="sumbit"
+										value="Log In" />
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+</div>
 								<div class="simform__actions">
 									<input class="sumbit" name="commit" type="sumbit"
 										value="Log In" />
