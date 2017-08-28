@@ -124,6 +124,35 @@ label {
     border: 0
 }	
 
+label {
+    cursor: default;
+    box-sizing: border-box;
+    border: 1.989px outset rgb(221, 221, 221);
+    text-decoration: none;
+    background: rgb(221, 221, 221);
+    display: inline-block;
+    font-family: Arial;
+    font-size: 13.3333px;
+    height: 24.1477px;
+    letter-spacing: normal;
+    line-height: normal;
+    padding: 1px;
+    text-align: center;
+    text-rendering: auto;
+   
+    -webkit-appearance: button;
+}
+
+.editBtn{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0
+}
 	
 /* ---------request--------- */
 
