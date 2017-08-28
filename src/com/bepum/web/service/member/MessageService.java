@@ -1,4 +1,4 @@
-package com.bepum.web.controller.member;
+package com.bepum.web.service.member;
 
 import java.util.List;
 

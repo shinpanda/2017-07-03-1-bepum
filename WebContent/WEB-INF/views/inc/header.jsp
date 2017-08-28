@@ -14,9 +14,7 @@
 		var str=$(location).attr('pathname');
 		var index = str.indexOf('/', 3);
 		var res = str.substr(index+1);
-		if(str.indexOf('-') > 0){
-			res = str.substring((index+1), str.indexOf('-'));
-		}
+
 		$("a[href*='"+res+"']").parents(".sub-menu").removeClass('hidden');
 		$("a[href*='"+res+"']").addClass("on");
 	});

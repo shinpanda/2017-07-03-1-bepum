@@ -60,10 +60,10 @@
 				<div class=intro0>
 					<h3 class = "hidden">[베품 이용방법]</h3>
 					<div class="intro1">
-						<img alt="이용 방법" src="images/main_process.png"/>
+						<img alt="이용 방법" src="images/main_process.PNG"/>
 					</div>
 					<div class="intro2 main_process1">
-						<img alt="이용 방법" src="images/main_process1.PNG"/>
+						<img alt="이용 방법" src="images/main_process2.PNG"/>
 					</div>
 				</div>
 			</main>

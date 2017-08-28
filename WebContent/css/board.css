@@ -81,7 +81,53 @@
 
 		
 /* reg 부분 */
+.reg-container {
+    padding: 30px 30px 15px 30px;
+    display: inline-block;
+    width: 80%;
+    margin: auto;
+    background: #F8D9DD;
+    border-radius: 11px;
+}
 
+.reg-form{
+	display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.reg-form input[type="text"] {
+    line-height: 30px;
+    border: 1px solid #a2a2a2;
+    border-radius: 3px;
+    margin-bottom: 21px;
+    padding-left: 7px;
+}
+
+
+.reg-form textarea {
+    border-radius: 3px;
+    resize: none;
+}
+
+.reg-btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+.reg-btn-container input[type="submit"] {
+    background: white;
+    border: 1px solid #a2a2a2;
+    padding: 5px 15px;
+    border-radius: 3px;
+}
+.reg-cancel {
+    margin-left: 10px;
+    background: white;
+    border: 1px solid #a2a2a2;
+    padding: 5px 15px;
+    border-radius: 3px;
+}
 
 /* edit 부분 */
 

@@ -18,9 +18,16 @@
 	<div id="body">
 		<div class="content-container">
 			<main id="main" class="main">
-
-			
-			
+			<div class="reg-container">
+				<form action="" method="post" name="free-reg-form" class="reg-form">
+				<input type="text" name="title" title="제목" placeholder="제목"/>
+				<textarea rows="25" cols="65"></textarea>
+				<div class="reg-btn-container">
+				<input type="submit" value="등록" />
+				<button type="button" onclick="history.back()" class="reg-cancel">취소</button>
+				</div>
+				</form>
+			</div>
 			</main>
 		</div>
 	</div>
