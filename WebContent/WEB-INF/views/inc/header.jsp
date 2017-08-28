@@ -36,7 +36,11 @@
 						<li><a href="${p}/index.html">서비스 소개</a></li>
 						<li><a href="${p}/index.html">이용방법</a></li>
 					</ul></li>
-				<li><a href="">베푸미 활동 관리</a>
+				<li><a href="${p}/member/certification-progress">베푸미 되기</a><!-- 임시 -->
+					<ul class="sub-menu hidden">
+						<li><a href="${p}/member/certification-progress">서류제출</a></li>
+					</ul></li>	
+				<li><a href="${p}/bepumi/profile">베푸미 활동 관리</a>
 					<ul class="sub-menu hidden">
 						<li><a href="${p}/bepumi/profile">프로필 관리</a></li>
 						<li><a href="${p}/bepumi/matching-list">매칭 내역</a></li>
