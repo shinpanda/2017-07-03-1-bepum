@@ -5,11 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <link href="../css/common_style.css" type="text/css" rel="stylesheet">
-
+<link href="../css/style2.css" type="text/css" rel="stylesheet">
 <link href="../css/profile.css" type="text/css" rel="stylesheet">
 <title>베품</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
 </head>
 
 <body>

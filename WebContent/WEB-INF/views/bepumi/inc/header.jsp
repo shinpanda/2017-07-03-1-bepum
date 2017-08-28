@@ -4,15 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="../css/common_style.css" type="text/css" rel="stylesheet">
-<link href="../css/style2.css" type="text/css" rel="stylesheet">
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 	$(document).ready(function(){
 		var str=$(location).attr('pathname');
-		var res = str.substr(6);
-		alert($("a[href$='"+res+"']").text());
+		var index = str.indexOf('/', 8);
+		alert(index);
+		var res = str.substr(index);
+		alert(res);
 		alert($("a[href$='"+res+"']").text());
 	});
 </script>
@@ -32,7 +33,7 @@
 						<li><a href="">이용방법</a></li>
 					</ul></li>
 				<li><a href="">베푸미 활동 관리</a>
-					<ul class="sub-menu">
+					<ul class="sub-menu hidden">
 						<li><a href="./profile">프로필 관리</a></li>
 						<li><a href="./matching-list">매칭 내역</a></li>
 					</ul></li>	
