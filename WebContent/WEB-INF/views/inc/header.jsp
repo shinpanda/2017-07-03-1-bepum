@@ -21,11 +21,22 @@
 		$("a[href*='"+res+"']").addClass("on");
 	});
 </script>
+
+<!-- LOGIN팝업  -->
+ <script language="javascript">
+	function showPopup() {
+		window.open("${p}/member/sign", "로그인/회원가입",
+				"resizable=no width=562, height=800, left=600, top=50");
+		
+	}
+</script>
 </head>
+
+
 <body>
 	<header id="header">
 	<div class="content-container clearfix">
-		<a href="${p}/index.html"><img src="${p}/images/1616.png" id="logo"
+		<a href="${p}/index"><img src="${p}/images/1616.png" id="logo"
 			alt="베품" /></a>
 		<section id="menu-container"> 
 		<nav class="menu-wrapper">
@@ -33,9 +44,15 @@
 			<ul class="main-menu">
 				<li><a href="">소개</a>
 					<ul class="sub-menu hidden">
-						<li><a href="${p}/index.html">서비스 소개</a></li>
-						<li><a href="${p}/index.html">이용방법</a></li>
+						<li><a href="${p}/index">서비스 소개</a></li>
+						<li><a href="${p}/index">이용방법</a></li>
 					</ul></li>
+				<li><a href="${p}/member/certification-progress">베푸미 되기</a><!-- 임시 -->
+					<ul class="sub-menu hidden">
+						<li><a href="${p}/member/certification-progress">진행 상황</a></li>
+						<li><a href="${p}/member/certification-request">약관 동의</a></li>
+						<li><a href="">서류 제출</a></li>
+					</ul></li>	
 				<li><a href="${p}/bepumi/profile">베푸미 활동 관리</a>
 					<ul class="sub-menu hidden">
 						<li><a href="${p}/bepumi/profile">프로필 관리</a></li>
@@ -61,7 +78,7 @@
 		</nav> 
 		<nav class="menu-wrapper">
 		<ul id="login">
-			<li><a href="" class="btn-border">Sign in</a></li>
+			<li><a href="" onclick="javascript:showPopup();" class="btn-border">Sign in</a></li>
 		</ul>
 		</nav>
 		<div id="sub-bg"></div>
