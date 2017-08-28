@@ -9,32 +9,35 @@ public class Board {
  * 제목, 글쓴이, 
  * 작성 날짜, 공개 여부
  */
-	private int no;
+	private String no;
 	private String title;
+	private String content;
 	private String writer;
-	private Date reg_date;
+	private int hit;
+	private Date regDate;
 	private boolean open;
 	
 	public Board() {
 		
 	}
-	
-	public Board(int no, String title, String writer, Date reg_date, boolean open) {
+
+	public Board(String no, String title, String content, String writer, int hit, Date regDate, boolean open) {
 		this.no = no;
 		this.title = title;
+		this.content = content;
 		this.writer = writer;
-		this.reg_date = reg_date;
+		this.hit = hit;
+		this.regDate = regDate;
 		this.open = open;
 	}
-
-
-
-	public int getNo() {
+	public String getNo() {
 		return no;
 	}
-	public void setNo(int no) {
+
+	public void setNo(String no) {
 		this.no = no;
 	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -47,18 +50,40 @@ public class Board {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public Date getReg_date() {
-		return reg_date;
-	}
-	public void setReg_date(Date reg_date) {
-		this.reg_date = reg_date;
-	}
+
 	public boolean isOpen() {
 		return open;
 	}
 	public void setOpen(boolean open) {
 		this.open = open;
 	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public Date getRegDate() {
+		return regDate;
+	}
+
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
+	}
+
+	public int getHit() {
+		return hit;
+	}
+
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
+
+
+
 
 	
 }

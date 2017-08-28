@@ -36,22 +36,22 @@
 						<li><a href="${p}/index.html">서비스 소개</a></li>
 						<li><a href="${p}/index.html">이용방법</a></li>
 					</ul></li>
-				<li><a href="">베푸미 활동 관리</a>
+				<li><a href="${p}/bepumi/profile">베푸미 활동 관리</a>
 					<ul class="sub-menu hidden">
 						<li><a href="${p}/bepumi/profile">프로필 관리</a></li>
 						<li><a href="${p}/bepumi/matching-list">매칭 내역</a></li>
 					</ul></li>	
-				<li><a href="">베푸미 찾기</a>
+				<li><a href="${p}/searching/bepumi-list">베푸미 찾기</a>
 					<ul class="sub-menu hidden">
 						<li><a href="${p}/searching/bepumi-list">조건별 베푸미 찾기</a></li>
 						<li><a href="${p}/searching/matching-list">매칭 내역</a></li>
 					</ul></li>
-				<li><a href="">커뮤니티</a>
+				<li><a href="${p}/board/free">커뮤니티</a>
 					<ul class="sub-menu hidden">
 						<li><a href="${p}/board/free">자유게시판</a></li>
 						<li><a href="${p}/board/review">후기게시판</a></li>
 					</ul></li>
-				<li><a href="">문의/FAQ</a>
+				<li><a href="${p}/board/question">문의/FAQ</a>
 					<ul class="sub-menu hidden">
 						<li><a href="${p}/board/question">문의게시판</a></li>
 						<li><a href="${p}/board/report">신고게시판</a></li>

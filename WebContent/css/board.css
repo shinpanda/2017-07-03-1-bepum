@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+
+.main{
+	padding:40px;
+}
+
+.main h3{
+	padding-bottom: 30px;
+}
+
+
+/* list 부분 */
+.table-container{
+	width:80%;
+	margin:auto;
+}
+.table-wrapper {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.board-table {
+	box-sizing: border-box;
+    display: table;
+    margin: auto;
+    width: 100%;
+    border-collapse: collapse;
+}
+	.board-table .table-header {
+	    display: table-header-group;
+	    border-bottom: 1px solid #ec93a9;
+		border-top: 1px solid #ec93a9;
+		background: #fdf3f5;
+		line-height: 30px;
+		font-size:12px;
+	}
+	.board-table .row {
+	    display: table-row;
+	    border-bottom: 1px solid #f5bbc9;
+    	border-top: 1px solid #f5bbc9;
+		font-size:13px;
+	}
+		.board-table .cell {
+		    display: table-cell;
+		    padding: 8px 10px;
+		}
+		.board-table .no{
+			width:8%;
+		}
+		
+		.board-table .title{
+			width:60%;
+		}
+		.board-table .title-content{
+			text-align: left;
+		}
+		.board-table .writer-id{
+			width:10%;
+		}
+		.board-table .reg-date{
+			width:12%;
+		}
+		
+		.board-table .hit{
+			width:10%;
+		}
+		
+		.reg-btn {
+		    display: inline-block;
+		    padding: 5px 10px;
+		    float: right;
+		    font-size: 12px;
+		    border: 1px solid #f5bbc9;
+		    border-radius: 3px;
+		}
+		.reg-btn a{
+			color:#505050;
+		}
+		
+/* detail 부분 */
+
+		
+/* reg 부분 */
+
+
+/* edit 부분 */
+
+
+/* del 부분 */
+
+
+
+
+
+
