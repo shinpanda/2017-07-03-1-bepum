@@ -12,7 +12,6 @@
 		var str=$(location).attr('pathname');
 		var index = str.indexOf('/', 8);
 		var res = str.substr(index);
-		alert($("a[href$='"+res+"']").text());
 		$("a[href$='"+res+"']").parents(".sub-menu").removeClass('hidden');
 		$("a[href$='"+res+"']").addClass("on");
 	});
