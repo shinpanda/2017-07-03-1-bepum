@@ -101,3 +101,112 @@
 
 
 /* 베푸미쪽 detail 부분 */
+
+
+
+
+
+/* 베푸미쪽 detail 하단 부분 */
+
+.rb-container {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: auto;
+    text-align: left;
+}
+	.rb-container .req-date {
+	    display: flex;
+	    flex-direction: column;
+	    margin: 10px 30px;
+	}
+		.rb-container .req-date span, .rb-container .bepum-date span {
+		    font-size: 15px;
+		    line-height: 22px;
+		}
+
+	.rb-container .bepum-date {
+	    margin: 10px 0px;
+	    border-left: 1px solid #a2a2a2;
+	    padding: 0px 40px;
+	    flex-grow: 1;
+	}
+		.rb-container .bepum-time {
+		    display: flex;
+		    flex-direction: row;
+		    justify-content: space-between;
+		    width: 100%;
+		}
+		
+
+.req-info-container h3, 
+.baby-info-container h3{
+	text-align:left;
+    font-size: 15px;
+    padding-bottom: 0px;
+    padding-left: 108px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.req-container{
+	box-sizing: border-box;
+	width:80%;
+	border: 1px solid #a2a2a2;
+	margin: auto;
+	padding: 10px;
+}
+
+.baby-info-table {
+    display: table;
+    box-sizing: border-box;
+    border: 1px solid #a2a2a2;
+    width: 80%;
+    margin: auto;
+    line-height: 31px;
+    font-size: 14px;
+}
+	.row{
+		display:table-row;
+	}
+	
+	.cell{
+		display:table-cell;
+	}
+	
+		.td{
+			border-left:1px solid #a2a2a2;
+			text-align:left;
+			padding: 0px 10px;
+		}
+	
+
+/* 신청자 쪽 list 부분 */
+.matching-progress-container{
+    width: 760px;
+    margin: 20px auto;
+}
+	.matching-progress-wrapper{
+		display: inline-block;
+	}
+
+	.matching-progress{
+		float: left;
+	    width: 190px;
+	    background: url(../images/list-circle.png) no-repeat center;
+	    background-size: contain;
+	    opacity: 0.5;
+	}
+		.matching-progress p{
+			text-align: center;
+			color:white;
+			margin: 10px;
+		}
+			.step {
+			    font-size: 20px;
+			}
+	
+			.present{
+				opacity: 1;
+			}
+

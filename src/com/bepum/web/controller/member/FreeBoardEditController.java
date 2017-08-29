@@ -25,6 +25,8 @@ request.setCharacterEncoding("UTF-8");
 		
 		String no = request.getParameter("no");
 		String title = request.getParameter("title");
+		title = title.replaceAll("\n","<br>"); // 줄바꿈처리
+		title = title.replaceAll("\u0020","&nbsp;"); // 스페이스바로 띄운 공백처리
 		String content = request.getParameter("content");
 		
 		Board b = null;

@@ -82,11 +82,11 @@
     text-align: left;
 }
 
-.tr-info{
-	border-bottom: 1px solid #ec93a9;
-    border-top: 1px solid #ec93a9;
-    background: #fdf3f5;
-    line-height:35px;
+.tr-info {
+    border-bottom: 1px solid rgba(214, 214, 214, 0.7);
+    border-top: 1px solid rgba(214, 214, 214, 0.7);
+    background: rgba(228, 228, 228, 0.3);
+    line-height: 35px;
     padding: 0px 10px;
 }
 	.tr-info .title{
@@ -100,8 +100,8 @@
 		float:right;	
 	}
 	
- .wch-info {
-    background: rgba(253, 244, 246, 0.55);
+.wch-info {
+    background: rgb(251, 251, 251);
     line-height: 29px;
     font-size: 13px;
     padding: 0px 10px;

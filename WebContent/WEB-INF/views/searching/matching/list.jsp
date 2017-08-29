@@ -18,7 +18,29 @@
 	<div id="body">
 		<div class="content-container">
 			<main id="main" class="main">
-			<h3>매칭 내역</h3>
+			<h3>매칭 진행 현황</h3>
+			
+			<div class="matching-progress-container">
+				<div class="matching-progress-wrapper">
+					<div class="matching-progress present">
+						<p class="step">매칭 신청</p>
+						<p>매칭 접수 단계</p>
+					</div>
+					<div class="matching-progress">
+						<p class="step">승인 중</p>
+						<p>관리자 및 돌보미 승인 단계</p>
+					</div>
+					<div class="matching-progress">
+						<p class="step">결제 확인</p>
+						<p>결제 확인 단계</p>
+					</div>
+					<div class="matching-progress">
+						<p class="step">매칭 진행</p>
+						<p>승인 후 매칭 진행단계</p>
+					</div>
+				</div>
+			</div>
+			
 			<div class="table-container">
 				<div class="list-arr">
 					<nav>
@@ -34,10 +56,11 @@
 						<div class="table-header">
 							<div class="cell no">no</div>
 							<div class="cell request-id">아이디</div>
-							<div class="cell request-name">이름</div>
+							<div class="cell request-name">돌보미 이름</div>
 							<div class="cell grade">돌보미 등급</div>
-							<div class="cell req-date">신청일</div>
+							<div class="cell bepum-day">날짜</div>
 							<div class="cell bepum-time">시간</div>
+							<div class="cell req-date">신청일</div>
 							<div class="cell status">매칭 상태</div>
 						</div>
 
@@ -48,6 +71,7 @@
 								<div class="cell request-name">권다영</div>
 								<div class="cell grade">돌보미</div>
 								<div class="cell req-date">2017.07.08</div>
+								<div class="cell bepum-day">2017.07.25</div>
 								<div class="cell bepum-time">09:00 ~ 18:00</div>
 								<div class="cell status">신청 대기</div>
 							</div>

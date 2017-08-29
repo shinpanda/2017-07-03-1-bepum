@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.jsp.PageContext;
 
 import com.bepum.web.entity.Board;
 
@@ -20,12 +21,7 @@ public class FreeBoardDetailController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String _no = request.getParameter("no");
-		String no = "";
-		
-		if (_no != null && !(_no.equals("")))
-			no = _no;
-		
+		String no = request.getParameter("no");
 		
 		Board b = null;
 		
@@ -69,6 +65,8 @@ public class FreeBoardDetailController extends HttpServlet {
 			e.printStackTrace();
 		}
 		request.setAttribute("b", b);
+		request.setAttribute("br", "<br/>");
+		request.setAttribute("cn", "\n");
 		
 		/*response.sendRedirect("notice.jsp");*/
 		request.getRequestDispatcher("/WEB-INF/views/board/freeboard/detail.jsp").forward(request, response);

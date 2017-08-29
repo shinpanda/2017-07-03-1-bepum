@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +34,7 @@
 					</div>
 				</div>
 				<div class="detail-content">
-					${b.content}
+					${fn:replace(b.content, cn, br)}
 				</div>
 				<div>
 					<a href="free" class="btn">목록</a>
