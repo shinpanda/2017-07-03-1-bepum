@@ -33,16 +33,16 @@
 										
 						<c:forEach var="n" items="${list}" begin="0" end="14">					
 						<div class="row">
-							<div class="cell no">${n.no} </div>
-							<div class="cell title title-content">${n.title}</div>
-							<div class="cell writer-id">권다영</div>
+							<div class="cell no">${n.no}</div>
+							<div class="cell title title-content"><a href="./free-detail?no=${n.no}">${n.title}</a></div>
+							<div class="cell writer-id">${n.writerId}</div>
 							<div class="cell reg-date">${n.regDate}</div>
 							<div class="cell hit">${n.hit}</div>
 						</div>
 						</c:forEach>
 					</div>
 				</div>
-				<div class="reg-btn">
+				<div class="btn reg-btn">
 				<a href="./free-reg">쓰기</a>
 			</div>
 			</div>

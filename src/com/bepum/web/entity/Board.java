@@ -12,7 +12,7 @@ public class Board {
 	private String no;
 	private String title;
 	private String content;
-	private String writer;
+	private String writerId;
 	private int hit;
 	private Date regDate;
 	private boolean open;
@@ -21,11 +21,11 @@ public class Board {
 		
 	}
 
-	public Board(String no, String title, String content, String writer, int hit, Date regDate, boolean open) {
+	public Board(String no, String title, String content, String writerId, int hit, Date regDate, boolean open) {
 		this.no = no;
 		this.title = title;
 		this.content = content;
-		this.writer = writer;
+		this.writerId = writerId;
 		this.hit = hit;
 		this.regDate = regDate;
 		this.open = open;
@@ -44,11 +44,11 @@ public class Board {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getWriter() {
-		return writer;
+	public String getWriterId() {
+		return writerId;
 	}
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setWriterId(String writerId) {
+		this.writerId = writerId;
 	}
 
 	public boolean isOpen() {

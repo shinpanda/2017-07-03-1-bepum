@@ -20,9 +20,10 @@
 			<main id="main" class="main">
 			<div class="reg-container">
 				<form action="" method="post" name="free-reg-form" class="reg-form">
-				<input type="text" name="title" placeholder="제목"/>
-				<textarea rows="25" cols="65" name="content"></textarea>
+				<input type="text" name="title" value="${b.title}"/>
+				<textarea rows="25" cols="65" name="content">${b.content}</textarea>
 				<div class="reg-btn-container">
+				<input type="hidden" name="no" value="${b.no}"/>
 				<input type="submit" value="등록" />
 				<button type="button" onclick="history.back()" class="reg-cancel">취소</button>
 				</div>

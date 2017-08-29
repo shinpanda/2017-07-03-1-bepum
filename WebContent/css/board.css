@@ -64,29 +64,70 @@
 		.board-table .hit{
 			width:10%;
 		}
-		
-		.reg-btn {
-		    display: inline-block;
-		    padding: 5px 10px;
-		    float: right;
+		.btn{
+			display: inline-block;
+		    padding: 5px 10px;  
 		    font-size: 12px;
 		    border: 1px solid #f5bbc9;
 		    border-radius: 3px;
+		}
+		.reg-btn {
+		    float: right;
 		}
 		.reg-btn a{
 			color:#505050;
 		}
 		
 /* detail 부분 */
+.detail-container {
+    text-align: left;
+}
 
-		
+.tr-info{
+	border-bottom: 1px solid #ec93a9;
+    border-top: 1px solid #ec93a9;
+    background: #fdf3f5;
+    line-height:35px;
+    padding: 0px 10px;
+}
+	.tr-info .title{
+		font-size:14px;
+		float:left;
+		font-weight:600;
+	}
+	
+	.tr-info .reg-date{
+		font-size:12px;
+		float:right;	
+	}
+	
+ .wch-info {
+    background: rgba(253, 244, 246, 0.55);
+    line-height: 29px;
+    font-size: 13px;
+    padding: 0px 10px;
+}
+	 .wch-info  .writer {
+    	float: left;
+	}
+	.ch-wrapper{
+		float: right;
+	}
+	.detail-content {
+	    padding: 30px 10px;
+	}
+	
+	.ed-wrapper{
+		float:right;
+		padding-right:5px;
+	}
 /* reg 부분 */
 .reg-container {
     padding: 30px 30px 15px 30px;
     display: inline-block;
     width: 80%;
     margin: auto;
-    background: #F8D9DD;
+    background: #fdf3f5;
     border-radius: 11px;
 }
 

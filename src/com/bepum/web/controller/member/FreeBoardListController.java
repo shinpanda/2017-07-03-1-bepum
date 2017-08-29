@@ -52,7 +52,7 @@ public class FreeBoardListController extends HttpServlet {
 				Board b = new Board();
 				b.setNo(rs.getString("id"));
 				b.setTitle(rs.getString("title"));
-				b.setContent(rs.getString("content"));
+				b.setWriterId(rs.getString("writerId"));
 				b.setRegDate(rs.getDate("regDate"));
 				b.setHit(rs.getInt("hit"));
 				list.add(b);

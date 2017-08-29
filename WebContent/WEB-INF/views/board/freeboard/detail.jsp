@@ -18,15 +18,30 @@
 	<div id="body">
 		<div class="content-container">
 			<main id="main" class="main">
-			<div class="reg-container">
-				<form action="" method="post" name="free-reg-form" class="reg-form">
-				<input type="text" name="title" placeholder="제목"/>
-				<textarea rows="25" cols="65" name="content"></textarea>
-				<div class="reg-btn-container">
-				<input type="submit" value="등록" />
-				<button type="button" onclick="history.back()" class="reg-cancel">취소</button>
+
+			<div class="detail-container">
+				<div class="info-container">
+					<div class="tr-info clearfix">
+						<span class="title">${b.title}</span> <span class="reg-date">${b.regDate}</span>
+					</div>
+					<div class="wch-info clearfix">
+						<span class="writer">${b.writerId}</span>
+						<div class="ch-wrapper">
+							<span class="comment-num">댓글 수</span> <span class="hit">${b.hit}</span>
+						</div>
+					</div>
 				</div>
-				</form>
+				<div class="detail-content">
+					${b.content}
+				</div>
+				<div>
+					<a href="free" class="btn">목록</a>
+					<div class="ed-wrapper">
+						<a href="free-edit?no=${b.no}" class="btn">수정</a>
+						<a href="free-del" class="btn">삭제</a>
+					</div>
+				</div>
+				
 			</div>
 			</main>
 		</div>
