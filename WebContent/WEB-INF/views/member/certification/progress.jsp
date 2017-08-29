@@ -75,6 +75,19 @@
 								완료</span> <span class="progress-status">재심사 필요</span>
 						</div>
 					</div>
+					<div class="baby-wrapper clearfix">
+						<div class="edit-box-container">
+							<div class="edit-box-wrapper">
+								<label for="baby-edit">수정</label> 
+								<input type="file"  class="editBtn" id="baby-edit" name="edit">
+							</div>
+						</div>
+						<div class="title-box dc-name">아가</div>
+						<div class="progress">
+							<span>제출 전</span> <span>제출 완료</span> <span>심사 중</span> <span>심사
+								완료</span> <span class="progress-status">재심사 필요</span>
+						</div>
+					</div>
 				</div>
 			</div>
 		</main>

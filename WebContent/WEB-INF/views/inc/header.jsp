@@ -48,8 +48,7 @@
 				<li><a href="${p}/member/certification-progress">베푸미 되기</a><!-- 임시 -->
 					<ul class="sub-menu hidden">
 						<li><a href="${p}/member/certification-progress">진행 상황</a></li>
-						<li><a href="${p}/member/certification-request">약관 동의</a></li>
-						<li><a href="">서류 제출</a></li>
+						<li><a href="${p}/member/certification-request">서류 인증</a></li>
 					</ul></li>	
 				<li><a href="${p}/bepumi/profile">베푸미 활동 관리</a>
 					<ul class="sub-menu hidden">
