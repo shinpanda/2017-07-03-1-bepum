@@ -25,6 +25,12 @@ public class QuestionRegController extends HttpServlet {
 
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
+		String open = request.getParameter("sec");
+		String privateKey = null;
+		if(open.equals("sec")) {
+			privateKey = request.getParameter("secKey");
+		}
+		
 
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
@@ -32,7 +38,7 @@ public class QuestionRegController extends HttpServlet {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String sql = "INSERT INTO Notice(id, title, content, writerId) VALUES ((select IFNULL(max(cast(id as unsigned)), 0)+1 from Notice n), ?, ?, ?)";
+			String sql = "INSERT INTO Notice(id, title, content, writerId, private, privateKey) VALUES ((select IFNULL(max(cast(id as unsigned)), 0)+1 from Notice n), ?, ?, ?)";
 			Connection con = DriverManager.getConnection(url, "sist", "cclass");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);

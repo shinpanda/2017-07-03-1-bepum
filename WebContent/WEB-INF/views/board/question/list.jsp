@@ -23,7 +23,7 @@
 			<div class="table-container">
 				<div class="table-wrapper">
 					<div class="board-table">
-						<div class="table-header">
+						<div class="row table-header">
 							<div class="cell no">no</div>
 							<div class="cell title">제목</div>
 							<div class="cell writer-id">글쓴이</div>

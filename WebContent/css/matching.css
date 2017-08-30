@@ -20,7 +20,7 @@
     margin-bottom: 10px;
 }
 .board-table {
-	box-sizing: border-box;
+    box-sizing: border-box;
     display: table;
     margin: auto;
     width: 100%;
@@ -45,8 +45,7 @@
         margin-left: 0px;
     }
 	.board-table .table-header {
-	    display: table-header-group;
-	    border-bottom: 1px solid #ec93a9;
+		display:table-header-group;
 		border-top: 1px solid #ec93a9;
 		background: #fdf3f5;
 		line-height: 30px;
@@ -55,35 +54,23 @@
 	.board-table .row {
 	    display: table-row;
 	    border-bottom: 1px solid #f3f3f3;
-		font-size:13px;
+	    font-size: 13px;
+	    flex-direction: row;
 	}
 		.board-table .cell {
-		    display: table-cell;
+			display:table-cell;
 		    padding: 8px 10px;
 		}
-		.board-table .no{
-			
+		.board-table .w80{
+			width:80px;
 		}
 		
-		.board-table .request-id{
-			
-		}
-		.board-table .request-name{
-			
-		}
-		.board-table .grade{
-			
-		}
-		.board-table .req-date{
-			
+		.board-table .w100{
+			width:100px;
 		}
 		
-		.board-table .bepum-time{
-			
-		}
-		
-		.board-table .status{
-			
+		.board-table .w120{
+			width:120px;
 		}
 		
 		.reg-btn {
@@ -97,7 +84,6 @@
 		.reg-btn a{
 			color:#505050;
 		}
-
 
 
 /* 베푸미쪽 detail 부분 */
@@ -203,6 +189,7 @@
 	    justify-content: center;
 	    align-items: center;
 	    float:left;
+	    cursor: pointer;
 	}
 	
 		.step1-container{

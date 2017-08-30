@@ -54,7 +54,14 @@
 					</div>
 				</div>
 			</div>
-
+			<script>
+				$(".matching-progress").click(function(){
+					$(this).siblings().removeClass("present");
+					$(this).addClass("present");
+				});
+			</script>
+			
+			
 			<div class="table-container">
 				<div class="table-wrapper">
 					<div class="board-table">

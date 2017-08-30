@@ -20,35 +20,37 @@
     margin-bottom: 10px;
 }
 .board-table {
-	box-sizing: border-box;
-    display: table;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     margin: auto;
     width: 100%;
     border-collapse: collapse;
 }
 	.board-table .table-header {
-	    display: table-header-group;
-	    border-bottom: 1px solid #ec93a9;
 		border-top: 1px solid #ec93a9;
 		background: #fdf3f5;
 		line-height: 30px;
 		font-size:12px;
 	}
 	.board-table .row {
-	    display: table-row;
+	    display: flex;
 	    border-bottom: 1px solid #f3f3f3;
-		font-size:13px;
+	    font-size: 13px;
+	    flex-direction: row;
 	}
 		.board-table .cell {
-		    display: table-cell;
 		    padding: 8px 10px;
 		}
 		.board-table .no{
 			width:8%;
 		}
 		
-		.board-table .title{
-			width:60%;
+		.board-table .title {
+		    width: 60%;
+		    white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
 		}
 		.board-table .title-content{
 			text-align: left;
@@ -69,6 +71,9 @@
 		    font-size: 12px;
 		    border: 1px solid #d6d6d6;
 		    border-radius: 3px;
+		}
+		.btn:hover{
+			box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
 		}
 		.reg-btn {
 		    float: right;
@@ -179,18 +184,14 @@
     justify-content: flex-end;
     margin-top: 10px;
 }
-.reg-btn-container input[type="submit"] {
-    background: white;
-    border: 1px solid #a2a2a2;
-    padding: 5px 15px;
-    border-radius: 3px;
-}
+	.reg-btn-container .reg-btn{
+		background: white;
+	    border: 1px solid #a2a2a2;
+	    padding: 5px 15px;
+	    border-radius: 3px;
+	}
 .reg-cancel {
     margin-left: 10px;
-    background: white;
-    border: 1px solid #a2a2a2;
-    padding: 5px 15px;
-    border-radius: 3px;
 }
 
 /* edit 부분 */
