@@ -3,6 +3,7 @@
 
 .main{
 	padding:40px;
+	margin-bottom: 30px;
 }
 
 .main h3{
@@ -225,4 +226,84 @@
 			.present{
 				opacity: 1;
 			}
+
+/* 신청자 쪽 detail 하단 부분*/
+
+.member.rb-container {
+    width: 60%;
+
+}
+
+.member.bepum-date{
+	width:100px;
+}
+
+.member.ongoing-bottom{
+	display: flex;
+	justify-content: center;
+	margin-top: 35px;
+	padding-top: 25px;
+	border-top: 1px solid;
+	border-top-color: #e9e9e9;
+}
+
+.pay-info-container h3 {
+    text-align: left;
+    font-size: 15px;
+    padding-bottom: 0px;
+    padding-left: 30px;
+    margin-left:30px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    background: url("../images/dot.png") no-repeat left center;
+}
+
+.member.pay-info-container {
+	width:400px;
+}
+
+.pay-info-table {
+    display: table;
+    box-sizing: border-box;
+    border: 1px solid #a2a2a2;
+    width: 80%;
+    margin: auto;
+    line-height: 31px;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.member.baby-info-container h3 {
+    text-align: left;
+    font-size: 15px;
+    padding-bottom: 0px;
+    padding-left: 30px;
+    margin-left:30px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    background: url("../images/dot.png") no-repeat left center;
+}
+
+.member.baby-info-container {
+	width:400px;
+}
+
+.member.baby-info-table {
+	margin-top: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 4px 10px;
+
+    font-size: 12px;
+    border: 1px solid #d6d6d6;
+    border-radius: 3px;
+}
+
+.pay-btn{
+	float: right;
+	margin-right: 170px;
+    margin-top: 20px;
+}
 
