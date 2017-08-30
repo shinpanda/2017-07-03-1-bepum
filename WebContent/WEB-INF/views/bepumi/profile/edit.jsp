@@ -180,9 +180,9 @@
 					<p>
 						<span><input type="text" placeholder="9:00"
 							class="profile-num" pattern="[0-2]\d:[0-5]\d"
-							title="08:00 형식으로 넣어주세요" /></span> ~ <span><input type="text"
+							title="08:00 형식으로 넣어주세요" name="start-time"/></span> ~ <span><input type="text"
 							placeholder="18:00" class="profile-num" pattern="[0-2]\d:[0-5]\d"
-							title="08:00 형식으로 넣어주세요" /></span>
+							title="08:00 형식으로 넣어주세요" name="end-time" /></span>
 					</p>
 				</div>
 
@@ -194,14 +194,14 @@
 							<div class="row">
 								<div class="cell1">기타사항</div>
 								<div class="cell2">
-									<textarea class="table-input" rows="3" cols="65"
+									<textarea name = "others" class="table-input" rows="3" cols="65"
 										placeholder="예)운전 가능"></textarea>
 								</div>
 							</div>
 							<div class="row">
 								<div class="cell1">자기소개서</div>
 								<div class="cell2">
-									<textarea class="table-input" rows="4" cols="65"></textarea>
+									<textarea name = "self-intro" class="table-input" rows="4" cols="65"></textarea>
 								</div>
 							</div>
 						</div>

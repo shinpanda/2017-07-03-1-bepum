@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bepum.web.entity.Board;
 
-@WebServlet("/board/question-reg")
-public class QuestionRegController extends HttpServlet {
+@WebServlet("/board/question-edit")
+public class QuestionEditController extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

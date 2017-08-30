@@ -39,8 +39,8 @@
 				<div>
 					<a href="free" class="btn">목록</a>
 					<div class="ed-wrapper">
-						<a href="free-edit?no=${b.no}" class="btn">수정</a>
-						<a href="free-del" class="btn">삭제</a>
+						<a href="question-edit?no=${b.no}" class="btn">수정</a>
+						<a href="question-del" class="btn">삭제</a>
 					</div>
 				</div>
 				

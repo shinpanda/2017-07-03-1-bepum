@@ -19,7 +19,7 @@
 		<div class="content-container">
 			<main id="main" class="main">
 			<div class="reg-container">
-				<form action="" method="post" name="free-reg-form" class="reg-form">
+				<form action="" method="post" name="reg-form" class="reg-form">
 					<input type="text" name="title" value="${b.title}" />
 					<textarea rows="25" cols="65" name="content">${b.content}</textarea>
 					<div class="reg-btn-container">
