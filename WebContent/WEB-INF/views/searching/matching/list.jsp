@@ -22,43 +22,40 @@
 
 			<div class="matching-progress-container">
 				<div class="matching-progress-wrapper">
-					<div class="matching-progress present">
-						<div>
+					<div class="matching-progress step1-container">
+						<div class="step-wrapper">
 							<p class="step">매칭 신청</p>
 							<p>매칭 접수 단계</p>
 						</div>
 					</div>
-					<div class="matching-progress">
-						<div>
+					<div class="matching-progress step2-container">
+						<div class="step-wrapper">
 							<p class="step">승인 중</p>
 							<p>관리자 및 돌보미 승인 단계</p>
 						</div>
 					</div>
-					<div class="matching-progress">
-						<div>
+					<div class="matching-progress step3-container">
+						<div class="step-wrapper">
 							<p class="step">결제 확인</p>
 							<p>결제 확인 단계</p>
 						</div>
 					</div>
-					<div class="matching-progress">
-						<div>
+					<div class="matching-progress step4-container">
+						<div class="step-wrapper">
 							<p class="step">매칭 진행</p>
 							<p>승인 후 매칭 진행단계</p>
+						</div>
+					</div>
+					<div class="matching-progress step5-container">
+						<div class="step-wrapper">
+							<p class="step">매칭 완료</p>
+							<p>매칭 완료 단계</p>
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="table-container">
-				<div class="list-arr">
-					<nav>
-						<ul>
-							<li>매칭 진행</li>
-							<li>매칭 신청</li>
-							<li>과거 매칭</li>
-						</ul>
-					</nav>
-				</div>
 				<div class="table-wrapper">
 					<div class="board-table">
 						<div class="table-header">
@@ -72,7 +69,7 @@
 							<div class="cell status">매칭 상태</div>
 						</div>
 
-						<c:forEach begin="0" end="14" varStatus="status">
+						<c:forEach begin="1" end="15" varStatus="status">
 							<div class="row">
 								<div class="cell no">${status.current}</div>
 								<div class="cell request-id">
@@ -80,9 +77,9 @@
 								</div>
 								<div class="cell request-name">권다영</div>
 								<div class="cell grade">돌보미</div>
-								<div class="cell req-date">2017.07.08</div>
 								<div class="cell bepum-day">2017.07.25</div>
 								<div class="cell bepum-time">09:00 ~ 18:00</div>
+								<div class="cell req-date">2017.07.08</div>
 								<div class="cell status">신청 대기</div>
 							</div>
 						</c:forEach>

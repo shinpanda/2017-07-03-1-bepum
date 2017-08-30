@@ -135,7 +135,7 @@
     flex-direction: column;
     margin: auto;
 }
-.reg-form input[type="text"] {
+.reg-form > input[type="text"] {
     line-height: 30px;
     border: 1px solid #a2a2a2;
     border-radius: 3px;
@@ -144,10 +144,34 @@
 }
 
 
-.reg-form textarea {
+.reg-form > textarea {
     border-radius: 3px;
     resize: none;
 }
+
+
+.sec-container {
+    text-align: left;
+    margin-top: 8px;
+    font-size: 13px;
+}
+	.sec-btn-container, 
+	.sec-key-container{
+		display: flex;
+		flex-direction: row;
+	}
+	
+	.sec-header{
+		width:80px;
+		text-align: center;
+	}
+	
+	#sec-btn {
+	    margin-left: 9px;
+	}		
+	.sec-key-container {
+	    margin-top: 8px;
+	}
 
 .reg-btn-container {
     display: flex;
