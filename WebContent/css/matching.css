@@ -183,30 +183,54 @@
 
 /* 신청자 쪽 list 부분 */
 .matching-progress-container{
-    width: 760px;
+    width: 800px;
+    height:160px;
     margin: 20px auto;
 }
 	.matching-progress-wrapper{
 		display: inline-block;
+		position:relative;
 	}
 
-	.matching-progress{
-		float: left;
-	    width: 190px;
-	    height: 190px;
+	.matching-progress {
+		position:relative;
+	    width: 160px;
+	    height: 160px;
 	    background: url(../images/list-circle.png) no-repeat center;
 	    background-size: contain;
 	    opacity: 0.5;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    float:left;
 	}
+	
+		.step1-container{
+			left:30px;
+		}
+		
+		.step2-container{
+			left:15px;
+		}
+		
+		.step3-container{
+			left:0px;
+		}
+		
+		.step4-container{
+			left:-15px;
+		}
+		
+		.step5-container{
+			left:-30px;
+		}
 		.matching-progress p{
 			text-align: center;
 			color:white;
 			margin: 10px;
 		}
 		
-		.matching-progress div{
-			
-		}
+		
 			.step {
 			    font-size: 20px;
 			}
