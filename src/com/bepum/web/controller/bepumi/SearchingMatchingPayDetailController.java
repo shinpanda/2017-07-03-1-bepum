@@ -1,4 +1,4 @@
-package com.bepum.web.controller.searching;
+package com.bepum.web.controller.bepumi;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/searching/detail-pay")
-public class MatchingPayDetailController extends HttpServlet {
+public class SearchingMatchingPayDetailController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/*response.sendRedirect("notice.jsp");*/

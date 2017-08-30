@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -8,13 +9,12 @@
 <meta charset="UTF-8">
 <link href="../css/common_style.css" type="text/css" rel="stylesheet" />
 <link href="../css/style2.css" type="text/css" rel="stylesheet" />
-<link href="../css/certification.css" type="text/css"
-	rel="stylesheet" />
+<link href="../css/certification.css" type="text/css" rel="stylesheet" />
 <title>베품</title>
 </head>
 
 <body>
-<!-- 헤더집중화 -->
+	<!-- 헤더집중화 -->
 	<jsp:include page="../../inc/header.jsp"></jsp:include>
 
 	<div id="body">
@@ -44,15 +44,30 @@
 			</div>
 			<div class="agreement-container">
 				<div class="bepumi-agreement">
-					<div class="agree-title">아이돌보미 신청약관(필수)</div>
+					<div class="agree-title">
+						<span>아이돌보미 신청약관(필수)</span>
+						<div class="check-container">
+							<input type="checkbox" name="agr-btn" id="agr-btn1">
+						</div>
+					</div>
 					<div class="agreement-content"></div>
 				</div>
 				<div class="bepumi-agreement">
-					<div class="agree-title">개인정보 이용 동의(필수)</div>
+					<div class="agree-title">
+						<span>개인정보 이용 동의(필수)</span>
+						<div class="check-container">
+							<input type="checkbox" name="agr-btn" id="agr-btn1">
+						</div>
+					</div>
 					<div class="agreement-content"></div>
 				</div>
 				<div class="bepumi-agreement">
-					<div class="agree-title">개인정보 제 3자 제공 동의(필수)</div>
+					<div class="agree-title">
+						<span>개인정보 제 3자 제공 동의(필수)</span>
+						<div class="check-container">
+							<input type="checkbox" name="agr-btn" id="agr-btn1">
+						</div>
+					</div>
 					<div class="agreement-content"></div>
 				</div>
 				<div class="agree-btn-container">
@@ -64,8 +79,8 @@
 		</div>
 	</div>
 
-<!--  footer 집중화 -->
+	<!--  footer 집중화 -->
 	<jsp:include page="../../inc/footer.jsp"></jsp:include>
-	
+
 </body>
 </html>
