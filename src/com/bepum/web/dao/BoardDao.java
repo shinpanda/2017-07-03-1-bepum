@@ -6,7 +6,7 @@ import com.bepum.web.entity.Board;
 
 public interface BoardDao {
 
-	List<Board> getList(int page, String query, String bName);
+	List<Board> getList(int page,String t_name, String query, String bName);
 
 	Board get(String no, String bName);
 

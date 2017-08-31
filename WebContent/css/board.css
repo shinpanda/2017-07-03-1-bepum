@@ -65,7 +65,17 @@
 		.board-table .hit{
 			width:10%;
 		}
+/* ------------------------------------------------ */		
+		.search-form-container {
+		    text-align: left;
+		    margin-top: 29px;
+		}		
+			.search-form-container .search-form{
+				display: flex;
+				flex-direction: row;
+			}
 		
+/* ------------------------------------------------ */
 		.paging-container {
 			display: inline-flex;
 		    margin: auto;

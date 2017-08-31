@@ -43,6 +43,17 @@
 							</div>
 						</c:forEach>
 					</div>
+					<div class="search-form-container">
+						<form action="" method="get" class="search-form">
+							<select name="search-sel">
+								<option value="writerId">아이디</option>
+								<option value="title">제목</option>
+								<option value="content">내용</option>
+							</select> 
+							<input type="search" name="search" /> 
+							<input type="submit" />
+						</form>
+					</div>
 					<c:set var="page" value="${param.p}" />
 					<c:set var="startNum" value="${page-(page-1)%10}" />
 					<c:set var="lastNum" value="${count/10}" />

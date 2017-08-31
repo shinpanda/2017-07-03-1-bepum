@@ -14,7 +14,7 @@ import com.bepum.web.entity.Board;
 public class JdbcBoardDao implements BoardDao {
 
 	@Override
-	public List<Board> getList(int page, String query, String bName) {
+	public List<Board> getList(int page, String t_name, String query, String bName) {
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
 		List<Board> list = null;
@@ -23,12 +23,13 @@ public class JdbcBoardDao implements BoardDao {
 		// JDBC 드라이버 로드
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-
-			String sql = "SELECT * FROM Notice where title like ? order by regDate desc limit ?, 10";
+			
+			String sql = "SELECT * FROM Notice where "+t_name+" like ? order by regDate desc limit ?, 10";
 
 			Connection con = DriverManager.getConnection(url, "sist", "cclass");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
+
 			st.setString(1, String.format("%%%s%%", query));
 			st.setInt(2, offset);
 			/* st.setString(1, "%"+title+"%"); */

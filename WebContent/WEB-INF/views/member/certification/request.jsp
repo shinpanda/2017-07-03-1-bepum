@@ -72,8 +72,8 @@
 				</div>
 				<div class="agree-btn-container">
 					<div class="check-container all-check">
-						<span>전체동의</span> 
-						<input type="checkbox" name="all-check">
+						<label for="all-check">전체동의</label>
+						<input type="checkbox" name="all-check" id="all-check">
 					</div>
 					<a href="">다음</a>
 				</div>
