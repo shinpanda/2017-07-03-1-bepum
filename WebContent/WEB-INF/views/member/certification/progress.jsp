@@ -36,8 +36,8 @@
 					<div class="application-form-wrapper clearfix">
 						<div class="edit-box-container">
 						<div class="edit-box-wrapper">
-								<label for="application-form-edit">수정</label> 
 								<input type="file"  class="editBtn" id="application-form-edit" name="edit">
+								<label for="application-form-edit">수정</label>
 							</div>
 						</div>
 						<div class="title-box dc-name">신청서</div>
@@ -52,8 +52,8 @@
 					<div class="family-rc-wrapper clearfix">
 						<div class="edit-box-container">
 							<div class="edit-box-wrapper">
-								<label for="family-rc-edit">수정</label> 
 								<input type="file"  class="editBtn" id="family-rc-edit" name="edit">
+								<label for="family-rc-edit">수정</label> 
 							</div>
 						</div>
 						<div class="title-box dc-name">가족관계증명서</div>
@@ -65,8 +65,8 @@
 					<div class="hc-wrapper clearfix">
 						<div class="edit-box-container">
 							<div class="edit-box-wrapper">
-								<label for="hc-edit">수정</label> 
 								<input type="file"  class="editBtn" id="hc-edit" name="edit">
+								<label for="hc-edit">수정</label> 
 							</div>
 						</div>
 						<div class="title-box dc-name">건강진단서</div>
@@ -78,8 +78,8 @@
 					<div class="baby-wrapper clearfix">
 						<div class="edit-box-container">
 							<div class="edit-box-wrapper">
-								<label for="baby-edit">수정</label> 
 								<input type="file"  class="editBtn" id="baby-edit" name="edit">
+								<label for="baby-edit">수정</label> 
 							</div>
 						</div>
 						<div class="title-box dc-name">아가</div>
