@@ -172,7 +172,10 @@
 			}
 			
 			.check-container{
-				display: inline-block;
+				display: inline-block;	
+			}
+			
+			.check-container.fr{
 				float:right;
 			}
 			
@@ -191,6 +194,7 @@
 			    outline: none;
 			}
 			
+			
 			.agreement-content{
 				font-size: 14px;
 			    color: #3b4045;
@@ -199,15 +203,17 @@
 			    height:200px;
 			    overflow: auto;
 			}
-		.agree-btn-container {
-		    width: 660px;
-		    margin: auto;
-		}
-			.agree-btn-container p, 
-			.agree-btn-container a{
-				float:left;
-				
-			}
+.agree-btn-container {
+    width: 660px;
+    margin: auto;
+    text-align: right;
+}
+.check-container {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    float: left;
+}		
 		
 		
 		

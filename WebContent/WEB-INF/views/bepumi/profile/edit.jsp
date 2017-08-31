@@ -199,7 +199,7 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="cell1">자기소개서</div>
+								<div class="cell1">자기소개</div>
 								<div class="cell2">
 									<textarea name = "self-intro" class="table-input" rows="4" cols="65"></textarea>
 								</div>

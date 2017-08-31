@@ -46,8 +46,8 @@
 				<div class="bepumi-agreement">
 					<div class="agree-title">
 						<span>아이돌보미 신청약관(필수)</span>
-						<div class="check-container">
-							<input type="checkbox" name="agr-btn" id="agr-btn1">
+						<div class="check-container fr">
+							<input type="checkbox" name="agr-btn">
 						</div>
 					</div>
 					<div class="agreement-content"></div>
@@ -55,8 +55,8 @@
 				<div class="bepumi-agreement">
 					<div class="agree-title">
 						<span>개인정보 이용 동의(필수)</span>
-						<div class="check-container">
-							<input type="checkbox" name="agr-btn" id="agr-btn1">
+						<div class="check-container fr">
+							<input type="checkbox" name="agr-btn">
 						</div>
 					</div>
 					<div class="agreement-content"></div>
@@ -64,16 +64,22 @@
 				<div class="bepumi-agreement">
 					<div class="agree-title">
 						<span>개인정보 제 3자 제공 동의(필수)</span>
-						<div class="check-container">
-							<input type="checkbox" name="agr-btn" id="agr-btn1">
+						<div class="check-container fr">
+							<input type="checkbox" name="agr-btn">
 						</div>
 					</div>
 					<div class="agreement-content"></div>
 				</div>
 				<div class="agree-btn-container">
-					<p>전체동의</p>
+					<div class="check-container all-check">
+						<span>전체동의</span> 
+						<input type="checkbox" name="all-check">
+					</div>
 					<a href="">다음</a>
 				</div>
+				<script>
+				
+				</script>
 			</div>
 			</main>
 		</div>

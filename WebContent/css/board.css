@@ -65,6 +65,24 @@
 		.board-table .hit{
 			width:10%;
 		}
+		
+		.paging-container {
+			display: inline-flex;
+		    margin: auto;
+		    margin-top:14px;
+		    font-size:14px;
+		}
+		.paging-container div a,
+		.paging-container ul li a
+		{
+			color: #999;
+		}
+		.paging-container ul li {
+		    float: left;
+		    padding: 0px 1px;
+		}
+		
+		
 		.btn{
 			display: inline-block;
 		    padding: 4px 10px;  
@@ -81,6 +99,8 @@
 		.reg-btn a{
 			color:#505050;
 		}
+		
+		
 		
 /* detail 부분 */
 .detail-container {

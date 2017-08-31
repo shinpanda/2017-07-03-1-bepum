@@ -30,21 +30,42 @@
 							<div class="cell reg-date">작성날짜</div>
 							<div class="cell hit">조회수</div>
 						</div>
-										
-						<c:forEach var="n" items="${list}" begin="0" end="14">					
-						<div class="row">
-							<div class="cell no">${n.no}</div>
-							<div class="cell title title-content"><a href="./free-detail?no=${n.no}">${n.title}</a></div>
-							<div class="cell writer-id">${n.writerId}</div>
-							<div class="cell reg-date">${n.regDate}</div>
-							<div class="cell hit">${n.hit}</div>
-						</div>
+
+						<c:forEach var="n" items="${list}" begin="0" end="14">
+							<div class="row">
+								<div class="cell no">${n.no}</div>
+								<div class="cell title title-content">
+									<a href="./free-detail?no=${n.no}">${n.title}</a>
+								</div>
+								<div class="cell writer-id">${n.writerId}</div>
+								<div class="cell reg-date">${n.regDate}</div>
+								<div class="cell hit">${n.hit}</div>
+							</div>
 						</c:forEach>
+					</div>
+					<c:set var="page" value="${param.p}" />
+					<c:set var="startNum" value="${page-(page-1)%10}" />
+					<c:set var="lastNum" value="${count/10}" />
+					<div class="paging-container clearfix">
+						<div>
+							<a href="?p=1">◀</a>
+						</div>
+						<ul>
+							<%-- <c:forEach varStatus="page" begin="1" end="5">
+						<li><a href="?p=${page.current}">${page.current}</a></li>
+					</c:forEach> --%>
+							<c:forEach var="i" begin="0" end="9">
+								<li><a href="?p=${startNum+i}">${startNum+i}</a></li>
+							</c:forEach>
+						</ul>
+						<div>
+							<a href="?p=${startNum+5}">▶</a>
+						</div>
 					</div>
 				</div>
 				<div class="btn reg-btn">
-				<a href="./free-reg">쓰기</a>
-			</div>
+					<a href="./free-reg">쓰기</a>
+				</div>
 			</div>
 			</main>
 		</div>
