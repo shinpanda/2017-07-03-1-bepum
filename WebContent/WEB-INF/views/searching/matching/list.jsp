@@ -17,7 +17,7 @@
 	<jsp:include page="../../inc/header.jsp"></jsp:include>
 	<div id="body">
 		<div class="content-container">
-			<main id="main" class="main">
+			<main id="main" class="main">			
 			<h3>매칭 진행 현황</h3>
 
 			<div class="matching-progress-container">

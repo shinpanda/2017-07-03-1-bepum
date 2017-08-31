@@ -67,7 +67,7 @@
 					<span>9:00</span> ~ <span>18:00</span>
 				</p>
 			</div>
-			<div class="table-contatiner">
+			<div class="table-container">
 				<h3>소개</h3>
 				<div class="table-wrapper">
 					<div class="intro-table">
