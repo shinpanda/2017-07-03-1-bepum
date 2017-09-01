@@ -216,16 +216,6 @@
 			padding:10px
 			}
 			
-		.agree-btn-container {
-		    width: 660px;
-		    margin: auto;
-		}
-			.agree-btn-container p, 
-			.agree-btn-container a{
-				float:left;
-				
-			}
-
 .agree-btn-container {
     width: 660px;
     margin: auto;
@@ -237,7 +227,7 @@
     width: max-content;
     float: left;
 }		
->>>>>>> refs/remotes/origin/master
+
 		
 		
 		
