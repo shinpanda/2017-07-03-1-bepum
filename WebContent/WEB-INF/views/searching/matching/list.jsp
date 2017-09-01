@@ -80,7 +80,7 @@
 							<div class="row">
 								<div class="cell no">${status.current}</div>
 								<div class="cell request-id">
-									<a href="matching-detail?no=${status.current}">testid</a>
+									<a href="matching-list-detail?no=${status.current}">testid</a>
 								</div>
 								<div class="cell request-name">권다영</div>
 								<div class="cell grade">돌보미</div>
