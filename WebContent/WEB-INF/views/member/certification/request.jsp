@@ -49,6 +49,7 @@
 						<span class="type red">(필수)</span></label>
 						<div class="check-container">
 							<input type="checkbox" name="agr-btn" id="agr-btn1">
+
 						</div>
 					</div>
 					<!-- 아이돌보미 이용약관 -->
@@ -369,19 +370,43 @@
 				</div>
 				<div class="bepumi-agreement">
 					<div class="agree-title">
+<<<<<<< HEAD
 						<label>개인정보 수집/이용 동의
 						<span class="type red">(필수)</span></label>
 						<div class="check-container">
 							<input type="checkbox" name="agr-btn" id="agr-btn1">
+=======
+						<span>개인정보 이용 동의(필수)</span>
+						<div class="check-container fr">
+							<input type="checkbox" name="agr-btn">
+>>>>>>> refs/remotes/origin/master
 						</div>
 					</div>
 					<div class="agreement-content"></div>
 				</div>
+<<<<<<< HEAD
 
+=======
+				<div class="bepumi-agreement">
+					<div class="agree-title">
+						<span>개인정보 제 3자 제공 동의(필수)</span>
+						<div class="check-container fr">
+							<input type="checkbox" name="agr-btn">
+						</div>
+					</div>
+					<div class="agreement-content"></div>
+				</div>
+>>>>>>> refs/remotes/origin/master
 				<div class="agree-btn-container">
-					<p>전체동의</p>
+					<div class="check-container all-check">
+						<label for="all-check">전체동의</label>
+						<input type="checkbox" name="all-check" id="all-check">
+					</div>
 					<a href="">다음</a>
 				</div>
+				<script>
+				
+				</script>
 			</div>
 			</main>
 		</div>

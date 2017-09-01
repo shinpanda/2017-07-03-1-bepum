@@ -1,0 +1,237 @@
+@charset "UTF-8";
+.hidden {
+/* 	visibility : hidden  */
+	display : none;
+}
+
+
+.result-container {
+/* 	background-color:#f7f7f7; */
+	min-height: 1000px;
+	margin-top:70px;
+}
+
+	.result-container .result-setting-container{
+		padding-top: 50px;
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-bottom: 200px;
+	}
+
+		.result-setting-container .resultaddress{
+			font-family : 돋움, Arial, sans-serit;
+			font-size:19px;
+			color:#292929;
+			font-weight: bold;
+			padding-left: 27px;
+			background: url("images/icon-map4.png") no-repeat left center;	  
+		}
+	
+		.result-setting-container .resultcount{
+			padding-top:4px;
+			font-family : 돋움, Arial, sans-serit;
+			font-size:14px;
+			color:#292929;
+		}
+
+
+	.result-container .resultsort {
+		text-align: right;
+	}
+		.result-container .resultsort input[type="radio"]{
+		  display: none;
+		}
+		.result-container .resultsort input[type="radio"] + label span {
+			 display: inline-block;
+			 width: 10px;
+			 height: 10px;
+			 background: transparent;
+			 vertical-align: middle;
+			 border: 2px solid #f56;
+			 border-radius: 50%;
+			 padding: 2px;
+			 margin:0 5px;
+		}
+		.result-container .resultsort input[type="radio"]:checked + label span {
+			width: 10px;
+			height: 10px;
+			background: #f56;
+			background-clip: content-box;
+		}
+
+/* .wrap
+{
+  margin:0 auto 0 auto;
+  width:100%;
+  display:flex;
+  align-items:space-around;
+  max-width:1200px;
+   flex-direction:  column;
+	
+} */
+
+
+.bepumi-list-container .floor{
+
+/* 	margin: 0 auto;
+	min-height:inherit;	
+	max-width:inherit;
+	text-align: center; 
+	overflow: hidden; */
+	display:flex;
+}
+
+
+.bepumi-list-container .bepumi
+{
+
+/* 	
+	-moz-box-shadow: 10px 9px 66px #474647;
+-webkit-box-shadow: 10px 9px 66px #474647;
+box-shadow: 10px 9px 66px #474647; */
+  width:240px;
+  height:320px;
+  margin:10px;
+/*   background-color:#F8D9DD; */
+/* border: 1px solid blue; */
+  display:inline-block;
+  background-size:cover;
+  position:relative;
+  cursor:pointer;
+  transition: all 0.4s ease-out;
+
+  overflow:hidden;
+ 
+  font-family:'Roboto';
+
+  
+}
+.bepumi-list-container .bepumi >img
+{
+  height:240px;
+  width:240px;
+  position:absolute;  
+  z-index:0;
+  transition: all 0.4s ease-out;
+}
+
+.bepumi-list-container .bepumi h1
+{
+ 
+  font-weight:300;
+  margin:0;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+.bepumi-list-container .bepumi h2
+{
+  font-weight:100;
+  margin:20px 0 0 0;
+  font-style:italic;
+   transform: translateX(200px);
+}
+
+.bepumi-list-container .bepumi-pic{
+	 position:absolute;
+	  top:190px;
+	  left:0px;
+	height:50px;
+	  width:240px;
+	
+}
+
+.bepumi-list-container .bepumi-pic .gradesuper{
+	width:95px;
+	height:33px;
+	margin:10px;
+	float: left;
+}
+
+
+.bepumi-list-container .bepumi-pic .gradegeneral{
+	width:60px;
+	height:33px;
+	margin:10px;
+	float: left;
+}
+
+.bepumi-list-container .bepumi-pic p{
+	 width: fit-content;
+	 float:left;
+     margin-top: 17px;	
+ 	width: fit-content;
+ 	font-size:16px;
+ 	color:white;
+ 	font-weight: bold;
+ 	
+}
+
+
+.bepumi-list-container .bepumi-review{
+	
+	font-size:12px;
+}
+
+.bepumi-list-container .bepumi-info.info1
+{
+	/*   z-index:99; */
+	position:absolute;
+	top:240px;
+	left:0px;
+	/*   height:calc(100% - 60px);
+	  height:calc(100% - 60px); */
+	font-family : 돋움, Arial, sans-serit;
+	font-size:14px;
+	text-align: left;
+	height:auto;
+	width:240px;
+	display:inline-block;
+	padding-top:8px;
+	color:#292929;
+	font-weight: bold;
+}
+
+.bepumi-list-container .bepumi-info.info1 p{	
+	width: fit-content;
+	float:left;
+	margin: 0 5px;
+	color:#292929;
+	font-weight: bold;
+}
+
+.bepumi-list-container .bepumi-info.info1 p:first-child{
+	left-margin:0px;
+	color:#292929;
+	font-weight: bold;
+}
+	
+.bepumi-list-container .bepumi-info.info2 {
+	 padding:0 2.5px;
+	  position:absolute;
+	  top:270px;
+	  left:0px;
+	  font-family : 돋움, Arial, sans-serit;
+		font-size:14px;
+		text-align: left;
+	  height:60px;
+	  width:240px;
+	  display:inline-block;
+	  font-weight: bold;
+	
+}
+
+
+.bepumi-list-container .bepumi-name{
+	 	 font-weight: bold;
+ 		width: fit-content;
+ 		font-size:15px;
+	
+}
+
+
+	
+/*   font-weight:300;
+  margin:20px 0 0 0;
+  line-height: 25px;
+  opacity:0;
+  transform: translateX(-200px);
+  transition-delay: 0.2s; */

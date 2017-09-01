@@ -65,6 +65,62 @@
 		.board-table .hit{
 			width:10%;
 		}
+/* ------------------------------------------------ */		
+		.search-form-container {
+		    text-align: left;
+		    margin-top: 29px;
+		}
+	
+			.search-form-container .search:hover{
+				box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+			}
+			
+				.search-form-container input[type="search"]{
+					 margin-left: 10px;
+				}
+				
+				.search-form-container .search-form{
+					display: flex;
+					flex-direction: row;
+				}
+			
+			.search-form-container .search-btn-img{
+				background: url(../images/search-icon.png) no-repeat center;
+			    width: 30px;
+			    height: 30px;
+			    background-size: 18px;
+			    text-indent: -999px;
+			    border: none;
+			}
+
+		
+/* ------------------------------------------------ */
+		.paging-container {
+			display: inline-flex;
+		    margin: auto;
+		    margin-top:14px;
+		    font-size:14px;
+		}
+		.paging-container div {
+		    padding: 0px 8px;
+		}
+		
+		.paging-container div a,
+		.paging-container ul li a
+		{
+			color: #999;
+		}
+		
+		.paging-container ul li {
+		    float: left;
+		    padding: 0px 8px;
+		}
+		
+		.paging-container .page-present{
+			color:black;
+		}
+		
+		
 		.btn{
 			display: inline-block;
 		    padding: 4px 10px;  
@@ -81,6 +137,8 @@
 		.reg-btn a{
 			color:#505050;
 		}
+		
+		
 		
 /* detail 부분 */
 .detail-container {
@@ -117,8 +175,13 @@
 	.ch-wrapper{
 		float: right;
 	}
+		.ch-wrapper .hit {
+		    margin-left: 10px;
+		}	
+	
 	.detail-content {
 	    padding: 30px 10px;
+	    font-size: 14px;
 	}
 	
 	.ed-wrapper{
@@ -152,6 +215,8 @@
 .reg-form > textarea {
     border-radius: 3px;
     resize: none;
+    font-size: 14px;
+    padding: 7px;
 }
 
 
@@ -198,9 +263,36 @@
 
 
 /* del 부분 */
+.del-body {
+    background: rgba(96, 125, 139, 0.48);
+}
+.simple-container {
+    margin: auto;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    background: white;
+    flex-direction: column;
+    border: 1px solid #a2a2a2;
+    box-shadow: 1px 2px 9px 0px rgba(0, 0, 0, 0.29);
+    justify-content: space-evenly;
+}
 
-
-
-
-
+	.simple-container div:first-child {
+	    border-top: none;
+	}
+	
+	.simple-container div {
+	    border-top: 1px solid #a2a2a2;
+	    display: flex;
+	    align-items: center;
+	    flex-grow: 1;
+	    padding: 0px 20px;
+	}
+	
+	.simple-container div:last-child {
+	    justify-content: space-between;
+	}
+	
+	
 

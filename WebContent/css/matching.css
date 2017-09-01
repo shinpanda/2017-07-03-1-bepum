@@ -226,12 +226,78 @@
 			.present{
 				opacity: 1;
 			}
+			
+			
+/* 신청자 쪽 detail 상단 부분*/		
+.profile-container{
+	display: flex;
+	justify-content: center;
+}
+
+.member.profile-img {
+	width:400px;
+}
+
+.profile-btn-wrapper{
+	display: flex;
+	justify-content: center;
+}
+
+.btn-profile-container a{
+    display: block;   
+    text-decoration: none;
+    background: url("../images/btn-profile.png") ;
+	width:35px;
+	height:27px;
+	border: none;
+	margin-left:10px;
+}
+
+.btn.msg-btn{
+	background: url("../images/btn-message.png") ;
+	width:35px;
+	height:27px;
+	border: none;
+	margin-right:10px;
+}
+/* .btn.profile-btn{
+	background: url("../images/btn-profile.png") ;
+	width:35px;
+	height:27px;
+	border: none;
+	margin-left:10px;
+} */
+
+
+.profile-detail {
+    align-self: center;
+}
+
+.profile-detail-table {
+    display: table;
+    box-sizing: border-box;
+    width: 400px;
+    margin: auto;
+    line-height: 28px;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+	
 
 /* 신청자 쪽 detail 하단 부분*/
 
-.member.rb-container {
-    width: 60%;
+.member.rb-wrapper{
+	width:80%;
+	margin:auto;
+	margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid;
+    border-top-color: #e9e9e9;
+}
 
+.member.rb-container {
+    width: 70%;
 }
 
 .member.bepum-date{
@@ -239,8 +305,10 @@
 }
 
 .member.ongoing-bottom{
+	width: 80%;
 	display: flex;
 	justify-content: center;
+	margin:auto;
 	margin-top: 35px;
 	padding-top: 25px;
 	border-top: 1px solid;

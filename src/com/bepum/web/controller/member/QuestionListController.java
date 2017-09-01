@@ -15,6 +15,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bepum.web.dao.BoardDao;
+import com.bepum.web.dao.SecretBoardDao;
+import com.bepum.web.dao.jdbc.JdbcBoardDao;
+import com.bepum.web.dao.jdbc.JdbcSecretBoardDao;
 import com.bepum.web.entity.Board;
 
 
@@ -22,54 +26,30 @@ import com.bepum.web.entity.Board;
 public class QuestionListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String _title = request.getParameter("title");
-		String title = "";
-		if (_title != null && !(_title.equals("")))
-			title = _title;
+		String _tName = request.getParameter("search-sel");
+		String _query = request.getParameter("search");
 		
-		List<Board> list = null;
-		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+		String _page = request.getParameter("p");
+		
+		
+		
+		int page = 1;
+		if (_page != null && !(_page.equals("")))
+			page = Integer.parseInt(_page);
+		
+		String query = "";
+		if (_query != null && !(_query.equals("")))
+			query = _query;
+		
+		String tName = "writerId";
+		if (_tName != null && !(_tName.equals("")))
+			tName = _tName;
+		
+		System.out.println(tName);
+		BoardDao dao = new JdbcBoardDao();
 
-		// JDBC 드라이버 로드
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-
-			String sql = "SELECT * FROM Notice where title like ? order by regDate desc";
-			Connection con = DriverManager.getConnection(url, "sist", "cclass");
-			/* Statement st = con.createStatement(); */
-			PreparedStatement st = con.prepareStatement(sql);
-			st.setString(1, String.format("%%%s%%", title));
-			/*st.setString(1, "%"+title+"%");*/
-
-			// 결과 가져오기
-			ResultSet rs = st.executeQuery();
-
-			// model
-			list = new ArrayList<>();
-
-			// 결과 사용
-			while (rs.next()) {
-				Board b = new Board();
-				b.setNo(rs.getString("id"));
-				b.setTitle(rs.getString("title"));
-				b.setWriterId(rs.getString("writerId"));
-				b.setRegDate(rs.getDate("regDate"));
-				b.setHit(rs.getInt("hit"));
-				list.add(b);
-			}
-
-			rs.close();
-			st.close();
-			con.close();
-
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		request.setAttribute("list", list);
+		request.setAttribute("list", dao.getList(page, tName, query, "Free"));
+		request.setAttribute("count", dao.getCount());
 		
 		/*response.sendRedirect("notice.jsp");*/
 		request.getRequestDispatcher("/WEB-INF/views/board/question/list.jsp").forward(request, response);
