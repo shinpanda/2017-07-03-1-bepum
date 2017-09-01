@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html>
@@ -37,7 +37,8 @@
 							<div class="row">
 								<div class="cell no">${n.no}</div>
 								<div class="cell title title-content">
-									<a href="./free-detail?no=${n.no}">${n.title}</a>
+									<a href="./free-detail?no=${n.no}">${n.title}
+										(${n.countCmt})</a>
 								</div>
 								<div class="cell writer-id">${n.writerId}</div>
 								<div class="cell reg-date">${n.regDate}</div>
@@ -51,13 +52,16 @@
 								<option value="writerId">아이디</option>
 								<option value="title">제목</option>
 								<option value="content">내용</option>
-							</select> <input type="search" name="search" /> <input type="submit"
-								class="search-btn-img" />
+							</select>
+
+								<input type="search" name="search" /> <input type="submit"
+									class="search search-btn-img" />
 						</form>
 					</div>
 					<c:set var="page" value="${param.p}" />
 					<c:set var="startNum" value="${page-(page-1)%10}" />
-					<c:set var="lastNum" value="${fn:substringBefore((count%15 == 0 ? (count/15) : (count/15)+1) , '.')}" />
+					<c:set var="lastNum"
+						value="${fn:substringBefore((count%15 == 0 ? (count/15) : (count/15)+1) , '.')}" />
 					<div class="paging-container clearfix">
 						<div>
 							<c:if test="${startNum<=10 || startNum == null}">

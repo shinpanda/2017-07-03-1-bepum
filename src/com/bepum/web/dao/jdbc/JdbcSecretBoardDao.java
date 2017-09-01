@@ -12,21 +12,22 @@ import java.util.List;
 import com.bepum.web.dao.BoardDao;
 import com.bepum.web.dao.SecretBoardDao;
 import com.bepum.web.entity.Board;
+import com.bepum.web.entity.BoardView;
 
 public class JdbcSecretBoardDao implements SecretBoardDao {
 
 	@Override
-	public List<Board> getList(int page, String t_name, String query, String bName) {
+	public List<BoardView> getList(int page, String t_name, String query, String bName) {
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
-		List<Board> list = null;
+		List<BoardView> list = null;
 		int offset = ((page - 1) * 15);
 
 		// JDBC 드라이버 로드
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			String sql = "SELECT * FROM Notice where "+t_name+" like ? order by regDate desc limit ?, 15";
+			String sql = "SELECT * FROM NoticeView where "+t_name+" like ? order by regDate desc limit ?, 15";
 
 			Connection con = DriverManager.getConnection(url, "sist", "cclass");
 			/* Statement st = con.createStatement(); */
@@ -44,13 +45,14 @@ public class JdbcSecretBoardDao implements SecretBoardDao {
 
 			// 결과 사용
 			while (rs.next()) {
-				Board b = new Board();
+				BoardView b = new BoardView();
 				b.setNo(rs.getString("id"));
 				b.setTitle(rs.getString("title"));
 				b.setContent(rs.getString("content"));
 				b.setWriterId(rs.getString("writerId"));
 				b.setRegDate(rs.getDate("regDate"));
 				b.setHit(rs.getInt("hit"));
+				b.setCountCmt((rs.getInt("countCmt")));
 				list.add(b);
 			}
 			rs.close();
@@ -177,8 +179,8 @@ public class JdbcSecretBoardDao implements SecretBoardDao {
 	}
 
 	@Override
-	public Board get(String no, String bName) {
-		Board b = null;
+	public BoardView get(String no, String bName) {
+		BoardView b = null;
 
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
@@ -186,7 +188,7 @@ public class JdbcSecretBoardDao implements SecretBoardDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String sql = "SELECT * FROM Notice where id = ?";
+			String sql = "SELECT * FROM NoticeView where id = ?";
 			Connection con = DriverManager.getConnection(url, "sist", "cclass");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
@@ -199,13 +201,14 @@ public class JdbcSecretBoardDao implements SecretBoardDao {
 
 			// 결과 사용
 			while (rs.next()) {
-				b = new Board();
+				b = new BoardView();
 				b.setNo(rs.getString("id"));
 				b.setTitle(rs.getString("title"));
 				b.setContent(rs.getString("content"));
 				b.setWriterId(rs.getString("writerId"));
 				b.setRegDate(rs.getDate("regDate"));
 				b.setHit(rs.getInt("hit"));
+				b.setCountCmt(rs.getInt("countCmt"));
 			}
 
 			rs.close();
