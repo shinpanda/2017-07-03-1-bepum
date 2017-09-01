@@ -171,6 +171,14 @@
     			padding:10px;
 			}
 			
+			.agree-title .type{
+			 	margin: 0 10px;
+			}
+			
+			.red{
+				color: red;
+			}
+			
 			.check-container{
 				display: inline-block;	
 			}
@@ -203,6 +211,11 @@
 			    height:200px;
 			    overflow: auto;
 			}
+
+			.con{
+			padding:10px
+			}
+			
 .agree-btn-container {
     width: 660px;
     margin: auto;
@@ -214,6 +227,7 @@
     width: max-content;
     float: left;
 }		
+
 		
 		
 		
