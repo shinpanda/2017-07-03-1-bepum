@@ -17,7 +17,7 @@ import com.bepum.web.entity.BoardView;
 public class JdbcSecretBoardDao implements SecretBoardDao {
 
 	@Override
-	public List<BoardView> getList(int page, String t_name, String query, String bName) {
+	public List<BoardView> getList(int page, String c_name, String query, String bName) {
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
 		List<BoardView> list = null;
@@ -27,7 +27,7 @@ public class JdbcSecretBoardDao implements SecretBoardDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			String sql = "SELECT * FROM NoticeView where "+t_name+" like ? order by regDate desc limit ?, 15";
+			String sql = "SELECT * FROM NoticeView where "+c_name+" like ? order by regDate desc limit ?, 15";
 
 			Connection con = DriverManager.getConnection(url, "sist", "cclass");
 			/* Statement st = con.createStatement(); */

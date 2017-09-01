@@ -7,7 +7,7 @@ import com.bepum.web.entity.BoardView;
 
 public interface SecretBoardDao {
 
-	List<BoardView> getList(int page,String t_name, String query, String bName);
+	List<BoardView> getList(int page,String c_name, String query, String bName);
 
 	BoardView get(String no, String bName);
 
