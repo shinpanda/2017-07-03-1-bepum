@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,13 +19,13 @@ public class JdbcBoardDao implements BoardDao {
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
 		List<Board> list = null;
-		int offset = ((page - 1) * 10);
+		int offset = ((page - 1) * 15);
 
 		// JDBC 드라이버 로드
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			String sql = "SELECT * FROM Notice where "+t_name+" like ? order by regDate desc limit ?, 10";
+			String sql = "SELECT * FROM Notice where "+t_name+" like ? order by regDate desc limit ?, 15";
 
 			Connection con = DriverManager.getConnection(url, "sist", "cclass");
 			/* Statement st = con.createStatement(); */
@@ -66,6 +67,44 @@ public class JdbcBoardDao implements BoardDao {
 		return list;
 	}
 
+	public int getCount() {
+		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+
+		int count = 0;
+		// JDBC 드라이버 로드
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			String sqlCount = "SELECT count(id) as count FROM Notice";
+			
+			Connection con = DriverManager.getConnection(url, "sist", "cclass");
+			/* Statement st = con.createStatement(); */
+
+			/*st.setString(1, "%"+title+"%");*/
+
+			Statement stCount = con.createStatement();
+			ResultSet rsCount = stCount.executeQuery(sqlCount);
+			
+			if(rsCount.next())
+				count = rsCount.getInt("count");
+			
+			// 결과 가져오기
+
+			rsCount.close();
+			stCount.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count;
+	}
+
+	
 	@Override
 	public int update(String no, String title, String content, String bName) {
 		int result = 0;

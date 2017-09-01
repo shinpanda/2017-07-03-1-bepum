@@ -14,5 +14,7 @@ public interface BoardDao {
 
 	int insert(String title, String content, String bName);
 
+	int getCount();
+
 
 }
