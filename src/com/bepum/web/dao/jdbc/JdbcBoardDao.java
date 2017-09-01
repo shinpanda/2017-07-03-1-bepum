@@ -224,4 +224,38 @@ public class JdbcBoardDao implements BoardDao {
 		return b;
 	}
 
+	@Override
+	public int delete(String no, String string) {
+		int result = 0;
+
+		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+
+		// JDBC 드라이버 로드
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			String sql = "delete from Notice where id = ?";
+			Connection con = DriverManager.getConnection(url, "sist", "cclass");
+			/* Statement st = con.createStatement(); */
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, no);
+
+			result = st.executeUpdate();
+
+			// model
+
+			// 결과 사용
+			st.close();
+			con.close();
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }

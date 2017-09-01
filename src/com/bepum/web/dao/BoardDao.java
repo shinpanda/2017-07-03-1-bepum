@@ -17,5 +17,7 @@ public interface BoardDao {
 
 	int getCount();
 
+	int delete(String no, String string);
+
 
 }
