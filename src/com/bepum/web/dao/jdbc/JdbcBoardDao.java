@@ -5,26 +5,28 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.bepum.web.dao.BoardDao;
 import com.bepum.web.entity.Board;
+import com.bepum.web.entity.BoardView;
 
 public class JdbcBoardDao implements BoardDao {
 
 	@Override
-	public List<Board> getList(int page, String t_name, String query, String bName) {
+	public List<BoardView> getList(int page, String t_name, String query, String bName) {
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
-		List<Board> list = null;
-		int offset = ((page - 1) * 10);
+		List<BoardView> list = null;
+		int offset = ((page - 1) * 15);
 
 		// JDBC 드라이버 로드
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			String sql = "SELECT * FROM Notice where "+t_name+" like ? order by regDate desc limit ?, 10";
+			String sql = "SELECT * FROM NoticeView where "+t_name+" like ? order by regDate desc limit ?, 15";
 
 			Connection con = DriverManager.getConnection(url, "sist", "cclass");
 			/* Statement st = con.createStatement(); */
@@ -42,13 +44,14 @@ public class JdbcBoardDao implements BoardDao {
 
 			// 결과 사용
 			while (rs.next()) {
-				Board b = new Board();
+				BoardView b = new BoardView();
 				b.setNo(rs.getString("id"));
 				b.setTitle(rs.getString("title"));
 				b.setContent(rs.getString("content"));
 				b.setWriterId(rs.getString("writerId"));
 				b.setRegDate(rs.getDate("regDate"));
 				b.setHit(rs.getInt("hit"));
+				b.setCountCmt(rs.getInt("countCmt"));
 				list.add(b);
 			}
 			rs.close();
@@ -66,6 +69,44 @@ public class JdbcBoardDao implements BoardDao {
 		return list;
 	}
 
+	public int getCount() {
+		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+
+		int count = 0;
+		// JDBC 드라이버 로드
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			String sqlCount = "SELECT count(id) as count FROM Notice";
+			
+			Connection con = DriverManager.getConnection(url, "sist", "cclass");
+			/* Statement st = con.createStatement(); */
+
+			/*st.setString(1, "%"+title+"%");*/
+
+			Statement stCount = con.createStatement();
+			ResultSet rsCount = stCount.executeQuery(sqlCount);
+			
+			if(rsCount.next())
+				count = rsCount.getInt("count");
+			
+			// 결과 가져오기
+
+			rsCount.close();
+			stCount.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count;
+	}
+
+	
 	@Override
 	public int update(String no, String title, String content, String bName) {
 		int result = 0;
@@ -137,8 +178,8 @@ public class JdbcBoardDao implements BoardDao {
 	}
 
 	@Override
-	public Board get(String no, String bName) {
-		Board b = null;
+	public BoardView get(String no, String bName) {
+		BoardView b = null;
 
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
@@ -146,7 +187,7 @@ public class JdbcBoardDao implements BoardDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String sql = "SELECT * FROM Notice where id = ?";
+			String sql = "SELECT * FROM NoticeView where id = ?";
 			Connection con = DriverManager.getConnection(url, "sist", "cclass");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
@@ -159,13 +200,14 @@ public class JdbcBoardDao implements BoardDao {
 
 			// 결과 사용
 			while (rs.next()) {
-				b = new Board();
+				b = new BoardView();
 				b.setNo(rs.getString("id"));
 				b.setTitle(rs.getString("title"));
 				b.setContent(rs.getString("content"));
 				b.setWriterId(rs.getString("writerId"));
 				b.setRegDate(rs.getDate("regDate"));
 				b.setHit(rs.getInt("hit"));
+				b.setCountCmt(rs.getInt("countCmt"));
 			}
 
 			rs.close();

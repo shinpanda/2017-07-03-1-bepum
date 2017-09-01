@@ -48,6 +48,7 @@ public class FreeBoardListController extends HttpServlet {
 		BoardDao dao = new JdbcBoardDao();
 
 		request.setAttribute("list", dao.getList(page, tName, query, "Free"));
+		request.setAttribute("count", dao.getCount());
 		
 		/*response.sendRedirect("notice.jsp");*/
 		request.getRequestDispatcher("/WEB-INF/views/board/freeboard/list.jsp").forward(request, response);

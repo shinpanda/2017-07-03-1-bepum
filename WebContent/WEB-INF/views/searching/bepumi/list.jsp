@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <link href="../css/common_style.css" type="text/css" rel="stylesheet">
 <link href="../css/style2.css" type="text/css" rel="stylesheet">
-<link rel="stylesheet" href="css/list-top.css">
+<link href="css/list-top.css" rel="stylesheet" >
 <link href="css/list-bottom.css" type="text/css" rel="stylesheet" />
 
 <title>베품</title>
