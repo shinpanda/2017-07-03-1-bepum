@@ -30,7 +30,7 @@
 					</div>
 					<div class="req-progress">
 						<p class="step">2단계</p>
-						<p>전화번호 인증</p>
+						<p>본인 인증</p>
 					</div>
 					<div class="req-progress">
 						<p class="step">3단계</p>
@@ -386,7 +386,7 @@
 						<label for="all-check">전체동의</label>
 						<input type="checkbox" name="all-check" id="all-check"/>
 					</div>
-					<a href="">다음</a>
+					<a href="certification-identify">다음</a>
 				</div>
 				<script>
 				
