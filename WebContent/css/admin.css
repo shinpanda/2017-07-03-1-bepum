@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+.body {
+    padding: 35px;
+    background: rgba(96, 125, 139, 0.2);
+}
+
+.aside {
+    width: 220px;
+    box-sizing: border-box;
+    background: #fff;
+    padding: 10px 25px 25px 25px;
+    font-size: 15px;
+    float:left;
+}
+
+	.aside h1 {
+	    font-size: 16px;
+	    margin: 7px 0px;
+	    padding: 0px;
+	}
+	
+	.aside nav {
+	    margin-top: 10px;
+	    border-top: 1px solid #ebebeb;
+	    padding: 5px;
+	}
+		.aside nav ul li {
+		    padding-left: 5px;
+		    margin-top: 2px;
+		    font-size: 14px;
+		}
+		
+.main {
+    padding: 20px;
+    background: white;
+    float: left;
+    width: 810px;
+    box-sizing: border-box;
+    margin: 0px 55px;
+}
+
+.table-container{
+	margin:auto;
+}
+.table-wrapper {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.board-table {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 100%;
+    border-collapse: collapse;
+}
+	.board-table .table-header {
+	    border-top: 1px solid rgb(214, 214, 214);
+	    background: rgba(125, 125, 125, 0.07);
+	    line-height: 30px;
+	    font-size: 12px;
+	}
+	.board-table .row {
+	    display: flex;
+	    border-bottom: 1px solid #f3f3f3;
+	    font-size: 13px;
+	    flex-direction: row;
+	}
+		.board-table .cell {
+		    padding: 8px 10px;
+		}
+		.board-table .no{
+			width:8%;
+		}
+		
+		.board-table .title {
+		    width: 60%;
+		    white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		}
+		.board-table .title-content{
+			text-align: left;
+		}
+		.board-table .writer-id{
+			width:10%;
+		}
+		.board-table .reg-date{
+			width:12%;
+		}
+		
+		.board-table .hit{
+			width:10%;
+		}
+		
+		.paging-container {
+			display: inline-flex;
+		    margin: auto;
+		    margin-top:14px;
+		    font-size:14px;
+		}
+		.paging-container div {
+		    padding: 0px 8px;
+		}
+		
+		.paging-container div a,
+		.paging-container ul li a
+		{
+			color: #999;
+		}
+		
+		.paging-container ul li {
+		    float: left;
+		    padding: 0px 8px;
+		}
+		
+		.paging-container .page-present{
+			color:black;
+		}
+		
+		
+		.btn{
+			display: inline-block;
+		    padding: 4px 10px;  
+		    font-size: 12px;
+		    border: 1px solid #d6d6d6;
+		    border-radius: 3px;
+		}
+		.btn:hover{
+			box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+		}
+		.reg-btn {
+		    float: right;
+		}
+		.reg-btn a{
+			color:#505050;
+		}

@@ -17,7 +17,7 @@
   <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
 <link rel='stylesheet prefetch' href='css/codepen_io_andytran_pen.css'>
 
-<title>베품</title>
+<title>베:품</title>
 <!-- 요청, 진행 중, 과거 매칭 -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
