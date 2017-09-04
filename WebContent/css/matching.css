@@ -496,9 +496,21 @@
 }
 
 .review-popup .review {
-    padding: 20px;
     flex-grow: 1;
-    border-top: 1px solid #ebebeb;
+    border-top: 1px solid #ebebeb;  
+    
+}
+
+.review-popup .review textarea {
+    margin: 0;
+    border: 0;
+    outline: none;
+    resize: none;
+    width: 100%;
+    height: 183px;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: Malgun Gothic;
 }
 
 .review-popup .btn-container {
