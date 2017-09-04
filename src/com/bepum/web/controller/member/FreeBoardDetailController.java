@@ -26,6 +26,7 @@ public class FreeBoardDetailController extends HttpServlet {
 		String no = request.getParameter("no");
 		
 		BoardDao dao = new JdbcBoardDao();
+		int result = dao.updateHit(no);
 		request.setAttribute("b", dao.get(no, "Free"));
 		request.setAttribute("br", "<br/>");
 		request.setAttribute("cn", "\n");

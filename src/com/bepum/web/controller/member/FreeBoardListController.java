@@ -25,7 +25,7 @@ public class FreeBoardListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String _tName = request.getParameter("search-sel");
+		String _cName = request.getParameter("search-sel");
 		String _query = request.getParameter("search");
 		
 		String _page = request.getParameter("p");
@@ -40,14 +40,14 @@ public class FreeBoardListController extends HttpServlet {
 		if (_query != null && !(_query.equals("")))
 			query = _query;
 		
-		String tName = "writerId";
-		if (_tName != null && !(_tName.equals("")))
-			tName = _tName;
+		String cName = "writerId";
+		if (_cName != null && !(_cName.equals("")))
+			cName = _cName;
 		
-		System.out.println(tName);
 		BoardDao dao = new JdbcBoardDao();
 
-		request.setAttribute("list", dao.getList(page, tName, query, "Free"));
+		request.setAttribute("list", dao.getList(page, cName, query, "Free"));
+		request.setAttribute("count", dao.getCount());
 		
 		/*response.sendRedirect("notice.jsp");*/
 		request.getRequestDispatcher("/WEB-INF/views/board/freeboard/list.jsp").forward(request, response);

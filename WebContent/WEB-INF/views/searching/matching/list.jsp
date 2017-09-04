@@ -17,7 +17,7 @@
 	<jsp:include page="../../inc/header.jsp"></jsp:include>
 	<div id="body">
 		<div class="content-container">
-			<main id="main" class="main">
+			<main id="main" class="main">			
 			<h3>매칭 진행 현황</h3>
 
 			<div class="matching-progress-container">
@@ -80,7 +80,7 @@
 							<div class="row">
 								<div class="cell no">${status.current}</div>
 								<div class="cell request-id">
-									<a href="matching-detail?no=${status.current}">testid</a>
+									<a href="matching-list-detail?no=${status.current}">testid</a>
 								</div>
 								<div class="cell request-name">권다영</div>
 								<div class="cell grade">돌보미</div>

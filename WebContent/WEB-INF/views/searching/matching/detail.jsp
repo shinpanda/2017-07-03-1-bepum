@@ -13,7 +13,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
-<body>	
+<body>
 	<jsp:include page="../../inc/header.jsp"></jsp:include>
 	<div id="body">
 		<div class="content-container">

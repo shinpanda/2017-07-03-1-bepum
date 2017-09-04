@@ -26,20 +26,29 @@ import com.bepum.web.entity.Board;
 public class QuestionListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String _title = request.getParameter("title");
+		String _cName = request.getParameter("search-sel");
+		String _query = request.getParameter("search");
+		
 		String _page = request.getParameter("p");
+		
+		
 		
 		int page = 1;
 		if (_page != null && !(_page.equals("")))
 			page = Integer.parseInt(_page);
 		
-		String title = "";
-		if (_title != null && !(_title.equals("")))
-			title = _title;
+		String query = "";
+		if (_query != null && !(_query.equals("")))
+			query = _query;
 		
-		SecretBoardDao dao = new JdbcSecretBoardDao();
+		String cName = "writerId";
+		if (_cName != null && !(_cName.equals("")))
+			cName = _cName;
+		
+		BoardDao dao = new JdbcBoardDao();
 
-		request.setAttribute("list", dao.getList(page, title, "Question"));
+		request.setAttribute("list", dao.getList(page, cName, query, "Free"));
+		request.setAttribute("count", dao.getCount());
 		
 		/*response.sendRedirect("notice.jsp");*/
 		request.getRequestDispatcher("/WEB-INF/views/board/question/list.jsp").forward(request, response);
