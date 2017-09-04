@@ -36,7 +36,8 @@
 	<div class="review-popup hidden">
 		<div class="review-reg-containter">
 			<form method="post" class="review-form">
-				<div class="rating-container">별점
+				<div class="rating-container">
+					<span>만족도 평가</span>
 					<input type="radio" name="rating" value="1" id = "r1" />
 					<label for ="r1" class="rating"></label>
 					<input type="radio" name="rating" value="2" id = "r2" />
