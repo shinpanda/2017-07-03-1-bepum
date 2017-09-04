@@ -7,7 +7,7 @@ import com.bepum.web.entity.BoardView;
 
 public interface BoardDao {
 
-	List<BoardView> getList(int page,String t_name, String query, String bName);
+	List<BoardView> getList(int page,String c_name, String query, String bName);
 
 	BoardView get(String no, String bName);
 
@@ -16,6 +16,10 @@ public interface BoardDao {
 	int insert(String title, String content, String bName);
 
 	int getCount();
+
+	int delete(String no, String string);
+
+	int updateHit(String no);
 
 
 }

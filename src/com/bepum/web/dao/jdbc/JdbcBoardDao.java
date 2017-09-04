@@ -16,8 +16,8 @@ import com.bepum.web.entity.BoardView;
 public class JdbcBoardDao implements BoardDao {
 
 	@Override
-	public List<BoardView> getList(int page, String t_name, String query, String bName) {
-		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+	public List<BoardView> getList(int page, String c_name, String query, String bName) {
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
 		List<BoardView> list = null;
 		int offset = ((page - 1) * 15);
@@ -26,9 +26,9 @@ public class JdbcBoardDao implements BoardDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			String sql = "SELECT * FROM NoticeView where "+t_name+" like ? order by regDate desc limit ?, 15";
+			String sql = "SELECT * FROM FreeView where "+c_name+" like ? order by regDate desc limit ?, 15";
 
-			Connection con = DriverManager.getConnection(url, "sist", "cclass");
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
 
@@ -45,10 +45,10 @@ public class JdbcBoardDao implements BoardDao {
 			// 결과 사용
 			while (rs.next()) {
 				BoardView b = new BoardView();
-				b.setNo(rs.getString("id"));
+				b.setNo(rs.getString("no"));
 				b.setTitle(rs.getString("title"));
 				b.setContent(rs.getString("content"));
-				b.setWriterId(rs.getString("writerId"));
+				b.setWriterId(rs.getString("writerID"));
 				b.setRegDate(rs.getDate("regDate"));
 				b.setHit(rs.getInt("hit"));
 				b.setCountCmt(rs.getInt("countCmt"));
@@ -70,16 +70,16 @@ public class JdbcBoardDao implements BoardDao {
 	}
 
 	public int getCount() {
-		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
 		int count = 0;
 		// JDBC 드라이버 로드
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String sqlCount = "SELECT count(id) as count FROM Notice";
+			String sqlCount = "SELECT count(no) as count FROM FreeView";
 			
-			Connection con = DriverManager.getConnection(url, "sist", "cclass");
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
 
 			/*st.setString(1, "%"+title+"%");*/
@@ -110,14 +110,14 @@ public class JdbcBoardDao implements BoardDao {
 	@Override
 	public int update(String no, String title, String content, String bName) {
 		int result = 0;
-		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
 		// JDBC 드라이버 로드
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String sql = "update Notice set title  = ?, content  = ? where id = ?";
-			Connection con = DriverManager.getConnection(url, "sist", "cclass");
+			String sql = "update Free set title  = ?, content  = ? where no = ?";
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, title);
@@ -143,19 +143,19 @@ public class JdbcBoardDao implements BoardDao {
 	@Override
 	public int insert(String title, String content, String bName) {
 		int result = 0;
-		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
 		// JDBC 드라이버 로드
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String sql = "INSERT INTO Notice(id, title, content, writerId) VALUES ((select IFNULL(max(cast(id as unsigned)), 0)+1 from Notice n), ?, ?, ?)";
-			Connection con = DriverManager.getConnection(url, "sist", "cclass");
+			String sql = "INSERT INTO Free(no, title, content, writerID) VALUES ((select IFNULL(max(cast(no as unsigned)), 0)+1 from Free f), ?, ?, ?)";
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, title);
 			st.setString(2, content);
-			st.setString(3, "newlec");
+			st.setString(3, "admin");
 
 			/* st.setString(1, "%"+title+"%"); */
 
@@ -181,14 +181,14 @@ public class JdbcBoardDao implements BoardDao {
 	public BoardView get(String no, String bName) {
 		BoardView b = null;
 
-		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
 		// JDBC 드라이버 로드
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String sql = "SELECT * FROM NoticeView where id = ?";
-			Connection con = DriverManager.getConnection(url, "sist", "cclass");
+			String sql = "SELECT * FROM FreeView where no = ?";
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, no);
@@ -201,10 +201,10 @@ public class JdbcBoardDao implements BoardDao {
 			// 결과 사용
 			while (rs.next()) {
 				b = new BoardView();
-				b.setNo(rs.getString("id"));
+				b.setNo(rs.getString("no"));
 				b.setTitle(rs.getString("title"));
 				b.setContent(rs.getString("content"));
-				b.setWriterId(rs.getString("writerId"));
+				b.setWriterId(rs.getString("writerID"));
 				b.setRegDate(rs.getDate("regDate"));
 				b.setHit(rs.getInt("hit"));
 				b.setCountCmt(rs.getInt("countCmt"));
@@ -222,6 +222,71 @@ public class JdbcBoardDao implements BoardDao {
 			e.printStackTrace();
 		}
 		return b;
+	}
+
+	@Override
+	public int delete(String no, String string) {
+		int result = 0;
+
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+
+		// JDBC 드라이버 로드
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			String sql = "delete from Free where no = ?";
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+			/* Statement st = con.createStatement(); */
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, no);
+
+			result = st.executeUpdate();
+
+			// model
+
+			// 결과 사용
+			st.close();
+			con.close();
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public int updateHit(String no) {
+		int result = 0;
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+
+		// JDBC 드라이버 로드
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			String sql = "update Free set hit = hit+1 where no = ?";
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+			/* Statement st = con.createStatement(); */
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, no);
+
+			result = st.executeUpdate();
+			// 업데이트된 row 개수 알려줌
+
+			st.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 }
