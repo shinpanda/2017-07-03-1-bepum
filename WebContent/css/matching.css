@@ -491,14 +491,40 @@
     height: inherit;
 }
 
-.review-popup .rating {
-    padding: 20px;
+.review-popup .rating-container {
+    padding: 5px 19px;
+    display: flex;
+    align-items: center;
+}
+
+.rating-container input[type="radio"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.rating-container .rating {
+    background: url(../images/smile.png) no-repeat center;
+    background-size: contain;
+    width: 45px;
+    height: 45px;
+    -webkit-appearance: none;
+}
+
+.rating-container .rating.active{
+	background:url("../images/smile-on.png") no-repeat center;
+	background-size: contain;
+	
 }
 
 .review-popup .review {
     flex-grow: 1;
     border-top: 1px solid #ebebeb;  
-    
 }
 
 .review-popup .review textarea {

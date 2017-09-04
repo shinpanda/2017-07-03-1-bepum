@@ -36,7 +36,38 @@
 	<div class="review-popup hidden">
 		<div class="review-reg-containter">
 			<form method="post" class="review-form">
-				<div class="rating">별점</div>
+				<div class="rating-container">별점
+					<input type="radio" name="rating" value="1" id = "r1" />
+					<label for ="r1" class="rating"></label>
+					<input type="radio" name="rating" value="2" id = "r2" />
+					<label for ="r2" class="rating"></label>
+					<input type="radio" name="rating" value="3" id = "r3" />
+					<label for ="r3" class="rating"></label>
+					<input type="radio" name="rating" value="4" id = "r4" />
+					<label for ="r4" class="rating"></label>
+					<input type="radio" name="rating" value="5" id = "r5" />
+					<label for ="r5" class="rating"></label>
+				</div>
+				<script>
+ 					$(".rating").hover(function(){
+						$(this).parent().children(".rating").removeClass("active");
+						$(this).addClass("active").prevAll(".rating").addClass("active");
+					});
+ 					$(".rating-container").mouseleave(function(){
+ 				        if(!$(".rating-container input[type='radio']").is(':checked')) {
+ 				        	$(this).children(".rating").removeClass("active");
+ 						} else if ($(".rating-container input[type='radio']").is(':checked')){
+ 							$(this).children(".rating").removeClass("active");
+ 							$(".rating-container input[type='radio']:checked + label").addClass("active").prevAll(".rating").addClass("active");
+ 						}
+ 					});
+
+					$(".rating").click(function(){
+						$(this).parent().children(".rating").removeClass("active");
+						$(this).addClass("active").prevAll(".rating").addClass("active");
+					});
+
+				</script>
 				<div class="review">
 					<textarea name="review"></textarea>
 				</div>
