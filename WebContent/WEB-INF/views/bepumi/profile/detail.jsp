@@ -67,7 +67,7 @@
 					<span>9:00</span> ~ <span>18:00</span>
 				</p>
 			</div>
-			<div class="table-contatiner">
+			<div class="table-container">
 				<h3>소개</h3>
 				<div class="table-wrapper">
 					<div class="intro-table">
@@ -78,7 +78,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="cell1">자기소개서</div>
+							<div class="cell1">자기소개</div>
 							<div class="cell2">
 								유치원 및 초등학교 급식 조리사로 오랫동안 근무했으며<br> 근래까지 예쁜 아가들을 돌봐왔답니다.<br>
 								도움이 필요하시면 정성을 다해서 돌보겠습니다.

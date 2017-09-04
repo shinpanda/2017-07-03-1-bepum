@@ -226,12 +226,78 @@
 			.present{
 				opacity: 1;
 			}
+			
+			
+/* 신청자 쪽 detail 상단 부분*/		
+.profile-container{
+	display: flex;
+	justify-content: center;
+}
+
+.member.profile-img {
+	width:400px;
+}
+
+.profile-btn-wrapper{
+	display: flex;
+	justify-content: center;
+}
+
+.btn-profile-container a{
+    display: block;   
+    text-decoration: none;
+    background: url("../images/btn-profile.png") ;
+	width:35px;
+	height:27px;
+	border: none;
+	margin-left:10px;
+}
+
+.btn.msg-btn{
+	background: url("../images/btn-message.png") ;
+	width:35px;
+	height:27px;
+	border: none;
+	margin-right:10px;
+}
+/* .btn.profile-btn{
+	background: url("../images/btn-profile.png") ;
+	width:35px;
+	height:27px;
+	border: none;
+	margin-left:10px;
+} */
+
+
+.profile-detail {
+    align-self: center;
+}
+
+.profile-detail-table {
+    display: table;
+    box-sizing: border-box;
+    width: 400px;
+    margin: auto;
+    line-height: 28px;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+	
 
 /* 신청자 쪽 detail 하단 부분*/
 
-.member.rb-container {
-    width: 60%;
+.member.rb-wrapper{
+	width:80%;
+	margin:auto;
+	margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid;
+    border-top-color: #e9e9e9;
+}
 
+.member.rb-container {
+    width: 70%;
 }
 
 .member.bepum-date{
@@ -239,8 +305,10 @@
 }
 
 .member.ongoing-bottom{
+	width: 80%;
 	display: flex;
 	justify-content: center;
+	margin:auto;
 	margin-top: 35px;
 	padding-top: 25px;
 	border-top: 1px solid;
@@ -307,3 +375,85 @@
     margin-top: 20px;
 }
 
+/* 과거 매칭 detail 하단 */
+
+.past-container h4 {
+	text-align: left;
+	font-size: 15px;
+	padding-bottom: 0px;
+	padding-left: 108px;
+	margin-bottom: 8px;
+	font-weight: 500;
+}
+
+.table-wrapper {
+	width: 100%;
+	margin: auto;
+	display: inline-table;
+}
+
+.past-table {
+	box-sizing: border-box;
+	width: 80%;
+	min-height: 150px;
+	display: table;
+	font-size: 13px;
+	border-collapse: collapse;
+	/* margin-left: 30px; */
+	margin: auto;
+}
+
+.past-table .row {
+	min-height: 100px;
+	display: table-row;
+	border-bottom: 1px solid #ec93a9;
+	border-top: 1px solid #ec93a9;
+}
+
+.past-table .cell1 {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background: #fdf3f5;
+}
+
+.past-table .cell2 {
+	display: table-cell;
+	border-left: 1px solid #ec93a9;
+	vertical-align: middle;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: left;
+}
+
+.past-table textarea {
+	margin: 0;
+	padding: 10px 10px 10px 0px;
+	border: 0;
+	outline: none;
+	resize: none;
+	width: 100%;
+	font-family: Malgun Gothic;
+}
+
+.review-detail-container h4 {
+	text-align: left;
+	font-size: 15px;
+	padding-bottom: 0px;
+	padding-left: 108px;
+	margin-bottom: 8px;
+	font-weight: 500;
+}
+
+.review-container{
+	border-top: 1px solid;
+	border-top-color: #e9e9e9;
+	box-sizing: border-box;
+	height: 10%;
+	width:80%;
+	border: 1px solid #a2a2a2;
+	margin: auto;
+	padding: 10px;
+	border: 1px solid #ec93a9
+}

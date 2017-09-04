@@ -17,8 +17,8 @@ import com.bepum.web.dao.BoardDao;
 import com.bepum.web.dao.jdbc.JdbcBoardDao;
 import com.bepum.web.entity.Board;
 
-@WebServlet("/board/free-edit")
-public class FreeBoardEditController extends HttpServlet {
+@WebServlet("/board/free-del")
+public class FreeBoardDeleteController extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -26,15 +26,14 @@ public class FreeBoardEditController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		String no = request.getParameter("no");
-		String title = request.getParameter("title");
 		/*title = title.replaceAll("\n", "<br>"); // 줄바꿈처리
 		title = title.replaceAll("\u0020", "&nbsp;"); // 스페이스바로 띄운 공백처리*/		
-		String content = request.getParameter("content");
-		
+		System.out.println(no);
 		BoardDao dao = new JdbcBoardDao();
-		int result = dao.update(no, title, content, "Free");
+		int result = dao.delete(no, "Free");
+		
 
-		response.sendRedirect("free-detail?no=" + no);
+		response.sendRedirect("free");
 	}
 
 	@Override
@@ -47,7 +46,7 @@ public class FreeBoardEditController extends HttpServlet {
 		request.setAttribute("b", dao.get(no, "Free"));
 
 		/* response.sendRedirect("notice.jsp"); */
-		request.getRequestDispatcher("/WEB-INF/views/board/freeboard/edit.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/board/freeboard/del.jsp").forward(request, response);
 
 	}
 }

@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bepum.web.dao.BoardDao;
+import com.bepum.web.dao.SecretBoardDao;
+import com.bepum.web.dao.jdbc.JdbcBoardDao;
+import com.bepum.web.dao.jdbc.JdbcSecretBoardDao;
 import com.bepum.web.entity.Board;
 
 @WebServlet("/board/question-edit")
@@ -22,7 +26,8 @@ public class QuestionEditController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-
+		
+		String no = request.getParameter("no");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		String open = request.getParameter("sec");
@@ -32,36 +37,8 @@ public class QuestionEditController extends HttpServlet {
 		}
 		
 
-		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
-
-		// JDBC 드라이버 로드
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-
-			String sql = "INSERT INTO Notice(id, title, content, writerId, private, privateKey) VALUES ((select IFNULL(max(cast(id as unsigned)), 0)+1 from Notice n), ?, ?, ?)";
-			Connection con = DriverManager.getConnection(url, "sist", "cclass");
-			/* Statement st = con.createStatement(); */
-			PreparedStatement st = con.prepareStatement(sql);
-			st.setString(1, title);
-			st.setString(2, content);
-			st.setString(3, "newlec");
-
-			/* st.setString(1, "%"+title+"%"); */
-
-			// 결과 가져오기
-			int result = st.executeUpdate();
-			// 업데이트된 row 개수 알려줌
-
-			st.close();
-			con.close();
-
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		SecretBoardDao dao = new JdbcSecretBoardDao();
+		int result = dao.update(no, title, content, "Question");
 
 		response.sendRedirect("question");
 
