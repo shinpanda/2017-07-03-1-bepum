@@ -18,6 +18,7 @@
 	<div id="body">
 		<div class="content-container">
 			<main id="main" class="main">
+				<jsp:include page = "detail-top.jsp" />
 				<jsp:include page = "detail-bottom.jsp" />
 			</main>
 		</div>

@@ -16,7 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bepum.web.dao.BoardDao;
+import com.bepum.web.dao.NoticeDao;
 import com.bepum.web.dao.jdbc.JdbcBoardDao;
+import com.bepum.web.dao.jdbc.JdbcNoticeDao;
 import com.bepum.web.entity.Board;
 
 
@@ -45,7 +47,8 @@ public class FreeBoardListController extends HttpServlet {
 			cName = _cName;
 		
 		BoardDao dao = new JdbcBoardDao();
-
+		NoticeDao noticeDao = new JdbcNoticeDao();
+		request.setAttribute("notice", noticeDao.getList(1, "title", ""));
 		request.setAttribute("list", dao.getList(page, cName, query, "Free"));
 		request.setAttribute("count", dao.getCount());
 		
