@@ -49,7 +49,7 @@ public class JdbcNoticeDao implements NoticeDao {
 				b.setNo(rs.getString("no"));
 				b.setTitle(rs.getString("title"));
 				b.setContent(rs.getString("content"));
-				b.setWriterId(rs.getString("writerID"));
+				b.setWriterId(rs.getString("adminID"));
 				b.setRegDate(rs.getDate("regDate"));
 				b.setHit(rs.getInt("hit"));
 				list.add(b);
@@ -116,7 +116,7 @@ public class JdbcNoticeDao implements NoticeDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String sql = "update Free set title  = ?, content  = ? where no = ?";
+			String sql = "update Notice set title  = ?, content  = ? where no = ?";
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
@@ -149,7 +149,7 @@ public class JdbcNoticeDao implements NoticeDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String sql = "INSERT INTO Free(no, title, content, writerID) VALUES ((select IFNULL(max(cast(no as unsigned)), 0)+1 from Free f), ?, ?, ?)";
+			String sql = "INSERT INTO Notice(no, title, content, adminID) VALUES ((select IFNULL(max(cast(no as unsigned)), 0)+1 from Notice n), ?, ?, ?)";
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
@@ -204,7 +204,7 @@ public class JdbcNoticeDao implements NoticeDao {
 				b.setNo(rs.getString("no"));
 				b.setTitle(rs.getString("title"));
 				b.setContent(rs.getString("content"));
-				b.setWriterId(rs.getString("writerID"));
+				b.setWriterId(rs.getString("adminID"));
 				b.setRegDate(rs.getDate("regDate"));
 				b.setHit(rs.getInt("hit"));
 			}
@@ -233,7 +233,7 @@ public class JdbcNoticeDao implements NoticeDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String sql = "delete from Free where no = ?";
+			String sql = "delete from Notice where no = ?";
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
@@ -266,7 +266,7 @@ public class JdbcNoticeDao implements NoticeDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String sql = "update Free set hit = hit+1 where no = ?";
+			String sql = "update Notice set hit = hit+1 where no = ?";
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);

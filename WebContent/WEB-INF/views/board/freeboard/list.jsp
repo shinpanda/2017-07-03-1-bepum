@@ -32,7 +32,19 @@
 							<div class="cell reg-date">작성날짜</div>
 							<div class="cell hit">조회수</div>
 						</div>
-
+						<div>
+							<c:forEach var="notice" items="${notice}" begin="0" end="4">
+							<div class="row">
+								<div class="cell no">공지</div>
+								<div class="cell title title-content">
+									<a href="./notice-detail?no=${notice.no}">${notice.title}</a>
+								</div>
+								<div class="cell writer-id">${notice.writerId}</div>
+								<div class="cell reg-date">${notice.regDate}</div>
+								<div class="cell hit">${notice.hit}</div>
+							</div>
+						</c:forEach>
+						</div>
 						<c:forEach var="n" items="${list}" begin="0" end="14">
 							<div class="row">
 								<div class="cell no">${n.no}</div>

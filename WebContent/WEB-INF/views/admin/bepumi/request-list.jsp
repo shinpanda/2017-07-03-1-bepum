@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="../../css/common_style.css" type="text/css" rel="stylesheet">
-<link href="../../css/style2.css" type="text/css" rel="stylesheet">
-<link href="../../css/admin.css" type="text/css" rel="stylesheet">
+<link href="../../../css/common_style.css" type="text/css" rel="stylesheet">
+<link href="../../../css/style2.css" type="text/css" rel="stylesheet">
+<link href="../../../css/admin.css" type="text/css" rel="stylesheet">
 <title>베:품</title>
 <!-- 요청, 진행 중, 과거 매칭 -->
 <script

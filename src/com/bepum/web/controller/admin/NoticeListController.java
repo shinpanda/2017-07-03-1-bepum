@@ -16,8 +16,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bepum.web.dao.BoardDao;
+import com.bepum.web.dao.NoticeDao;
 import com.bepum.web.dao.SecretBoardDao;
 import com.bepum.web.dao.jdbc.JdbcBoardDao;
+import com.bepum.web.dao.jdbc.JdbcNoticeDao;
 import com.bepum.web.dao.jdbc.JdbcSecretBoardDao;
 import com.bepum.web.entity.Board;
 
@@ -41,17 +43,17 @@ public class NoticeListController extends HttpServlet {
 		if (_query != null && !(_query.equals("")))
 			query = _query;
 		
-		String cName = "writerId";
+		String cName = "adminID";
 		if (_cName != null && !(_cName.equals("")))
 			cName = _cName;
 		
-		BoardDao dao = new JdbcBoardDao();
+		NoticeDao dao = new JdbcNoticeDao();
 
-		request.setAttribute("list", dao.getList(page, cName, query, "Notice"));
+		request.setAttribute("list", dao.getList(page, cName, query));
 		request.setAttribute("count", dao.getCount());
 		
 		/*response.sendRedirect("notice.jsp");*/
-		request.getRequestDispatcher("/WEB-INF/views/admin/question/list.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/admin/notice/list.jsp").forward(request, response);
 		
 	}
 }
