@@ -7,37 +7,25 @@ public class Member {
  * 생년월일, 전화번호
  * 이메일, 등급
  */	
-	private String name;
 	private String id;
-	private String pw;
+	private String name;
+	private String pwd;
 	private int gender;
-	private String addr;
 	private String birth;
-	private String e_addr;
-	private String p_num;
+	private String email;
 	private int grade;
 	
 	public Member() {
 		
 	}
-	public Member(String name, String id, String pw, int gender, String addr, String birth, String e_addr, String p_num,
-			int grade) {
+	public Member(String id, String name, String pwd, int gender, String birth, String email, int grade) {
 		this.name = name;
 		this.id = id;
-		this.pw=pw;
+		this.pwd=pwd;
 		this.gender = gender;
-		this.addr = addr;
 		this.birth = birth;
-		this.e_addr = e_addr;
-		this.p_num = p_num;
+		this.email = email;
 		this.grade = grade;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 	public String getId() {
 		return id;
@@ -45,11 +33,17 @@ public class Member {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getPw() {
-		return pw;
+	public String getName() {
+		return name;
 	}
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
 	}
 	public int getGender() {
 		return gender;
@@ -57,34 +51,24 @@ public class Member {
 	public void setGender(int gender) {
 		this.gender = gender;
 	}
-	public String getAddr() {
-		return addr;
-	}
-	public void setAddr(String addr) {
-		this.addr = addr;
-	}
 	public String getBirth() {
 		return birth;
 	}
 	public void setBirth(String birth) {
 		this.birth = birth;
 	}
-	public String getE_addr() {
-		return e_addr;
+	public String getEmail() {
+		return email;
 	}
-	public void setE_addr(String e_addr) {
-		this.e_addr = e_addr;
-	}
-	public String getP_num() {
-		return p_num;
-	}
-	public void setP_num(String p_num) {
-		this.p_num = p_num;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public int getGrade() {
 		return grade;
 	}
 	public void setGrade(int grade) {
 		this.grade = grade;
-	}	
+	}
+	
+	
 }
