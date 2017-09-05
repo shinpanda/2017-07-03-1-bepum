@@ -28,7 +28,8 @@ public class BepumiProfileDetailController extends HttpServlet {
 		/*response.sendRedirect("notice.jsp");*/
 		
 		ProfileDao dao = new JdbcProfileDao();
-		
+
+		request.setAttribute("isProfile", dao.getIsProfile());
 		request.setAttribute("profile", dao.get());
 		
 		request.getRequestDispatcher("/WEB-INF/views/bepumi/profile/detail.jsp").forward(request, response);

@@ -60,7 +60,7 @@
 								</div>
 								<div class="cell">${gender}</div>
 								<div class="cell">${n.birth}</div>
-								<div class="cell">${n.e_addr}</div>
+								<div class="cell">${n.email}</div>
 								<div class="cell">${grade}</div>
 							</div>
 						</c:forEach>

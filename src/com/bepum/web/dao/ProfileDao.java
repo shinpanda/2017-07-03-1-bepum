@@ -7,4 +7,6 @@ public interface ProfileDao {
 
 	Profile get();
 
+	int getIsProfile();
+
 }

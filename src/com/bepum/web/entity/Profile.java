@@ -12,57 +12,126 @@ public class Profile extends Bepumi {
  * + 사진 파일, 집 사진....
  */
 	private String id;
-	private String others;
+	private String etc;
 	private String intro;
-	private String bepumiDay;
+	private String bepumDay;
 	private String strTime;
 	private String endTime;
-	private String profileImg;
-	private String houseImg;
+	private String profilePic;
+	private String houseImg1;
+	private String houseImg2;
+	private String houseImg3;
+	private String pay;
 	private int secret;
 
 	public Profile() {
 		
 	}
-	
-	public Profile(String id, String others, String intro, String bepumiDay, String strTime, String endTime,
-			String profileImg, String houseImg, int secret) {
+
+	public Profile(String id, String etc, String intro, String bepumDay, String strTime, String endTime,
+			String profilePic, String houseImg1, String houseImg2, String houseImg3, String pay, int secret) {
 		this.id = id;
-		this.others = others;
+		this.etc = etc;
 		this.intro = intro;
-		this.bepumiDay = bepumiDay;
+		this.bepumDay = bepumDay;
 		this.strTime = strTime;
 		this.endTime = endTime;
-		this.profileImg = profileImg;
-		this.houseImg = houseImg;
+		this.profilePic = profilePic;
+		this.houseImg1 = houseImg1;
+		this.houseImg2 = houseImg2;
+		this.houseImg3 = houseImg3;
+		this.pay = pay;
 		this.secret = secret;
 	}
-
-
-
-
-
 
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getOthers() {
-		return others;
+
+	public String getEtc() {
+		return etc;
 	}
-	public void setOthers(String others) {
-		this.others = others;
+
+	public void setEtc(String etc) {
+		this.etc = etc;
 	}
+
 	public String getIntro() {
 		return intro;
 	}
+
 	public void setIntro(String intro) {
 		this.intro = intro;
 	}
 
-	
+	public String getBepumDay() {
+		return bepumDay;
+	}
+
+	public void setBepumDay(String bepumDay) {
+		this.bepumDay = bepumDay;
+	}
+
+	public String getStrTime() {
+		return strTime;
+	}
+
+	public void setStrTime(String strTime) {
+		this.strTime = strTime;
+	}
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+
+	public String getProfilePic() {
+		return profilePic;
+	}
+
+	public void setProfilePic(String profilePic) {
+		this.profilePic = profilePic;
+	}
+
+	public String getHouseImg1() {
+		return houseImg1;
+	}
+
+	public void setHouseImg1(String houseImg1) {
+		this.houseImg1 = houseImg1;
+	}
+
+	public String getHouseImg2() {
+		return houseImg2;
+	}
+
+	public void setHouseImg2(String houseImg2) {
+		this.houseImg2 = houseImg2;
+	}
+
+	public String getHouseImg3() {
+		return houseImg3;
+	}
+
+	public void setHouseImg3(String houseImg3) {
+		this.houseImg3 = houseImg3;
+	}
+
+	public String getPay() {
+		return pay;
+	}
+
+	public void setPay(String pay) {
+		this.pay = pay;
+	}
+
 	public int getSecret() {
 		return secret;
 	}
@@ -70,96 +139,7 @@ public class Profile extends Bepumi {
 	public void setSecret(int secret) {
 		this.secret = secret;
 	}
-
-
-
-
-
-
-	public String getBepumiDay() {
-		return bepumiDay;
-	}
-
-
-
-
-
-
-	public void setBepumiDay(String bepumiDay) {
-		this.bepumiDay = bepumiDay;
-	}
-
-
-
-
-
-
-	public String getStrTime() {
-		return strTime;
-	}
-
-
-
-
-
-
-	public void setStrTime(String strTime) {
-		this.strTime = strTime;
-	}
-
-
-
-
-
-
-	public String getEndTime() {
-		return endTime;
-	}
-
-
-
-
-
-
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
-	}
-
-
-
-
-
-
-	public String getProfileImg() {
-		return profileImg;
-	}
-
-
-
-
-
-
-	public void setProfileImg(String profileImg) {
-		this.profileImg = profileImg;
-	}
-
-
-
-
-
-
-	public String getHouseImg() {
-		return houseImg;
-	}
-
-
-
-
-
-
-	public void setHouseImg(String houseImg) {
-		this.houseImg = houseImg;
-	}
+	
 	
 	
 }

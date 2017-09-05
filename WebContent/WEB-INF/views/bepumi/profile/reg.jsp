@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="p" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,7 +72,7 @@
 	<div id="body">
 
 		<main id="main">
-		<form action="" method="post" enctype="multipart/form-data"
+		<form method="post" enctype="multipart/form-data"
 			name="bepumi-profile-form">
 			<div class="bg-profile-header">
 				<div class="content-container">
@@ -81,7 +82,7 @@
 					<div class="bepum-definite-wrapper">
 						<p>
 							희망 시급 : <span><input type="text" placeholder="8000"
-								class="profile-num" name = "pay"/></span> 원
+								class="profile-num" name="pay" /></span> 원
 						</p>
 
 					</div>
@@ -90,16 +91,24 @@
 			<div class="content-container">
 				<div class="profile-member-container">
 					<div class="profile-member-wrapper">
-						<img src="../images/profile.jpg" id="profile-photo"
-							alt="프로필 사진">
+						<img src="${p}/images/profile.jpg" id="profile-photo" alt="프로필 사진">
 						<div class="profile-box">
 							<label for="profile-img-edit-btn">사진 수정</label> <input
-								type="file" accept=".bmp, .jpg, .png" id="profile-img-edit-btn" name="profile-img">
+								type="file" accept=".bmp, .jpg, .png" id="profile-img-edit-btn"
+								name="profile-img">
 						</div>
-						<p id="name">이름</p>
-						<p id="address">주소</p>
-						<p id="grade">회원 등급</p>
-						<p id="contact">연락처</p>
+
+						<p id="name">${profile.name}</p>
+						<p id="address">${profile.address}</p>
+						<c:set var="grade" value="회원" />
+						<c:if test="${profile.grade == 1}">
+							<c:set var="grade" value="베푸미" />
+						</c:if>
+						<c:if test="${profile.grade == 2}">
+							<c:set var="grade" value="슈퍼베푸미" />
+						</c:if>
+						<p id="grade">${grade}</p>
+						<p id="contact">${profile.phoneNum}</p>
 					</div>
 				</div>
 				<div class="home-photo-container">
@@ -107,21 +116,21 @@
 					<div class="home-photo-wrapper">
 						<div class="home-photo">
 							<label for="home-img-edit1"><img
-								src="../../images/add_icon.png" /></label> <input type="file"
+								src="${p}/images/add_icon.png" /></label> <input type="file"
 								onchange="previewFile(1)" accept=".bmp, .jpg, .png"
 								id="home-img-edit1" name="home-photo1">
 						</div>
 
 						<div class="home-photo">
 							<label for="home-img-edit2"><img
-								src="../../images/add_icon.png" /></label> <input type="file"
+								src="${p}/images/add_icon.png" /></label> <input type="file"
 								onchange="previewFile(2)" accept=".bmp, .jpg, .png"
 								id="home-img-edit2" name="home-photo2">
 						</div>
 
 						<div class="home-photo">
 							<label for="home-img-edit3"><img
-								src="../../images/add_icon.png" /></label> <input type="file"
+								src="${p}/images/add_icon.png" /></label> <input type="file"
 								onchange="previewFile(3)" accept=".bmp, .jpg, .png"
 								id="home-img-edit3" name="home-photo3">
 						</div>
@@ -149,40 +158,28 @@
 				<div class="time-table">
 					<h3>가능 시간</h3>
 					<div class="bepumi-day">
-						 <input type="checkbox"
-							id="bepumi-day1" name="bepumi-day" value="Mon">
-						<label for="bepumi-day1">월</label>
-
-						 <input type="checkbox"
-							id="bepumi-day2"  name="bepumi-day" value="Tue">
-							<label for="bepumi-day2">화</label>
-
-						<input type="checkbox"
-							id="bepumi-day3"  name="bepumi-day" value="Wed">
-						<label for="bepumi-day3">수</label> 
-
-						<input type="checkbox"
-							id="bepumi-day4"  name="bepumi-day" value="Thu">
-						<label for="bepumi-day4">목</label> 
-
-						<input type="checkbox"
-							id="bepumi-day5"  name="bepumi-day" value="Fri">
-							<label for="bepumi-day5">금</label> 
-
-						<input type="checkbox"
-							id="bepumi-day6"  name="bepumi-day" value="Sat">
-							<label for="bepumi-day6">토</label> 
-	
-						 <input type="checkbox"
-							id="bepumi-day7"  name="bepumi-day" value="Sun">
-							<label for="bepumi-day7">일</label>
+						<input type="checkbox" id="bepumi-day1" name="bepumi-day"
+							value="월" /> <label for="bepumi-day1">월</label> <input
+							type="checkbox" id="bepumi-day2" name="bepumi-day" value="환" />
+						<label for="bepumi-day2">화</label> <input type="checkbox"
+							id="bepumi-day3" name="bepumi-day" value="수" /> <label
+							for="bepumi-day3">수</label> <input type="checkbox"
+							id="bepumi-day4" name="bepumi-day" value="목" /> <label
+							for="bepumi-day4">목</label> <input type="checkbox"
+							id="bepumi-day5" name="bepumi-day" value="금" /> <label
+							for="bepumi-day5">금</label> <input type="checkbox"
+							id="bepumi-day6" name="bepumi-day" value="토" /> <label
+							for="bepumi-day6">토</label> <input type="checkbox"
+							id="bepumi-day7" name="bepumi-day" value="일" /> <label
+							for="bepumi-day7">일</label>
 					</div>
 					<p>
 						<span><input type="text" placeholder="9:00"
 							class="profile-num" pattern="[0-2]\d:[0-5]\d"
-							title="08:00 형식으로 넣어주세요" name="start-time"/></span> ~ <span><input type="text"
-							placeholder="18:00" class="profile-num" pattern="[0-2]\d:[0-5]\d"
-							title="08:00 형식으로 넣어주세요" name="end-time" /></span>
+							title="08:00 형식으로 넣어주세요" name="start-time" /></span> ~ <span><input
+							type="text" placeholder="18:00" class="profile-num"
+							pattern="[0-2]\d:[0-5]\d" title="08:00 형식으로 넣어주세요"
+							name="end-time" /></span>
 					</p>
 				</div>
 
@@ -194,14 +191,15 @@
 							<div class="row">
 								<div class="cell1">기타사항</div>
 								<div class="cell2">
-									<textarea name = "others" class="table-input" rows="3" cols="65"
+									<textarea name="others" class="table-input" rows="3" cols="65"
 										placeholder="예)운전 가능"></textarea>
 								</div>
 							</div>
 							<div class="row">
 								<div class="cell1">자기소개</div>
 								<div class="cell2">
-									<textarea name = "self-intro" class="table-input" rows="4" cols="65"></textarea>
+									<textarea name="self-intro" class="table-input" rows="4"
+										cols="65"></textarea>
 								</div>
 							</div>
 						</div>
@@ -263,7 +261,6 @@
 					setChart("bepumi-request-chart", 50, "#85DDC8");
 					setChart("bepumi-success-chart", 75, "#cba9e2");
 				</script>
-				
 			</div>
 		</form>
 		</main>
