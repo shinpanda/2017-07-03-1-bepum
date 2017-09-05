@@ -7,13 +7,13 @@ import com.bepum.web.entity.BoardView;
 
 public interface BoardDao {
 
-	List<BoardView> getList(int page,String c_name, String query, String bName);
+	List<BoardView> getList(int page,String c_name, String query, String tName);
 
-	BoardView get(String no, String bName);
+	BoardView get(String no, String tName);
 
-	int update(String no, String title, String content, String bName);
+	int update(String no, String title, String content, String tName);
 
-	int insert(String title, String content, String bName);
+	int insert(String title, String content, String tName);
 
 	int getCount();
 
