@@ -10,4 +10,7 @@ public interface MemberDao {
 
 	int getCount();
 
+
+	int insert(Member member);
+
 }
