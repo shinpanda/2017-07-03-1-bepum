@@ -69,3 +69,29 @@
    -o-transition:0.5s all;
    -ms-transition:0.5s all;
 }
+
+
+
+
+
+/* ------------------- */
+
+@media all and (min-width:768px) and (max-width:969px){
+	.menu-wrapper li {
+    	margin-left: 15px;
+	}
+    .main-menu > li > a {
+	    padding: 0px 0px 30px 0px;
+    }
+}
+
+
+@media all and (max-width:768px){
+	#visual{
+		height: 400px;
+	}
+	#banner-mask {
+		height: 400px;
+	}
+	
+}

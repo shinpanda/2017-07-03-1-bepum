@@ -29,7 +29,7 @@
 					<div class="wch-info clearfix">
 						<span class="writer">${b.writerId}</span>
 						<div class="ch-wrapper">
-							<span class="comment-num">댓글 수</span> <span class="hit">${b.hit}</span>
+							<span class="comment-num">조회수</span> <span class="hit">${b.hit}</span>
 						</div>
 					</div>
 				</div>

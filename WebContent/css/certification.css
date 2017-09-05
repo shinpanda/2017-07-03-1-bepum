@@ -8,6 +8,7 @@
 /* --------------progress------------------ */
 .certfi-container {
 	margin-left: 10px;
+	margin-top: 40px;
 	padding-left: 50px
 }
 
@@ -17,66 +18,132 @@
 	padding-bottom: 30px;
 }
 
+.document-container{
+	margin-top: 50px;
+}
+
 .document-wrapper {
-	margin: 30px 0px;
-	width: max-content;
+
+	padding-left: 50px;
+    margin: 30px 0px;
+ /*    width: max-content; */
+
 }
 
-.document-wrapper div {
-	margin-left: 1px;
-	margin-bottom: 10px;
+	.document-wrapper div{
+		margin-left:1px;
+		margin-bottom:10px;
+	}
+	
+.title-box{
+		text-align:center;
+		width:200px;
+		padding:10px;
+		
 }
+	.self-certification{
+	    font-weight: bold;
+	    padding-left: 70px;
+ 	    line-height: 45px;
+		height: 50px;
+		margin-left:51px;
+		background: url(../images/icon-self-certification.png) no-repeat left center;
+	}
+	
+	.self-certification-check{
+		border: 1px solid #e0e0e0;
+	    border-radius: 5px;
+	    float: left;
+	    width: 75%;
+	    text-align: center;
+   		padding: 10px;
+   		margin-left: 40px;
+    	margin-top: 20px;
+	}
+	
+	.document-certification{
+	    font-weight: bold;
+	    padding-left: 70px;
+  		line-height: 45px;
+		height: 50px;
+		margin-left:51px;
+		background: url(../images/icon-document-certification.png) no-repeat left center;
+	}
+	.document-certification1{
+		margin-left: 120px;
+		font-size: 10px;
+		color:red;
+	}
+	
+	.dc-name{
+		border: 1px solid #e0e0e0;
+   		border-radius: 10px;
+		float:left;
+	}
 
-.title-box {
-	text-align: center;
-	width: 200px;
-	padding: 10px;
-}
-
-.title {
-	border: 2px solid #a2a2a2;
-	margin-left: 51px;
-}
-
-.dc-name {
-	border: 1px solid #a2a2a2;
-	float: left;
-}
-
-.edit-box-container {
-	float: left;
-	line-height: 23px;
-	vertical-align: middle;
-	margin-right: 5px;
-	width: 46px;
-	padding-top: 10px;
-}
-
-.edit-box-wrapper {
-	width: inherit;
-}
-
-.edit {
-	box-sizing: border-box;
-	border: 1.989px outset rgb(221, 221, 221);
-	text-decoration: none;
-	display: inline-block;
-	font-family: Arial;
-	font-size: 13.3333px;
-	height: 24.1477px;
-	letter-spacing: normal;
-	line-height: normal;
-	padding: 1px 6px;
-	text-align: center;
-	text-rendering: auto;
-	width: 45px;
-	-webkit-appearance: button;
-}
+	.edit-box-container{
+		float: left;
+	    line-height: 23px;
+	    vertical-align: middle;
+	    margin-right: 5px;
+	    width: 46px;
+	    padding-top: 10px;
+	}
+		.edit-box-wrapper{
+			  width: max-content;
+  			  display: flex;	
+		}
+		.edit{
+			box-sizing: border-box;
+		    border: 1.989px outset rgb(221, 221, 221);
+		    text-decoration: none;
+		    display: inline-block;
+		    font-family: Arial;
+		    font-size: 13.3333px;
+		    height: 24.1477px;
+		    letter-spacing: normal;
+		    line-height: normal;
+		    padding: 1px 6px;
+		    text-align: center;
+		    text-rendering: auto;
+		    width: 45px;
+		    -webkit-appearance: button;
+		}
 
 .progress {
-	line-height: 43px;
-	display: inline-block;
-	background: url(../images/status_bg.png);
+    display: inline-block;
+    background: url(../images/status_bg.png) no-repeat border-box;
+}
+		
+	.progress span {
+/* 	    border: 1px solid #e0e0e0; */
+	    border-radius: 6px;
+ 	    padding: 10px;
+	    margin-left: 7px;
+	    background:white;
+	}
+
+	.progress span:first-child {
+	    margin-left: 10px;
+	}
+	
+		.progress .progress-status{
+			background: #fbe5d6;
+			    display: -webkit-inline-box;
+		}		
+	
+
+.editBtn + label {
+    display: inline-block;
+    height: 25px;
+    padding: 0 14px 0;
+    margin-left:10px;
+    border: 1px solid #4c9aa0;
+    background-color: #4c9aa0;
+    font-size: 13px;
+    color: #fff;
+    line-height: 25px;
+    width: max-content;
 }
 
 .progress span {
@@ -123,6 +190,91 @@
 	clip: rect(0, 0, 0, 0);
 	border: 0
 }
+
+
+		/* 재심사필요 팝업 */
+
+.pop-conts{
+	
+}
+.pop-layer .pop-container {
+  padding: 20px 25px;
+}
+
+.pop-layer p.ctxt {
+  color: #666;
+  line-height: 30px;
+}
+
+.pop-layer .btn-r {
+  width: 100%;
+  margin: 10px 0 20px;
+  padding-top: 10px;
+  border-top: 1px solid #DDD;
+  text-align: right;
+}
+
+.pop-layer {
+ /*  display: none; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: auto;
+  background-color: #fff;
+  border: 5px solid #51567b;
+  z-index: 10;
+}
+
+.dim-layer {
+  display: none;
+  position: fixed;
+  _position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
+.dim-layer .dimBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: .5;
+  filter: alpha(opacity=50);
+}
+
+.dim-layer .pop-layer {
+  display: block;
+}
+
+a.btn-layerClose {
+  display: inline-block;
+  height: 25px;
+  padding: 0 14px 0;
+  border: 1px solid #304a8a;
+  background-color: #3f5a9d;
+  font-size: 13px;
+  color: #fff;
+  line-height: 25px;
+}
+
+a.btn-layerClose:hover {
+  border: 1px solid #091940;
+  background-color: #1f326a;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
 
 /* ---------request--------- */
 .req-progress-container {

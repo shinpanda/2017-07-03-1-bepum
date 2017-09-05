@@ -8,7 +8,16 @@
 <link href="css/list-top.css" rel="stylesheet" >
 <link href="css/list-bottom.css" type="text/css" rel="stylesheet" />
 
-<title>베품</title>
+
+
+ <script src="//use.typekit.net/xyl8bgh.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+<link rel='stylesheet prefetch' href='css/codepen_io_andytran_pen.css'>
+
+<title>베:품</title>
 <!-- 요청, 진행 중, 과거 매칭 -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

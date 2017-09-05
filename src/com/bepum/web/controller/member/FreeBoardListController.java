@@ -16,7 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bepum.web.dao.BoardDao;
+import com.bepum.web.dao.NoticeDao;
 import com.bepum.web.dao.jdbc.JdbcBoardDao;
+import com.bepum.web.dao.jdbc.JdbcNoticeDao;
 import com.bepum.web.entity.Board;
 
 
@@ -25,7 +27,7 @@ public class FreeBoardListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String _tName = request.getParameter("search-sel");
+		String _cName = request.getParameter("search-sel");
 		String _query = request.getParameter("search");
 		
 		String _page = request.getParameter("p");
@@ -40,14 +42,14 @@ public class FreeBoardListController extends HttpServlet {
 		if (_query != null && !(_query.equals("")))
 			query = _query;
 		
-		String tName = "writerId";
-		if (_tName != null && !(_tName.equals("")))
-			tName = _tName;
+		String cName = "writerId";
+		if (_cName != null && !(_cName.equals("")))
+			cName = _cName;
 		
-		System.out.println(tName);
 		BoardDao dao = new JdbcBoardDao();
-
-		request.setAttribute("list", dao.getList(page, tName, query, "Free"));
+		NoticeDao noticeDao = new JdbcNoticeDao();
+		request.setAttribute("notice", noticeDao.getList(1, "title", ""));
+		request.setAttribute("list", dao.getList(page, cName, query, "Free"));
 		request.setAttribute("count", dao.getCount());
 		
 		/*response.sendRedirect("notice.jsp");*/

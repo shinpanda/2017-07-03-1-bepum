@@ -7,7 +7,7 @@
 <link href="../css/common_style.css" type="text/css" rel="stylesheet">
 <link href="../css/style2.css" type="text/css" rel="stylesheet">
 <link href="../css/matching.css" type="text/css" rel="stylesheet">
-<title>베품</title>
+<title>베:품</title>
 <!-- 요청, 진행 중, 과거 매칭 -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -80,7 +80,7 @@
 							<div class="row">
 								<div class="cell no">${status.current}</div>
 								<div class="cell request-id">
-									<a href="matching-detail?no=${status.current}">testid</a>
+									<a href="matching-list-detail?no=${status.current}">testid</a>
 								</div>
 								<div class="cell request-name">권다영</div>
 								<div class="cell grade">돌보미</div>
