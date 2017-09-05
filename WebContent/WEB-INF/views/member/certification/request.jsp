@@ -10,7 +10,7 @@
 <link href="../css/common_style.css" type="text/css" rel="stylesheet" />
 <link href="../css/style2.css" type="text/css" rel="stylesheet" />
 <link href="../css/certification.css" type="text/css" rel="stylesheet" />
-<title>베품</title>
+<title>베:품</title>
 </head>
 
 <body>

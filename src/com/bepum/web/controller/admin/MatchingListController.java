@@ -1,4 +1,4 @@
-package com.bepum.web.controller.member;
+package com.bepum.web.controller.admin;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -16,17 +16,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bepum.web.dao.BoardDao;
-import com.bepum.web.dao.NoticeDao;
+import com.bepum.web.dao.SecretBoardDao;
 import com.bepum.web.dao.jdbc.JdbcBoardDao;
-import com.bepum.web.dao.jdbc.JdbcNoticeDao;
+import com.bepum.web.dao.jdbc.JdbcSecretBoardDao;
 import com.bepum.web.entity.Board;
 
 
-@WebServlet("/board/free")
-public class FreeBoardListController extends HttpServlet {
+@WebServlet("/admin/matching/list")
+public class MatchingListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		String _cName = request.getParameter("search-sel");
 		String _query = request.getParameter("search");
 		
@@ -47,13 +46,12 @@ public class FreeBoardListController extends HttpServlet {
 			cName = _cName;
 		
 		BoardDao dao = new JdbcBoardDao();
-		NoticeDao noticeDao = new JdbcNoticeDao();
-		request.setAttribute("notice", noticeDao.getList(1, "title", ""));
+
 		request.setAttribute("list", dao.getList(page, cName, query, "Free"));
 		request.setAttribute("count", dao.getCount());
 		
 		/*response.sendRedirect("notice.jsp");*/
-		request.getRequestDispatcher("/WEB-INF/views/board/freeboard/list.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/admin/matching/list.jsp").forward(request, response);
 		
 	}
 }

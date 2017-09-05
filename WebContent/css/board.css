@@ -197,19 +197,22 @@
     background: #fdf3f5;
     border-radius: 11px;
 }
-
-.reg-form{
-	display: flex;
-    flex-direction: column;
-    margin: auto;
-}
-.reg-form > input[type="text"] {
-    line-height: 30px;
-    border: 1px solid #a2a2a2;
-    border-radius: 3px;
-    margin-bottom: 21px;
-    padding-left: 7px;
-}
+	.reg-container fieldset {
+	    padding: 20px 15px;
+	    width: 95%;
+	}
+	.reg-form{
+		display: flex;
+	    flex-direction: column;
+	    margin: auto;
+	}
+	.reg-form > input[type="text"] {
+	    line-height: 30px;
+	    border: 1px solid #a2a2a2;
+	    border-radius: 3px;
+	    margin-bottom: 21px;
+	    padding-left: 7px;
+	}
 
 
 .reg-form > textarea {

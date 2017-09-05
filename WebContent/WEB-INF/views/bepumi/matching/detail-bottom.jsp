@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<div class="member rb-wrapper">
 <div class="rb-container">
 	<div class="req-date">
 		<span class="date-title">매칭 신청일</span>
@@ -13,12 +14,13 @@
 		</div>
 	</div>
 </div>
+</div>
 <div class="req-info-container">
 	<h3>요구사항</h3>
 	<div class="req-container">
 	</div>
 </div>
-<div class="baby-info-container">
+<div class="bepumi baby-info-container">
 	<h3>아기정보</h3>
 	<div class="baby-info-table">
 		<div class="row">

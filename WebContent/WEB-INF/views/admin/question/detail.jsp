@@ -10,7 +10,7 @@
 <!-- 베푸미 공개 설정 및 자기소개 변경 -->
 <link href="../css/common_style.css" type="text/css" rel="stylesheet" />
 <link href="../css/style2.css" type="text/css" rel="stylesheet" />
-<link href="../css/board.css" type="text/css" rel="stylesheet" />
+<link href="../css/admin.css" type="text/css" rel="stylesheet" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
@@ -29,7 +29,7 @@
 					<div class="wch-info clearfix">
 						<span class="writer">${b.writerId}</span>
 						<div class="ch-wrapper">
-							<span class="comment-num">조회수</span> <span class="hit">${b.hit}</span>
+							<span class="comment-num">댓글 수 ${b.countCmt} </span> <span class="hit">조회수 ${b.hit}</span>
 						</div>
 					</div>
 				</div>
@@ -39,8 +39,8 @@
 				<div>
 					<a href="free" class="btn">목록</a>
 					<div class="ed-wrapper">
-						<a href="free-edit?no=${b.no}" class="btn">수정</a>
-						<a href="free-del" class="btn">삭제</a>
+						<a href="question-edit?no=${b.no}" class="btn">수정</a>
+						<a href="question-del" class="btn">삭제</a>
 					</div>
 				</div>
 				

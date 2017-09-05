@@ -128,13 +128,31 @@
 
 .req-info-container h3, 
 .baby-info-container h3{
-	text-align:left;
+    text-align: left;
     font-size: 15px;
     padding-bottom: 0px;
-    padding-left: 108px;
+    padding-left: 30px;
+    margin-left: 100px;
     margin-bottom: 8px;
     font-weight: 500;
+    background: url(../images/dot.png) no-repeat left center;
 }
+	
+	.req-info-container{
+		width: 80%;
+	    border-top: 1px solid #e6e6e6;
+	    margin: auto;
+	    margin-top: 35px;
+	    padding-top: 15px;
+	}
+	
+	.bepumi.baby-info-container {
+	    width: 80%;
+	    border-top: 1px solid #e6e6e6;
+	    margin: auto;
+	    margin-top: 35px;
+	    padding-top: 15px;
+	}
 
 .req-container{
 	box-sizing: border-box;
