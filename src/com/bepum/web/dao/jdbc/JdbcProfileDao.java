@@ -49,9 +49,11 @@ public class JdbcProfileDao implements ProfileDao {
 				p.setBepumDay(rs.getString("bepumDay"));
 				p.setProfilePic(rs.getString("profilePic"));
 				p.setEtc(rs.getString("etc"));
+				p.setIntro(rs.getString("intro"));
 				p.setHouseImg1(rs.getString("homeImg1"));
 				p.setHouseImg2(rs.getString("homeImg2"));
 				p.setHouseImg3(rs.getString("homeImg3"));
+				p.setSecret(rs.getInt("secret"));
 			}
 
 			rs.close();
@@ -151,6 +153,82 @@ public class JdbcProfileDao implements ProfileDao {
 			e.printStackTrace();
 		}
 
+		return result;
+	}
+
+	@Override
+	public int update(String others, String selfIntro, String bepumDay, String startTime, String endTime,
+			String profilePic, String homePhoto1, String homePhoto2, String homePhoto3, String pay) {
+		int result = 0;
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+
+		// JDBC 드라이버 로드
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			String sql = "update Profile set startTime = ?, endTime = ?, bepumDay = ?, profilePic = ?, etc = ?, intro = ?, homeImg1 = ?, homeImg2 = ?, homeImg3 = ?, pay = ? where ID = ?";
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+			/* Statement st = con.createStatement(); */
+			PreparedStatement st = con.prepareStatement(sql);
+			
+			st.setString(1, startTime);
+			st.setString(2, endTime);
+			st.setString(3, bepumDay);
+			st.setString(4, profilePic);
+			st.setString(5, others);
+			st.setString(6, selfIntro);
+			st.setString(7, homePhoto1);
+			st.setString(8, homePhoto2);
+			st.setString(9, homePhoto3);
+			st.setString(10, pay);
+			st.setString(11, "testpumi");
+			
+			result = st.executeUpdate();
+			// 업데이트된 row 개수 알려줌
+
+			st.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public int updateSecret(String id, int sec) {
+		int result = 0;
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+
+		// JDBC 드라이버 로드
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			String sql = "update Profile set secret = ? where ID = ?";
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+			/* Statement st = con.createStatement(); */
+			PreparedStatement st = con.prepareStatement(sql);
+			
+			st.setInt(1, sec);
+			st.setString(2, "testpumi");
+			
+			result = st.executeUpdate();
+			// 업데이트된 row 개수 알려줌
+
+			st.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return result;
 	}
 
