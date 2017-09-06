@@ -21,38 +21,51 @@ public class BepumiProfileRegController extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		
-		
 		String saveDirectory = "C:\\dev\\upload";
 		int maxPostSize = 1024*1024*10;// 10MB 
 		MultipartRequest multi = new MultipartRequest(request, saveDirectory, maxPostSize, "UTF-8", new DefaultFileRenamePolicy());
 		
-		String _pay = multi.getParameter("pay");
-		String _profileImg = multi.getParameter("profile-img");
-		System.out.println(_pay);
-		String _homePhoto1 = multi.getParameter("home-photo1");
-		String _homePhoto2 = multi.getParameter("home-photo2");
-		String _homePhoto3 = multi.getParameter("home-photo3");
+		
+		
+		String pay = multi.getParameter("pay");
+		
+		String profileImg = multi.getFilesystemName("profile-img");
+		String originprofileImg = multi.getOriginalFileName("profile-img");
+		
+		String homePhoto1 = multi.getFilesystemName("home-photo1");
+		String homePhoto2 = multi.getFilesystemName("home-photo2");
+		String homePhoto3 = multi.getFilesystemName("home-photo3");
+		
+		String originHomePhoto1 = multi.getOriginalFileName("home-photo1");
+		String originHomePhoto2 = multi.getOriginalFileName("home-photo2");
+		String originHomePhoto3 = multi.getOriginalFileName("home-photo3");
 
-		String[] bepumiDays = multi.getParameterValues("bepumi-day");
+		String[] bepumDays = multi.getParameterValues("bepumi-day");
 
-		String bepumiDay = "";
+		String bepumDay = "";
 		if (multi.getParameter("bepumi-day") != null) {
-			for (int i = 0; i < bepumiDays.length; i++) {
-				if (bepumiDays[i] != null)
-					if (bepumiDay=="")
-						bepumiDay += bepumiDays[i];
+			for (int i = 0; i < bepumDays.length; i++) {
+				if (bepumDays[i] != null)
+					if (bepumDay=="")
+						bepumDay += bepumDays[i];
 					else
-						bepumiDay += ", " + bepumiDays[i];
+						bepumDay += ", " + bepumDays[i];
 			}
 		}
-		System.out.println(bepumiDay);
 
-		String _startTime = multi.getParameter("start-time");
-		String _endTime = multi.getParameter("end-time");
+		String startTime = multi.getParameter("start-time");
+		String endTime = multi.getParameter("end-time");
 
 		String others = multi.getParameter("others");
 		String selfIntro = multi.getParameter("self-intro");
+		
+		
+		/*if (startTime != null && !(startTime.equals("")) && endTime != null && !(endTime.equals("")))*/
+			
+		ProfileDao dao = new JdbcProfileDao();
+		
+		int result = dao.insert(others, selfIntro, bepumDay, startTime, endTime,
+				profileImg, homePhoto1, homePhoto2, homePhoto3, pay);
 
 		response.sendRedirect("profile");
 	}

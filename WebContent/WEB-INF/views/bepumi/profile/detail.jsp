@@ -76,7 +76,7 @@
 					<span class="Sun">일</span>
 				</div>
 				<p class="bepumi-time">
-					<span>9:00</span> ~ <span>18:00</span>
+					<span>${profile.strTime}</span> ~ <span>${profile.endTime}</span>
 				</p>
 			</div>
 			<div class="table-container">
@@ -86,15 +86,13 @@
 						<div class="row">
 							<div class="cell1">기타사항</div>
 							<div class="cell2" style="">
-								운전 가능<br> 요리 능숙<br> 시간 협의 가능
+								${profile.etc}
 							</div>
 						</div>
 						<div class="row">
 							<div class="cell1">자기소개</div>
 							<div class="cell2">
-								유치원 및 초등학교 급식 조리사로 오랫동안 근무했으며<br> 근래까지 예쁜 아가들을 돌봐왔답니다.<br>
-								도움이 필요하시면 정성을 다해서 돌보겠습니다.
-
+								${profile.intro}
 							</div>
 						</div>
 					</div>
