@@ -43,6 +43,7 @@ public class JdbcProfileDao implements ProfileDao {
 				p.setAddress(rs.getString("address"));
 				p.setPhoneNum(rs.getString("phoneNum"));
 				p.setGrade(rs.getInt("grade"));
+				p.setPay(rs.getString("pay"));
 				p.setStrTime(rs.getString("startTime"));
 				p.setEndTime(rs.getString("endTime"));
 				p.setBepumDay(rs.getString("bepumDay"));
@@ -104,6 +105,53 @@ public class JdbcProfileDao implements ProfileDao {
 			e.printStackTrace();
 		}
 		return count;
+	}
+
+	@Override
+	public int insert(String others, String selfIntro, String bepumDay, String startTime, String endTime,
+			String profilePic, String homePhoto1, String homePhoto2, String homePhoto3, String pay) {
+		int result = 0;
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+
+		// JDBC 드라이버 로드
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			String sql = "INSERT INTO Profile(ID, startTime, endTime, bepumDay, profilePic, etc, intro, homeImg1, homeImg2, homeImg3, pay) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+			/* Statement st = con.createStatement(); */
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, "testpumi");
+			st.setString(2, startTime);
+			st.setString(3, endTime);
+			st.setString(4, bepumDay);
+			st.setString(5, profilePic);
+			st.setString(6, others);
+			st.setString(7, selfIntro);
+			st.setString(8, homePhoto1);
+			st.setString(9, homePhoto2);
+			st.setString(10, homePhoto3);
+			st.setString(11, pay);
+			
+
+			/* st.setString(1, "%"+title+"%"); */
+
+			// 결과 가져오기
+			result = st.executeUpdate();
+			// 업데이트된 row 개수 알려줌
+
+			st.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return result;
 	}
 
 }
