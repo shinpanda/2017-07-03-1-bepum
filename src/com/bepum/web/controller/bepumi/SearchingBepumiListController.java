@@ -25,7 +25,22 @@ import com.bepum.web.dao.jdbc.JdbcProfileDao;
 public class SearchingBepumiListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String _cName = request.getParameter("search-sel");
+		String _query = request.getParameter("search");
+
+		String _page = request.getParameter("p");
+
+		int page = 1;
+		if (_page != null && !(_page.equals("")))
+			page = Integer.parseInt(_page);
+
+		String query = "";
+		if (_query != null && !(_query.equals("")))
+			query = _query;
+
+		String cName = "id";
+		if (_cName != null && !(_cName.equals("")))
+			cName = _cName;
 
 		ProfileDao dao = new JdbcProfileDao();
 
