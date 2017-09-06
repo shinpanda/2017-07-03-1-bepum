@@ -15,11 +15,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bepum.web.dao.ProfileDao;
+import com.bepum.web.dao.jdbc.JdbcProfileDao;
+
 
 @WebServlet("/searching/bepumi-list")
 public class SearchingBepumiListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+
+		ProfileDao dao = new JdbcProfileDao();
+
+		request.setAttribute("isProfile", dao.getIsProfile());
+		request.setAttribute("profile", dao.get());
 		
 		
 		
