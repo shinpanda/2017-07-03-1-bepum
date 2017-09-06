@@ -13,7 +13,10 @@ public class SearchingMatchingListDetailController extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/*response.sendRedirect("notice.jsp");*/
-		/*request.getRequestDispatcher("/WEB-INF/views/searching/matching/list-detail.jsp").forward(request, response);*/
-		request.getRequestDispatcher("/WEB-INF/views/searching/matching/detail.jsp").forward(request, response);
+		
+		//매칭상태에 따라 다른 화면 반환하기
+		
+		/*request.getRequestDispatcher("/WEB-INF/views/searching/matching/detail1.jsp").forward(request, response);*/
+		request.getRequestDispatcher("/WEB-INF/views/searching/matching/detail3.jsp").forward(request, response);
 	}
 }
