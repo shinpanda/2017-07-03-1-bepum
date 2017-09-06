@@ -15,8 +15,8 @@
 			<!-- <span class="logmod__close" onclick="javascript:window.close();">Close</span> -->
 			<div class="logmod__container">
 				<ul class="logmod__tabs">
-					<li data-tabtar="lgm-2"><a href="#">로그인</a></li>
-					<li data-tabtar="lgm-1"><a href="#">회원가입</a></li>
+					<li data-tabtar="lgm-2"><a href="">로그인</a></li>
+					<li data-tabtar="lgm-1"><a href="">회원가입</a></li>
 				</ul>
 
 				<div class="logmod__tab-wrapper">

@@ -30,6 +30,7 @@ public class SignController extends HttpServlet{
 			throws ServletException, IOException {
 		
 		
+		
 		request.setCharacterEncoding("UTF-8");
 		int grade = 000;
 		String id = request.getParameter("id");
@@ -41,15 +42,18 @@ public class SignController extends HttpServlet{
 		String birthday_month = request.getParameter("birthday_month");
 		String birthday_day = request.getParameter("birthday_day");
 		String email = request.getParameter("email");
-		
 		String birth = birthday_year+"-"+birthday_month+"-"+birthday_day;
+		
+		/*if(id == null && id.equals(""))
+			response.sendRedirect("sign?error");
+		*/
 		
 		MemberDao memberDao = new JdbcMemberDao();
 		
 		Member member = new Member(id, name, pwd, Integer.parseInt(gender), birth, email, grade);
 		int result = memberDao.insert(member);
 		if(result>0)
-			response.sendRedirect("confirm");
+			response.sendRedirect("sign");
 		else
 			response.sendRedirect("../error?code=1234");
 	}

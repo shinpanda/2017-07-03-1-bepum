@@ -22,11 +22,16 @@
 			<div class="content-container">
 				<div class="btn-header">
 					<button type="submit" onclick="">비공개</button>
-					<a href="./profile-edit" id="edit">수정</a>
+					<c:if test="${isProfile == 0}">
+						<a href="./profile-reg" id="edit">등록</a>
+					</c:if>
+					<c:if test="${isProfile != 0}">
+						<a href="./profile-edit" id="edit">수정</a>
+					</c:if>
 				</div>
 				<div class="bepum-definite-wrapper">
 					<p>
-						희망 시급 : <span>8000</span> 원
+						희망 시급 : <span>${profile.pay}</span> 원
 					</p>
 
 				</div>
@@ -36,10 +41,17 @@
 			<div class="profile-member-container">
 				<div class="profile-member-wrapper">
 					<img src="../images/profile.jpg" id="profile-photo" alt="프로필 사진">
-					<p id="name">홍길동</p>
-					<p id="address">서울 강서구</p>
-					<p id="grade">일반 베푸미</p>
-					<p id="contact">010-2222-2222</p>
+					<p id="name">${profile.name}</p>
+					<p id="address">${profile.address}</p>
+					<c:set var="grade" value="회원" />
+							<c:if test="${profile.grade == 1}">
+								<c:set var="grade" value="베푸미" />
+							</c:if>
+							<c:if test="${profile.grade == 2}">
+								<c:set var="grade" value="슈퍼베푸미" />
+							</c:if>
+					<p id="grade">${grade}</p>
+					<p id="contact">${profile.phoneNum}</p>
 				</div>
 			</div>
 			<div class="home-photo-container">

@@ -18,7 +18,7 @@ public class MemberListService {
 
 	// 검색후 페이징
 	public List<Member> getMemberList(int page, String id) {
-		return null;
+		return getMemberList(page, id);
 	}
 
 	// 상세내용 보기
