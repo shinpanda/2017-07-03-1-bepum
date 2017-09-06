@@ -39,36 +39,36 @@ public class MatchingView extends Matching {
 	}
 
 
-	public void setNo(String no) {
+	public void setReviewNo(String no) {
 		review.setNo(no);
 	}
 
 
-	public void setWriterID(String writerID) {
+	public void setReviewWriterID(String writerID) {
 		review.setWriterID(writerID);
 	}
 
 
-	public void setMatchingNo(String matchingNo) {
+	public void setReviewMatchingNo(String matchingNo) {
 		review.setMatchingNo(matchingNo);
 	}
 
 
-	public void setRegDate(String regDate) {
+	public void setReviewRegDate(String regDate) {
 		review.setRegDate(regDate);
 	}
 
-/*
-	public void setGrade(String grade) {
-		this.grade = grade;
+
+	public void setReviewGrade(String grade) {
+		review.setGrade(grade);
 	}
-*/
-	public void setTitle(String title) {
+
+	public void setReviewTitle(String title) {
 		review.setTitle(title);
 	}
 
-/*	public void setContent(String content) {
-		this.content = content;
-	}*/
+	public void setReviewContent(String content) {
+		review.setContent(content);
+	}
 	
 }
