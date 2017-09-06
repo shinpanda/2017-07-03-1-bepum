@@ -159,22 +159,22 @@
 					<h3>가능 시간</h3>
 					<div class="bepumi-day">
 						<input type="checkbox" id="bepumi-day1" name="bepumi-day"
-							value="월" /> <label for="bepumi-day1">월</label> <input
-							type="checkbox" id="bepumi-day2" name="bepumi-day" value="환" />
+							value="Mon" /> <label for="bepumi-day1">월</label> <input
+							type="checkbox" id="bepumi-day2" name="bepumi-day" value="Tue" />
 						<label for="bepumi-day2">화</label> <input type="checkbox"
-							id="bepumi-day3" name="bepumi-day" value="수" /> <label
+							id="bepumi-day3" name="bepumi-day" value="Wed" /> <label
 							for="bepumi-day3">수</label> <input type="checkbox"
-							id="bepumi-day4" name="bepumi-day" value="목" /> <label
+							id="bepumi-day4" name="bepumi-day" value="Thu" /> <label
 							for="bepumi-day4">목</label> <input type="checkbox"
-							id="bepumi-day5" name="bepumi-day" value="금" /> <label
+							id="bepumi-day5" name="bepumi-day" value="Fri" /> <label
 							for="bepumi-day5">금</label> <input type="checkbox"
-							id="bepumi-day6" name="bepumi-day" value="토" /> <label
+							id="bepumi-day6" name="bepumi-day" value="Sat" /> <label
 							for="bepumi-day6">토</label> <input type="checkbox"
-							id="bepumi-day7" name="bepumi-day" value="일" /> <label
+							id="bepumi-day7" name="bepumi-day" value="Sun" /> <label
 							for="bepumi-day7">일</label>
 					</div>
 					<p>
-						<span><input type="text" placeholder="9:00"
+						<span><input type="text" placeholder="09:00"
 							class="profile-num" pattern="[0-2]\d:[0-5]\d"
 							title="08:00 형식으로 넣어주세요" name="start-time" /></span> ~ <span><input
 							type="text" placeholder="18:00" class="profile-num"

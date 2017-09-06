@@ -31,6 +31,8 @@ public class BepumiProfileDetailController extends HttpServlet {
 
 		request.setAttribute("isProfile", dao.getIsProfile());
 		request.setAttribute("profile", dao.get());
+		request.setAttribute("br", "<br/>");
+		request.setAttribute("cn", "\n");
 		
 		request.getRequestDispatcher("/WEB-INF/views/bepumi/profile/detail.jsp").forward(request, response);
 		

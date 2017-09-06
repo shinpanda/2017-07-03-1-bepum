@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bepum.web.dao.ProfileDao;
+import com.bepum.web.dao.jdbc.JdbcProfileDao;
+
 @WebServlet("/bepumi/profile-edit")
 public class BepumiProfileEditController extends HttpServlet {
 	@Override
@@ -32,6 +35,12 @@ public class BepumiProfileEditController extends HttpServlet {
 	}
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ProfileDao dao = new JdbcProfileDao();
+
+		request.setAttribute("profile", dao.get());
+		request.setAttribute("br", "<br/>");
+		request.setAttribute("cn", "\n");
+		
 		/*response.sendRedirect("notice.jsp");*/
 		request.getRequestDispatcher("/WEB-INF/views/bepumi/profile/edit.jsp").forward(request, response);
 		

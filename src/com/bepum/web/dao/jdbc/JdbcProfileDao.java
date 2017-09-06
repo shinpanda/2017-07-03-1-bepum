@@ -49,6 +49,7 @@ public class JdbcProfileDao implements ProfileDao {
 				p.setBepumDay(rs.getString("bepumDay"));
 				p.setProfilePic(rs.getString("profilePic"));
 				p.setEtc(rs.getString("etc"));
+				p.setIntro(rs.getString("intro"));
 				p.setHouseImg1(rs.getString("homeImg1"));
 				p.setHouseImg2(rs.getString("homeImg2"));
 				p.setHouseImg3(rs.getString("homeImg3"));
