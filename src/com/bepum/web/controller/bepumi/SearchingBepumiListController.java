@@ -15,7 +15,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bepum.web.dao.MemberDao;
 import com.bepum.web.dao.ProfileDao;
+import com.bepum.web.dao.jdbc.JdbcMemberDao;
 import com.bepum.web.dao.jdbc.JdbcProfileDao;
 
 
@@ -29,6 +31,13 @@ public class SearchingBepumiListController extends HttpServlet {
 
 		request.setAttribute("isProfile", dao.getIsProfile());
 		request.setAttribute("profile", dao.get());
+		
+		
+		MemberDao dao2 = new JdbcMemberDao();
+
+		request.setAttribute("list", dao2.getList(page, query, cName));
+		request.setAttribute("count", dao2.getCount());
+		
 		
 		
 		
