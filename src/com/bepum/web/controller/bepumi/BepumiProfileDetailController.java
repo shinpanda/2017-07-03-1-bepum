@@ -23,8 +23,26 @@ import com.bepum.web.entity.Profile;
 
 @WebServlet("/bepumi/profile")
 public class BepumiProfileDetailController extends HttpServlet {
+	
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
+		String id = "";
+		String secret = request.getParameter("sec-btn");
+		System.out.println(secret);
+		int sec = 1;
+		if(secret != null && !secret.equals("")) {
+			if(secret.equals("open"))
+				sec = 0;
+		}
+		ProfileDao dao = new JdbcProfileDao();
+		int result = dao.updateSecret(id, sec);  
+		response.sendRedirect("profile");
+	}
+	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/*response.sendRedirect("notice.jsp");*/
 		
 		ProfileDao dao = new JdbcProfileDao();

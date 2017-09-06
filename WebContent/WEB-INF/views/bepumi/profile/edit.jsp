@@ -80,7 +80,7 @@
 					</div>
 					<div class="bepum-definite-wrapper">
 						<p>
-							희망 시급 : <span><input type="text" placeholder="8000"
+							희망 시급 : <span><input type="text" placeholder="${profile.pay}"
 								class="profile-num" name = "pay"/></span> 원
 						</p>
 

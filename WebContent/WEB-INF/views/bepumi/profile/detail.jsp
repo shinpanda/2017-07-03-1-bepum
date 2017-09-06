@@ -22,12 +22,19 @@
 		<div class="bg-profile-header">
 			<div class="content-container">
 				<div class="btn-header">
-					<button type="submit" onclick="">비공개</button>
+					<form method = "post">
+						<c:if test="${profile.secret == 0}">
+							<button type="submit" name="sec-btn" value="secret" class="sec-btn">비공개</button>
+						</c:if>
+						<c:if test="${profile.secret == 1}">
+							<button type="submit" name="sec-btn" value="open" class="sec-btn">공개</button>
+						</c:if>
+					</form>
 					<c:if test="${isProfile == 0}">
-						<a href="./profile-reg" id="edit">등록</a>
+						<a href="./profile-reg" class="edit">등록</a>
 					</c:if>
 					<c:if test="${isProfile != 0}">
-						<a href="./profile-edit" id="edit">수정</a>
+						<a href="./profile-edit" class="edit">수정</a>
 					</c:if>
 				</div>
 				<div class="bepum-definite-wrapper">

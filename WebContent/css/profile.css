@@ -24,7 +24,15 @@ h3 {
 	    width: 120px;
 	    height: 30px;
 	}
-		#edit {
+		.btn-header form{
+			display:inline-block;
+		}
+		.sec-btn {
+			box-sizing:border-box;
+			width: 56px;
+		}
+		
+		.edit {
 		    box-sizing: border-box;
 		    border: 1.989px outset rgb(221, 221, 221);
 		    text-decoration: none;
