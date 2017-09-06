@@ -591,13 +591,13 @@
 
 				</div>
 
-				<div class="agree-btn-container">
+				<div class="check-container">
 					<div class="check-container all-check">
 						<label for="all-check">전체동의</label> <input type="checkbox"
 							name="all-check" id="all-check" />
-					</div>
-					<a href="certification-identify">다음</a>
+					</div>					
 				</div>
+				<div class="agree-btn-container"><a href="certification-identify">다음</a></div>
 				<script type="text/javascript">
 				function chk(){
 					 var req = document.form.req.checked;

@@ -48,7 +48,7 @@
 				<p>본 회원의 돌보미 자격 신청이 완료되었으며, 심사 완료 후 돌보미로 활동하실 수 있게 됩니다.</p>
 				<p>심사 진행 상황을 확인해주세요.</p>
 				
-				<div><a href="certification-progress">심사 진행창으로 이동</a></div>
+				<div class="agree-btn-container"><a href="certification-progress">심사 진행창으로 이동</a></div>
 			</div>
 			</main>
 		</div>
