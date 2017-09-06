@@ -45,7 +45,7 @@ public class NoticeRegController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		/* response.sendRedirect("notice.jsp"); */
 		request.getRequestDispatcher("/WEB-INF/views/admin/notice/reg.jsp").forward(request, response);
 

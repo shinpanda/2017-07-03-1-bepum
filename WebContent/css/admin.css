@@ -50,10 +50,18 @@
     width: 100%;
     margin-bottom: 10px;
 }
-.board-table {
+/* .board-table {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    margin: auto;
+    width: 100%;
+    border-collapse: collapse;
+} */
+
+.board-table {
+    box-sizing: border-box;
+    display: table;
     margin: auto;
     width: 100%;
     border-collapse: collapse;
@@ -64,37 +72,45 @@
 	    line-height: 30px;
 	    font-size: 12px;
 	}
-	.board-table .row {
+	/* .board-table .row {
 	    display: flex;
 	    border-bottom: 1px solid #f3f3f3;
 	    font-size: 13px;
 	    flex-direction: row;
+	} */
+	
+	.board-table .row {
+	    display: table-row;
+	    border-bottom: 1px solid #f3f3f3;
+	    font-size: 13px;
 	}
 		.board-table .cell {
+			display:table-cell;
 		    padding: 8px 10px;
-		}
-		.board-table .no{
-			width:8%;
+		    box-sizing: border-box;
 		}
 		
+		.board-table .w60 {
+		    width:60px;
+		}
+		
+		.board-table .w80 {
+		    width:80px;
+		}
+		.board-table .w100{
+			width:100px;
+		}
+		
+		.board-table .w120{
+			width:120px;
+		}
+		
+		
 		.board-table .title {
-		    width: 60%;
 		    white-space: nowrap;
 		    overflow: hidden;
 		    text-overflow: ellipsis;
-		}
-		.board-table .title-content{
-			text-align: left;
-		}
-		.board-table .writer-id{
-			width:10%;
-		}
-		.board-table .reg-date{
-			width:12%;
-		}
-		
-		.board-table .hit{
-			width:10%;
+		    text-align: left;
 		}
 		
 		.paging-container {

@@ -26,6 +26,7 @@
     margin: auto;
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 	.list-arr {
 	    margin-bottom: 10px;
@@ -56,7 +57,6 @@
 	    display: table-row;
 	    border-bottom: 1px solid #f3f3f3;
 	    font-size: 13px;
-	    flex-direction: row;
 	}
 		.board-table .cell {
 			display:table-cell;

@@ -17,7 +17,7 @@ import com.bepum.web.entity.BoardView;
 public class JdbcSecretBoardDao implements SecretBoardDao {
 
 	@Override
-	public List<BoardView> getList(int page, String c_name, String query, String bName) {
+	public List<BoardView> getList(int page, String c_name, String query, String tName) {
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
 		List<BoardView> list = null;
@@ -109,7 +109,7 @@ public class JdbcSecretBoardDao implements SecretBoardDao {
 
 	
 	@Override
-	public int update(String no, String title, String content, String bName) {
+	public int update(String no, String title, String content, String tName) {
 		int result = 0;
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
@@ -142,7 +142,7 @@ public class JdbcSecretBoardDao implements SecretBoardDao {
 	}
 
 	@Override
-	public int insert(String title, String content, String bName) {
+	public int insert(String title, String content, String tName) {
 		int result = 0;
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
@@ -179,7 +179,7 @@ public class JdbcSecretBoardDao implements SecretBoardDao {
 	}
 
 	@Override
-	public BoardView get(String no, String bName) {
+	public BoardView get(String no, String tName) {
 		BoardView b = null;
 
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
