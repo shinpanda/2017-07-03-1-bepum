@@ -25,15 +25,16 @@ public class JdbcBepumiMatchingDao implements BepumiMatchingDao {
 		// JDBC 드라이버 로드
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			
-			String sql = "select * from BepumiMatchingView where bepumiID = ? order by reqDate desc limit ?, 15";
+			//BepumiMatchingView는 목록에서만 작동... 뷰단에서 select 하는 거는 다른 객체를 만드는 것이 맞을 듯 아기가 2이상일 수도 있으니까..
+			String sql = "select * from BepumiMatchingView where bepumiID = ? and status like ? order by reqDate desc limit ?, 15";
 
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
 
 			st.setString(1, id);
-			st.setInt(2, offset);
+			st.setString(2, String.format("%%%s%%", query));
+			st.setInt(3, offset);
 			/* st.setString(1, "%"+title+"%"); */
 
 			// 결과 가져오기
@@ -71,7 +72,7 @@ public class JdbcBepumiMatchingDao implements BepumiMatchingDao {
 	}
 
 	@Override
-	public int getCount() {
+	public int getCount(String id) {
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
 		int count = 0;
@@ -79,15 +80,14 @@ public class JdbcBepumiMatchingDao implements BepumiMatchingDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String sqlCount = "SELECT count(no) as count FROM BepumiMatchingView";
+			String sqlCount = "SELECT count(no) as count FROM BepumiMatchingView where id = ?";
 			
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
-			/* Statement st = con.createStatement(); */
+			PreparedStatement stCount = con.prepareStatement(sqlCount);
+			stCount.setString(1, id);
 
-			/*st.setString(1, "%"+title+"%");*/
-
-			Statement stCount = con.createStatement();
-			ResultSet rsCount = stCount.executeQuery(sqlCount);
+			/*Statement stCount = con.createStatement();*/
+			ResultSet rsCount = stCount.executeQuery();
 			
 			if(rsCount.next())
 				count = rsCount.getInt("count");
@@ -109,8 +109,8 @@ public class JdbcBepumiMatchingDao implements BepumiMatchingDao {
 	}
 
 	@Override
-	public MatchingView get(String id, String no) {
-		MatchingView m = null;
+	public List<MatchingView> get(String id, String no) {
+		List<MatchingView> list = null;
 
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
@@ -118,7 +118,7 @@ public class JdbcBepumiMatchingDao implements BepumiMatchingDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String sql = "SELECT * FROM BepumiMatchingView where no = ?";
+			String sql = "SELECT * FROM BepumiMatchingDetailView where no = ?";
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
@@ -131,11 +131,19 @@ public class JdbcBepumiMatchingDao implements BepumiMatchingDao {
 
 			// 결과 사용
 			while (rs.next()) {
-				m = new MatchingView();
+				MatchingView m = new MatchingView();
+				m.setNo(rs.getString("no"));
+				m.setId(rs.getString("id"));
 				m.setName(rs.getString("name"));
-				m.setReviewNo(rs.getString("no"));
-				m.setReviewTitle(rs.getString("title"));
-
+				m.setGrade(rs.getInt("grade"));
+				m.setReqDate(rs.getDate("reqDate"));
+				m.setRequirement(rs.getString("requirement"));
+				m.setStartTime(rs.getString("startTime"));
+				m.setEndTime(rs.getString("endTime"));
+				m.setStatus(rs.getString("status"));
+				m.setBabyName(rs.getString("babyName"));
+				m.setBabyAge(rs.getString("babyAge"));
+				list.add(m);
 			}
 
 			rs.close();
@@ -149,7 +157,8 @@ public class JdbcBepumiMatchingDao implements BepumiMatchingDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return m;
+		return list;
 	}
+
 
 }

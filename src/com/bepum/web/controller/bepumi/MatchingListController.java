@@ -39,7 +39,7 @@ public class MatchingListController extends HttpServlet {
 		
 		BepumiMatchingDao dao = new JdbcBepumiMatchingDao();
 		request.setAttribute("list", dao.getList(id, page, query));
-		int count = dao.getCount();
+		request.setAttribute("count", dao.getCount(id));
 		
 		
 		/*response.sendRedirect("notice.jsp");*/

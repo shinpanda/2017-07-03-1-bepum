@@ -24,7 +24,7 @@ public class MatchingDetailController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		BepumiMatchingDao dao = new JdbcBepumiMatchingDao();
-		request.setAttribute("m", dao.get("testpumi", "1"));
+		request.setAttribute("list", dao.get("testpumi", "1"));
 		
 		/*response.sendRedirect("notice.jsp");*/
 		request.getRequestDispatcher("/WEB-INF/views/bepumi/matching/detail.jsp").forward(request, response);

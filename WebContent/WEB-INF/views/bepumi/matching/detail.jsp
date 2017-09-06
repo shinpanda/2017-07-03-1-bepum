@@ -20,8 +20,8 @@
 			<main id="main" class="main">
 				${m.reviewTitle}
 				${m.reviewNo}
-				<%-- <jsp:include page = "detail-top.jsp" />
-				<jsp:include page = "detail-bottom.jsp" /> --%>
+				<jsp:include page = "detail-top.jsp" />
+				<jsp:include page = "detail-bottom.jsp" />
 			</main>
 		</div>
 	</div>

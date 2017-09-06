@@ -17,9 +17,6 @@ public class Matching extends Bepumi{
 	private String startTime;
 	private String endTime;
 	
-	private String babyname;
-	private int babyage;
-	
 	private String requirement;
 	private String status;
 	
@@ -29,7 +26,7 @@ public class Matching extends Bepumi{
 
 
 	public Matching(String no, String requestID, String bepumiID, Date reqDate, Date acceptDate, Date bepumDate,
-			String startTime, String endTime, String babyname, int babyage, String requirement, String status) {
+			String startTime, String endTime, String requirement, String status) {
 		super();
 		this.no = no;
 		this.requestID = requestID;
@@ -39,8 +36,6 @@ public class Matching extends Bepumi{
 		this.bepumDate = bepumDate;
 		this.startTime = startTime;
 		this.endTime = endTime;
-		this.babyname = babyname;
-		this.babyage = babyage;
 		this.requirement = requirement;
 		this.status = status;
 	}
@@ -103,22 +98,6 @@ public class Matching extends Bepumi{
 
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
-	}
-
-	public String getBabyname() {
-		return babyname;
-	}
-
-	public void setBabyname(String babyname) {
-		this.babyname = babyname;
-	}
-
-	public int getBabyage() {
-		return babyage;
-	}
-
-	public void setBabyage(int babyage) {
-		this.babyage = babyage;
 	}
 
 	public String getRequirement() {

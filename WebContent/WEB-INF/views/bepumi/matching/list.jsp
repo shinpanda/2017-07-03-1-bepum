@@ -33,7 +33,7 @@
 				<div class="table-wrapper">
 					<div class="board-table">
 						<div class="table-header">
-							<div class="cell request-id">아이디</div>
+							<div class="cell request-id">요청 아이디</div>
 							<div class="cell request-name">이름</div>
 							<div class="cell grade">돌보미 등급</div>
 							<div class="cell req-date">신청일</div>
@@ -41,12 +41,18 @@
 							<div class="cell status">매칭 상태</div>
 						</div>
 						<c:forEach var="n" items="${list}" begin="0" end="14">
+							<c:set var="grade" value="베푸미" />
+							<c:if test="${n.grade == 2}">
+								<c:set var="grade" value="슈퍼베푸미" />
+							</c:if>
 							<div class="row">
-								<div class="cell request-id">${n.id}</div>
-								<div class="cell request-name"><a href="matching-detail?no=${n.no}">${n.name}</a></div>
-								<div class="cell grade">${n.grade}</div>
+								<div class="cell request-id"><a href="matching-detail?no=${n.no}">${n.id}</a></div>
+								<div class="cell request-name">
+									<a href="matching-detail?no=${n.no}">${n.name}</a>
+								</div>
+								<div class="cell grade">${grade}</div>
 								<div class="cell req-date">${n.reqDate}</div>
-								<div class="cell bepum-time">시간</div>
+								<div class="cell bepum-time">${n.startTime}~ ${n.endTime}</div>
 								<div class="cell status">${n.status}</div>
 							</div>
 						</c:forEach>
