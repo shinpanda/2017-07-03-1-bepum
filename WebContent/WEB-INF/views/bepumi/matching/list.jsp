@@ -33,7 +33,6 @@
 				<div class="table-wrapper">
 					<div class="board-table">
 						<div class="table-header">
-							<div class="cell no">no</div>
 							<div class="cell request-id">아이디</div>
 							<div class="cell request-name">이름</div>
 							<div class="cell grade">돌보미 등급</div>
@@ -43,14 +42,12 @@
 						</div>
 						<c:forEach var="n" items="${list}" begin="0" end="14">
 							<div class="row">
-								<div class="cell no">${n.no}</div>
-								<div class="cell title title-content">
-									<a href="matching-detail?no=${status.current}">${n.title}
-										(${n.countCmt})</a>
-								</div>
-								<div class="cell writer-id">${n.writerId}</div>
-								<div class="cell reg-date">${n.regDate}</div>
-								<div class="cell hit">${n.hit}</div>
+								<div class="cell request-id">${n.id}</div>
+								<div class="cell request-name"><a href="matching-detail?no=${n.no}">${n.name}</a></div>
+								<div class="cell grade">${n.grade}</div>
+								<div class="cell req-date">${n.reqDate}</div>
+								<div class="cell bepum-time">시간</div>
+								<div class="cell status">${n.status}</div>
 							</div>
 						</c:forEach>
 					</div>

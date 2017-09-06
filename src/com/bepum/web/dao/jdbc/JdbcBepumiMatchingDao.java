@@ -26,13 +26,13 @@ public class JdbcBepumiMatchingDao implements BepumiMatchingDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			String sql = "SELECT * FROM BepumiMatchingView";
+			String sql = "select * from BepumiMatchingView where bepumiID = ? order by reqDate desc limit ?, 15";
 
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
 
-			st.setString(1, String.format("%%%s%%", query));
+			st.setString(1, id);
 			st.setInt(2, offset);
 			/* st.setString(1, "%"+title+"%"); */
 
@@ -45,7 +45,14 @@ public class JdbcBepumiMatchingDao implements BepumiMatchingDao {
 			// 결과 사용
 			while (rs.next()) {
 				MatchingView m = new MatchingView();
-				
+				m.setNo(rs.getString("no"));
+				m.setId(rs.getString("id"));
+				m.setName(rs.getString("name"));
+				m.setGrade(rs.getInt("grade"));
+				m.setReqDate(rs.getDate("reqDate"));
+				m.setStartTime(rs.getString("startTime"));
+				m.setEndTime(rs.getString("endTime"));
+				m.setStatus(rs.getString("status"));
 				list.add(m);
 			}
 			rs.close();

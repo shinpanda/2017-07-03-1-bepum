@@ -8,69 +8,101 @@ public class Matching extends Bepumi{
  * 베품 날짜, 베품 시간, 베품을 신청한 날짜, 아기 이름, 아기 나이, 요구사항 , 
  * 진행 상황
  */
-	private String applicant;
-	private String bepumi;
-	private int bp_grade;
-	private Date mat_date;
-	private Date req_date;
+	private String no;
+	private String requestID;
+	private String bepumiID;
+	private Date reqDate;
+	private Date acceptDate;
+	private Date bepumDate;
+	private String startTime;
+	private String endTime;
+	
 	private String babyname;
 	private int babyage;
-	private String req_msg;
-	private int progress;
+	
+	private String requirement;
+	private String status;
 	
 	public Matching() {
 		
 	}
 
-	public Matching(String applicant, String bepumi, int bp_grade, Date mat_date, Date req_date, String babyname,
-			int babyage, String req_msg, int progress) {
+
+	public Matching(String no, String requestID, String bepumiID, Date reqDate, Date acceptDate, Date bepumDate,
+			String startTime, String endTime, String babyname, int babyage, String requirement, String status) {
 		super();
-		this.applicant = applicant;
-		this.bepumi = bepumi;
-		this.bp_grade = bp_grade;
-		this.mat_date = mat_date;
-		this.req_date = req_date;
+		this.no = no;
+		this.requestID = requestID;
+		this.bepumiID = bepumiID;
+		this.reqDate = reqDate;
+		this.acceptDate = acceptDate;
+		this.bepumDate = bepumDate;
+		this.startTime = startTime;
+		this.endTime = endTime;
 		this.babyname = babyname;
 		this.babyage = babyage;
-		this.req_msg = req_msg;
-		this.progress = progress;
+		this.requirement = requirement;
+		this.status = status;
 	}
 
-	public String getApplicant() {
-		return applicant;
+
+
+
+
+	public String getRequestID() {
+		return requestID;
 	}
-	public void setApplicant(String applicant) {
-		this.applicant = applicant;
+
+	public void setRequestID(String requestID) {
+		this.requestID = requestID;
 	}
-	public String getBepumi() {
-		return bepumi;
+
+	public String getBepumiID() {
+		return bepumiID;
 	}
-	public void setBepumi(String bepumi) {
-		this.bepumi = bepumi;
+
+	public void setBepumiID(String bepumiID) {
+		this.bepumiID = bepumiID;
 	}
-	public int getBp_grade() {
-		return bp_grade;
+
+	public Date getReqDate() {
+		return reqDate;
 	}
-	public void setBp_grade(int bp_grade) {
-		this.bp_grade = bp_grade;
+
+	public void setReqDate(Date reqDate) {
+		this.reqDate = reqDate;
 	}
-	public Date getMat_date() {
-		return mat_date;
+
+	public Date getAcceptDate() {
+		return acceptDate;
 	}
-	public void setMat_date(Date mat_date) {
-		this.mat_date = mat_date;
+
+	public void setAcceptDate(Date acceptDate) {
+		this.acceptDate = acceptDate;
 	}
-	public Date getReq_date() {
-		return req_date;
+
+	public Date getBepumDate() {
+		return bepumDate;
 	}
-	public void setReq_date(Date req_date) {
-		this.req_date = req_date;
+
+	public void setBepumDate(Date bepumDate) {
+		this.bepumDate = bepumDate;
 	}
-	public int getProgress() {
-		return progress;
+
+	public String getStartTime() {
+		return startTime;
 	}
-	public void setProgress(int progress) {
-		this.progress = progress;
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
 	}
 
 	public String getBabyname() {
@@ -89,14 +121,33 @@ public class Matching extends Bepumi{
 		this.babyage = babyage;
 	}
 
-	public String getReq_msg() {
-		return req_msg;
+	public String getRequirement() {
+		return requirement;
 	}
 
-	public void setReq_msg(String req_msg) {
-		this.req_msg = req_msg;
+	public void setRequirement(String requirement) {
+		this.requirement = requirement;
 	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
+	public String getNo() {
+		return no;
+	}
+
+
+	public void setNo(String no) {
+		this.no = no;
+	}
+
 	
-	
+
 	
 }
