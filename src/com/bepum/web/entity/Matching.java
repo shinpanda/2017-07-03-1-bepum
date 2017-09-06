@@ -2,7 +2,7 @@ package com.bepum.web.entity;
 
 import java.util.Date;
 
-public class Matching {
+public class Matching extends Bepumi{
 /*
  * no, 신청자, 베푸미, 베푸미 등급
  * 베품 날짜, 베품 시간, 베품을 신청한 날짜, 아기 이름, 아기 나이, 요구사항 , 
