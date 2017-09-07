@@ -17,34 +17,21 @@
 <body>
 	<jsp:include page="../../inc/header.jsp"></jsp:include>
 
-	<div id="body">
+	<div id="body" class="del-body">
 		<div class="content-container">
 			<main id="main" class="main">
+			<form method="post" action="" name="del-form">
+				<div class="simple-container">
+					<div>제목 : ${b.title}</div>
+					<div>글쓴이 : ${b.writerId}</div>
 
-			<div class="detail-container">
-				<div class="info-container">
-					<div class="tr-info clearfix">
-						<span class="title">${b.title}</span> <span class="reg-date">${b.regDate}</span>
-					</div>
-					<div class="wch-info clearfix">
-						<span class="writer">${b.writerId}</span>
-						<div class="ch-wrapper">
-							<span class="comment-num">댓글 수 ${b.countCmt} </span> <span class="hit">조회수 ${b.hit}</span>
-						</div>
+					<input type="hidden" name="no" value="${b.no}" />
+					<div>
+						<span>삭제하시겠습니까?</span> <input type="submit" class="btn" value="삭제">
 					</div>
 				</div>
-				<div class="detail-content">
-					${fn:replace(b.content, cn, br)}
-				</div>
-				<div>
-					<a href="question" class="btn">목록</a>
-					<div class="ed-wrapper">
-						<a href="question-edit?no=${b.no}" class="btn">수정</a>
-						<a href="question-del?no=${b.no}" class="btn">삭제</a>
-					</div>
-				</div>
-				
-			</div>
+
+			</form>
 			</main>
 		</div>
 	</div>

@@ -13,13 +13,20 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
-<body>	
+<body>
 	<jsp:include page="../../inc/header.jsp"></jsp:include>
 	<div id="body">
 		<div class="content-container">
-			<main id="main" class="main">
-				<jsp:include page = "detail-top.jsp" />
-				<jsp:include page = "detail-bottom.jsp" />
+			<main id="main" class="main"> <jsp:include
+				page="detail-top.jsp" /> <jsp:include page="detail-bottom.jsp" />
+			<div class="btn-container">
+				<form action="post">
+
+					<input type="submit" name="ok-btn" value="승인" class="btn" /> <input
+						type="submit" name="ok-btn" value="거절" class="btn" />
+
+				</form>
+			</div>
 			</main>
 		</div>
 	</div>

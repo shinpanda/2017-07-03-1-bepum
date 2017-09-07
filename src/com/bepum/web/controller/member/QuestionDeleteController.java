@@ -19,46 +19,36 @@ import com.bepum.web.dao.jdbc.JdbcBoardDao;
 import com.bepum.web.dao.jdbc.JdbcSecretBoardDao;
 import com.bepum.web.entity.Board;
 
-@WebServlet("/board/question-edit")
-public class QuestionEditController extends HttpServlet {
-	
+@WebServlet("/board/question-del")
+public class QuestionDeleteController extends HttpServlet {
+
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		
-		String no = request.getParameter("no");
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
-		String _isPrivate = request.getParameter("sec");
-		int isPrivate = 0;
-		String privateKey = null;
-		if(_isPrivate.equals("sec")) {
-			isPrivate = 1;
-			privateKey = request.getParameter("secKey");
-		}
-		
-		
 
+		String no = request.getParameter("no");
+		/*title = title.replaceAll("\n", "<br>"); // 줄바꿈처리
+		title = title.replaceAll("\u0020", "&nbsp;"); // 스페이스바로 띄운 공백처리*/		
+		System.out.println(no);
 		SecretBoardDao dao = new JdbcSecretBoardDao();
-		int result = dao.update(no, title, content, isPrivate, privateKey, "FAQ");
+		int result = dao.delete(no, "FAQ");
+		
 
 		response.sendRedirect("question");
-
 	}
-	
-	
+
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String no = request.getParameter("no");
 
 		SecretBoardDao dao = new JdbcSecretBoardDao();
 		request.setAttribute("b", dao.get(no, "FAQ"));
 
-		
-		/*response.sendRedirect("notice.jsp");*/
-		request.getRequestDispatcher("/WEB-INF/views/board/question/edit.jsp").forward(request, response);
-		
+		/* response.sendRedirect("notice.jsp"); */
+		request.getRequestDispatcher("/WEB-INF/views/board/question/del.jsp").forward(request, response);
+
 	}
 }

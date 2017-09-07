@@ -21,7 +21,7 @@ import com.bepum.web.entity.Board;
 
 @WebServlet("/board/question-reg")
 public class QuestionRegController extends HttpServlet {
-	
+
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -29,26 +29,29 @@ public class QuestionRegController extends HttpServlet {
 
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		String open = request.getParameter("sec");
+		String _isPrivate = request.getParameter("sec");
+		int isPrivate = 0;
 		String privateKey = null;
-		if(open.equals("sec")) {
-			privateKey = request.getParameter("secKey");
+		if (_isPrivate != null && !_isPrivate.equals("")) {
+			if (_isPrivate.equals("sec")) {
+				isPrivate = 1;
+				privateKey = request.getParameter("secKey");
+			}
 		}
-		
 
 		SecretBoardDao dao = new JdbcSecretBoardDao();
-		int result = dao.insert(title, content, "Question");
-		
+		int result = dao.insert(title, content, isPrivate, privateKey, "FAQ");
+
 		response.sendRedirect("question");
 
 	}
-	
-	
+
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		/*response.sendRedirect("notice.jsp");*/
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		/* response.sendRedirect("notice.jsp"); */
 		request.getRequestDispatcher("/WEB-INF/views/board/question/reg.jsp").forward(request, response);
-		
+
 	}
 }
