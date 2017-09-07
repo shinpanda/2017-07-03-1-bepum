@@ -25,7 +25,7 @@
 	function showPopup() {
 		window.open("${p}/member/sign", "로그인/회원가입",
 				"resizable=no width=562, height=800, left=600, top=50");
-		
+			
 	}
 </script>
 </head>
@@ -73,9 +73,16 @@
 					</li>
 			</ul>
 		</nav> 
+		
+		
 		<nav class="menu-wrapper">
 		<ul id="login">
+			<c:if test="${empty sessionScope.id}">
 			<li><a href="" onclick="javascript:showPopup();" class="btn-border">Sign in</a></li>
+			</c:if>
+			<c:if test="${!empty sessionScope.id}">
+			<li><a href="${p}/member/logout" class="btn-border">${name}님</a></li>
+			</c:if>
 		</ul>
 		</nav>
 		<div id="sub-bg"></div>

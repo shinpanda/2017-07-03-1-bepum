@@ -84,7 +84,9 @@ html {
 	height: 100%;
 	visibility: visible;
 }
-
+.logmod__tab.hidden {
+	visibility: hidden;
+}
 .logmod__tabs {
 	list-style: none;
 	padding: 0;
@@ -101,7 +103,10 @@ html {
 	background: #FFF;
 	color: #333;
 }
-
+.logmod__tabs li.before a {
+	background: #F8D9DD;
+	color: #809191;
+}
 .logmod__tabs li a {
 	width: 50%;
 	position: relative;
