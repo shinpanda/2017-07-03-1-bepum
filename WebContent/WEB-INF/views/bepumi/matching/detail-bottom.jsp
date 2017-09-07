@@ -5,12 +5,12 @@
 <div class="rb-container">
 	<div class="req-date">
 		<span class="date-title">매칭 신청일</span>
-		<span>2017월 7월 14일</span>
+		<span>${list[0].reqDate}</span>
 	</div>
 	<div class="bepum-date">
 		<span class="date-title">돌보미 날짜</span>
 		<div class="bepum-time">
-		<span class="start-time">2017년 7월 15일 10시</span> > <span class="end-time">2017년 7월 15일 16일</span>
+		<span class="start-time">${list[0].bepumDate} ${list[0].startTime} </span> > <span class="end-time">${list[0].bepumDate}  ${list[0].endTime}</span>
 		</div>
 	</div>
 </div>
@@ -18,6 +18,7 @@
 <div class="req-info-container">
 	<h3>요구사항</h3>
 	<div class="req-container">
+	${list[0].requirement}
 	</div>
 </div>
 <div class="bepumi baby-info-container">
