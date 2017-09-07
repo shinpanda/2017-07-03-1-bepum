@@ -42,7 +42,7 @@ public class JdbcSearchingMatchingDao implements SearchingMatchingDao {
 			// 결과 사용
 			while (rs.next()) {
 				MatchingView m = new MatchingView();
-				m.setNo(rs.getString("matchingNo"));
+				m.setNo(rs.getString("no"));
 				m.setId(rs.getString("id"));
 				m.setName(rs.getString("name"));
 				m.setGrade(rs.getInt("grade"));
@@ -113,7 +113,7 @@ public class JdbcSearchingMatchingDao implements SearchingMatchingDao {
 		// JDBC 드라이버 로드
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String sql = "SELECT * FROM SearchingMatchingDetailView where no = ?";
+			String sql = "SELECT * FROM SearchingMatchingView where no = ?";
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
@@ -137,10 +137,16 @@ public class JdbcSearchingMatchingDao implements SearchingMatchingDao {
 				m.setAddress(rs.getString("address"));
 				m.setReqDate(rs.getDate("reqDate"));
 				m.setBepumDate(rs.getDate("bepumDate"));
-				m.setRequirement(rs.getString("requirement"));
 				m.setStartTime(rs.getString("startTime"));
 				m.setEndTime(rs.getString("endTime"));
 				m.setStatus(rs.getString("status"));
+				
+				m.setPaymentOption(rs.getInt("option"));
+				m.setPaymentPayDate(rs.getDate("payDate"));
+				
+				m.setReviewRating(rs.getInt("rating"));
+				m.setReviewTitle(rs.getString("title"));
+				m.setReviewContent(rs.getString("content"));
 				list.add(m);
 			}
 			rs.close();
