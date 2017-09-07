@@ -85,6 +85,33 @@
 		.reg-btn a{
 			color:#505050;
 		}
+/* paging 부분 */
+		.paging-container {
+			display: inline-flex;
+		    margin: auto;
+		    margin-top:14px;
+		    font-size:14px;
+		}
+		.paging-container div {
+		    padding: 0px 8px;
+		}
+		
+		.paging-container div a,
+		.paging-container ul li a
+		{
+			color: #999;
+		}
+		
+		.paging-container ul li {
+		    float: left;
+		    padding: 0px 8px;
+		}
+		
+		.paging-container .page-present{
+			color:black;
+		}
+		
+
 
 
 /* 베푸미쪽 detail 부분 */

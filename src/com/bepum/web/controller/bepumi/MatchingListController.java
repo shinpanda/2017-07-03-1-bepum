@@ -15,10 +15,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bepum.web.dao.BepumiMatchingDao;
+import com.bepum.web.dao.jdbc.JdbcBepumiMatchingDao;
+import com.bepum.web.entity.MatchingView;
+
 @WebServlet("/bepumi/matching-list")
 public class MatchingListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		request.setCharacterEncoding("UTF-8");
+		String id = "testpumi";
+		String _query = request.getParameter("arr");
+		System.out.println(_query);
+		String _page = request.getParameter("p");
+
+		int page = 1;
+		if (_page != null && !(_page.equals("")))
+			page = Integer.parseInt(_page);
+		
+		String query = "";
+		if (_query != null && !(_query.equals("")))
+			query = _query;
+		
+		
+		BepumiMatchingDao dao = new JdbcBepumiMatchingDao();
+		request.setAttribute("list", dao.getList(id, page, query));
+		request.setAttribute("count", dao.getCount(id));
+		
+		
 		/*response.sendRedirect("notice.jsp");*/
 		request.getRequestDispatcher("/WEB-INF/views/bepumi/matching/list.jsp").forward(request, response);
 		

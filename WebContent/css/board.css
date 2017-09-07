@@ -163,6 +163,10 @@
 		float:right;	
 	}
 	
+		.reg-date.date-wrapper span {
+		    padding-left: 10px;
+		}
+	
 .wch-info {
     background: rgb(251, 251, 251);
     line-height: 29px;

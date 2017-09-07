@@ -24,26 +24,26 @@
 			<div class="detail-container">
 				<div class="info-container">
 					<div class="tr-info clearfix">
-						<span class="title">${b.title}</span> <span class="reg-date">${b.regDate}</span>
-					</div>
-					<div class="wch-info clearfix">
-						<span class="writer">${b.writerId}</span>
-						<div class="ch-wrapper">
-							<span class="comment-num">댓글 수</span> <span class="hit">${b.hit}</span>
+						<span class="title">[ ${b.bepumiID} 님과의 매칭 ] - ${b.title}</span> 
+						<div class="reg-date date-wrapper">
+							<span>배품 날짜 ${b.bepumDate}</span>
+							<span>작성일 ${b.regDate}</span>
 						</div>
 					</div>
-				</div>
-				<div class="detail-content">
-					${fn:replace(b.content, cn, br)}
-				</div>
-				<div>
-					<a href="free" class="btn">목록</a>
-					<div class="ed-wrapper">
-						<a href="free-edit?no=${b.no}" class="btn">수정</a>
-						<a href="free-del" class="btn">삭제</a>
+					<div class="wch-info clearfix">
+						<span class="writer">${b.writerID}</span>
+						<div class="ch-wrapper">
+								
+							<%-- <span class="comment-num">댓글 수 ${b.countCmt} </span>  --%><span
+								class="hit">조회수 ${b.hit}</span>
+						</div>
+					</div>
+					<div class="detail-content">${fn:replace(b.content, cn, br)}
+					</div>
+					<div>
+						<a href="review" class="btn">목록</a>
 					</div>
 				</div>
-				
 			</div>
 			</main>
 		</div>

@@ -6,6 +6,21 @@
 <html>
 
 <head>
+<script type="text/javascript"
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+<script type="text/javascript"> 
+$(function(){ //전체선택 체크박스 클릭 
+	$("#allCheck").click(function(){ //만약 전체 선택 체크박스가 체크된상태일경우
+		if($("#allcheck").prop("checked")) { //해당화면에 전체 checkbox들을 체크해준다 
+			$("input[type=checkbox]").prop("checked",true); // 전체선택 체크박스가 해제된 경우 
+			} else { //해당화면에 모든 checkbox들의 체크를해제시킨다. 
+				$("input[type=checkbox]").prop("checked",false); 
+			} 
+	}) 
+	}) 
+
+</script>
+
 <meta charset="UTF-8">
 <link href="../css/common_style.css" type="text/css" rel="stylesheet" />
 <link href="../css/style2.css" type="text/css" rel="stylesheet" />
@@ -47,10 +62,10 @@
 					<div class="agree-title">
 						<label>아이돌보미 이용약관 <span class="type red">(필수)</span></label>
 						<div class="check-container">
-							<input type="checkbox" name="agr-btn" id="agr-btn1">
-
+							<input type="checkbox" name="agr-btn" id="agr-btn1" value="">
 						</div>
 					</div>
+
 					<!-- 아이돌보미 이용약관 -->
 					<div class="agreement-content">
 						<h3 class="con">제 1조 (목적)</h3>
@@ -374,10 +389,11 @@
 					<div class="agree-title">
 						<label>개인정보 수집/이용 동의 <span class="type red">(필수)</span></label>
 						<div class="check-container">
-							<input type="checkbox" name="agr-btn" id="agr-btn1">
-
+							<input type="checkbox" name="agr-btn" id="agr-btn2" value="">
 						</div>
 					</div>
+
+					<!-- 개인정보수집.이용동의(개인정보처리방침) -->
 					<div class="agreement-content">
 						<div class="noticeBox nb10">
 							<p class="pd_t10">주식회사 베품(이하 ‘회사’)는 개인정보보호법, 정보통신망 이용촉진 및
@@ -593,36 +609,15 @@
 
 				<div class="check-container">
 					<div class="check-container all-check">
-						<label for="all-check">전체동의</label> <input type="checkbox"
-							name="all-check" id="all-check" />
-					</div>					
+						<label for="all-check">전체동의</label> 
+						<input type="checkbox" name="allcheck" id="allcheck" />
+					</div>
+					<a href="certification-identify">다음</a>
 				</div>
-				<div class="agree-btn-container"><a href="certification-identify">다음</a></div>
-				<script type="text/javascript">
-				function chk(){
-					 var req = document.form.req.checked;
-					 var num = 0;
-					 if(req == true){
-					  num = 1;
-					 }
-					 if(num==1){
-					  document.form.submit();
-					 }else{
-					  alert("개인정보 약관에 동의하셔야 합니다.");
-					 }
-					}
-					function nochk(){
-					 alert("동의하지 않으면 가입하실 수 없습니다");
-					location.href="../index.jsp";}
-				</script>
 			</div>
 			</main>
 		</div>
 	</div>
-
-	</main>
-
-
 	<!--  footer 집중화 -->
 	<jsp:include page="../../inc/footer.jsp"></jsp:include>
 
