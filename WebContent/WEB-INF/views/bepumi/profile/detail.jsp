@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -10,23 +11,30 @@
 <title>베품</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	
+
 </head>
 
 <body>
 	<jsp:include page="../../inc/header.jsp"></jsp:include>
 	<div id="body">
-		
+
 		<main id="main">
 		<div class="bg-profile-header">
 			<div class="content-container">
 				<div class="btn-header">
-					<button type="submit" onclick="">비공개</button>
+					<form method = "post">
+						<c:if test="${profile.secret == 0}">
+							<button type="submit" name="sec-btn" value="secret" class="sec-btn">비공개</button>
+						</c:if>
+						<c:if test="${profile.secret == 1}">
+							<button type="submit" name="sec-btn" value="open" class="sec-btn">공개</button>
+						</c:if>
+					</form>
 					<c:if test="${isProfile == 0}">
-						<a href="./profile-reg" id="edit">등록</a>
+						<a href="./profile-reg" class="edit">등록</a>
 					</c:if>
 					<c:if test="${isProfile != 0}">
-						<a href="./profile-edit" id="edit">수정</a>
+						<a href="./profile-edit" class="edit">수정</a>
 					</c:if>
 				</div>
 				<div class="bepum-definite-wrapper">
@@ -44,12 +52,12 @@
 					<p id="name">${profile.name}</p>
 					<p id="address">${profile.address}</p>
 					<c:set var="grade" value="회원" />
-							<c:if test="${profile.grade == 1}">
-								<c:set var="grade" value="베푸미" />
-							</c:if>
-							<c:if test="${profile.grade == 2}">
-								<c:set var="grade" value="슈퍼베푸미" />
-							</c:if>
+					<c:if test="${profile.grade == 1}">
+						<c:set var="grade" value="베푸미" />
+					</c:if>
+					<c:if test="${profile.grade == 2}">
+						<c:set var="grade" value="슈퍼베푸미" />
+					</c:if>
 					<p id="grade">${grade}</p>
 					<p id="contact">${profile.phoneNum}</p>
 				</div>
@@ -67,13 +75,30 @@
 			<div class="time-table">
 				<h3>가능 시간</h3>
 				<div class="bepumi-day">
-					<span class="Mon">월</span>
+					<span class="Mon">월</span> 
 					<span class="Tue">화</span> 
 					<span class="Wed">수</span> 
 					<span class="Thu">목</span> 
 					<span class="Fri">금</span>
 					<span class="Sat">토</span> 
 					<span class="Sun">일</span>
+					
+					<script>
+						var str = '${profile.bepumDay}';
+						var arr = [];
+						var i = 0;
+						while(str.indexOf(',') > 0){
+							var index = str.indexOf(',');
+							arr[i++] = str.substr(0, index);
+							str = str.substr(index+2);
+						}
+						arr[i] = str;
+
+						for(var index in arr){
+							$('.'+arr[index]).addClass('on');
+						}
+						
+					</script>
 				</div>
 				<p class="bepumi-time">
 					<span>${profile.strTime}</span> ~ <span>${profile.endTime}</span>
@@ -85,15 +110,12 @@
 					<div class="intro-table">
 						<div class="row">
 							<div class="cell1">기타사항</div>
-							<div class="cell2" style="">
-								${profile.etc}
+							<div class="cell2">${fn:replace(profile.etc, cn, br)}
 							</div>
 						</div>
 						<div class="row">
 							<div class="cell1">자기소개</div>
-							<div class="cell2">
-								${profile.intro}
-							</div>
+							<div class="cell2">${fn:replace(profile.intro, cn, br)}</div>
 						</div>
 					</div>
 				</div>
@@ -156,7 +178,7 @@
 				setChart("bepumi-success-chart", 75, "#cba9e2");
 			</script>
 		</div>
-		
+
 		</main>
 	</div>
 	<jsp:include page="../../inc/footer.jsp"></jsp:include>

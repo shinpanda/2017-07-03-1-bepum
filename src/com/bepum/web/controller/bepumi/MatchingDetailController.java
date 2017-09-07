@@ -15,10 +15,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bepum.web.dao.BepumiMatchingDao;
+import com.bepum.web.dao.jdbc.JdbcBepumiMatchingDao;
+
 @WebServlet("/bepumi/matching-detail")
 public class MatchingDetailController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		BepumiMatchingDao dao = new JdbcBepumiMatchingDao();
+		request.setAttribute("list", dao.get("testpumi", "1"));
+		
 		/*response.sendRedirect("notice.jsp");*/
 		request.getRequestDispatcher("/WEB-INF/views/bepumi/matching/detail.jsp").forward(request, response);
 		
