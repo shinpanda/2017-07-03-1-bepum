@@ -24,9 +24,9 @@
 				<div class="list-arr">
 					<nav>
 						<ul>
-							<li>매칭 진행</li>
-							<li>매칭 신청</li>
-							<li>과거 매칭</li>
+							<li><a href="?arr=매칭진행">매칭 진행</a></li>
+							<li><a href="?arr=매칭신청">매칭 신청</a></li>
+							<li><a href="?arr=매칭완료">과거 매칭</a></li>
 						</ul>
 					</nav>
 				</div>

@@ -10,13 +10,16 @@ public class Review {
 	private int rating;
 	private String title;
 	private String content;
+	private int hit;
 	
 	public Review() {
 		// TODO Auto-generated constructor stub
 	}
 
+
 	public Review(String no, String writerID, String matchingNo, Date regDate, int rating, String title,
 			String content) {
+
 		this.no = no;
 		this.writerID = writerID;
 		this.matchingNo = matchingNo;
@@ -24,6 +27,7 @@ public class Review {
 		this.rating = rating;
 		this.title = title;
 		this.content = content;
+		this.hit = hit;
 	}
 
 	public String getNo() {
@@ -80,6 +84,14 @@ public class Review {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public int getHit() {
+		return hit;
+	}
+
+	public void setHit(int hit) {
+		this.hit = hit;
 	}
 	
 	

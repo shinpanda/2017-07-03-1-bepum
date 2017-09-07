@@ -23,9 +23,11 @@ import com.bepum.web.entity.MatchingView;
 public class MatchingListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		request.setCharacterEncoding("UTF-8");
 		String id = "testpumi";
-		String _query = request.getParameter("search");
-		
+		String _query = request.getParameter("arr");
+		System.out.println(_query);
 		String _page = request.getParameter("p");
 
 		int page = 1;
