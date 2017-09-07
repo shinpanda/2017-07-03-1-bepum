@@ -18,4 +18,8 @@ public interface SecretBoardDao {
 
 	int getCount(String string);
 
+	int updateHit(String no, String tName);
+
+	int delete(String no, String string);
+
 }
