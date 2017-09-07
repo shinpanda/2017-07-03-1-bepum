@@ -13,4 +13,6 @@ public interface MemberDao {
 
 	int insert(Member member);
 
+	Member get(String id);
+
 }

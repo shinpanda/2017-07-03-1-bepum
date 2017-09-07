@@ -127,6 +127,7 @@ public class JdbcMemberDao implements MemberDao {
 			st.setString(5, member.getBirth());
 			st.setString(6, member.getEmail());
 			st.setInt(7, member.getGrade());
+			
 			result = st.executeUpdate();
 			st.close();
 			con.close();
@@ -134,7 +135,36 @@ public class JdbcMemberDao implements MemberDao {
 		} catch (Exception e) {
 		}
 		
-		
+		System.out.println(result);
 		return result;
+	}
+
+	@Override
+	public Member get(String id) {
+		String sql = "SELECT * FROM Member where id=?";
+		Member m = null;
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, id);
+			ResultSet rs = st.executeQuery();
+			/* list = new ArrayList<>(); */
+			while (rs.next()) {
+				m = new Member(rs.getString("ID"), rs.getString("name"), rs.getString("pwd"), rs.getInt("gender"),
+						rs.getString("birthday"), rs.getString("email"), rs.getInt("grade"));
+			}
+			
+//			System.out.println(m.getId());
+			rs.close();
+			st.close();
+			con.close();
+
+		} catch (Exception e) {
+		}
+		return m;
 	}
 }

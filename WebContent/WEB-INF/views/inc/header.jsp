@@ -25,7 +25,7 @@
 	function showPopup() {
 		window.open("${p}/member/sign", "로그인/회원가입",
 				"resizable=no width=562, height=800, left=600, top=50");
-		
+			
 	}
 </script>
 </head>
