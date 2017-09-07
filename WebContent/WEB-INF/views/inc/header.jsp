@@ -73,9 +73,16 @@
 					</li>
 			</ul>
 		</nav> 
+		
+		
 		<nav class="menu-wrapper">
 		<ul id="login">
+			<c:if test="${empty sessionScope.id}">
 			<li><a href="" onclick="javascript:showPopup();" class="btn-border">Sign in</a></li>
+			</c:if>
+			<c:if test="${!empty sessionScope.id}">
+			<li><a href="${p}/member/logout" class="btn-border">${name}님</a></li>
+			</c:if>
 		</ul>
 		</nav>
 		<div id="sub-bg"></div>

@@ -32,11 +32,13 @@ public class LoginController extends HttpServlet {
 		
 		Member member = memberDao.get(id);
 		if(member == null) 
-			out.println("<script>alert('아이디 또는 비밀번호를 확인하세요1');history.go(-1);</script>");
+			out.println("<script>alert('아이디 또는 비밀번호를 확인하세요');history.go(-1);</script>");
 		else if(!member.getPwd().equals(pwd))
-			out.println("<script>alert('아이디 또는 비밀번호를 확인하세요2');history.go(-1);</script>");
+			out.println("<script>alert('아이디 또는 비밀번호를 확인하세요');history.go(-1);</script>");
 		else {
 			request.getSession().setAttribute("id", id);
+			request.getSession().setAttribute("name", member.getName());
+			
 			out.println("<script>alert('"+member.getName()+"님 로그인되었습니다.');window.close();window.opener.location.reload();</script>");
 		}
 		
