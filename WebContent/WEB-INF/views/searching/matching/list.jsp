@@ -67,9 +67,9 @@
 					<div class="board-table">
 						<div class="table-header">
 							<div class="cell no">no</div>
-							<div class="cell request-id">아이디</div>
+							<div class="cell request-id">돌보미 아이디</div>
 							<div class="cell request-name">돌보미 이름</div>
-							<div class="cell grade">돌보미 등급</div>
+							<div class="cell grade">회원 등급</div>
 							<div class="cell bepum-day">날짜</div>
 							<div class="cell bepum-time">시간</div>
 							<div class="cell req-date">신청일</div>
@@ -83,7 +83,7 @@
 									<a href="matching-list-detail?no=${status.current}">testid</a>
 								</div>
 								<div class="cell request-name">권다영</div>
-								<div class="cell grade">돌보미</div>
+								<div class="cell grade">베푸미</div>
 								<div class="cell bepum-day">2017.07.25</div>
 								<div class="cell bepum-time">09:00 ~ 18:00</div>
 								<div class="cell req-date">2017.07.08</div>

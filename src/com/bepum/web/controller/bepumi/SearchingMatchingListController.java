@@ -20,7 +20,9 @@ public class SearchingMatchingListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/*response.sendRedirect("notice.jsp");*/
-		request.getRequestDispatcher("/WEB-INF/views/searching/matching/list.jsp").forward(request, response);
+	
 		
+		request.getRequestDispatcher("/WEBINF/views/searching/matching/list.jsp").forward(request, response);
+
 	}
 }
