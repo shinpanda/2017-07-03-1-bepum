@@ -90,7 +90,7 @@
 			<div class="content-container">
 				<div class="profile-member-container">
 					<div class="profile-member-wrapper">
-						<img src="../images/profile.jpg" id="profile-photo"
+						<img src="../images/${profile.profilePic}" id="profile-photo"
 							alt="프로필 사진">
 						<div class="profile-box">
 							<label for="profile-img-edit-btn">사진 수정</label> <input

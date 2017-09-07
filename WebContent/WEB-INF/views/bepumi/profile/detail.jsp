@@ -48,7 +48,7 @@
 		<div class="content-container">
 			<div class="profile-member-container">
 				<div class="profile-member-wrapper">
-					<img src="../images/profile.jpg" id="profile-photo" alt="프로필 사진">
+					<img src="../upload/profilePic/${profile.profilePic}" id="profile-photo" alt="프로필 사진">
 					<p id="name">${profile.name}</p>
 					<p id="address">${profile.address}</p>
 					<c:set var="grade" value="회원" />

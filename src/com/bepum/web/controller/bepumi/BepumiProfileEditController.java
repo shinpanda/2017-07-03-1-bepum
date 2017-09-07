@@ -16,24 +16,25 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 @WebServlet("/bepumi/profile-edit")
 public class BepumiProfileEditController extends HttpServlet {
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-request.setCharacterEncoding("UTF-8");
-		
-		String saveDirectory = "C:\\dev\\upload";
-		int maxPostSize = 1024*1024*10;// 10MB 
-		MultipartRequest multi = new MultipartRequest(request, saveDirectory, maxPostSize, "UTF-8", new DefaultFileRenamePolicy());
-		
-		
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+
+		String saveDirectory = request.getRealPath("/upload/profilePic");
+		System.out.println(saveDirectory);
+		int maxPostSize = 1024 * 1024 * 5;// 5MB
+		MultipartRequest multi = new MultipartRequest(request, saveDirectory, maxPostSize, "UTF-8",
+				new DefaultFileRenamePolicy());
+
 		String pay = multi.getParameter("pay");
-		
+
 		String profileImg = multi.getFilesystemName("profile-img");
 		String originprofileImg = multi.getOriginalFileName("profile-img");
-		
+
 		String homePhoto1 = multi.getFilesystemName("home-photo1");
 		String homePhoto2 = multi.getFilesystemName("home-photo2");
 		String homePhoto3 = multi.getFilesystemName("home-photo3");
-		
+
 		String originHomePhoto1 = multi.getOriginalFileName("home-photo1");
 		String originHomePhoto2 = multi.getOriginalFileName("home-photo2");
 		String originHomePhoto3 = multi.getOriginalFileName("home-photo3");
@@ -44,7 +45,7 @@ request.setCharacterEncoding("UTF-8");
 		if (multi.getParameter("bepumi-day") != null) {
 			for (int i = 0; i < bepumDays.length; i++) {
 				if (bepumDays[i] != null)
-					if (bepumDay=="")
+					if (bepumDay == "")
 						bepumDay += bepumDays[i];
 					else
 						bepumDay += ", " + bepumDays[i];
@@ -56,27 +57,32 @@ request.setCharacterEncoding("UTF-8");
 
 		String others = multi.getParameter("others");
 		String selfIntro = multi.getParameter("self-intro");
-		
-		
-		/*if (startTime != null && !(startTime.equals("")) && endTime != null && !(endTime.equals("")))*/
-			
+
+		/*
+		 * if (startTime != null && !(startTime.equals("")) && endTime != null &&
+		 * !(endTime.equals("")))
+		 */
+
 		ProfileDao dao = new JdbcProfileDao();
-		
-		int result = dao.update(others, selfIntro, bepumDay, startTime, endTime,
-				profileImg, homePhoto1, homePhoto2, homePhoto3, pay);
+
+		int result = dao.update(others, selfIntro, bepumDay, startTime, endTime, profileImg, homePhoto1, homePhoto2,
+				homePhoto3, pay);
 
 		response.sendRedirect("profile");
 	}
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ProfileDao dao = new JdbcProfileDao();
 
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		ProfileDao dao = new JdbcProfileDao();
+		String saveDirectory = request.getRealPath("/upload/profilePic");
+		System.out.println(saveDirectory);
 		request.setAttribute("profile", dao.get());
 		request.setAttribute("br", "<br/>");
 		request.setAttribute("cn", "\n");
-		
-		/*response.sendRedirect("notice.jsp");*/
+
+		/* response.sendRedirect("notice.jsp"); */
 		request.getRequestDispatcher("/WEB-INF/views/bepumi/profile/edit.jsp").forward(request, response);
-		
+
 	}
 }

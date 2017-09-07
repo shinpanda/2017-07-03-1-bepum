@@ -24,7 +24,6 @@ public class MatchingListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		System.out.println(request.getSession().getServletContext().getRealPath("/WEB-INF/upload/"));
 		request.setCharacterEncoding("UTF-8");
 		String id = "testpumi";
 		String _query = request.getParameter("arr");
