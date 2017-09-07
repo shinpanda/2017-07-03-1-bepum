@@ -1,4 +1,4 @@
-package com.bepum.web.controller.bepumi;
+package com.bepum.web.controller.member;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -15,51 +15,47 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bepum.web.dao.MemberDao;
-import com.bepum.web.dao.ProfileDao;
-import com.bepum.web.dao.jdbc.JdbcMemberDao;
-import com.bepum.web.dao.jdbc.JdbcProfileDao;
+import com.bepum.web.dao.BoardDao;
+import com.bepum.web.dao.NoticeDao;
+import com.bepum.web.dao.ReviewDao;
+import com.bepum.web.dao.jdbc.JdbcBoardDao;
+import com.bepum.web.dao.jdbc.JdbcNoticeDao;
+import com.bepum.web.dao.jdbc.JdbcReviewDao;
+import com.bepum.web.entity.Board;
+import com.bepum.web.entity.ReviewView;
 
 
-@WebServlet("/searching/bepumi-list")
-public class SearchingBepumiListController extends HttpServlet {
+@WebServlet("/board/review")
+public class ReviewListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String _cName = request.getParameter("search-sel");
 		String _query = request.getParameter("search");
-
+		
 		String _page = request.getParameter("p");
-
+		
+		
+		
 		int page = 1;
 		if (_page != null && !(_page.equals("")))
 			page = Integer.parseInt(_page);
-
+		
 		String query = "";
 		if (_query != null && !(_query.equals("")))
 			query = _query;
-
-		String cName = "id";
+		
+		String cName = "bepumiID";
 		if (_cName != null && !(_cName.equals("")))
 			cName = _cName;
-
-		ProfileDao dao = new JdbcProfileDao();
-
-		request.setAttribute("isProfile", dao.getIsProfile());
-		request.setAttribute("profile", dao.get());
 		
+		ReviewDao dao = new JdbcReviewDao();
 		
-		MemberDao dao2 = new JdbcMemberDao();
-
-		request.setAttribute("list", dao2.getList(page, query, cName));
-		request.setAttribute("count", dao2.getCount());
+		request.setAttribute("list", dao.getList(page, cName, query));
+		request.setAttribute("count", dao.getCount());
 		
-		
-		
-		
-		request.getRequestDispatcher("/WEB-INF/views/searching/bepumi/list.jsp").forward(request, response);
-
-		
-		
+		/*response.sendRedirect("notice.jsp");*/
+		request.getRequestDispatcher("/WEB-INF/views/board/review/list.jsp").forward(request, response);
 		
 	}
 }

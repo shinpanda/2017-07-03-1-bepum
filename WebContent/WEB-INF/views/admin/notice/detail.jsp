@@ -29,20 +29,21 @@
 					<div class="wch-info clearfix">
 						<span class="writer">${b.writerId}</span>
 						<div class="ch-wrapper">
-							<span class="comment-num">댓글 수 ${b.countCmt} </span> <span
-								class="hit">조회수 ${b.hit}</span>
-						</div>
-					</div>
-					<div class="detail-content">${fn:replace(b.content, cn, br)}
-					</div>
-					<div>
-						<a href="free" class="btn">목록</a>
-						<div class="ed-wrapper">
-							<a href="free-edit?no=${b.no}" class="btn">수정</a> <a
-								href="free-del?no=${b.no}" class="btn">삭제</a>
+							<span class="comment-num">조회수</span> <span class="hit">${b.hit}</span>
 						</div>
 					</div>
 				</div>
+				<div class="detail-content">
+					${fn:replace(b.content, cn, br)}
+				</div>
+				<div>
+					<a href="free" class="btn">목록</a>
+					<div class="ed-wrapper">
+						<a href="free-edit?no=${b.no}" class="btn">수정</a>
+						<a href="free-del" class="btn">삭제</a>
+					</div>
+				</div>
+				
 			</div>
 			</main>
 		</div>

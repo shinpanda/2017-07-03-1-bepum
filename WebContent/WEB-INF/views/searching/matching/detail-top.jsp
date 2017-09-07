@@ -4,7 +4,7 @@
 
 <!-- 신청자 매칭목록 세부페이지 상단 부분 -->
 
-<h4 class="profile-title">bp123님과의 매칭</h4>
+<h4 class="profile-title">${list[0].id}님과의 매칭</h4>
 <div class = "profile-container">
 	<div class="imgMsg-container">
 		<div class="profile-img">
@@ -24,19 +24,19 @@
 		<div class="profile-detail-table">
 			<div class="row">
 				<div class="cell th">이름</div>
-				<div class="cell td">이정진</div>
+				<div class="cell td">${list[0].name}</div>
 			</div>
 			<div class="row">
-				<div class="cell th">나이</div>
-				<div class="cell td">24</div>
+				<div class="cell th">연락처</div>
+				<div class="cell td">${list[0].phoneNum}</div>
 			</div>
 			<div class="row">
 				<div class="cell th">거주지</div>
-				<div class="cell td">서울시 강서구</div>
+				<div class="cell td">${list[0].address}</div>
 			</div>
 			<div class="row">
 				<div class="cell th">등급</div>
-				<div class="cell td">돌보미</div>
+				<div class="cell td">${list[0].grade}</div>
 			</div>
 		</div>
 	</div>

@@ -25,7 +25,8 @@
 			color:#292929;
 			font-weight: bold;
 			padding-left: 27px;
-			background: url("images/icon-map4.png") no-repeat left center;	  
+ 		    background: url(../images/iconmap.png) no-repeat left center; 
+ 		    background-size: contain;
 		}
 	
 		.result-setting-container .resultcount{

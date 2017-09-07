@@ -26,7 +26,8 @@ public class QuestionDetailController extends HttpServlet {
 		String no = request.getParameter("no");
 		
 		SecretBoardDao dao = new JdbcSecretBoardDao();
-		request.setAttribute("b", dao.get(no, "Question"));
+		int result = dao.updateHit(no, "FAQ");
+		request.setAttribute("b", dao.get(no, "FAQ"));
 		request.setAttribute("br", "<br/>");
 		request.setAttribute("cn", "\n");
 		

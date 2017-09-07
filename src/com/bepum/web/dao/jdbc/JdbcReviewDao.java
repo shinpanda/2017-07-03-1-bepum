@@ -3,31 +3,31 @@ package com.bepum.web.dao.jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import com.bepum.web.dao.MemberDao;
-import com.bepum.web.entity.Member;
+import com.bepum.web.dao.ReviewDao;
+import com.bepum.web.entity.BoardView;
+import com.bepum.web.entity.ReviewView;
 
-public class JdbcMemberDao implements MemberDao {
+public class JdbcReviewDao implements ReviewDao {
 
 	@Override
-	public List<Member> getList(int page, String query, String cName) {
+	public List<ReviewView> getList(int page, String cName, String query) {
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
-		List<Member> list = null;
+		List<ReviewView> list = null;
 		int offset = ((page - 1) * 15);
 
 		// JDBC 드라이버 로드
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			
-			String sql = "SELECT * FROM Member where "+cName+" like ? order by regDate desc limit ?, 15";
+			// BepumiMatchingView는 목록에서만 작동... 뷰단에서 select 하는 거는 다른 객체를 만드는 것이 맞을 듯 아기가 2이상일
+			// 수도 있으니까..
+			String sql = "select * from ReviewView where "+cName+" like ? order by regDate desc limit ?, 15";
 
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
@@ -45,13 +45,13 @@ public class JdbcMemberDao implements MemberDao {
 
 			// 결과 사용
 			while (rs.next()) {
-				Member m = new Member(); 
-				m.setId(rs.getString("id"));
-				m.setName(rs.getString("name"));
-				m.setGender(rs.getInt("gender")); 
-				m.setBirth(rs.getString("birthday"));
-				m.setEmail(rs.getString("email")); 
-				m.setGrade(rs.getInt("grade"));
+				ReviewView m = new ReviewView();
+				m.setNo(rs.getString("no"));
+				m.setBepumiID(rs.getString("bepumiID"));
+				m.setWriterID(rs.getString("writerID"));
+				m.setTitle(rs.getString("title"));
+				m.setRegDate(rs.getDate("regDate"));
+				m.setHit(rs.getInt("hit"));
 				list.add(m);
 			}
 			rs.close();
@@ -78,7 +78,7 @@ public class JdbcMemberDao implements MemberDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String sqlCount = "SELECT count(id) as count FROM Member";
+			String sqlCount = "SELECT count(no) as count FROM ReviewView";
 			
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
@@ -106,66 +106,87 @@ public class JdbcMemberDao implements MemberDao {
 		}
 		return count;
 	}
-
+	
 	@Override
-	public int insert(Member member) {
-		int result =0;
-		
-		String sql = "INSERT INTO Member(ID, name, pwd, gender, birthday, email, grade) VALUES(?,?,?,?,?,?,?)";
-		/*String sql = "INSERT INTO Member(ID, name, pwd, gender) VALUES(?,?,?,?)";*/
-		
+	public ReviewView get(String no) {
+		ReviewView r = null;
+
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+
+		// JDBC 드라이버 로드
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
+			String sql = "SELECT * FROM ReviewView where no = ?";
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
-			
+			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
-			st.setString(1, member.getId());
-			st.setString(2, member.getName());
-			st.setString(3, member.getPwd());
-			st.setInt(4, member.getGender());
-			st.setString(5, member.getBirth());
-			st.setString(6, member.getEmail());
-			st.setInt(7, member.getGrade());
-			
-			result = st.executeUpdate();
-			st.close();
-			con.close();
+			st.setString(1, no);
 
-		} catch (Exception e) {
-		}
-		
-		System.out.println(result);
-		return result;
-	}
-
-	@Override
-	public Member get(String id) {
-		String sql = "SELECT * FROM Member where id=?";
-		Member m = null;
-		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-
-			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
-
-			PreparedStatement st = con.prepareStatement(sql);
-			st.setString(1, id);
+			// 결과 가져오기
 			ResultSet rs = st.executeQuery();
-			/* list = new ArrayList<>(); */
-			while (rs.next()) { 
-				m = new Member(rs.getString("id"), rs.getString("name"), rs.getString("pwd"), rs.getInt("gender"),
-						rs.getString("birthday"), rs.getString("email"), rs.getInt("grade"),rs.getDate("regDate"));
+
+			// model
+
+			// 결과 사용
+			while (rs.next()) {
+				r = new ReviewView();
+				r.setNo(rs.getString("no"));
+				r.setTitle(rs.getString("title"));
+				r.setContent(rs.getString("content"));
+				r.setBepumiID(rs.getString("bepumiID"));
+				r.setWriterID(rs.getString("writerID"));
+				r.setRegDate(rs.getDate("regDate"));
+				r.setHit(rs.getInt("hit"));
+				r.setBepumDate(rs.getDate("bepumDate"));
+				r.setRequirement(rs.getString("requirement"));
 			}
-			
-//			System.out.println(m.getId());
+
 			rs.close();
 			st.close();
 			con.close();
 
-		} catch (Exception e) {
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		return m;
+		return r;
 	}
+	
+	@Override
+	public int updateHit(String no) {
+		int result = 0;
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+
+		// JDBC 드라이버 로드
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			String sql = "update Review set hit = hit+1 where no = ?";
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+			/* Statement st = con.createStatement(); */
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, no);
+
+			result = st.executeUpdate();
+			// 업데이트된 row 개수 알려줌
+
+			st.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	
+
 }

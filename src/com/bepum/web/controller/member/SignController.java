@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.apache.taglibs.standard.tag.el.fmt.ParseDateTag;
 
 import com.bepum.web.dao.MemberDao;
 import com.bepum.web.dao.jdbc.JdbcMemberDao;
@@ -45,6 +48,7 @@ public class SignController extends HttpServlet {
 		String birthday_month = request.getParameter("birthday_month");
 		String birthday_day = request.getParameter("birthday_day");
 		String _email = request.getParameter("email");
+		
 		
 		if(birthday_year != null && !birthday_year.equals("") 
 				&&birthday_month != null && !birthday_month.equals("") 
@@ -90,7 +94,7 @@ public class SignController extends HttpServlet {
 		
 		MemberDao memberDao = new JdbcMemberDao();
 		
-		Member member = new Member(id, name, pwd, Integer.parseInt(gender), birth, email, grade);
+		Member member = new Member(id, name, pwd, Integer.parseInt(gender), birth, email, grade, new Date());
 		if(count == 6)
 			result = memberDao.insert(member);
 		

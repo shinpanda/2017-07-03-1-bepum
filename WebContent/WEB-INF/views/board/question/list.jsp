@@ -81,7 +81,7 @@
 					</div>
 				</div>
 				<div class="btn reg-btn">
-					<a href="./free-reg">쓰기</a>
+					<a href="./question-reg">쓰기</a>
 				</div>
 			</div>
 			</div>

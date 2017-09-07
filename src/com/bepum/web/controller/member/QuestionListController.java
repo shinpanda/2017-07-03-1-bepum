@@ -45,10 +45,10 @@ public class QuestionListController extends HttpServlet {
 		if (_cName != null && !(_cName.equals("")))
 			cName = _cName;
 		
-		BoardDao dao = new JdbcBoardDao();
+		SecretBoardDao dao = new JdbcSecretBoardDao();
 
-		request.setAttribute("list", dao.getList(page, cName, query, "Free"));
-		request.setAttribute("count", dao.getCount());
+		request.setAttribute("list", dao.getList(page, cName, query, "FAQ"));
+		request.setAttribute("count", dao.getCount("FAQ"));
 		
 		/*response.sendRedirect("notice.jsp");*/
 		request.getRequestDispatcher("/WEB-INF/views/board/question/list.jsp").forward(request, response);
