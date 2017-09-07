@@ -159,6 +159,7 @@
 .review-detail-container h3{
     text-align: left;
     font-size: 15px;
+    font-weight:bold;
     padding-bottom: 0px;
     padding-left: 30px;
     margin-left: 100px;
@@ -318,6 +319,7 @@
 
 .profile-detail {
     align-self: center;
+    padding-left: 50px;
 }
 
 .profile-detail-table {

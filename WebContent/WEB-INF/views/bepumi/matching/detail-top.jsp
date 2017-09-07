@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!-- 베푸미 매칭목록 세부페이지 상단 부분 -->
+<!-- 베푸미 [진행중] 매칭목록 세부페이지 상단 부분 -->
 
 <h4 class="profile-title">${list[0].id}님과의 매칭</h4>
 <div class = "profile-container">
@@ -22,6 +22,14 @@
 	
 	<div class="profile-detail">
 		<div class="profile-detail-table">
+			<div class="row">
+				<div class="cell th"><b>매칭 상태</b></div>
+				<div class="cell td"><b>진행중</b></div>
+			</div>
+			<div class="row">
+				<div class="cell th">　</div>
+				<div class="cell ">　</div>
+			</div>
 			<div class="row">
 				<div class="cell th">이름</div>
 				<div class="cell td">${list[0].name}</div>
