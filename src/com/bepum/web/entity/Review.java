@@ -1,20 +1,23 @@
 package com.bepum.web.entity;
 
+import java.util.Date;
+
 public class Review {
 	private String no;
 	private String writerID;
 	private String matchingNo;
-	private String regDate;
+	private Date regDate;
 	private String grade;
 	private String title;
 	private String content;
+	private int hit;
 	
 	public Review() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Review(String no, String writerID, String matchingNo, String regDate, String grade, String title,
-			String content) {
+	public Review(String no, String writerID, String matchingNo, Date regDate, String grade, String title,
+			String content, int hit) {
 		this.no = no;
 		this.writerID = writerID;
 		this.matchingNo = matchingNo;
@@ -22,6 +25,7 @@ public class Review {
 		this.grade = grade;
 		this.title = title;
 		this.content = content;
+		this.hit = hit;
 	}
 
 	public String getNo() {
@@ -48,11 +52,11 @@ public class Review {
 		this.matchingNo = matchingNo;
 	}
 
-	public String getRegDate() {
+	public Date getRegDate() {
 		return regDate;
 	}
 
-	public void setRegDate(String regDate) {
+	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
 
@@ -78,6 +82,14 @@ public class Review {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public int getHit() {
+		return hit;
+	}
+
+	public void setHit(int hit) {
+		this.hit = hit;
 	}
 	
 	

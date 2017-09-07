@@ -1,5 +1,7 @@
 package com.bepum.web.entity;
 
+import java.util.Date;
+
 public class MatchingView extends Matching {
 	
 	Baby baby;
@@ -22,7 +24,7 @@ public class MatchingView extends Matching {
 	}
 
 
-	public String getReviewRegDate() {
+	public Date getReviewRegDate() {
 		return review.getRegDate();
 	}
 
@@ -55,7 +57,7 @@ public class MatchingView extends Matching {
 	}
 
 
-	public void setReviewRegDate(String regDate) {
+	public void setReviewRegDate(Date regDate) {
 		review.setRegDate(regDate);
 	}
 
