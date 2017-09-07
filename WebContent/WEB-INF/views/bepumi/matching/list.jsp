@@ -9,7 +9,7 @@
 <link href="../css/style2.css" type="text/css" rel="stylesheet">
 <link href="../css/matching.css" type="text/css" rel="stylesheet">
 <title>베품</title>
-<!-- 요청, 진행 중, 과거 매칭 -->
+<!-- 돌보미 측 매칭목록 (요청, 진행 중,  완료) -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
@@ -35,7 +35,7 @@
 						<div class="table-header">
 							<div class="cell request-id">요청 아이디</div>
 							<div class="cell request-name">이름</div>
-							<div class="cell grade">돌보미 등급</div>
+							<div class="cell grade">회원 등급</div>
 							<div class="cell req-date">신청일</div>
 							<div class="cell bepum-time">시간</div>
 							<div class="cell status">매칭 상태</div>
