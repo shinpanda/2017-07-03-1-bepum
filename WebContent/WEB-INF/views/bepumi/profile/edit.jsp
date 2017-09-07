@@ -80,7 +80,7 @@
 					</div>
 					<div class="bepum-definite-wrapper">
 						<p>
-							희망 시급 : <span><input type="text" placeholder="8000"
+							희망 시급 : <span><input type="text" placeholder="${profile.pay}"
 								class="profile-num" name = "pay"/></span> 원
 						</p>
 
@@ -96,10 +96,17 @@
 							<label for="profile-img-edit-btn">사진 수정</label> <input
 								type="file" accept=".bmp, .jpg, .png" id="profile-img-edit-btn" name="profile-img">
 						</div>
-						<p id="name">이름</p>
-						<p id="address">주소</p>
-						<p id="grade">회원 등급</p>
-						<p id="contact">연락처</p>
+						<p id="name">${profile.name}</p>
+						<p id="address">${profile.address}</p>
+						<c:set var="grade" value="회원" />
+						<c:if test="${profile.grade == 1}">
+							<c:set var="grade" value="베푸미" />
+						</c:if>
+						<c:if test="${profile.grade == 2}">
+							<c:set var="grade" value="슈퍼베푸미" />
+						</c:if>
+						<p id="grade">${grade}</p>
+						<p id="contact">${profile.phoneNum}</p>
 					</div>
 				</div>
 				<div class="home-photo-container">
@@ -177,11 +184,28 @@
 							id="bepumi-day7"  name="bepumi-day" value="Sun">
 							<label for="bepumi-day7">일</label>
 					</div>
+					<script>
+						var str = '${profile.bepumDay}';
+						var arr = [];
+						var i = 0;
+						while(str.indexOf(',') > 0){
+							var index = str.indexOf(',');
+							arr[i++] = str.substr(0, index);
+							str = str.substr(index+2);
+						}
+						arr[i] = str;
+
+						for(var index in arr){
+							$("input:checkbox[value="+arr[index]+"]").attr("checked", true);
+						}
+						
+					</script>
+					
 					<p>
-						<span><input type="text" placeholder="9:00"
+						<span><input type="text" placeholder="${profile.strTime}"
 							class="profile-num" pattern="[0-2]\d:[0-5]\d"
 							title="08:00 형식으로 넣어주세요" name="start-time"/></span> ~ <span><input type="text"
-							placeholder="18:00" class="profile-num" pattern="[0-2]\d:[0-5]\d"
+							placeholder="${profile.endTime}" class="profile-num" pattern="[0-2]\d:[0-5]\d"
 							title="08:00 형식으로 넣어주세요" name="end-time" /></span>
 					</p>
 				</div>
@@ -195,13 +219,13 @@
 								<div class="cell1">기타사항</div>
 								<div class="cell2">
 									<textarea name = "others" class="table-input" rows="3" cols="65"
-										placeholder="예)운전 가능"></textarea>
+										placeholder="예)운전 가능">${profile.etc}</textarea>
 								</div>
 							</div>
 							<div class="row">
 								<div class="cell1">자기소개</div>
 								<div class="cell2">
-									<textarea name = "self-intro" class="table-input" rows="4" cols="65"></textarea>
+									<textarea name = "self-intro" class="table-input" rows="4" cols="65">${profile.intro}</textarea>
 								</div>
 							</div>
 						</div>

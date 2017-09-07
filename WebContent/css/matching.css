@@ -85,6 +85,33 @@
 		.reg-btn a{
 			color:#505050;
 		}
+/* paging 부분 */
+		.paging-container {
+			display: inline-flex;
+		    margin: auto;
+		    margin-top:14px;
+		    font-size:14px;
+		}
+		.paging-container div {
+		    padding: 0px 8px;
+		}
+		
+		.paging-container div a,
+		.paging-container ul li a
+		{
+			color: #999;
+		}
+		
+		.paging-container ul li {
+		    float: left;
+		    padding: 0px 8px;
+		}
+		
+		.paging-container .page-present{
+			color:black;
+		}
+		
+
 
 
 /* 베푸미쪽 detail 부분 */
@@ -127,7 +154,9 @@
 		
 
 .req-info-container h3, 
-.baby-info-container h3{
+.baby-info-container h3,
+.table-container h3,
+.review-detail-container h3{
     text-align: left;
     font-size: 15px;
     padding-bottom: 0px;
@@ -395,14 +424,18 @@
 
 /* 과거 매칭 detail 하단 */
 
-.past-container h4 {
-	text-align: left;
-	font-size: 15px;
-	padding-bottom: 0px;
-	padding-left: 108px;
-	margin-bottom: 8px;
-	font-weight: 500;
+.past-container{
+	margin-top:50px;	
 }
+	.past-container h4 {
+		text-align: left;
+		font-size: 15px;
+		padding-bottom: 0px;
+		padding-left: 108px;
+		margin-bottom: 8px;
+		font-weight: 500;
+	}
+
 
 .table-wrapper {
 	width: 100%;
@@ -455,14 +488,6 @@
 	font-family: Malgun Gothic;
 }
 
-.review-detail-container h4 {
-	text-align: left;
-	font-size: 15px;
-	padding-bottom: 0px;
-	padding-left: 108px;
-	margin-bottom: 8px;
-	font-weight: 500;
-}
 
 .review-container{
 	border-top: 1px solid;
@@ -474,6 +499,12 @@
 	margin: auto;
 	padding: 10px;
 	border: 1px solid #ec93a9
+}
+
+.review-detail-container{
+	width:80%;
+	margin:auto;
+	margin-top: 50px;
 }
 
 /* review 팝업창 부분 */

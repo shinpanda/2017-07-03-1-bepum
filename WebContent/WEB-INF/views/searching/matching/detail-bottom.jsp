@@ -3,9 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
+<!-- 신청자 매칭완료 후에 후기 작성하는 페이지 -->
+
 <div class="past-container">
-	<h4>매칭 상세정보</h4>
-	<div class="table-wrapper">
+
+	
+	<div class="table-container">
+	<h3>매칭 상세정보</h3>
 		<div class="past-table">
 			<div class="row">
 				<div class="cell1">매칭신청일</div>
@@ -25,10 +29,10 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div></div>
 
 	<div class="review-detail-container">
-		<h4>후기</h4>
+		<h3>후기</h3>
 		<div class="review-container"></div>
 	</div>
 

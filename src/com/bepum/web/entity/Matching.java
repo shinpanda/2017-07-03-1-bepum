@@ -2,101 +2,131 @@ package com.bepum.web.entity;
 
 import java.util.Date;
 
-public class Matching {
+public class Matching extends Bepumi{
 /*
  * no, 신청자, 베푸미, 베푸미 등급
  * 베품 날짜, 베품 시간, 베품을 신청한 날짜, 아기 이름, 아기 나이, 요구사항 , 
  * 진행 상황
  */
-	private String applicant;
-	private String bepumi;
-	private int bp_grade;
-	private Date mat_date;
-	private Date req_date;
-	private String babyname;
-	private int babyage;
-	private String req_msg;
-	private int progress;
+	private String no;
+	private String requestID;
+	private String bepumiID;
+	private Date reqDate;
+	private Date acceptDate;
+	private Date bepumDate;
+	private String startTime;
+	private String endTime;
+	
+	private String requirement;
+	private String status;
 	
 	public Matching() {
 		
 	}
 
-	public Matching(String applicant, String bepumi, int bp_grade, Date mat_date, Date req_date, String babyname,
-			int babyage, String req_msg, int progress) {
+
+	public Matching(String no, String requestID, String bepumiID, Date reqDate, Date acceptDate, Date bepumDate,
+			String startTime, String endTime, String requirement, String status) {
 		super();
-		this.applicant = applicant;
-		this.bepumi = bepumi;
-		this.bp_grade = bp_grade;
-		this.mat_date = mat_date;
-		this.req_date = req_date;
-		this.babyname = babyname;
-		this.babyage = babyage;
-		this.req_msg = req_msg;
-		this.progress = progress;
+		this.no = no;
+		this.requestID = requestID;
+		this.bepumiID = bepumiID;
+		this.reqDate = reqDate;
+		this.acceptDate = acceptDate;
+		this.bepumDate = bepumDate;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.requirement = requirement;
+		this.status = status;
 	}
 
-	public String getApplicant() {
-		return applicant;
-	}
-	public void setApplicant(String applicant) {
-		this.applicant = applicant;
-	}
-	public String getBepumi() {
-		return bepumi;
-	}
-	public void setBepumi(String bepumi) {
-		this.bepumi = bepumi;
-	}
-	public int getBp_grade() {
-		return bp_grade;
-	}
-	public void setBp_grade(int bp_grade) {
-		this.bp_grade = bp_grade;
-	}
-	public Date getMat_date() {
-		return mat_date;
-	}
-	public void setMat_date(Date mat_date) {
-		this.mat_date = mat_date;
-	}
-	public Date getReq_date() {
-		return req_date;
-	}
-	public void setReq_date(Date req_date) {
-		this.req_date = req_date;
-	}
-	public int getProgress() {
-		return progress;
-	}
-	public void setProgress(int progress) {
-		this.progress = progress;
+
+
+
+
+	public String getRequestID() {
+		return requestID;
 	}
 
-	public String getBabyname() {
-		return babyname;
+	public void setRequestID(String requestID) {
+		this.requestID = requestID;
 	}
 
-	public void setBabyname(String babyname) {
-		this.babyname = babyname;
+	public String getBepumiID() {
+		return bepumiID;
 	}
 
-	public int getBabyage() {
-		return babyage;
+	public void setBepumiID(String bepumiID) {
+		this.bepumiID = bepumiID;
 	}
 
-	public void setBabyage(int babyage) {
-		this.babyage = babyage;
+	public Date getReqDate() {
+		return reqDate;
 	}
 
-	public String getReq_msg() {
-		return req_msg;
+	public void setReqDate(Date reqDate) {
+		this.reqDate = reqDate;
 	}
 
-	public void setReq_msg(String req_msg) {
-		this.req_msg = req_msg;
+	public Date getAcceptDate() {
+		return acceptDate;
 	}
+
+	public void setAcceptDate(Date acceptDate) {
+		this.acceptDate = acceptDate;
+	}
+
+	public Date getBepumDate() {
+		return bepumDate;
+	}
+
+	public void setBepumDate(Date bepumDate) {
+		this.bepumDate = bepumDate;
+	}
+
+	public String getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+
+	public String getRequirement() {
+		return requirement;
+	}
+
+	public void setRequirement(String requirement) {
+		this.requirement = requirement;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
+	public String getNo() {
+		return no;
+	}
+
+
+	public void setNo(String no) {
+		this.no = no;
+	}
+
 	
-	
+
 	
 }

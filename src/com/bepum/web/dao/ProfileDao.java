@@ -9,4 +9,12 @@ public interface ProfileDao {
 
 	int getIsProfile();
 
+	int insert(String others, String selfIntro, String bepumDay, String startTime, String endTime, String profileImg,
+			String homePhoto1, String homePhoto2, String homePhoto3, String pay);
+
+	int update(String others, String selfIntro, String bepumDay, String startTime, String endTime, String profileImg,
+			String homePhoto1, String homePhoto2, String homePhoto3, String pay);
+
+	int updateSecret(String id, int sec);
+
 }

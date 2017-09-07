@@ -6,7 +6,8 @@
 <html>
 
 <head>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script> 
+<script type="text/javascript"
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
 <script type="text/javascript"> 
 $(function(){ //전체선택 체크박스 클릭 
 	$("#allCheck").click(function(){ //만약 전체 선택 체크박스가 체크된상태일경우
@@ -30,7 +31,7 @@ $(function(){ //전체선택 체크박스 클릭
 <body>
 	<!-- 헤더집중화 -->
 	<jsp:include page="../../inc/header.jsp"></jsp:include>
-	
+
 	<div id="body">
 		<div class="content-container">
 
@@ -61,10 +62,10 @@ $(function(){ //전체선택 체크박스 클릭
 					<div class="agree-title">
 						<label>아이돌보미 이용약관 <span class="type red">(필수)</span></label>
 						<div class="check-container">
-						<input type="checkbox" name="agr-btn" id="agr-btn1" value="">
+							<input type="checkbox" name="agr-btn" id="agr-btn1" value="">
 						</div>
 					</div>
-					
+
 					<!-- 아이돌보미 이용약관 -->
 					<div class="agreement-content">
 						<h3 class="con">제 1조 (목적)</h3>
@@ -391,7 +392,7 @@ $(function(){ //전체선택 체크박스 클릭
 							<input type="checkbox" name="agr-btn" id="agr-btn2" value="">
 						</div>
 					</div>
-					
+
 					<!-- 개인정보수집.이용동의(개인정보처리방침) -->
 					<div class="agreement-content">
 						<div class="noticeBox nb10">
@@ -606,7 +607,7 @@ $(function(){ //전체선택 체크박스 클릭
 
 				</div>
 
-				<div class="agree-btn-container">
+				<div class="check-container">
 					<div class="check-container all-check">
 						<label for="all-check">전체동의</label> 
 						<input type="checkbox" name="allcheck" id="allcheck" />

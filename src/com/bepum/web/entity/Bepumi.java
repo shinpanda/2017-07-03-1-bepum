@@ -15,13 +15,12 @@ public class Bepumi extends Member {
 	private String id;
 	private String address;
 	private String phoneNum;
+	private Baby baby; //음.. 베이비는 하나만 있는 것도 아닌데.. 이렇게 둬도 되는 건가.....
 
 	public Bepumi() {
-		
 	}
 	
 	public Bepumi(String id, String address, String phoneNum) {
-		super();
 		this.id = id;
 		this.address = address;
 		this.phoneNum = phoneNum;
@@ -50,7 +49,10 @@ public class Bepumi extends Member {
 	public void setPhoneNum(String phoneNum) {
 		this.phoneNum = phoneNum;
 	}
-	
+
+	public Baby getBaby() {
+		return baby;
+	}
 
 	
 }
