@@ -7,7 +7,7 @@ public class Review {
 	private String writerID;
 	private String matchingNo;
 	private Date regDate;
-	private String grade;
+	private int rating;
 	private String title;
 	private String content;
 	private int hit;
@@ -16,13 +16,15 @@ public class Review {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Review(String no, String writerID, String matchingNo, Date regDate, String grade, String title,
-			String content, int hit) {
+
+	public Review(String no, String writerID, String matchingNo, Date regDate, int rating, String title,
+			String content) {
+
 		this.no = no;
 		this.writerID = writerID;
 		this.matchingNo = matchingNo;
 		this.regDate = regDate;
-		this.grade = grade;
+		this.rating = rating;
 		this.title = title;
 		this.content = content;
 		this.hit = hit;
@@ -60,12 +62,12 @@ public class Review {
 		this.regDate = regDate;
 	}
 
-	public String getGrade() {
-		return grade;
+	public int getRating() {
+		return rating;
 	}
 
-	public void setGrade(String grade) {
-		this.grade = grade;
+	public void setRating(int rating) {
+		this.rating = rating;
 	}
 
 	public String getTitle() {

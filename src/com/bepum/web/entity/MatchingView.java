@@ -6,9 +6,11 @@ public class MatchingView extends Matching {
 	
 	Baby baby;
 	Review review;
+	Payment payment;
 	
 	public MatchingView() {
 		review = new Review();
+		payment = new Payment();
 	}
 	
 	public String getReviewNo() {
@@ -29,8 +31,8 @@ public class MatchingView extends Matching {
 	}
 
 
-	public String getReviewGrade() {
-		return review.getGrade();
+	public int getReviewRating() {
+		return review.getRating();
 	}
 
 	public String getReviewTitle() {
@@ -62,8 +64,8 @@ public class MatchingView extends Matching {
 	}
 
 
-	public void setReviewGrade(String grade) {
-		review.setGrade(grade);
+	public void setReviewRating(int rating) {
+		review.setRating(rating);
 	}
 
 	public void setReviewTitle(String title) {
@@ -103,4 +105,29 @@ public class MatchingView extends Matching {
 		return baby.getBepumiID();
 	}
 
+	
+
+	public String getPaymentNo() {
+		return payment.getNo();
+	}
+	
+	public void setPaymentNo(String no) {
+		payment.setNo(no);
+	}
+	
+	public int getPaymentOption() {
+		return payment.getOption();
+	}
+	
+	public void setPaymentOption(int option) {
+		payment.setOption(option);
+	}
+	
+	public Date getPaymentPayDate() {
+		return payment.getPayDate();
+	}
+	
+	public void setPaymentPayDate(Date payDate) {
+		payment.setPayDate(payDate);
+	}
 }

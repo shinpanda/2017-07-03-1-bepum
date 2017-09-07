@@ -8,11 +8,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bepum.web.dao.BepumiMatchingDao;
+import com.bepum.web.dao.SearchingMatchingDao;
+import com.bepum.web.dao.jdbc.JdbcBepumiMatchingDao;
+import com.bepum.web.dao.jdbc.JdbcSearchingMatchingDao;
+
 @WebServlet("/searching/matching-list-detail")
 public class SearchingMatchingListDetailController extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*response.sendRedirect("notice.jsp");*/
+
+		SearchingMatchingDao dao = new JdbcSearchingMatchingDao();
+		request.setAttribute("list", dao.get("yeonjoo", "1"));
 		
 		//매칭상태에 따라 다른 화면 반환하기
 		
