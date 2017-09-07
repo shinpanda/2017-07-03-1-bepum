@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <div id="result" class="result-container">
 	<h3 class=hidden>검색 결과</h3>
@@ -27,10 +27,10 @@
 		<div class="bepumi-list-container">
 			<div class="wrap">
 
-					<c:forEach var = "i" begin = "0" end = "1"  >			
+					<c:forEach var = "i" begin = "0" end = "5"  >			
 							<div class="floor">
 			
-								<c:forEach var = "i" begin = "0" end = "2"  >			
+								<c:forEach var = "i" begin = "0" end = "3"  >			
 										<div class="column">
 										    <!-- Post-->
 										    <div class="post-module">
@@ -39,7 +39,7 @@
 										        <div class="date">
 										          <div class="day">27</div>
 										          <div class="month">Mar</div>
-										        </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
+										        </div><a href=""><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/></a>
 										      </div>
 										      <!-- Post Content-->
 										      <div class="post-content">
@@ -52,7 +52,10 @@
 														</c:if>
 										        <div class="category">${grade}</div>
 										        <h1 class="title">"도움이 필요하시면 정성을 다해 돌보겠습니다."</h1>
-										        <h2 class="sub_title">${profile.name} 34세 ${profile.address}</h2>
+										        
+										 
+																																		      
+										        <h2 class="sub_title">${profile.name}   ${profile.address}</h2>
 										        <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
 										        <div class="post-meta"><span class="timestamp"><i class="fa fa-clock-">o</i> 6 mins ago</span><span class="comments"><i class="fa fa-comments"></i><a href="#"> 후기 39개</a></span></div>
 										      </div>
