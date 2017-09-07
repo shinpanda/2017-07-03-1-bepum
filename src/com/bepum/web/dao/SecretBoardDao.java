@@ -4,17 +4,18 @@ import java.util.List;
 
 import com.bepum.web.entity.Board;
 import com.bepum.web.entity.BoardView;
+import com.bepum.web.entity.SecretBoardView;
 
 public interface SecretBoardDao {
 
-	List<BoardView> getList(int page,String c_name, String query, String tName);
+	List<SecretBoardView> getList(int page,String c_name, String query, String tName);
 
-	BoardView get(String no, String tName);
+	SecretBoardView get(String no, String tName);
 
-	int update(String no, String title, String content, String tName);
+	int update(String no, String title, String content, int isPrivate, String privateKey, String tName);
 
-	int insert(String title, String content, String tName);
+	int insert(String title, String content, int isPrivate, String privateKey, String tName);
 
-	int getCount();
+	int getCount(String string);
 
 }

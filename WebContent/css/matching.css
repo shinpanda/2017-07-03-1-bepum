@@ -507,6 +507,13 @@
 	margin-top: 50px;
 }
 
+
+/*베푸미쪽 승인 거절*/
+.btn-container {
+    width: 80%;
+    margin: auto;
+    margin-top: 25px;
+}
 /* review 팝업창 부분 */
 .review-popup {
     background: rgba(0, 0, 0, 0.45);

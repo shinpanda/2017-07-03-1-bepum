@@ -29,15 +29,17 @@ public class QuestionRegController extends HttpServlet {
 
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		String open = request.getParameter("sec");
+		String _isPrivate = request.getParameter("sec");
+		int isPrivate = 0;
 		String privateKey = null;
-		if(open.equals("sec")) {
+		if(_isPrivate.equals("sec")) {
+			isPrivate = 1;
 			privateKey = request.getParameter("secKey");
 		}
 		
 
 		SecretBoardDao dao = new JdbcSecretBoardDao();
-		int result = dao.insert(title, content, "Question");
+		int result = dao.insert(title, content, isPrivate, privateKey ,"FAQ");
 		
 		response.sendRedirect("question");
 
