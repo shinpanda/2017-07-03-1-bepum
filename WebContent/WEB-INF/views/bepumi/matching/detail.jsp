@@ -20,12 +20,12 @@
 			<main id="main" class="main"> <jsp:include
 				page="detail-top.jsp" /> <jsp:include page="detail-bottom.jsp" />
 			<div class="btn-container">
-				<form action="post">
-
-					<input type="submit" name="ok-btn" value="승인" class="btn" /> <input
-						type="submit" name="ok-btn" value="거절" class="btn" />
-
-				</form>
+				<c:if test="${status.equals('신청대기')}">
+					<form action="post">
+						<input type="submit" name="ok-btn" value="승인" class="btn" /> <input
+							type="submit" name="ok-btn" value="거절" class="btn" />
+					</form>
+				</c:if>
 			</div>
 			</main>
 		</div>
