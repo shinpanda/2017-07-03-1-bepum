@@ -29,18 +29,35 @@ public class BepumiProfileEditController extends HttpServlet {
 		String pay = multi.getParameter("pay");
 
 		String profileImg = multi.getFilesystemName("profile-img");
-		String originprofileImg = multi.getOriginalFileName("profile-img");
+		String originprofileImg = multi.getParameter("originpp");
+
+		String originHomePhoto1 = multi.getParameter("originhome1");
+		String originHomePhoto2 = multi.getParameter("originhome2");
+		String originHomePhoto3 = multi.getParameter("originhome3");
 
 		String homePhoto1 = multi.getFilesystemName("home-photo1");
 		String homePhoto2 = multi.getFilesystemName("home-photo2");
 		String homePhoto3 = multi.getFilesystemName("home-photo3");
 
-		String originHomePhoto1 = multi.getOriginalFileName("home-photo1");
-		String originHomePhoto2 = multi.getOriginalFileName("home-photo2");
-		String originHomePhoto3 = multi.getOriginalFileName("home-photo3");
-
 		String[] bepumDays = multi.getParameterValues("bepumi-day");
 
+		if(originprofileImg != null && profileImg == null) {
+			profileImg = originprofileImg;
+		}
+		
+		if(originHomePhoto1 != null && homePhoto1 == null) {
+			homePhoto1 = originHomePhoto1;
+		}
+		
+		if(originHomePhoto2 != null && homePhoto2 == null) {
+			homePhoto2 = originHomePhoto2;
+		}
+		
+		if(originHomePhoto3 != null && homePhoto3 == null) {
+			homePhoto3 = originHomePhoto3;
+		}
+		
+		
 		String bepumDay = "";
 		if (multi.getParameter("bepumi-day") != null) {
 			for (int i = 0; i < bepumDays.length; i++) {
