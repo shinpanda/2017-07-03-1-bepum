@@ -124,7 +124,7 @@
 						</div>
 						<c:if test="${not empty profile.houseImg1}">
 							<script>
-							$('#home-img-edit1').parent().css({'background' : 'url(../upload/profilePic/${profile.houseImg1}) no-repeat', 'background-size' : 'cover'});
+							$('#home-img-edit1').parent().css({'background' : 'url(../upload/profilePic/${profile.houseImg1}) no-repeat', 'background-size' : 'contain'});
 							</script>
 						</c:if>
 						<div class="home-photo">
@@ -136,7 +136,7 @@
 						</div>
 						<c:if test="${not empty profile.houseImg2}">
 							<script>
-							$('#home-img-edit2').parent().css({'background' : 'url(../upload/profilePic/${profile.houseImg2}) no-repeat', 'background-size' : 'cover'});
+							$('#home-img-edit2').parent().css({'background' : 'url(../upload/profilePic/${profile.houseImg2}) no-repeat', 'background-size' : 'contain'});
 							</script>
 						</c:if>
 						<div class="home-photo">
@@ -148,7 +148,7 @@
 						</div>
 						<c:if test="${not empty profile.houseImg3}">
 							<script>
-							$('#home-img-edit3').parent().css({'background' : 'url(../upload/profilePic/${profile.houseImg3}) no-repeat center', 'background-size' : "cover"});
+							$('#home-img-edit3').parent().css({'background' : 'url(../upload/profilePic/${profile.houseImg3}) no-repeat center', 'background-size' : "contain"});
 						</script>
 						</c:if>
 
@@ -163,7 +163,7 @@
 												"background" : "url("
 														+ reader.result
 														+ ") no-repeat center",
-												"background-size" : "cover"
+												"background-size" : "contain"
 											});
 								}, false);
 								if (file) {

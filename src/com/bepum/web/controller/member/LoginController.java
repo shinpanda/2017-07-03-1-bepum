@@ -37,6 +37,7 @@ public class LoginController extends HttpServlet {
 			out.println("<script>alert('아이디 또는 비밀번호를 확인하세요');history.go(-1);</script>");
 		else {
 			request.getSession().setAttribute("id", id);
+			request.getSession().setAttribute("grade", member.getGrade());
 			request.getSession().setAttribute("name", member.getName());
 			
 			out.println("<script>alert('"+member.getName()+"님 로그인되었습니다.');window.close();window.opener.location.reload();</script>");

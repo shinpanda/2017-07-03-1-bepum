@@ -15,7 +15,7 @@ import com.bepum.web.entity.Profile;
 public class JdbcProfileDao implements ProfileDao {
 
 	@Override
-	public Profile get() {
+	public Profile get(String id) {
 		Profile p = null;
 
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
@@ -28,7 +28,7 @@ public class JdbcProfileDao implements ProfileDao {
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
-			st.setString(1, "testpumi");
+			st.setString(1, id);
 
 			// 결과 가져오기
 			ResultSet rs = st.executeQuery();
@@ -71,7 +71,7 @@ public class JdbcProfileDao implements ProfileDao {
 	}
 
 	@Override
-	public int getIsProfile() {
+	public int getIsProfile(String id) {
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
 		int count = 0;
@@ -85,7 +85,7 @@ public class JdbcProfileDao implements ProfileDao {
 			/* Statement st = con.createStatement(); */
 			PreparedStatement stCount = con.prepareStatement(sqlCount);
 			/*st.setString(1, "%"+title+"%");*/
-			stCount.setString(1, "testpumi");
+			stCount.setString(1, id);
 			ResultSet rsCount = stCount.executeQuery();
 			
 			
@@ -110,7 +110,7 @@ public class JdbcProfileDao implements ProfileDao {
 	}
 
 	@Override
-	public int insert(String others, String selfIntro, String bepumDay, String startTime, String endTime,
+	public int insert(String id, String others, String selfIntro, String bepumDay, String startTime, String endTime,
 			String profilePic, String homePhoto1, String homePhoto2, String homePhoto3, String pay) {
 		int result = 0;
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
@@ -157,7 +157,7 @@ public class JdbcProfileDao implements ProfileDao {
 	}
 
 	@Override
-	public int update(String others, String selfIntro, String bepumDay, String startTime, String endTime,
+	public int update(String id, String others, String selfIntro, String bepumDay, String startTime, String endTime,
 			String profilePic, String homePhoto1, String homePhoto2, String homePhoto3, String pay) {
 		int result = 0;
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
