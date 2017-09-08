@@ -15,9 +15,8 @@ public class CertificationSubmitController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uri  = request.getRequestURI();
 		
-		request.setAttribute("uri", uri);
 		
-		/*response.sendRedirect("notice.jsp");*/
+	
 		request.getRequestDispatcher("/WEB-INF/views/member/certification/submit.jsp").forward(request, response);
 
 	}

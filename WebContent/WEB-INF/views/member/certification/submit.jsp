@@ -44,19 +44,19 @@
 			</div>
 			
 
-				<form method="post">
+				<form action="certification-complete" method="post" enctype="Multipart/form-data">
 					<div class="submit-table-container">
 						<div class = "submit-table">
-<!-- 							<div class="row throw">
+					<!-- 		<div class="row throw">
 								<div class="cell th">서류</div>
 								<div class="cell th">파일명</div>
 								<div class="cell th">제출</div>
-							</div> -->
+								</div> -->
 							<div class="row">
 								<div class="cell th">신청서</div>
 								<div class="cell td">신청서이름.jpg</div>
 								<div class="cell td">
-									<input type="file" class="submitBtn" id="application-form" name="edit"/>
+									<input type="file" class="submitBtn" id="application-form" name="application"/>
 									<label for="application-form">파일찾기</label>
 								</div>
 							</div>
@@ -64,7 +64,7 @@
 								<div class="cell th">가족관계증명서</div>
 								<div class="cell td">신청서이름.jpg</div>
 								<div class="cell td">
-									<input type="file" class="submitBtn" id="family-rc-form" name="edit"/>
+									<input type="file" class="submitBtn" id="family-rc-form" name="family"/>
 									<label for="family-rc-form">파일찾기</label>
 								</div>
 							</div>
@@ -72,7 +72,7 @@
 								<div class="cell th">건강진단서</div>
 								<div class="cell td">신청서이름.jpg</div>
 								<div class="cell td">
-									<input type="file" class="submitBtn" id="hc-form" name="edit"/>
+									<input type="file" class="submitBtn" id="hc-form" name="hc"/>
 									<label for="hc-form">파일찾기</label>
 								</div>
 							</div>
@@ -80,21 +80,18 @@
 								<div class="cell th">아이 예방접종 증명서</div>
 								<div class="cell td">신청서이름.jpg</div>
 								<div class="cell td">
-									<input type="file" class="submitBtn" id="baby-form" name="edit"/>
+									<input type="file" class="submitBtn" id="baby-form" name="baby"/>
 									<label for="baby-form">파일찾기</label>
 								</div>
 							</div>
 						</div>
-					
-						
-						<div class="agree-btn-container">
-							<a href="certification-complete">다음</a>
-						</div>
 					</div>
-				</form>
-			</main>
-		</div>
-	</div>
+						
+						<input type="submit" value="다음" class="agree-btn-container"/>
+					</form>	
+					</main>
+				</div>
+			</div>
 
 	<!--  footer 집중화 -->
 	<jsp:include page="../../inc/footer.jsp"></jsp:include>
