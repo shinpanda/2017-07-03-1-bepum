@@ -1,16 +1,7 @@
 package com.bepum.web.controller.bepumi;
 
 import java.io.IOException;
-<<<<<<< HEAD
-=======
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
->>>>>>> refs/remotes/origin/master
+
 import java.util.List;
 
 import javax.servlet.ServletException;
