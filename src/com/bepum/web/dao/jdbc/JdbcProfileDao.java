@@ -123,7 +123,7 @@ public class JdbcProfileDao implements ProfileDao {
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
-			st.setString(1, "testpumi");
+			st.setString(1, id);
 			st.setString(2, startTime);
 			st.setString(3, endTime);
 			st.setString(4, bepumDay);

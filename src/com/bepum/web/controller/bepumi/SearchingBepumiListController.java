@@ -29,53 +29,35 @@ public class SearchingBepumiListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		HttpSession session = request.getSession();
 
-		Object _id = session.getAttribute("id");
+		String _cName = request.getParameter("search-sel");
+		String _query = request.getParameter("search");
 
-		if (_id == null)
-			out.write("<script> alert('로그인이 필요한 요청입니다.'); history.back(); </script>");
-		else {
-			String id = _id.toString();
-			MemberRoleDao roleDao = new JdbcMemberRoleDao();
-			int role = roleDao.getRole(id);
+		String _page = request.getParameter("p");
 
-			if (role < 1)
-				out.write("<script> alert('잘못된 요청입니다.'); history.back(); </script>");
-			else {
-				String _cName = request.getParameter("search-sel");
-				String _query = request.getParameter("search");
+		int page = 1;
+		if (_page != null && !(_page.equals("")))
+			page = Integer.parseInt(_page);
 
-				String _page = request.getParameter("p");
+		String query = "";
+		if (_query != null && !(_query.equals("")))
+			query = _query;
 
-				int page = 1;
-				if (_page != null && !(_page.equals("")))
-					page = Integer.parseInt(_page);
+		String cName = "id";
+		if (_cName != null && !(_cName.equals("")))
+			cName = _cName;
 
-				String query = "";
-				if (_query != null && !(_query.equals("")))
-					query = _query;
+		ProfileDao dao = new JdbcProfileDao();
 
-				String cName = "id";
-				if (_cName != null && !(_cName.equals("")))
-					cName = _cName;
+		request.setAttribute("isProfile", dao.getIsProfile());
+		request.setAttribute("profile", dao.get());
 
-				ProfileDao dao = new JdbcProfileDao();
+		MemberDao dao2 = new JdbcMemberDao();
 
-				request.setAttribute("isProfile", dao.getIsProfile(id));
-				request.setAttribute("profile", dao.get(id));
+		request.setAttribute("list", dao2.getList(page, query, cName));
+		request.setAttribute("count", dao2.getCount());
 
-				MemberDao dao2 = new JdbcMemberDao();
+		request.getRequestDispatcher("/WEB-INF/views/searching/bepumi/list.jsp").forward(request, response);
 
-				request.setAttribute("list", dao2.getList(page, query, cName));
-				request.setAttribute("count", dao2.getCount());
-
-				request.getRequestDispatcher("/WEB-INF/views/searching/bepumi/list.jsp").forward(request, response);
-
-			}
-		}
 	}
 }
