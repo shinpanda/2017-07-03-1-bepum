@@ -30,15 +30,18 @@ public class QuestionEditController extends HttpServlet {
 		String no = request.getParameter("no");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		String open = request.getParameter("sec");
+		String _isPrivate = request.getParameter("sec");
+		int isPrivate = 0;
 		String privateKey = null;
-		if(open.equals("sec")) {
+		if(_isPrivate.equals("sec")) {
+			isPrivate = 1;
 			privateKey = request.getParameter("secKey");
 		}
 		
+		
 
 		SecretBoardDao dao = new JdbcSecretBoardDao();
-		int result = dao.update(no, title, content, "Question");
+		int result = dao.update(no, title, content, isPrivate, privateKey, "FAQ");
 
 		response.sendRedirect("question");
 
@@ -48,8 +51,14 @@ public class QuestionEditController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String no = request.getParameter("no");
+
+		SecretBoardDao dao = new JdbcSecretBoardDao();
+		request.setAttribute("b", dao.get(no, "FAQ"));
+
+		
 		/*response.sendRedirect("notice.jsp");*/
-		request.getRequestDispatcher("/WEB-INF/views/board/question/reg.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/board/question/edit.jsp").forward(request, response);
 		
 	}
 }

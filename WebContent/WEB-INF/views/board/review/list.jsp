@@ -45,7 +45,8 @@
 					<div class="search-form-container">
 						<form action="" method="get" class="search-form">
 							<select name="search-sel">
-								<option value="writerID">아이디</option>
+								<option value="writerID">글쓴이</option>
+								<option value="bepumiID">베푸미</option>
 								<option value="title">제목</option>
 								<option value="content">내용</option>
 							</select>
@@ -93,9 +94,6 @@
 						</div>
 					</div>
 				</div>
-				<div class="btn reg-btn">
-				<a href="./free-reg">쓰기</a>
-			</div>
 			</div>
 			</main>
 		</div>

@@ -48,7 +48,7 @@
 		<div class="content-container">
 			<div class="profile-member-container">
 				<div class="profile-member-wrapper">
-					<img src="../images/profile.jpg" id="profile-photo" alt="프로필 사진">
+					<img src="../upload/profilePic/${profile.profilePic}" id="profile-photo" alt="프로필 사진">
 					<p id="name">${profile.name}</p>
 					<p id="address">${profile.address}</p>
 					<c:set var="grade" value="회원" />
@@ -66,9 +66,9 @@
 				<h3>집 사진</h3>
 				<div class="home-photo-wrapper">
 					<!--집사진 3개-->
-					<div class="home-photo"></div>
-					<div class="home-photo"></div>
-					<div class="home-photo"></div>
+					<div class="home-photo"><img src="../upload/profilePic/${profile.houseImg1}" alt ="집 사진 1" /></div>
+					<div class="home-photo"><img src="../upload/profilePic/${profile.houseImg2}" alt ="집 사진 2" /></div>
+					<div class="home-photo"><img src="../upload/profilePic/${profile.houseImg3}" alt ="집 사진 3" /></div>
 				</div>
 			</div>
 

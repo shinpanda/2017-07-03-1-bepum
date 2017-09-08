@@ -34,9 +34,15 @@
 				<div class="cell th">거주지</div>
 				<div class="cell td">${list[0].address}</div>
 			</div>
+			
+						<c:set var="grade" value="베푸미" />
+						<c:if test="${n.grade == 2}">
+							<c:set var="grade" value="슈퍼베푸미" />
+						</c:if>
+						
 			<div class="row">
 				<div class="cell th">등급</div>
-				<div class="cell td">${list[0].grade}</div>
+				<div class="cell td">${grade}</div>
 			</div>
 		</div>
 	</div>

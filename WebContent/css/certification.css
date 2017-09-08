@@ -279,7 +279,6 @@ a.btn-layerClose:hover {
 	width: 660px;
   	margin: auto;
 	padding:30px;
-	margin-top: 30px;
 }
 
 .bepumi-agreement {
@@ -496,6 +495,11 @@ div {
 	}		
 		
 
+.file_route{
+	width: -webkit-fill-available;
+    border: none;
+    text-align: center;
+}
 
 
 
