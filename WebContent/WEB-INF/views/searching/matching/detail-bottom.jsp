@@ -19,11 +19,17 @@
 					${list[0].bepumDate} ${list[0].startTime}  >>  ${list[0].bepumDate}  ${list[0].endTime}
 				</div>
 			</div>
+
+					<c:set var="paymentOption" value="무통장입금" />
+						<c:if test="${n.grade == 0}">
+							<c:set var="paymentOption" value="카드" />
+						</c:if>
+						
 			<div class="row">
 				<div class="cell1">결제 정보</div>
 				<div class="cell2">
 					 결제 일자 > ${list[0].paymentPayDate}  <br/>
-					 결제 방법 >  ${list[0].paymentOption} <br/>
+					 결제 방법 >  ${paymentOption} <br/>
 					 총 금액 > 70,000원
 
 				</div>

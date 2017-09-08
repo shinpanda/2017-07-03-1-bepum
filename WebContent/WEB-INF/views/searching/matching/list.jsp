@@ -32,7 +32,7 @@
 					<div class="matching-progress step2-container">
 						<div class="step-wrapper">
 							<p class="step">승인 중</p>
-							<p>관리자 및 돌보미 승인 단계</p>
+							<p>돌보미 승인 단계</p>
 						</div>
 					</div>
 					<div class="matching-progress step3-container">
