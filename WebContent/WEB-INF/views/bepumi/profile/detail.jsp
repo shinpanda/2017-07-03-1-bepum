@@ -66,9 +66,9 @@
 				<h3>집 사진</h3>
 				<div class="home-photo-wrapper">
 					<!--집사진 3개-->
-					<div class="home-photo"></div>
-					<div class="home-photo"></div>
-					<div class="home-photo"></div>
+					<div class="home-photo"><img src="../upload/profilePic/${profile.houseImg1}" alt ="집 사진 1" /></div>
+					<div class="home-photo"><img src="../upload/profilePic/${profile.houseImg2}" alt ="집 사진 2" /></div>
+					<div class="home-photo"><img src="../upload/profilePic/${profile.houseImg3}" alt ="집 사진 3" /></div>
 				</div>
 			</div>
 

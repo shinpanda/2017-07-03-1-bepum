@@ -45,16 +45,20 @@
 						<li><a href="${p}/index">서비스 소개</a></li>
 						<li><a href="${p}/index">이용방법</a></li>
 					</ul></li>
-				<li><a href="${p}/member/certification-progress">베푸미 되기</a><!-- 임시 -->
-					<ul class="sub-menu hidden">
-						<li><a href="${p}/member/certification-progress">진행 상황</a></li>
-						<li><a href="${p}/member/certification-request">서류 인증</a></li>
-					</ul></li>	
-				<li><a href="${p}/bepumi/profile">베푸미 활동 관리</a>
-					<ul class="sub-menu hidden">
-						<li><a href="${p}/bepumi/profile">프로필 관리</a></li>
-						<li><a href="${p}/bepumi/matching-list">매칭 내역</a></li>
-					</ul></li>	
+				<c:if test="${sessionScope.grade >= 0}">
+					<li><a href="${p}/member/certification-progress">베푸미 되기</a><!-- 임시 -->
+						<ul class="sub-menu hidden">
+							<li><a href="${p}/member/certification-progress">진행 상황</a></li>
+							<li><a href="${p}/member/certification-request">서류 인증</a></li>
+						</ul></li>	
+				</c:if>
+				<c:if test="${sessionScope.grade > 0}">
+					<li><a href="${p}/bepumi/profile">베푸미 활동 관리</a>
+						<ul class="sub-menu hidden">
+							<li><a href="${p}/bepumi/profile">프로필 관리</a></li>
+							<li><a href="${p}/bepumi/matching-list">매칭 내역</a></li>
+						</ul></li>
+				</c:if>	
 				<li><a href="${p}/searching/matching-list">베푸미 찾기</a>
 					<ul class="sub-menu hidden">
 						<li><a href="${p}/searching/bepumi-list">조건별 베푸미 찾기</a></li>
