@@ -37,10 +37,10 @@
 					${fn:replace(b.content, cn, br)}
 				</div>
 				<div>
-					<a href="free" class="btn">목록</a>
+					<a href="question" class="btn">목록</a>
 					<div class="ed-wrapper">
 						<a href="question-edit?no=${b.no}" class="btn">수정</a>
-						<a href="question-del" class="btn">삭제</a>
+						<a href="question-del?no=${b.no}" class="btn">삭제</a>
 					</div>
 				</div>
 				

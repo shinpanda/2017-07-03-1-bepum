@@ -6,25 +6,31 @@
 <!-- 신청자 매칭완료 후에 후기 작성하는 페이지 -->
 
 <div class="past-container">
-
-	
 	<div class="table-container">
 	<h3>매칭 상세정보</h3>
 		<div class="past-table">
 			<div class="row">
 				<div class="cell1">매칭신청일</div>
-				<div class="cell2" style="">2017년 7월 15일 10시</div>
+				<div class="cell2" style="">${list[0].reqDate}</div>
 			</div>
 			<div class="row">
 				<div class="cell1">돌보미 날짜</div>
 				<div class="cell2" style="">
-					2017년 7월 15일 10시<br>2017년 7월 15일 16시
+					${list[0].bepumDate} ${list[0].startTime}  >>  ${list[0].bepumDate}  ${list[0].endTime}
 				</div>
 			</div>
+
+					<c:set var="paymentOption" value="무통장입금" />
+						<c:if test="${n.grade == 0}">
+							<c:set var="paymentOption" value="카드" />
+						</c:if>
+						
 			<div class="row">
 				<div class="cell1">결제 정보</div>
 				<div class="cell2">
-					Paid with VISA ****<br>총 금액 70,000원
+					 결제 일자 > ${list[0].paymentPayDate}  <br/>
+					 결제 방법 >  ${paymentOption} <br/>
+					 총 금액 > 70,000원
 
 				</div>
 			</div>
@@ -33,7 +39,10 @@
 
 	<div class="review-detail-container">
 		<h3>후기</h3>
-		<div class="review-container"></div>
+		<div class="review-container">
+			${list[0].reviewTitle} <br/>
+			${list[0].reviewContent} 
+		</div>
 	</div>
 
 

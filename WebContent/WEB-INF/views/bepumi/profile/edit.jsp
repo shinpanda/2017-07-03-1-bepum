@@ -80,8 +80,9 @@
 					</div>
 					<div class="bepum-definite-wrapper">
 						<p>
-							희망 시급 : <span><input type="text" placeholder="${profile.pay}"
-								class="profile-num" name = "pay"/></span> 원
+							희망 시급 : <span><input type="text"
+								value="${profile.pay}" placeholder="8000" class="profile-num" name="pay" /></span>
+							원
 						</p>
 
 					</div>
@@ -90,11 +91,13 @@
 			<div class="content-container">
 				<div class="profile-member-container">
 					<div class="profile-member-wrapper">
-						<img src="../images/profile.jpg" id="profile-photo"
-							alt="프로필 사진">
+						<img src="../upload/profilePic/${profile.profilePic}"
+							id="profile-photo" alt="프로필 사진"> <input type="hidden"
+							value="${profile.profilePic}" name="originpp" />
 						<div class="profile-box">
 							<label for="profile-img-edit-btn">사진 수정</label> <input
-								type="file" accept=".bmp, .jpg, .png" id="profile-img-edit-btn" name="profile-img">
+								type="file" accept=".bmp, .jpg, .png" id="profile-img-edit-btn"
+								name="profile-img">
 						</div>
 						<p id="name">${profile.name}</p>
 						<p id="address">${profile.address}</p>
@@ -114,24 +117,41 @@
 					<div class="home-photo-wrapper">
 						<div class="home-photo">
 							<label for="home-img-edit1"><img
-								src="../../images/add_icon.png" /></label> <input type="file"
+								src="../images/add_icon.png" /></label> <input type="file"
 								onchange="previewFile(1)" accept=".bmp, .jpg, .png"
-								id="home-img-edit1" name="home-photo1">
+								id="home-img-edit1" name="home-photo1"> <input
+								type="hidden" value="${profile.houseImg1}" name="originhome1" />
 						</div>
-
+						<c:if test="${not empty profile.houseImg1}">
+							<script>
+							$('#home-img-edit1').parent().css({'background' : 'url(../upload/profilePic/${profile.houseImg1}) no-repeat', 'background-size' : 'contain'});
+							</script>
+						</c:if>
 						<div class="home-photo">
 							<label for="home-img-edit2"><img
-								src="../../images/add_icon.png" /></label> <input type="file"
+								src="../images/add_icon.png" /></label> <input type="file"
 								onchange="previewFile(2)" accept=".bmp, .jpg, .png"
-								id="home-img-edit2" name="home-photo2">
+								id="home-img-edit2" name="home-photo2"> <input
+								type="hidden" value="${profile.houseImg2}" name="originhome2" />
 						</div>
-
+						<c:if test="${not empty profile.houseImg2}">
+							<script>
+							$('#home-img-edit2').parent().css({'background' : 'url(../upload/profilePic/${profile.houseImg2}) no-repeat', 'background-size' : 'contain'});
+							</script>
+						</c:if>
 						<div class="home-photo">
 							<label for="home-img-edit3"><img
-								src="../../images/add_icon.png" /></label> <input type="file"
+								src="../images/add_icon.png" /></label> <input type="file"
 								onchange="previewFile(3)" accept=".bmp, .jpg, .png"
-								id="home-img-edit3" name="home-photo3">
+								id="home-img-edit3" name="home-photo3"> <input
+								type="hidden" value="${profile.houseImg3}" name="originhome3" />
 						</div>
+						<c:if test="${not empty profile.houseImg3}">
+							<script>
+							$('#home-img-edit3').parent().css({'background' : 'url(../upload/profilePic/${profile.houseImg3}) no-repeat center', 'background-size' : "contain"});
+						</script>
+						</c:if>
+
 						<script>
 							function previewFile(num) {
 								var file = document
@@ -142,8 +162,8 @@
 											{
 												"background" : "url("
 														+ reader.result
-														+ ") no-repeat",
-												"background-size" : "cover"
+														+ ") no-repeat center",
+												"background-size" : "contain"
 											});
 								}, false);
 								if (file) {
@@ -156,33 +176,20 @@
 				<div class="time-table">
 					<h3>가능 시간</h3>
 					<div class="bepumi-day">
-						 <input type="checkbox"
-							id="bepumi-day1" name="bepumi-day" value="Mon">
-						<label for="bepumi-day1">월</label>
-
-						 <input type="checkbox"
-							id="bepumi-day2"  name="bepumi-day" value="Tue">
-							<label for="bepumi-day2">화</label>
-
-						<input type="checkbox"
-							id="bepumi-day3"  name="bepumi-day" value="Wed">
-						<label for="bepumi-day3">수</label> 
-
-						<input type="checkbox"
-							id="bepumi-day4"  name="bepumi-day" value="Thu">
-						<label for="bepumi-day4">목</label> 
-
-						<input type="checkbox"
-							id="bepumi-day5"  name="bepumi-day" value="Fri">
-							<label for="bepumi-day5">금</label> 
-
-						<input type="checkbox"
-							id="bepumi-day6"  name="bepumi-day" value="Sat">
-							<label for="bepumi-day6">토</label> 
-	
-						 <input type="checkbox"
-							id="bepumi-day7"  name="bepumi-day" value="Sun">
-							<label for="bepumi-day7">일</label>
+						<input type="checkbox" id="bepumi-day1" name="bepumi-day"
+							value="Mon"> <label for="bepumi-day1">월</label> <input
+							type="checkbox" id="bepumi-day2" name="bepumi-day" value="Tue">
+						<label for="bepumi-day2">화</label> <input type="checkbox"
+							id="bepumi-day3" name="bepumi-day" value="Wed"> <label
+							for="bepumi-day3">수</label> <input type="checkbox"
+							id="bepumi-day4" name="bepumi-day" value="Thu"> <label
+							for="bepumi-day4">목</label> <input type="checkbox"
+							id="bepumi-day5" name="bepumi-day" value="Fri"> <label
+							for="bepumi-day5">금</label> <input type="checkbox"
+							id="bepumi-day6" name="bepumi-day" value="Sat"> <label
+							for="bepumi-day6">토</label> <input type="checkbox"
+							id="bepumi-day7" name="bepumi-day" value="Sun"> <label
+							for="bepumi-day7">일</label>
 					</div>
 					<script>
 						var str = '${profile.bepumDay}';
@@ -200,13 +207,14 @@
 						}
 						
 					</script>
-					
+
 					<p>
-						<span><input type="text" placeholder="${profile.strTime}"
+						<span><input type="text" value="${profile.strTime}" placeholder="08:00"
 							class="profile-num" pattern="[0-2]\d:[0-5]\d"
-							title="08:00 형식으로 넣어주세요" name="start-time"/></span> ~ <span><input type="text"
-							placeholder="${profile.endTime}" class="profile-num" pattern="[0-2]\d:[0-5]\d"
-							title="08:00 형식으로 넣어주세요" name="end-time" /></span>
+							title="08:00 형식으로 넣어주세요" name="start-time" /></span> ~ <span><input
+							type="text" value="${profile.endTime}" placeholder="15:00" class="profile-num"
+							pattern="[0-2]\d:[0-5]\d" title="08:00 형식으로 넣어주세요"
+							name="end-time" /></span>
 					</p>
 				</div>
 
@@ -218,14 +226,15 @@
 							<div class="row">
 								<div class="cell1">기타사항</div>
 								<div class="cell2">
-									<textarea name = "others" class="table-input" rows="3" cols="65"
+									<textarea name="others" class="table-input" rows="3" cols="65"
 										placeholder="예)운전 가능">${profile.etc}</textarea>
 								</div>
 							</div>
 							<div class="row">
 								<div class="cell1">자기소개</div>
 								<div class="cell2">
-									<textarea name = "self-intro" class="table-input" rows="4" cols="65">${profile.intro}</textarea>
+									<textarea name="self-intro" class="table-input" rows="4"
+										cols="65">${profile.intro}</textarea>
 								</div>
 							</div>
 						</div>
@@ -287,7 +296,7 @@
 					setChart("bepumi-request-chart", 50, "#85DDC8");
 					setChart("bepumi-success-chart", 75, "#cba9e2");
 				</script>
-				
+
 			</div>
 		</form>
 		</main>

@@ -9,11 +9,10 @@ public class BoardView extends Board {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-	public BoardView(String no, String title, String content, String writerId, int hit, Date regDate, int open,
-			String privateKey) {
-		super(no, title, content, writerId, hit, regDate, open, privateKey);
 
+	public BoardView(String no, String title, String content, String writerId, int hit, Date regDate, int countCmt) {
+		super();
+		this.countCmt = countCmt;
 	}
 
 

@@ -259,6 +259,10 @@
 
 									</div>
 								</div>
+								<div class="sminputs" style="text-align: right; font-size: 11px; border-bottom: none;">
+									*표시 항목은 필수항목입니다.
+								</div>
+								
 
 								<div class="simform__actions">
 									<input type="submit" class="sumbit" name="commit" value="가입신청" />
@@ -275,24 +279,24 @@
 							</span>
 						</div>
 						<div class="logmod__form">
-							<form accept-charset="utf-8" action="#" class="simform">
+							<form accept-charset="utf-8" action="login" class="simform">
 								<div class="sminputs">
 									<div class="input full">
 										<div class="string optional" for="user-name">아이디*</div>
 										<input class="string optional" maxlength="255" id="user-email"
-											placeholder="아이디" type="text" size="50" />
+											placeholder="아이디" type="text" size="50" name="id" />
 									</div>
 								</div>
 								<div class="sminputs">
 									<div class="input full">
-										<div class="string optional" for="user-pw">비밀번호* *</div>
+										<div class="string optional" for="user-pw">비밀번호*</div>
 										<input class="string optional" id="user-pw" placeholder="비밀번호"
-											type="password" />
+											type="password" name="pwd"/>
 										<!-- <span class="hide-password">Show</span> -->
 									</div>
 								</div>
 								<div class="simform__actions">
-									<input class="sumbit" name="commit" type="sumbit"
+									<input class="sumbit" name="commit" type="submit"
 										value="Log In" />
 								</div>
 							</form>

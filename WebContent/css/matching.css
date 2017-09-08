@@ -158,7 +158,6 @@
 .table-container h3,
 .review-detail-container h3{
     text-align: left;
-    font-size: 15px;
     padding-bottom: 0px;
     padding-left: 30px;
     margin-left: 100px;
@@ -318,6 +317,7 @@
 
 .profile-detail {
     align-self: center;
+    padding-left: 50px;
 }
 
 .profile-detail-table {
@@ -507,6 +507,13 @@
 	margin-top: 50px;
 }
 
+
+/*베푸미쪽 승인 거절*/
+.btn-container {
+    width: 80%;
+    margin: auto;
+    margin-top: 25px;
+}
 /* review 팝업창 부분 */
 .review-popup {
     background: rgba(0, 0, 0, 0.45);

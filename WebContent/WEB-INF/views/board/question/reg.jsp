@@ -19,7 +19,7 @@
 		<div class="content-container">
 			<main id="main" class="main">
 			<div class="reg-container">
-				<form action="" method="post" name="free-reg-form" class="reg-form">
+				<form action="" method="post" name="question-reg-form" class="reg-form">
 					<input type="text" name="title" placeholder="제목" />
 					<textarea rows="25" cols="65" name="content"></textarea>
 					<div class="sec-container">

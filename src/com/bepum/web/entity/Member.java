@@ -22,7 +22,6 @@ public class Member {
 	public Member() {
 		
 	}
-
 	public Member(String id, String name, String pwd, int gender, String birth, String email, int grade, Date regDate) {
 		super();
 		this.id = id;

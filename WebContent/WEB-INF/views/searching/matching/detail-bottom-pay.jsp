@@ -2,19 +2,19 @@
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  
- <!-- 신청자 매칭목록 세부페이지 하단 부분 결제요청 -->
+ <!-- 신청자 매칭목록 세부페이지 [결제요청] -->
     
 				<form>
 					<div class="member rb-wrapper">
 						<div class="member rb-container">
 							<div class="member req-date">
 								<span class="date-title">매칭 신청일</span>
-								<span>2017월 7월 14일</span>
+								<span>${list[0].reqDate}</span>
 							</div>
 							<div class="member bepum-date">
 								<span class="date-title">돌보미 날짜</span>
 								<div class="behpum-time">
-								<span class="start-time">2017년 7월 15일 10시</span> > <span class="end-time">2017년 7월 15일 16일</span>
+								<span class="start-time">${list[0].bepumDate} ${list[0].startTime}</span> > <span class="end-time">${list[0].bepumDate}  ${list[0].endTime}</span>
 								</div>
 							</div>
 						</div>

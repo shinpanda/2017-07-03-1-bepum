@@ -25,7 +25,7 @@
 	function showPopup() {
 		window.open("${p}/member/sign", "로그인/회원가입",
 				"resizable=no width=562, height=800, left=600, top=50");
-		
+			
 	}
 </script>
 </head>
@@ -45,16 +45,20 @@
 						<li><a href="${p}/index">서비스 소개</a></li>
 						<li><a href="${p}/index">이용방법</a></li>
 					</ul></li>
-				<li><a href="${p}/member/certification-progress">베푸미 되기</a><!-- 임시 -->
-					<ul class="sub-menu hidden">
-						<li><a href="${p}/member/certification-progress">진행 상황</a></li>
-						<li><a href="${p}/member/certification-request">서류 인증</a></li>
-					</ul></li>	
-				<li><a href="${p}/bepumi/profile">베푸미 활동 관리</a>
-					<ul class="sub-menu hidden">
-						<li><a href="${p}/bepumi/profile">프로필 관리</a></li>
-						<li><a href="${p}/bepumi/matching-list">매칭 내역</a></li>
-					</ul></li>	
+				<c:if test="${sessionScope.grade >= 0}">
+					<li><a href="${p}/member/certification-progress">베푸미 되기</a><!-- 임시 -->
+						<ul class="sub-menu hidden">
+							<li><a href="${p}/member/certification-progress">진행 상황</a></li>
+							<li><a href="${p}/member/certification-request">서류 인증</a></li>
+						</ul></li>	
+				</c:if>
+				<c:if test="${sessionScope.grade > 0}">
+					<li><a href="${p}/bepumi/profile">베푸미 활동 관리</a>
+						<ul class="sub-menu hidden">
+							<li><a href="${p}/bepumi/profile">프로필 관리</a></li>
+							<li><a href="${p}/bepumi/matching-list">매칭 내역</a></li>
+						</ul></li>
+				</c:if>	
 				<li><a href="${p}/searching/matching-list">베푸미 찾기</a>
 					<ul class="sub-menu hidden">
 						<li><a href="${p}/searching/bepumi-list">조건별 베푸미 찾기</a></li>
@@ -73,9 +77,16 @@
 					</li>
 			</ul>
 		</nav> 
+		
+		
 		<nav class="menu-wrapper">
 		<ul id="login">
+			<c:if test="${empty sessionScope.id}">
 			<li><a href="" onclick="javascript:showPopup();" class="btn-border">Sign in</a></li>
+			</c:if>
+			<c:if test="${!empty sessionScope.id}">
+			<li><a href="${p}/member/logout" class="btn-border">${name}님</a></li>
+			</c:if>
 		</ul>
 		</nav>
 		<div id="sub-bg"></div>
