@@ -1,5 +1,6 @@
 package com.bepum.web.controller.bepumi;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -21,24 +22,25 @@ public class BepumiProfileRegController extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		String saveDirectory = "C:\\dev\\upload";
-		int maxPostSize = 1024*1024*10;// 10MB 
+		String saveDirectory = request.getSession().getServletContext().getRealPath("/upload/profilePic");
+		System.out.println(saveDirectory);
+		int maxPostSize = 1024*1024*5;// 5MB 
 		MultipartRequest multi = new MultipartRequest(request, saveDirectory, maxPostSize, "UTF-8", new DefaultFileRenamePolicy());
-		
-		
+
 		
 		String pay = multi.getParameter("pay");
 		
 		String profileImg = multi.getFilesystemName("profile-img");
-		String originprofileImg = multi.getOriginalFileName("profile-img");
+		int profileImgSize = (int)(new File(saveDirectory+"/"+profileImg).length());
+		
 		
 		String homePhoto1 = multi.getFilesystemName("home-photo1");
 		String homePhoto2 = multi.getFilesystemName("home-photo2");
 		String homePhoto3 = multi.getFilesystemName("home-photo3");
+		int homePhoto1Size = (int)(new File(saveDirectory+"/"+homePhoto1).length());
+		int homePhoto2Size = (int)(new File(saveDirectory+"/"+homePhoto2).length());
+		int homePhoto3Size = (int)(new File(saveDirectory+"/"+homePhoto3).length());
 		
-		String originHomePhoto1 = multi.getOriginalFileName("home-photo1");
-		String originHomePhoto2 = multi.getOriginalFileName("home-photo2");
-		String originHomePhoto3 = multi.getOriginalFileName("home-photo3");
 
 		String[] bepumDays = multi.getParameterValues("bepumi-day");
 
