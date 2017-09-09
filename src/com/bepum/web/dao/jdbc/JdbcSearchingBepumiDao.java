@@ -103,6 +103,7 @@ public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
 			  count = rs.getInt("count");
 			   
 			   rs.close(); 
+			   st.close();
 			   con.close();
 			   //list는 사용안해서 st close 안해도 된당
 		     } catch (ClassNotFoundException e) {
