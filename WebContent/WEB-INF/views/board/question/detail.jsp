@@ -19,33 +19,42 @@
 
 	<div id="body">
 		<div class="content-container">
-			<main id="main" class="main">
-
-			<div class="detail-container">
-				<div class="info-container">
-					<div class="tr-info clearfix">
-						<span class="title">${b.title}</span> <span class="reg-date">${b.regDate}</span>
-					</div>
-					<div class="wch-info clearfix">
-						<span class="writer">${b.writerId}</span>
-						<div class="ch-wrapper">
-							<span class="comment-num">댓글 수 ${b.countCmt} </span> <span class="hit">조회수 ${b.hit}</span>
+			<main id="main" class="main"> 
+			<c:if test="${empty b.privateKey && isSecret == 1}">
+				<div>
+					이 글은 비밀글입니다.
+					<form method="post">
+						<input type="password" alt="글비밀번호" name = "secretKey" />
+						<input type="submit" alt="확인" value = "submit" />
+					</form>
+				</div>
+			</c:if>
+			<c:if test="${not empty b.privateKey || isSecret == 0}">
+				<div class="detail-container">
+					<div class="info-container">
+						<div class="tr-info clearfix">
+							<span class="title">${b.title}</span> <span class="reg-date">${b.regDate}</span>
+						</div>
+						<div class="wch-info clearfix">
+							<span class="writer">${b.writerId}</span>
+							<div class="ch-wrapper">
+								<span class="comment-num">댓글 수 ${b.countCmt} </span> <span
+									class="hit">조회수 ${b.hit}</span>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="detail-content">
-					${fn:replace(b.content, cn, br)}
-				</div>
-				<div>
-					<a href="question" class="btn">목록</a>
-					<div class="ed-wrapper">
-						<a href="question-edit?no=${b.no}" class="btn">수정</a>
-						<a href="question-del?no=${b.no}" class="btn">삭제</a>
+					<div class="detail-content">${fn:replace(b.content, cn, br)}
 					</div>
+					<div>
+						<a href="question" class="btn">목록</a>
+						<div class="ed-wrapper">
+							<a href="question-edit?no=${b.no}" class="btn">수정</a> <a
+								href="question-del?no=${b.no}" class="btn">삭제</a>
+						</div>
+					</div>
+
 				</div>
-				
-			</div>
-			</main>
+			</c:if> </main>
 		</div>
 	</div>
 

@@ -22,4 +22,9 @@ public interface SecretBoardDao {
 
 	int delete(String no, String string);
 
+	int isSecret(String no, String tName);
+
+
+	String getSecretKey(String no, String tName);
+
 }

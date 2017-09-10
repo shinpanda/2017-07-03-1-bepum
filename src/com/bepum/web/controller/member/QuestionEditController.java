@@ -30,12 +30,14 @@ public class QuestionEditController extends HttpServlet {
 		String no = request.getParameter("no");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		String _isPrivate = request.getParameter("sec");
+		String _isPrivate = request.getParameter("sec-btn");
 		int isPrivate = 0;
 		String privateKey = null;
-		if(_isPrivate.equals("sec")) {
-			isPrivate = 1;
-			privateKey = request.getParameter("secKey");
+		if (_isPrivate != null && !_isPrivate.equals("")) {
+			if (_isPrivate.equals("sec")) {
+				isPrivate = 1;
+				privateKey = request.getParameter("sec-key");
+			}
 		}
 		
 		
