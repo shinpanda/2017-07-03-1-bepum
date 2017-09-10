@@ -59,7 +59,7 @@
 							<li><a href="${p}/bepumi/matching-list">매칭 내역</a></li>
 						</ul></li>
 				</c:if>	
-				<li><a href="${p}/searching/matching-list">베푸미 찾기</a>
+				<li><a href="${p}/searching/bepumi-list">베푸미 찾기</a>
 					<ul class="sub-menu hidden">
 						<li><a href="${p}/searching/bepumi-list">조건별 베푸미 찾기</a></li>
 						<c:if test="${not empty sessionScope.id}">
