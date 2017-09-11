@@ -27,4 +27,6 @@ public interface SecretBoardDao {
 
 	String getSecretKey(String no, String tName);
 
+	String getId(String no, String tName);
+
 }

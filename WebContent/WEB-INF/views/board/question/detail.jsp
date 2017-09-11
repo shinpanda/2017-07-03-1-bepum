@@ -22,10 +22,11 @@
 			<main id="main" class="main"> 
 			<c:if test="${empty b.privateKey && isSecret == 1}">
 				<div>
-					이 글은 비밀글입니다.
-					<form method="post">
+					<img src="../images/locking.png" />
+					<p>이 글은 비밀글입니다.</p>
+					<form method="post">	
 						<input type="password" alt="글비밀번호" name = "secretKey" />
-						<input type="submit" alt="확인" value = "submit" />
+						<input type="submit" alt="확인" value = "submit" class ="btn" />
 					</form>
 				</div>
 			</c:if>
