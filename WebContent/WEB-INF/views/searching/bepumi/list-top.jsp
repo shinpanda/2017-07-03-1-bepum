@@ -5,9 +5,9 @@
 <div class="input-title">
 	<div class="wrap">
 		<h1>
-			조건별 <span class="tooltiper" data-tooltip="조건에 맞는 돌보미를 검색해보세요 ">돌보미
-				검색<span class="tooltip" style="top: -35px; left: -20px;">조건에
-					맞는 돌보미를 검색해보세요 </span>
+			<span class="tooltiper" data-tooltip="조건에 맞는 베푸미를 찾아보세요 ">베푸미
+				찾기<span class="tooltip" style="top: -35px; left: -20px;">조건에
+					맞는 베푸미를 찾아보세요 </span>
 			</span>
 		</h1>
 	</div>
@@ -16,7 +16,7 @@
 
 			<div class="search-input cd-wrapper">
 				<div class="field flex cd-wrapper" id="searchform">
-					<input type="text" id="searchterm" placeholder="지역 검색">
+					<input type="text" id="searchterm" placeholder="지역을 입력하세요">
 					<!--  <button type="button" id="search">Find!</button> -->
 				</div>
 			</div>
@@ -64,21 +64,72 @@
 
 			<div class="search-input flex">
 				<div class="flex optional">
-					<span class="input-title input-time">시작시간 </span> <input
-						type="time" min="09:00" max="22:00">
+					<span class="input-title input-time">시작시간</span>
+					<select aria-label="시작시간" id="start_time" name="start_time">
+											<option value="">시간선택</option>
+											<option value="00:00">00:00</option>
+											<option value="01:00">01:00</option>
+											<option value="02:00">02:00</option>
+											<option value="03:00">03:00</option>
+											<option value="04:00">04:00</option>
+											<option value="05:00">05:00</option>
+											<option value="06:00">06:00</option>
+											<option value="07:00">07:00</option>
+											<option value="08:00">08:00</option>
+											<option value="09:00">09:00</option>
+											<option value="10:00">10:00</option>
+											<option value="11:00">11:00</option>
+											<option value="12:00">12:00</option>
+											<option value="13:00">13:00</option>
+											<option value="14:00">14:00</option>
+											<option value="15:00">15:00</option>
+											<option value="16:00">16:00</option>
+											<option value="17:00">17:00</option>
+											<option value="18:00">18:00</option>
+											<option value="19:00">19:00</option>
+											<option value="20:00">20:00</option>
+											<option value="21:00">21:00</option>
+											<option value="22:00">22:00</option>
+											<option value="23:00">23:00</option>
+											<option value="24:00">24:00</option>
+											</select>
 				</div>
 				<div class="flex optional">
-					<span class="input-title input-time">끝나는시간 </span> <input
-						type="time" min="09:00" max="22:00">
+					<span class="input-title input-time">끝나는시간 </span>
+					<select aria-label="끝나는시간" id="end_time" name="end_time">
+											<option value="">시간선택</option>
+											<option value="00:00">00:00</option>
+											<option value="01:00">01:00</option>
+											<option value="02:00">02:00</option>
+											<option value="03:00">03:00</option>
+											<option value="04:00">04:00</option>
+											<option value="05:00">05:00</option>
+											<option value="06:00">06:00</option>
+											<option value="07:00">07:00</option>
+											<option value="08:00">08:00</option>
+											<option value="09:00">09:00</option>
+											<option value="10:00">10:00</option>
+											<option value="11:00">11:00</option>
+											<option value="12:00">12:00</option>
+											<option value="13:00">13:00</option>
+											<option value="14:00">14:00</option>
+											<option value="15:00">15:00</option>
+											<option value="16:00">16:00</option>
+											<option value="17:00">17:00</option>
+											<option value="18:00">18:00</option>
+											<option value="19:00">19:00</option>
+											<option value="20:00">20:00</option>
+											<option value="21:00">21:00</option>
+											<option value="22:00">22:00</option>
+											<option value="23:00">23:00</option>
+											<option value="24:00">24:00</option>
+											</select>
 				</div>
 			</div>
 
 			<div class="search-input flex">
 				<div class="flex optional">
 					<a href="#0" class="bttn col">검색</a>
-				</div>
-				<div class="flex optional">
-					<a href="" class="bttn-dark dark">취소</a>
 				</div>
 			</div>
 		</form>
