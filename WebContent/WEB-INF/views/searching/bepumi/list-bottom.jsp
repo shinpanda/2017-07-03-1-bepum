@@ -41,8 +41,7 @@
 									<div class="post-module">
 										<!-- Thumbnail-->
 										<div class="thumbnail">
-
-											<a href=""><img
+											<a href="detail-profile?id=${list[i].id}"><img
 												src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg" /></a>
 										</div>
 										<!-- Post Content-->
