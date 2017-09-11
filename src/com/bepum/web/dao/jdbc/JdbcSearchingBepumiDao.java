@@ -73,7 +73,7 @@ public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
 			// 결과사용하기
 			while (rs.next()) {
 				SearchingBepumiView n = new SearchingBepumiView();
-
+				n.setId(rs.getString("ID"));
 				n.setName(rs.getString("name"));
 				n.setBirth(rs.getString("birthday"));
 				n.setGrade(rs.getInt("grade"));

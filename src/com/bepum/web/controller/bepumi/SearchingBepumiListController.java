@@ -53,20 +53,14 @@ public class SearchingBepumiListController extends HttpServlet {
 			{
 				bepumDay[i] = _bepumDay[i];
 			}
-			for(int i = 0; i<bepumDay.length; i++)
-			{
-				System.out.println("test["+i+"] : "+ bepumDay[i]);
-			}
 		}
 		String startTime = "";
 		if(_startTime != null && !_startTime.equals(""))
 			startTime = _startTime;
 		
-		System.out.println(startTime);
 		String endTime = "";
 		if(_endTime != null && !_endTime.equals(""))
 			endTime = _endTime;
-		System.out.println(endTime);
 
 
 		
