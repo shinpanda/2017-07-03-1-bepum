@@ -276,7 +276,7 @@ table.type10 .even {
 
 .form-style-7{
     max-width:700px;
-    margin:30px left;
+    margin:auto;
     background:#fff;
     border-radius:2px;
     padding:20px;
@@ -315,7 +315,6 @@ table.type10 .even {
     display: block;
     outline: none;
     border: none;
-    font-size: 16px;
     padding: 0;
     resize: none;
 }
