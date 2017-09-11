@@ -59,13 +59,24 @@
 											<div class="category">${grade}</div>
 											<h1 class="title">${list[i].intro}</h1>
 
-
-
-											<h2 class="sub_title">${list[i].name}${list[i].address}</h2>
+											<h2 class="sub_title">${list[i].name} ${list[i].address}</h2>
 											<p class="description">${list[i].etc}</p>
 											<div class="post-meta">
-												<span class="timestamp"><i class="fa fa-clock-">o</i>
-													6 mins ago</span><span class="comments"><i
+											<jsp:useBean id="now" class="java.util.Date"></jsp:useBean>
+											<fmt:parseNumber value="${now.time}" integerOnly="true" var = "today" />
+											<fmt:parseNumber value="${list[i].regDate.time}" integerOnly="true" var = "regDateNum" />
+												<span class="timestamp">
+												<i class="fa fa-clock">
+													<c:if test="${((today - regDateNum)/(1000*60*60*24)) < 1}">
+														<fmt:formatDate value = "${list[i].regDate}" pattern="hh:mm" var="regDate" />
+														${regDate}
+													</c:if>
+													<c:if test="${((today - regDateNum)/(1000*60*60*24)) >= 1}">
+														<fmt:formatDate value = "${list[i].regDate}" pattern="YY-MM-dd" var="regDate" />
+														${regDate}
+													</c:if>
+													</i>
+													<!-- 6 mins ago --></span><span class="comments"><i
 													class="fa fa-comments"></i><a href="#">후기
 														${list[i].countReview}개 </a></span>
 											</div>
