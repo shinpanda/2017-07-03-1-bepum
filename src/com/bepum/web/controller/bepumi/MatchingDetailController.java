@@ -27,13 +27,30 @@ public class MatchingDetailController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession();
 
-		BepumiMatchingDao dao = new JdbcBepumiMatchingDao();
-		request.setAttribute("list", dao.get("testpumi", "1"));
+		Object _id = session.getAttribute("id");
 
-		/* response.sendRedirect("notice.jsp"); */
-		request.getRequestDispatcher("/WEB-INF/views/bepumi/matching/detail.jsp").forward(request, response);
+		if (_id == null)
+			out.write("<script> alert('로그인이 필요한 요청입니다.'); history.back(); </script>");
+		else {
+			String id = _id.toString();
+			MemberRoleDao roleDao = new JdbcMemberRoleDao();
+			int role = roleDao.getRole(id);
 
+			if (role < 1)
+				out.write("<script> alert('잘못된 요청입니다.'); history.back(); </script>");
+			else {
+				BepumiMatchingDao dao = new JdbcBepumiMatchingDao();
+				request.setAttribute("list", dao.get(id, "1"));
+
+				/* response.sendRedirect("notice.jsp"); */
+				request.getRequestDispatcher("/WEB-INF/views/bepumi/matching/detail.jsp").forward(request, response);
+			}
+		}
 	}
 
 	@Override
@@ -57,7 +74,7 @@ public class MatchingDetailController extends HttpServlet {
 				out.write("<script> alert('잘못된 요청입니다.'); history.back(); </script>");
 			else {
 				BepumiMatchingDao dao = new JdbcBepumiMatchingDao();
-				request.setAttribute("list", dao.get("testpumi", "1"));
+				request.setAttribute("list", dao.get(id, "1"));
 
 				/* response.sendRedirect("notice.jsp"); */
 				request.getRequestDispatcher("/WEB-INF/views/bepumi/matching/detail.jsp").forward(request, response);

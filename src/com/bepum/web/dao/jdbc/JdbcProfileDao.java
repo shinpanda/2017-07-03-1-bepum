@@ -181,7 +181,7 @@ public class JdbcProfileDao implements ProfileDao {
 			st.setString(8, homePhoto2);
 			st.setString(9, homePhoto3);
 			st.setString(10, pay);
-			st.setString(11, "testpumi");
+			st.setString(11, id);
 			
 			result = st.executeUpdate();
 			// 업데이트된 row 개수 알려줌

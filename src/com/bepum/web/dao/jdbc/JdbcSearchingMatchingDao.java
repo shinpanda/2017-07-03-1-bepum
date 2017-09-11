@@ -69,7 +69,7 @@ public class JdbcSearchingMatchingDao implements SearchingMatchingDao {
 
 	@Override
 	public int getCount(String id) {
-		
+
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
 		int count = 0;
@@ -140,10 +140,10 @@ public class JdbcSearchingMatchingDao implements SearchingMatchingDao {
 				m.setStartTime(rs.getString("startTime"));
 				m.setEndTime(rs.getString("endTime"));
 				m.setStatus(rs.getString("status"));
-				
+
 				m.setPaymentOption(rs.getInt("option"));
 				m.setPaymentPayDate(rs.getDate("payDate"));
-				
+
 				m.setReviewRating(rs.getInt("rating"));
 				m.setReviewTitle(rs.getString("title"));
 				m.setReviewContent(rs.getString("content"));
@@ -163,6 +163,4 @@ public class JdbcSearchingMatchingDao implements SearchingMatchingDao {
 
 		return list;
 	}
-	}
-
-
+}
