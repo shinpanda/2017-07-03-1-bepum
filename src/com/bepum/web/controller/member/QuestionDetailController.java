@@ -20,11 +20,13 @@ import com.bepum.web.entity.Board;
 
 @WebServlet("/board/question-detail")
 public class QuestionDetailController extends HttpServlet {
+	String boardName = "FAQ";
+	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String boardName = "FAQ";
+		
 		String no = request.getParameter("no");
 		String _privateKey = request.getParameter("secretKey");
 		System.out.println(_privateKey);
@@ -49,15 +51,26 @@ public class QuestionDetailController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		
+		Object _id = request.getSession().getAttribute("id"); 
 		String no = request.getParameter("no");
 
 		SecretBoardDao dao = new JdbcSecretBoardDao();
-		int isSecret = dao.isSecret(no, "FAQ");
+		int isSecret = dao.isSecret(no, boardName);
+		
+		if (_id != null && !_id.equals(""))
+		{
+			String id = _id.toString();
+			
+			if(id.equals(dao.getId(no, boardName)))
+				isSecret = 0;
+		}
+		
 		request.setAttribute("isSecret", isSecret);
 		if (isSecret == 0) {
-			int result = dao.updateHit(no, "FAQ");
-			request.setAttribute("b", dao.get(no, "FAQ"));
+			int result = dao.updateHit(no, boardName);
+			request.setAttribute("b", dao.get(no, boardName));
 			request.setAttribute("br", "<br/>");
 			request.setAttribute("cn", "\n");
 		}

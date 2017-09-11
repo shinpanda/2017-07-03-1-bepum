@@ -352,8 +352,7 @@ public class JdbcSecretBoardDao implements SecretBoardDao {
 			// 업데이트된 row 개수 알려줌
 			if(rs.next())
 				secretKey = rs.getString("privateKey");
-			
-			System.out.println("db 연결 후"+secretKey);
+
 			rs.close();
 			st.close();
 			con.close();
@@ -366,6 +365,39 @@ public class JdbcSecretBoardDao implements SecretBoardDao {
 			e.printStackTrace();
 		}
 		return secretKey;
+	}
+
+	@Override
+	public String getId(String no, String tName) {
+		String id = null;
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+
+		// JDBC 드라이버 로드
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			String sql = "select writerID from "+tName+" where no = ?";
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+			/* Statement st = con.createStatement(); */
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, no);
+
+			ResultSet rs = st.executeQuery();
+			// 업데이트된 row 개수 알려줌
+			if(rs.next())
+				id = rs.getString("writerID");
+			rs.close();
+			st.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return id;
 	}
 
 }
