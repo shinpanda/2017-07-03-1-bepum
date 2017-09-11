@@ -87,7 +87,17 @@
 			<li><a href="" onclick="javascript:showPopup();" class="btn-border">Sign in</a></li>
 			</c:if>
 			<c:if test="${!empty sessionScope.id}">
-			<li><a href="${p}/member/logout" class="btn-border">${name}님</a></li>
+			<li class="nav-item dropdown">
+				<a href="#" class="btn-border nav-link">${name}님</a>
+			<div class="submenu">
+                <ul class="submenu-items">
+                    <li class="submenu-item"><a href="" class="submenu-link">내 정보</a></li>
+                    <li class="submenu-item"><a href="" class="submenu-link">메시지</a></li>
+                    <li class="submenu-item"><a href="${p}/member/logout" class="submenu-link">로그아웃</a></li>
+                </ul>
+            </div>
+			
+			</li>
 			</c:if>
 		</ul>
 		</nav>
@@ -95,5 +105,6 @@
 		</section>
 	</div>
 	</header>
+	<script src="${p}/js/dropdown.js"></script>
 </body>
 </html>

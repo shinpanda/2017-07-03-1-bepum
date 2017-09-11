@@ -10,7 +10,7 @@
 
 		<div id="resultinfo">
 			<p id="resultaddress" class="resultaddress">검색지역 : 전국</p>
-			<p id="resultcount" class="resultcount">20명의 베푸미가 검색되었습니다.</p>
+			<p id="resultcount" class="resultcount">${count}명의 베푸미가 검색되었습니다.</p>
 		</div>
 		<div id="resultsort" class="resultsort">
 			<input id="time" type="radio" name="sort" checked="checked"
@@ -21,8 +21,10 @@
 
 		</div>
 
-
-<c:set var="page" value="${param.p}" />
+		<c:set var="page" value="${param.p}" />
+		<c:if test="${empty param.p}">
+			<c:set var="page" value="1" />
+		</c:if>
 		<div class="bepumi-list-container">
 			<div class="wrap">
 				<%-- 					<c:forEach var = "i" begin = "0" end = "5"  >			 --%>
@@ -30,7 +32,7 @@
 					varStatus="status">
 					<c:set var="startrowNum" value="${(page-1)*9}" />
 					<div class="floor">
-						
+					
 						<c:forEach begin="${status.index}" end="${status.index+2}" var="i">
 							<c:if test="${startrowNum + i < count}">
 								<%-- 								<c:forEach var = "i" begin = "0" end = "2"  >			 --%>

@@ -27,17 +27,56 @@ public class SearchingBepumiListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
+		request.setCharacterEncoding("UTF-8");
 		String _page = request.getParameter("p");
+		String _babyAge = request.getParameter("kid-ages");
+		String _isbepumDay = request.getParameter("select");
+		String _startTime = request.getParameter("start-time");
+		String _endTime = request.getParameter("end-time");
+		String[] _bepumDay = null;
+		String[] bepumDay = new String[7];
+		for(int i = 0;  i<bepumDay.length; i++) {
+			bepumDay[i] = "";
+		}
 
+		int babyAge = 0;
+		if(_babyAge != null && !_babyAge.equals(""))
+			babyAge = Integer.parseInt(_babyAge);
+		
 		int page = 1;
 		if (_page != null && !(_page.equals("")))
 			page = Integer.parseInt(_page);
+		if(_isbepumDay != null && !_isbepumDay.equals(""))
+		{
+			_bepumDay = request.getParameterValues("select");
+			for(int i = 0;  i<_bepumDay.length; i++)
+			{
+				bepumDay[i] = _bepumDay[i];
+			}
+			for(int i = 0; i<bepumDay.length; i++)
+			{
+				System.out.println("test["+i+"] : "+ bepumDay[i]);
+			}
+		}
+		String startTime = "";
+		if(_startTime != null && !_startTime.equals(""))
+			startTime = _startTime;
+		
+		System.out.println(startTime);
+		String endTime = "";
+		if(_endTime != null && !_endTime.equals(""))
+			endTime = _endTime;
+		System.out.println(endTime);
+
 
 		
 		SearchingBepumiDao dao = new JdbcSearchingBepumiDao();
-		request.setAttribute("list", dao.getList(page));
-		request.setAttribute("count", dao.getCount());		
+		request.setAttribute("list", dao.getList(page, babyAge, 
+				bepumDay[0], bepumDay[1], bepumDay[2],
+				bepumDay[3], bepumDay[4], bepumDay[5], bepumDay[6], startTime, endTime));
+		request.setAttribute("count", dao.getCount(babyAge, 
+				bepumDay[0], bepumDay[1], bepumDay[2],
+				bepumDay[3], bepumDay[4], bepumDay[5], bepumDay[6], startTime, endTime));		
 				
 		
 		request.getRequestDispatcher("/WEB-INF/views/searching/bepumi/list.jsp").forward(request, response);

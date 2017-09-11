@@ -29,12 +29,13 @@ main {
 	align-items: center;
 	justify-content: center;
 }
-/* 
+
 .wrap h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
+  font-size: 10px;
 }
- */
+ 
  
  /* section title */
 .wrap {
@@ -140,10 +141,11 @@ div.input-title {
   color: #ffffff;
   background: rgba(248, 217, 221, 0.48);
   padding: 10px 20px 10px 20px;
-  border: solid #F8D9DD 2px;
+  /* border: solid #F8D9DD 2px; */
   text-decoration: none;
   max-width: 1140px;
   margin-top: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .search-input {
@@ -154,6 +156,7 @@ div.input-title {
 	height: 70px;
 	padding: 5px 10px 15px 10px;
 	text-align: center;
+	color: #ffffff;
 	/* border-bottom: 1px solid pink; */ /* top으로 */
 }
 span.input-title{
@@ -177,8 +180,10 @@ span.input-title{
   /* margin:5em auto; */
   /* margin-left: 5em; */
   width: 70%;
+  background: url("../images/magnifier.png") no repeat center;
+
   flex-direction: row;
-  box-shadow: inset 0px 0px 0px 0px #fd93bf, 2px 2px 0 #fd93bf, 3px 3px 0 #fd93bf;
+  box-shadow: inset 0px 0px 0px 0px #f8d9dd, 2px 2px 0 #f8d9dd, 3px 3px 0 #f8d9dd;
   			 /*  4px 4px 0 #b294ff, 
   			  5px 5px 0 #b294ff, 
   			  6px 6px 0 #b294ff, 
@@ -187,13 +192,14 @@ span.input-title{
 
 .field>input[type=text]{
   display:block;
-  font:19px 'Montserrat Alternates';
+  font:17px 'Montserrat Alternates';
 }
 
 .field>input[type=text] {
   flex:1;
-  padding:0.4em;
-  border:0.1em solid rgba(255, 0, 114, 0.38);
+  padding:0.2em;
+  /* border:0.1em solid rgba(255, 0, 114, 0.38); */
+  
 }
 /* -----------체크박스 기본---------------- */
 .checkbox-group>input[type=checkbox] {
@@ -227,9 +233,9 @@ span.input-title{
 	
 	}
 .day-of-week input:checked+label {
-	color: white;
-    background: rgba(255, 0, 114, 0.38);
-    border: 1.5px solid rgba(255, 0, 114, 0.38);
+	color: black;
+    background: white;
+   border: 1.5px solid #f8d9dd;
 }
 /* --------------------------아이나이------------- */
 
@@ -327,7 +333,7 @@ span.input-title{
 /* button */
 
 .col{
-	background: #F5F0FF;
+	background: #ffffff;
 }
 .dark {
 	background: #F5F0FF;/*#24252A	#fff4f4  */
@@ -366,6 +372,7 @@ a.bttn-dark:focus {
 }
 
 .bttn {
+	font-color: #FFF;
 	font-size: 17px;
 	letter-spacing: 2px;
 	text-transform: uppercase;
@@ -374,7 +381,8 @@ a.bttn-dark:focus {
 	width: 300px;
 	font-weight: bold;
 	padding: 4px 0px;
-	border:	1.5px solid #FA72B5;
+	background: #f8d9dd;
+	border:	1.5px solid #f8d9dd;
 	border-radius: 2px;
 	position: relative;
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
@@ -435,7 +443,7 @@ a.bttn-dark:focus {
 	bottom: 0;
 	opacity: 0;
 	content: '';
-	background-color: #E65087;
+	background-color: #c0c0c0;
 	z-index: -1;
 }
 
@@ -454,4 +462,3 @@ a.bttn-dark:focus {
 	right: 0;
 	opacity: 1;
 }
-
