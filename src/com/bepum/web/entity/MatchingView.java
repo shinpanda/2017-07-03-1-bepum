@@ -11,6 +11,7 @@ public class MatchingView extends Matching {
 	public MatchingView() {
 		review = new Review();
 		payment = new Payment();
+		baby = new Baby();
 	}
 	
 	public String getReviewNo() {
@@ -93,19 +94,26 @@ public class MatchingView extends Matching {
 		baby.setName(name);
 	}
 
-	public String getBabyAge() {
+	public int getBabyAge() {
 		return baby.getAge();
 	}
 
-	public void setBabyAge(String age) {
+	public void setBabyAge(int age) {
 		baby.setAge(age);
 	}
-
+	
 	public String getBabyBepumiID() {
 		return baby.getBepumiID();
 	}
 
+	public void setBabyGender(int gender) {
+		baby.setGender(gender);
+	}
 	
+	public int getBabyGender()
+	{
+		return baby.getGender();
+	}
 
 	public String getPaymentNo() {
 		return payment.getNo();

@@ -57,7 +57,7 @@ public class JdbcProfileDao implements ProfileDao {
 				p.setSecret(rs.getInt("secret"));
 
 				p.setBabyName(rs.getString("babyName"));
-				p.setBabyAge(rs.getString("babyAge"));
+				p.setBabyAge(rs.getInt("babyAge"));
 				p.setBabyGender(rs.getInt("babyGender"));
 				
 			}
