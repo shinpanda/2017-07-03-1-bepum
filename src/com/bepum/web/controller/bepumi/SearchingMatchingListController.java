@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bepum.web.dao.BepumiMatchingDao;
 import com.bepum.web.dao.SearchingMatchingDao;
@@ -23,9 +24,16 @@ import com.bepum.web.dao.jdbc.JdbcSearchingMatchingDao;
 @WebServlet("/searching/matching-list")
 public class SearchingMatchingListController extends HttpServlet {
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String id = "yeonjoo";
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		HttpSession session = request.getSession();
+
+		//신청자 세션 불러오기
+		Object _id = session.getAttribute("id");
+		String id = _id.toString();
+		
 		String _query = request.getParameter("search");  //얘 "매칭완료" 아니고 "search"인 이유가 궁금하다
 		
 		String _page = request.getParameter("p");

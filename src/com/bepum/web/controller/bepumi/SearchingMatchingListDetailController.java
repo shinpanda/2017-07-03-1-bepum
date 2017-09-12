@@ -18,8 +18,10 @@ public class SearchingMatchingListDetailController extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		String no = request.getParameter("no");
+		
 		SearchingMatchingDao dao = new JdbcSearchingMatchingDao();
-		request.setAttribute("list", dao.get("yeonjoo", "1"));
+		request.setAttribute("profile", dao.get(no));
 		
 		//매칭상태에 따라 다른 화면 반환하기
 		
