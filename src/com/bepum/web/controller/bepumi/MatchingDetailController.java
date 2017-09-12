@@ -27,7 +27,7 @@ public class MatchingDetailController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
@@ -51,7 +51,7 @@ public class MatchingDetailController extends HttpServlet {
 				BepumiMatchingDao dao = new JdbcBepumiMatchingDao();
 				int result = 0;
 				if(btn.equals("승인"))
-					result = dao.update(no, "신청대기");
+					result = dao.update(no, "결제대기");
 				else
 					result = dao.update(no, "매칭실패");
 				
