@@ -55,8 +55,7 @@ public class MatchingDetailController extends HttpServlet {
 				else
 					result = dao.update(no, "¸ÅÄª½ÇÆÐ");
 				
-				/* response.sendRedirect("notice.jsp"); */
-				request.getRequestDispatcher(request.getHeader("Referer")).forward(request, response);
+				response.sendRedirect(request.getHeader("Referer"));
 			}
 		}
 	}
