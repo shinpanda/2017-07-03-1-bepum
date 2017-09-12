@@ -29,10 +29,11 @@ public class SearchingBepumiListController extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		String _page = request.getParameter("p");
-		String _babyAge = request.getParameter("kid-ages");
-		String _isbepumDay = request.getParameter("select");
-		String _startTime = request.getParameter("start-time");
-		String _endTime = request.getParameter("end-time");
+		String _address = request.getParameter("a");
+		String _babyAge = request.getParameter("ka");
+		String _isbepumDay = request.getParameter("d");
+		String _startTime = request.getParameter("s");
+		String _endTime = request.getParameter("e");
 		String[] _bepumDay = null;
 		String[] bepumDay = new String[7];
 		for(int i = 0;  i<bepumDay.length; i++) {
@@ -48,7 +49,7 @@ public class SearchingBepumiListController extends HttpServlet {
 			page = Integer.parseInt(_page);
 		if(_isbepumDay != null && !_isbepumDay.equals(""))
 		{
-			_bepumDay = request.getParameterValues("select");
+			_bepumDay = request.getParameterValues("s");
 			for(int i = 0;  i<_bepumDay.length; i++)
 			{
 				bepumDay[i] = _bepumDay[i];
@@ -63,14 +64,17 @@ public class SearchingBepumiListController extends HttpServlet {
 			endTime = _endTime;
 
 
+		String address = "";
+		if(_address != null && !_address.equals(""))
+			address = _address;
 		
 		SearchingBepumiDao dao = new JdbcSearchingBepumiDao();
 		request.setAttribute("list", dao.getList(page, babyAge, 
 				bepumDay[0], bepumDay[1], bepumDay[2],
-				bepumDay[3], bepumDay[4], bepumDay[5], bepumDay[6], startTime, endTime));
+				bepumDay[3], bepumDay[4], bepumDay[5], bepumDay[6], address, startTime, endTime));
 		request.setAttribute("count", dao.getCount(babyAge, 
 				bepumDay[0], bepumDay[1], bepumDay[2],
-				bepumDay[3], bepumDay[4], bepumDay[5], bepumDay[6], startTime, endTime));		
+				bepumDay[3], bepumDay[4], bepumDay[5], bepumDay[6], address, startTime, endTime));		
 				
 		
 		request.getRequestDispatcher("/WEB-INF/views/searching/bepumi/list.jsp").forward(request, response);
