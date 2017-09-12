@@ -23,7 +23,7 @@ public class SearchingRequestController extends HttpServlet {
 
 		//여기서 신청서 정보를 matching, matchingSituation에 insert 하면됨
 		
-		response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		HttpSession session = request.getSession();
 
