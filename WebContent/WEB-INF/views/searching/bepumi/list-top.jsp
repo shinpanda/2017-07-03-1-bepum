@@ -64,8 +64,8 @@
 
 			<div class="search-input flex">
 				<div class="flex optional">
-					<span class="input-title input-time">시작시간 </span>
-					<select aria-label="시작시간" id="start_time" name="s">
+					<span class="input-title input-time">시작시간</span>
+					<select aria-label="시작시간" id="start_time" name="start_time" class="search-time" >
 											<option value="">시간선택</option>
 											<option value="00:00">00:00</option>
 											<option value="01:00">01:00</option>
@@ -96,7 +96,7 @@
 				</div>
 				<div class="flex optional">
 					<span class="input-title input-time">끝나는시간 </span>
-					<select aria-label="끝나는시간" id="end_time" name="e">
+					<select aria-label="끝나는시간" id="end_time" name="end_time" class="search-time">
 											<option value="">시간선택</option>
 											<option value="00:00">00:00</option>
 											<option value="01:00">01:00</option>
