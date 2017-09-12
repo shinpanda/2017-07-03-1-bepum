@@ -186,7 +186,7 @@ public class JdbcBepumiMatchingDao implements BepumiMatchingDao {
 	}
 
 	@Override
-	public int update(String no, String query) {
+	public int updateStatus(String no, String query) {
 		int result = 0;
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
@@ -205,6 +205,16 @@ public class JdbcBepumiMatchingDao implements BepumiMatchingDao {
 			// 업데이트된 row 개수 알려줌
 
 			st.close();
+			
+			sql = "update Matching set acceptDate = sysdate() where no = ?";
+			/* Statement st = con.createStatement(); */
+			PreparedStatement st2 = con.prepareStatement(sql);
+			st2.setString(1, no);
+
+			result += st2.executeUpdate();
+			// 업데이트된 row 개수 알려줌
+
+			st2.close();
 			con.close();
 
 		} catch (ClassNotFoundException e) {
