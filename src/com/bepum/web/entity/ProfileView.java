@@ -25,11 +25,11 @@ public class ProfileView extends Profile{
 		baby.setName(name);
 	}
 
-	public String getBabyAge() {
+	public int getBabyAge() {
 		return baby.getAge();
 	}
 
-	public void setBabyAge(String age) {
+	public void setBabyAge(int age) {
 		baby.setAge(age);
 	}
 

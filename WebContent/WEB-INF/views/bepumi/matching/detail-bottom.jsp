@@ -5,12 +5,12 @@
 <div class="rb-container">
 	<div class="req-date">
 		<span class="date-title">매칭 신청일</span>
-		<span>${list[0].reqDate}</span>
+		<span>${profile.reqDate}</span>
 	</div>
 	<div class="bepum-date">
 		<span class="date-title">돌보미 날짜</span>
 		<div class="bepum-time">
-		<span class="start-time">${list[0].bepumDate} ${list[0].startTime} </span> > <span class="end-time">${list[0].bepumDate}  ${list[0].endTime}</span>
+		<span class="start-time">${profile.bepumDate} ${profile.startTime} </span> > <span class="end-time">${profile.bepumDate}  ${profile.endTime}</span>
 		</div>
 	</div>
 </div>
@@ -18,7 +18,7 @@
 <div class="req-info-container">
 	<h3>요구사항</h3>
 	<div class="req-container">
-	${list[0].requirement}
+	${profile.requirement}
 	</div>
 </div>
 <div class="bepumi baby-info-container">
@@ -26,15 +26,18 @@
 	<div class="baby-info-table">
 		<div class="row">
 			<div class="cell th">이름</div>
-			<div class="cell td">아이</div>
+			<div class="cell td">${profile.babyName}</div>
 		</div>
 		<div class="row">
 			<div class="cell th">나이</div>
-			<div class="cell td">26개월</div>
+			<div class="cell td">${profile.babyAge}세</div>
 		</div>
 		<div class="row">
 			<div class="cell th">성별</div>
-			<div class="cell td">남아</div>
+			<div class="cell td">
+				<c:if test="${profile.babyGender==1}">남</c:if>
+				<c:if test="${profile.babyGender==2}">여</c:if>
+			</div>
 		</div>
 	</div>
 </div>

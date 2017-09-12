@@ -8,8 +8,10 @@ public interface BepumiMatchingDao {
 
 	List<MatchingView> getList(String id, int page, String query);
 	
-	List<MatchingView> get(String id, String no);
+	MatchingView get(String no);
 	
 	int getCount(String id);
+
+	int update(String no, String query);
 
 }

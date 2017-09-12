@@ -31,8 +31,12 @@ public class MatchingDetailController extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
-
+		
+		String no = request.getParameter("no");
+		String btn = request.getParameter("ok-btn");
+		
 		Object _id = session.getAttribute("id");
+		
 
 		if (_id == null)
 			out.write("<script> alert('로그인이 필요한 요청입니다.'); history.back(); </script>");
@@ -45,10 +49,14 @@ public class MatchingDetailController extends HttpServlet {
 				out.write("<script> alert('잘못된 요청입니다.'); history.back(); </script>");
 			else {
 				BepumiMatchingDao dao = new JdbcBepumiMatchingDao();
-				request.setAttribute("list", dao.get(id, "1"));
-
+				int result = 0;
+				if(btn.equals("승인"))
+					result = dao.update(no, "신청대기");
+				else
+					result = dao.update(no, "매칭실패");
+				
 				/* response.sendRedirect("notice.jsp"); */
-				request.getRequestDispatcher("/WEB-INF/views/bepumi/matching/detail.jsp").forward(request, response);
+				request.getRequestDispatcher(request.getHeader("Referer")).forward(request, response);
 			}
 		}
 	}
@@ -62,6 +70,13 @@ public class MatchingDetailController extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		Object _id = session.getAttribute("id");
+		
+		String _no = request.getParameter("no");
+		
+		String no = "";
+		if(_no != null && !_no.equals(""))
+			no = _no;
+		
 
 		if (_id == null)
 			out.write("<script> alert('로그인이 필요한 요청입니다.'); history.back(); </script>");
@@ -74,7 +89,7 @@ public class MatchingDetailController extends HttpServlet {
 				out.write("<script> alert('잘못된 요청입니다.'); history.back(); </script>");
 			else {
 				BepumiMatchingDao dao = new JdbcBepumiMatchingDao();
-				request.setAttribute("list", dao.get(id, "1"));
+				request.setAttribute("profile", dao.get(no));
 
 				/* response.sendRedirect("notice.jsp"); */
 				request.getRequestDispatcher("/WEB-INF/views/bepumi/matching/detail.jsp").forward(request, response);
