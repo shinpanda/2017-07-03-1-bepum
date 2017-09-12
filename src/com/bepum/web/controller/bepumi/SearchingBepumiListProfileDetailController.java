@@ -65,7 +65,7 @@ public class SearchingBepumiListProfileDetailController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setCharacterEncoding("UTF-8");
+/*		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
@@ -82,7 +82,7 @@ public class SearchingBepumiListProfileDetailController extends HttpServlet {
 			if (role < 1)
 				out.write("<script> alert('잘못된 요청입니다.'); history.back(); </script>");
 			else {
-				/* response.sendRedirect("notice.jsp"); */
+				 response.sendRedirect("notice.jsp"); 
 				ProfileDao dao = new JdbcProfileDao();
 
 				request.setAttribute("isProfile", dao.getIsProfile(id));
@@ -92,7 +92,12 @@ public class SearchingBepumiListProfileDetailController extends HttpServlet {
 
 				request.getRequestDispatcher("/WEB-INF/views/searching/bepumi/detail-profile.jsp").forward(request, response);
 			}
-		}
+		}*/
 
+		String id = request.getParameter("id");
+		
+		ProfileDao dao = new JdbcProfileDao();
+		request.setAttribute("profile", dao.get(id));
+		request.getRequestDispatcher("/WEB-INF/views/searching/bepumi/detail-profile.jsp").forward(request, response);
 	}
 }
