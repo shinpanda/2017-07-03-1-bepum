@@ -79,7 +79,7 @@ public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
 				n.setStrTime(rs.getString("startTime"));
 				n.setEndTime(rs.getString("endTime"));
 				n.setBepumDay(rs.getString("bepumDay"));
-				n.setRegDate(rs.getDate("regDate"));
+				n.setRegDate(rs.getTimestamp("regDate"));
 				n.setIntro(rs.getString("intro"));
 				n.setEtc(rs.getString("etc"));
 				n.setPay(rs.getString("pay"));

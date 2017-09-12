@@ -50,7 +50,7 @@ public class JdbcReviewDao implements ReviewDao {
 				m.setBepumiID(rs.getString("bepumiID"));
 				m.setWriterID(rs.getString("writerID"));
 				m.setTitle(rs.getString("title"));
-				m.setRegDate(rs.getDate("regDate"));
+				m.setRegDate(rs.getTimestamp("regDate"));
 				m.setHit(rs.getInt("hit"));
 				list.add(m);
 			}
@@ -136,7 +136,7 @@ public class JdbcReviewDao implements ReviewDao {
 				r.setContent(rs.getString("content"));
 				r.setBepumiID(rs.getString("bepumiID"));
 				r.setWriterID(rs.getString("writerID"));
-				r.setRegDate(rs.getDate("regDate"));
+				r.setRegDate(rs.getTimestamp("regDate"));
 				r.setHit(rs.getInt("hit"));
 				r.setBepumDate(rs.getString("bepumDate"));
 				r.setRequirement(rs.getString("requirement"));
