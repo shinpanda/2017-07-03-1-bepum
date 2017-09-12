@@ -25,11 +25,11 @@ public class ReviewView extends Review {
 		matching.setReqDate(reqDate);
 	}
 
-	public Date getBepumDate() {
+	public String getBepumDate() {
 		return matching.getBepumDate();
 	}
 
-	public void setBepumDate(Date bepumDate) {
+	public void setBepumDate(String bepumDate) {
 		matching.setBepumDate(bepumDate);
 	}
 	
