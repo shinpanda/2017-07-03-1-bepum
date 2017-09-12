@@ -17,16 +17,16 @@ public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
 
 	@Override
 	public List<SearchingBepumiView> getList(int page, int babyAge, String bepumDay1, String bepumDay2,
-			String bepumDay3, String bepumDay4, String bepumDay5, String bepumDay6, String bepumDay7, String startTime,
+			String bepumDay3, String bepumDay4, String bepumDay5, String bepumDay6, String bepumDay7, String address, String startTime,
 			String endTime) {
 		List<SearchingBepumiView> list = null;
 		int offset = (page - 1) * 9; // 0,10,20,30, .. . .
 		String sql = "";
 		System.out.println(babyAge);
 		if (startTime.equals(""))
-			sql = "select * from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) order by regDate desc limit ?,9";
+			sql = "select * from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) and replace(address, ' ', '') like ? order by regDate desc limit ?,9";
 		else
-			sql = "select * from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) and  startTime <= ? and endTime >= ? order by regDate desc limit ?,9";
+			sql = "select * from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) and  startTime <= ? and endTime >= ? and replace(address, ' ', '') like ? order by regDate desc limit ?,9";
 
 		System.out.println(sql);
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
@@ -55,12 +55,13 @@ public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
 			st.setString(7, String.format("%%%s%%", bepumDay5));
 			st.setString(8, String.format("%%%s%%", bepumDay6));
 			st.setString(9, String.format("%%%s%%", bepumDay7));
+			st.setString(10, String.format("%%%s%%", address));
 			if (startTime.equals("")) {
-				st.setInt(10, offset);
+				st.setInt(11, offset);
 			} else {
-				st.setString(10, startTime);
-				st.setString(11, endTime);
-				st.setInt(12, offset);
+				st.setString(11, startTime);
+				st.setString(12, endTime);
+				st.setInt(13, offset);
 			}
 
 			// 결과 가져오기
@@ -80,6 +81,7 @@ public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
 				n.setStrTime(rs.getString("startTime"));
 				n.setEndTime(rs.getString("endTime"));
 				n.setBepumDay(rs.getString("bepumDay"));
+				n.setRegDate(rs.getDate("regDate"));
 				n.setIntro(rs.getString("intro"));
 				n.setEtc(rs.getString("etc"));
 				n.setPay(rs.getString("pay"));
@@ -104,14 +106,14 @@ public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
 
 	@Override
 	public int getCount(int babyAge, String bepumDay1, String bepumDay2, String bepumDay3, String bepumDay4,
-			String bepumDay5, String bepumDay6, String bepumDay7, String startTime, String endTime) {
+			String bepumDay5, String bepumDay6, String bepumDay7, String address, String startTime, String endTime) {
 		int count = 0;
 		String sqlcount = "";
 
 		if (startTime.equals(""))
-			sqlcount = "select count(ID) as count from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?)";
+			sqlcount = "select count(ID) as count from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) and replace(address, ' ', '') like ?";
 		else
-			sqlcount = "select count(ID) as count from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) and  startTime <= ? and endTime >= ?";
+			sqlcount = "select count(ID) as count from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) and  startTime <= ? and endTime >= ? and replace(address, ' ', '') like ?";
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
 		// Jdbc 드라이버 로드
@@ -137,9 +139,10 @@ public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
 			st.setString(7, String.format("%%%s%%", bepumDay5));
 			st.setString(8, String.format("%%%s%%", bepumDay6));
 			st.setString(9, String.format("%%%s%%", bepumDay7));
+			st.setString(10, String.format("%%%s%%", address));
 			if (!startTime.equals("")) {
-				st.setString(10, startTime);
-				st.setString(11, endTime);
+				st.setString(11, startTime);
+				st.setString(12, endTime);
 			}
 
 			// 결과 가져오기

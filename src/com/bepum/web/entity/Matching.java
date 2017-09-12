@@ -2,7 +2,7 @@ package com.bepum.web.entity;
 
 import java.util.Date;
 
-public class Matching extends Bepumi{
+public class Matching extends Profile{
 /*
  * no, 신청자, 베푸미, 베푸미 등급
  * 베품 날짜, 베품 시간, 베품을 신청한 날짜, 아기 이름, 아기 나이, 요구사항 , 
@@ -13,7 +13,7 @@ public class Matching extends Bepumi{
 	private String bepumiID;
 	private Date reqDate;
 	private Date acceptDate;
-	private Date bepumDate;
+	private String bepumDate;
 	private String startTime;
 	private String endTime;
 	
@@ -25,7 +25,7 @@ public class Matching extends Bepumi{
 	}
 
 
-	public Matching(String no, String requestID, String bepumiID, Date reqDate, Date acceptDate, Date bepumDate,
+	public Matching(String no, String requestID, String bepumiID, Date reqDate, Date acceptDate, String bepumDate,
 			String startTime, String endTime, String requirement, String status) {
 		super();
 		this.no = no;
@@ -76,11 +76,11 @@ public class Matching extends Bepumi{
 		this.acceptDate = acceptDate;
 	}
 
-	public Date getBepumDate() {
+	public String getBepumDate() {
 		return bepumDate;
 	}
 
-	public void setBepumDate(Date bepumDate) {
+	public void setBepumDate(String bepumDate) {
 		this.bepumDate = bepumDate;
 	}
 

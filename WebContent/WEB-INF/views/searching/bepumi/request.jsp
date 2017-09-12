@@ -15,7 +15,11 @@
 	<jsp:include page="../../inc/header.jsp"></jsp:include>
 	<div id="body">
 
-		<main id="main">
+		<main id="main" class="main">
+			<div class="matching-request-container">
+				<div class="matching-request">매칭 신청</div>
+			</div>
+		
 			<form method="post"  class="form-style-7">
 		
 				<table class="type10">
@@ -28,7 +32,7 @@
 			    <tbody>
 			    <tr>
 			        <th scope="row" >돌봄날짜</th>
-			        <td><input type="date"/></td>
+			        <td><input type="date" name="bepumDate"/></td>
 			    </tr>
 			    <tr>
 			        <th scope="row">시작시간</th>
@@ -71,7 +75,7 @@
 			        <td>
 			        <div class="search-input flex">
 					<div class="flex optional">
-					<select aria-label="" id="start_time" name="start-time">
+					<select aria-label="" id="start_time" name="end-time">
 											<option value="">시간선택</option>
 											<option value="00:00">00:00</option>
 											<option value="01:00">01:00</option>
@@ -162,15 +166,20 @@
 			    <tbody>
 			    <tr>
 			        <th scope="row">이름</th>
-			        <td>이아영</td>
+			        <td>${reqprofile.babyName}</td>
 			    </tr>
 			    <tr>
 			        <th scope="row">나이</th>
-			        <td >20개월</td>
+			        <td >${reqprofile.babyAge}세</td>
 			    </tr>
+			    
+			    		<c:set var="babyGender" value="남" />
+						<c:if test="${profile.grade == 2}">
+							<c:set var="babyGender" value="여" />
+						</c:if>
 			    <tr>
 			        <th scope="row">성별</th>
-			        <td><input type="radio" name="gender" value="남" checked="checked"/>남<input type="radio" name="gender" value="여"/>여</td>
+			        <td>${babyGender}</td>
 			    </tr>
 			    </tbody>
 				</table>	
@@ -181,14 +190,24 @@
 				<ul>
 				<li >
 				<label for="name">전달 메시지</label>
-				<textarea id="message" name="name" rows="8" cols="50"></textarea>
+				<textarea id="message" name="requirement" rows="8" cols="50"></textarea>
 		
 			    </li>
 			    </ul>
-			</form>
-			
-			
-				<input type="submit" value="신청" class="agree-btn-container"/>
+				<input type="hidden" name="bepum-id" value="${profile.id}"/>
+				<input type="submit" value="신청" id="request-submit" class="agree-btn-container"/>
+				
+					<script>
+						window.onload = function(){
+							var requestSubmit=document.getElementById("request-submit");
+							
+							requestSubmit.onclick= function(){
+									
+									alert("신청이 완료되었습니다. \n돌보미가 신청을 승인한 뒤 결제요청을 하면 꼭 '결제'를 '완료'해주세요!");
+				
+								};	};
+							
+					</script>
 			</form>
 	
 		</main>
