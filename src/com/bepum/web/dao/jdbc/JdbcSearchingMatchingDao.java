@@ -106,10 +106,10 @@ public class JdbcSearchingMatchingDao implements SearchingMatchingDao {
 	}
 
 	@Override
-	public List<MatchingView> get(String id, String no) {
+	public MatchingView get(String no) {
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
-		List<MatchingView> list = null;
+		MatchingView m = null;
 		// JDBC 드라이버 로드
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -123,12 +123,10 @@ public class JdbcSearchingMatchingDao implements SearchingMatchingDao {
 			// 결과 가져오기
 			ResultSet rs = st.executeQuery();
 
-			// model
-			list = new ArrayList<>();
 
 			// 결과 사용
 			while (rs.next()) {
-				MatchingView m = new MatchingView();
+				m = new MatchingView();
 				m.setNo(rs.getString("no"));
 				m.setId(rs.getString("id"));
 				m.setName(rs.getString("name"));
@@ -136,7 +134,7 @@ public class JdbcSearchingMatchingDao implements SearchingMatchingDao {
 				m.setPhoneNum(rs.getString("phoneNum"));
 				m.setAddress(rs.getString("address"));
 				m.setReqDate(rs.getDate("reqDate"));
-				m.setBepumDate(rs.getDate("bepumDate"));
+				m.setBepumDate(rs.getString("bepumDate"));
 				m.setStartTime(rs.getString("startTime"));
 				m.setEndTime(rs.getString("endTime"));
 				m.setStatus(rs.getString("status"));
@@ -147,7 +145,8 @@ public class JdbcSearchingMatchingDao implements SearchingMatchingDao {
 				m.setReviewRating(rs.getInt("rating"));
 				m.setReviewTitle(rs.getString("title"));
 				m.setReviewContent(rs.getString("content"));
-				list.add(m);
+				
+				m.setProfilePic(rs.getString("profilePic"));
 			}
 			rs.close();
 			st.close();
@@ -161,6 +160,6 @@ public class JdbcSearchingMatchingDao implements SearchingMatchingDao {
 			e.printStackTrace();
 		}
 
-		return list;
+		return m;
 	}
 }

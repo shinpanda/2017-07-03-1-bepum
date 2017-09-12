@@ -16,7 +16,7 @@
 
 			<div class="search-input cd-wrapper">
 				<div class="field flex cd-wrapper" id="searchform">
-					<input type="text" id="searchterm" placeholder="지역을 입력하세요">
+					<input type="text" id="searchterm" name="a" placeholder="지역을 입력하세요">
 					<!--  <button type="button" id="search">Find!</button> -->
 				</div>
 			</div>
@@ -27,15 +27,15 @@
 					<div id="child-age" class="flex optional child-age">
 						<div class="flex age-group">
 							<span class="input-title">아이나이</span> <label class="age-label">
-								<input name="kid-ages" type="radio"  id="kid_age1"  value = "1" >
+								<input name="ka" type="radio"  id="kid_age1"  value = "1" >
 								<span class="inner-label">1~2세</span>
-							</label> <label class="age-label"> <input name="kid-ages"
+							</label> <label class="age-label"> <input name="ka"
 								type="radio" id="kid_age2" value = "3" > <span
 								class="inner-label">3~4세</span>
-							</label> <label class="age-label"> <input name="kid-ages"
+							</label> <label class="age-label"> <input name="ka"
 								type="radio" id="kid_age3" value = "5"  > <span
 								class="inner-label">5~6세</span>
-							</label> <label class="age-label"> <input name="kid-ages"
+							</label> <label class="age-label"> <input name="ka"
 								type="radio" id="kid_age4" value = "7"  > <span
 								class="inner-label">7~8세</span>
 							</label>
@@ -45,17 +45,17 @@
 
 						<div class="flex checkbox-group">
 							<span class="input-title">요일 </span> <input type="checkbox"
-								id="_01" name="select" value="Mon" > <label
+								id="_01" name="d" value="Mon" > <label
 								for="_01"> 월 </label> <input type="checkbox" id="_02"
-								name="select" value="Tue" > <label for="_02">
-								화 </label> <input type="checkbox" id="_03" name="select" value="Wed"
+								name="d" value="Tue" > <label for="_02">
+								화 </label> <input type="checkbox" id="_03" name="d" value="Wed"
 								> <label for="_03"> 수 </label> <input
-								type="checkbox" id="_04" name="select" value="Thu" >
+								type="checkbox" id="_04" name="d" value="Thu" >
 							<label for="_04"> 목 </label> <input type="checkbox" id="_05"
-								name="select" value="Fri" > <label for="_05">
-								금 </label> <input type="checkbox" id="_06" name="select" value="Sat"
+								name="d" value="Fri" > <label for="_05">
+								금 </label> <input type="checkbox" id="_06" name="d" value="Sat"
 								> <label for="_06"> 토 </label> <input
-								type="checkbox" id="_07" name="select" value="Sun" >
+								type="checkbox" id="_07" name="d" value="Sun" >
 							<label for="_07"> 일 </label>
 						</div>
 					</div>
@@ -64,8 +64,8 @@
 
 			<div class="search-input flex">
 				<div class="flex optional">
-					<span class="input-title input-time">시작시간 </span>
-					<select aria-label="시작시간" id="start_time" name="start-time">
+					<span class="input-title input-time">시작시간</span>
+					<select aria-label="시작시간" id="start_time" name="start_time" class="search-time" >
 											<option value="">시간선택</option>
 											<option value="00:00">00:00</option>
 											<option value="01:00">01:00</option>
@@ -96,7 +96,7 @@
 				</div>
 				<div class="flex optional">
 					<span class="input-title input-time">끝나는시간 </span>
-					<select aria-label="끝나는시간" id="end_time" name="end-time">
+					<select aria-label="끝나는시간" id="end_time" name="end_time" class="search-time">
 											<option value="">시간선택</option>
 											<option value="00:00">00:00</option>
 											<option value="01:00">01:00</option>

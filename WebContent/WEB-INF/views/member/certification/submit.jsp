@@ -43,15 +43,38 @@
 				</div>
 			</div>
 			
+			
+			<!-- 파일 냈는지 폼 체크 -->
+			
+				<script>
+				function check() {
+				  if(fileSubmit.application.value == "") {
+				    alert("신청서를 업로드해 주세요.");
+				    fileSubmit.application.focus();
+				    return false;
+				  }
+				  else if(fileSubmit.family.value == "") {
+				    alert("가족관계증명서를 업로드해 주세요.");
+				    fileSubmit.family.focus();
+				    return false;
+				  }
+				  else if(fileSubmit.hc.value == "") {
+					    alert("건강진단서를 업로드해 주세요.");
+					    fileSubmit.hc.focus();
+					    return false;
+			      }
+				  else if(fileSubmit.baby.value == "") {
+					    alert("아이 예방접종 증명서를 업로드해 주세요.");
+					    fileSubmit.baby.focus();
+					    return false;
+				  }
+				  else return true;
+				}
+				</script>			
 
-				<form  method="post" enctype="Multipart/form-data">
+				<form  method="post" enctype="Multipart/form-data" name="fileSubmit" onsubmit="return check()">
 					<div class="submit-table-container">
 						<div class = "submit-table">
-					<!-- 		<div class="row throw">
-								<div class="cell th">서류</div>
-								<div class="cell th">파일명</div>
-								<div class="cell th">제출</div>
-								</div> -->
 							<div class="row">
 								<div class="cell th">신청서</div>
 								<div class="cell td"><input type="text" class="file_route" readonly="readonly" id="file_route1"/></div>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +37,23 @@
 							<div class="cell no">${n.id} </div>
 							<div class="cell title"><a href="./notice-detail?no=${n.id}">${n.title}</a></div>
 							<div class="cell writer-id">권다영</div>
-							<div class="cell reg-date">${n.regDate}</div>
+							<jsp:useBean id="now" class="java.util.Date"></jsp:useBean>
+									<fmt:parseNumber value="${now.time}" integerOnly="true"
+										var="today" />
+									<fmt:parseNumber value="${n.regDate.time}"
+										integerOnly="true" var="regDateNum" />
+									<div class="cell reg-date">
+										<c:if test="${((today - regDateNum)/(1000*60*60*24)) < 1}">
+											<fmt:formatDate value="${n.regDate}" pattern="hh:mm"
+												var="regDate" />
+														${regDate}
+													</c:if>
+										<c:if test="${((today - regDateNum)/(1000*60*60*24)) >= 1}">
+											<fmt:formatDate value="${n.regDate}" pattern="YY-MM-dd"
+												var="regDate" />
+														${regDate}
+													</c:if>
+									</div>
 							<div class="cell hit">${n.hit}</div>
 						</div>
 						</c:forEach>

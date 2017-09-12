@@ -6,18 +6,16 @@
 <html>
 
 <head>
-<script type="text/javascript"
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
-<script type="text/javascript"> 
-$(function(){ //전체선택 체크박스 클릭 
-	$("#allCheck").click(function(){ //만약 전체 선택 체크박스가 체크된상태일경우
-		if($("#allcheck").prop("checked")) { //해당화면에 전체 checkbox들을 체크해준다 
-			$("input[type=checkbox]").prop("checked",true); // 전체선택 체크박스가 해제된 경우 
-			} else { //해당화면에 모든 checkbox들의 체크를해제시킨다. 
-				$("input[type=checkbox]").prop("checked",false); 
-			} 
-	}) 
-	}) 
+<script type="text/javascript">
+/* 체크박스 전체선택, 전체해제 */
+function checkAll(){
+      if( $("#allcheck").is(':checked') ){
+        $("input[name=agr-btn]").prop("checked", true);
+      }else{
+        $("input[name=agr-btn]").prop("checked", false);
+      }
+}
+
 
 </script>
 
@@ -57,12 +55,33 @@ $(function(){ //전체선택 체크박스 클릭
 					</div>
 				</div>
 			</div>
+			
+			<!-- 전체동의했는지 폼 체크 -->
+			
+			<script>
+				function check() {
+				  if(agreeSubmit.agr-btn.value == "") {
+				    alert("모두 동의해 주세요.");
+				    agreeSubmit.agr-btn.focus();
+				    return false;
+				  }
+				  else if(agreeSubmit.allcheck.value == "") {
+					    alert("모두 동의해 주세요.");
+					    agreeSubmit.allcheck.focus();
+					    return false;
+					  }
+				  else return true;
+				}
+			</script>		
+				
+				
+			<form  method="post" enctype="Multipart/form-data" name="agreeSubmit" onsubmit="return check()">			
 			<div class="agreement-container">
 				<div class="bepumi-agreement">
 					<div class="agree-title">
 						<label>아이돌보미 이용약관 <span class="type red">(필수)</span></label>
 						<div class="check-container">
-							<input type="checkbox" name="agr-btn" id="agr-btn1" value="">
+							<input type="checkbox" name="agr-btn" id="agr-btn" value="">
 						</div>
 					</div>
 
@@ -383,13 +402,14 @@ $(function(){ //전체선택 체크박스 클릭
 					</div>
 				</div>
 			</div>
+			
 
 			<div class="agreement-container">
 				<div class="bepumi-agreement">
 					<div class="agree-title">
 						<label>개인정보 수집/이용 동의 <span class="type red">(필수)</span></label>
 						<div class="check-container">
-							<input type="checkbox" name="agr-btn" id="agr-btn2" value="">
+							<input type="checkbox" name="agr-btn" id="agr-btn" value="" />
 						</div>
 					</div>
 
@@ -604,17 +624,17 @@ $(function(){ //전체선택 체크박스 클릭
 							삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.</p>
 						<p class="pl15">공고일자: 2017년 9월 1일 시행일자: 2017년 9월 1일</p>
 					</div>
-
 				</div>
 
 				<div class="check-container">
 					<div class="check-container all-check">
 						<label for="all-check">전체동의</label> 
-						<input type="checkbox" name="allcheck" id="allcheck" />
+						<input type="checkbox" name="allcheck" id="allcheck" onclick="checkAll()"; />
 					</div>
 					<a href="certification-identify">다음</a>
 				</div>
 			</div>
+			</form>
 			</main>
 		</div>
 	</div>

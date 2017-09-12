@@ -31,68 +31,18 @@ public class SearchingBepumiListProfileDetailController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		HttpSession session = request.getSession();
 
-		Object _id = session.getAttribute("id");
-
-		if (_id == null)
-			out.write("<script> alert('로그인이 필요한 요청입니다.'); history.back(); </script>");
-		else {
-			String id = _id.toString();
-			MemberRoleDao roleDao = new JdbcMemberRoleDao();
-			int role = roleDao.getRole(id);
-
-			if (role < 1)
-				out.write("<script> alert('잘못된 요청입니다.'); history.back(); </script>");
-			else {
-				request.setCharacterEncoding("UTF-8");
-				String secret = request.getParameter("sec-btn");
-				System.out.println(secret);
-				int sec = 1;
-				if (secret != null && !secret.equals("")) {
-					if (secret.equals("open"))
-						sec = 0;
-				}
-				ProfileDao dao = new JdbcProfileDao();
-				response.sendRedirect("profile");
-			}
-		}
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		HttpSession session = request.getSession();
 
-		Object _id = session.getAttribute("id");
-
-		if (_id == null)
-			out.write("<script> alert('로그인이 필요한 요청입니다.'); history.back(); </script>");
-		else {
-			String id = _id.toString();
-			MemberRoleDao roleDao = new JdbcMemberRoleDao();
-			int role = roleDao.getRole(id);
-
-			if (role < 1)
-				out.write("<script> alert('잘못된 요청입니다.'); history.back(); </script>");
-			else {
-				/* response.sendRedirect("notice.jsp"); */
-				ProfileDao dao = new JdbcProfileDao();
-
-				request.setAttribute("isProfile", dao.getIsProfile(id));
-				request.setAttribute("profile", dao.get(id));
-				request.setAttribute("br", "<br/>");
-				request.setAttribute("cn", "\n");
-
-				request.getRequestDispatcher("/WEB-INF/views/searching/bepumi/detail-profile.jsp").forward(request, response);
-			}
-		}
-
+		//검색결과 클릭하면 프로필로 간다
+		String id = request.getParameter("id");
+		
+		ProfileDao dao = new JdbcProfileDao();
+		request.setAttribute("profile", dao.get(id));
+		request.getRequestDispatcher("/WEB-INF/views/searching/bepumi/detail-profile.jsp").forward(request, response);
 	}
 }

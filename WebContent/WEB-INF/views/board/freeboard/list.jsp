@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -34,16 +35,32 @@
 						</div>
 						<div>
 							<c:forEach var="notice" items="${notice}" begin="0" end="4">
-							<div class="row">
-								<div class="cell no">공지</div>
-								<div class="cell title title-content">
-									<a href="./notice-detail?no=${notice.no}">${notice.title}</a>
+								<div class="row">
+									<div class="cell no">공지</div>
+									<div class="cell title title-content">
+										<a href="./notice-detail?no=${notice.no}">${notice.title}</a>
+									</div>
+									<div class="cell writer-id">${notice.writerId}</div>
+									<jsp:useBean id="now" class="java.util.Date"></jsp:useBean>
+									<fmt:parseNumber value="${now.time}" integerOnly="true"
+										var="today" />
+									<fmt:parseNumber value="${notice.regDate.time}"
+										integerOnly="true" var="regDateNum" />
+									<div class="cell reg-date">
+										<c:if test="${((today - regDateNum)/(1000*60*60*24)) < 1}">
+											<fmt:formatDate value="${notice.regDate}" pattern="hh:mm"
+												var="regDate" />
+														${regDate}
+													</c:if>
+										<c:if test="${((today - regDateNum)/(1000*60*60*24)) >= 1}">
+											<fmt:formatDate value="${notice.regDate}" pattern="YY-MM-dd"
+												var="regDate" />
+														${regDate}
+													</c:if>
+									</div>
+									<div class="cell hit">${notice.hit}</div>
 								</div>
-								<div class="cell writer-id">${notice.writerId}</div>
-								<div class="cell reg-date">${notice.regDate}</div>
-								<div class="cell hit">${notice.hit}</div>
-							</div>
-						</c:forEach>
+							</c:forEach>
 						</div>
 						<c:forEach var="n" items="${list}" begin="0" end="14">
 							<div class="row">
@@ -53,7 +70,22 @@
 										(${n.countCmt})</a>
 								</div>
 								<div class="cell writer-id">${n.writerId}</div>
-								<div class="cell reg-date">${n.regDate}</div>
+								<fmt:parseNumber value="${now.time}" integerOnly="true"
+									var="today" />
+								<fmt:parseNumber value="${n.regDate.time}" integerOnly="true"
+									var="regDateNum" />
+								<div class="cell reg-date">
+									<c:if test="${((today - regDateNum)/(1000*60*60*24)) < 1}">
+										<fmt:formatDate value="${n.regDate}" pattern="hh:mm"
+											var="regDate" />
+														${regDate}
+													</c:if>
+									<c:if test="${((today - regDateNum)/(1000*60*60*24)) >= 1}">
+										<fmt:formatDate value="${n.regDate}" pattern="YY-MM-dd"
+											var="regDate" />
+														${regDate}
+													</c:if>
+								</div>
 								<div class="cell hit">${n.hit}</div>
 							</div>
 						</c:forEach>
@@ -64,10 +96,8 @@
 								<option value="writerId">아이디</option>
 								<option value="title">제목</option>
 								<option value="content">내용</option>
-							</select>
-
-								<input type="search" name="search" /> <input type="submit"
-									class="search search-btn-img" />
+							</select> <input type="search" name="search" /> <input type="submit"
+								class="search search-btn-img" />
 						</form>
 					</div>
 					<c:set var="page" value="${param.p}" />

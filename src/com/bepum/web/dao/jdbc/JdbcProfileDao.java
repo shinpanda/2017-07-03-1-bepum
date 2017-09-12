@@ -11,12 +11,13 @@ import java.util.List;
 import com.bepum.web.dao.ProfileDao;
 import com.bepum.web.entity.BoardView;
 import com.bepum.web.entity.Profile;
+import com.bepum.web.entity.ProfileView;
 
 public class JdbcProfileDao implements ProfileDao {
 
 	@Override
 	public Profile get(String id) {
-		Profile p = null;
+		ProfileView p = null;
 
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
@@ -37,7 +38,7 @@ public class JdbcProfileDao implements ProfileDao {
 
 			// 결과 사용
 			if (rs.next()) {
-				p = new Profile();
+				p = new ProfileView();
 				p.setId(rs.getString("id"));
 				p.setName(rs.getString("name"));
 				p.setAddress(rs.getString("address"));
@@ -54,6 +55,11 @@ public class JdbcProfileDao implements ProfileDao {
 				p.setHouseImg2(rs.getString("homeImg2"));
 				p.setHouseImg3(rs.getString("homeImg3"));
 				p.setSecret(rs.getInt("secret"));
+
+				p.setBabyName(rs.getString("babyName"));
+				p.setBabyAge(rs.getInt("babyAge"));
+				p.setBabyGender(rs.getInt("babyGender"));
+				
 			}
 
 			rs.close();
