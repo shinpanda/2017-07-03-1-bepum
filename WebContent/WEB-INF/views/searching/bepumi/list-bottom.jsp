@@ -61,7 +61,7 @@
 
 
 
-											<h2 class="sub_title">${list[i].name}${list[i].address}</h2>
+											<h2 class="sub_title">${list[i].name} ${list[i].birthday} ${list[i].address}</h2>
 											<p class="description">${list[i].etc}</p>
 											<div class="post-meta">
 												<span class="timestamp"><i class="fa fa-clock-">o</i>
