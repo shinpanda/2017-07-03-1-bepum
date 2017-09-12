@@ -66,7 +66,7 @@ public class SearchingBepumiListController extends HttpServlet {
 
 		String address = "";
 		if(_address != null && !_address.equals(""))
-			address = _address;
+			address = _address.replaceAll(" ", "");
 		
 		SearchingBepumiDao dao = new JdbcSearchingBepumiDao();
 		request.setAttribute("list", dao.getList(page, babyAge, 
