@@ -46,7 +46,18 @@
 										var="today" />
 									<fmt:parseNumber value="${notice.regDate.time}"
 										integerOnly="true" var="regDateNum" />
-									<div class="cell reg-date">${notice.regDate}</div>
+									<div class="cell reg-date">
+										<c:if test="${((today - regDateNum)/(1000*60*60*24)) < 1}">
+											<fmt:formatDate value="${notice.regDate}" pattern="hh:mm"
+												var="regDate" />
+														${regDate}
+													</c:if>
+										<c:if test="${((today - regDateNum)/(1000*60*60*24)) >= 1}">
+											<fmt:formatDate value="${notice.regDate}" pattern="YY-MM-dd"
+												var="regDate" />
+														${regDate}
+													</c:if>
+									</div>
 									<div class="cell hit">${notice.hit}</div>
 								</div>
 							</c:forEach>
@@ -59,7 +70,22 @@
 										(${n.countCmt})</a>
 								</div>
 								<div class="cell writer-id">${n.writerId}</div>
-								<div class="cell reg-date">${n.regDate}</div>
+								<fmt:parseNumber value="${now.time}" integerOnly="true"
+									var="today" />
+								<fmt:parseNumber value="${n.regDate.time}" integerOnly="true"
+									var="regDateNum" />
+								<div class="cell reg-date">
+									<c:if test="${((today - regDateNum)/(1000*60*60*24)) < 1}">
+										<fmt:formatDate value="${n.regDate}" pattern="hh:mm"
+											var="regDate" />
+														${regDate}
+													</c:if>
+									<c:if test="${((today - regDateNum)/(1000*60*60*24)) >= 1}">
+										<fmt:formatDate value="${n.regDate}" pattern="YY-MM-dd"
+											var="regDate" />
+														${regDate}
+													</c:if>
+								</div>
 								<div class="cell hit">${n.hit}</div>
 							</div>
 						</c:forEach>
