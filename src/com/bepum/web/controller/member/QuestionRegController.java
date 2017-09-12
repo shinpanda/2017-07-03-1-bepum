@@ -1,6 +1,7 @@
 package com.bepum.web.controller.member;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -26,7 +27,7 @@ public class QuestionRegController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-
+		
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		String _isPrivate = request.getParameter("sec-btn");
