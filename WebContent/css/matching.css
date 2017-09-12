@@ -276,12 +276,22 @@
 			
 /* 신청자 쪽 detail 상단 부분*/		
 .profile-container{
-	display: flex;
-	justify-content: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+.imgMsg-container {
+    margin-left: 120px;
 }
 
 .member.profile-img {
 	width:400px;
+}
+
+img#profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
 }
 
 .profile-btn-wrapper{
