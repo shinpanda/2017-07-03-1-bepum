@@ -14,4 +14,6 @@ public interface MemberDao {
 
 	Member get(String id);
 
+	int update(String id, String name, String pwd, String birthday, String email);
+
 }
