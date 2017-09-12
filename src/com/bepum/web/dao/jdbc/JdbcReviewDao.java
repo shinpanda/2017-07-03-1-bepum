@@ -138,7 +138,7 @@ public class JdbcReviewDao implements ReviewDao {
 				r.setWriterID(rs.getString("writerID"));
 				r.setRegDate(rs.getDate("regDate"));
 				r.setHit(rs.getInt("hit"));
-				r.setBepumDate(rs.getDate("bepumDate"));
+				r.setBepumDate(rs.getString("bepumDate"));
 				r.setRequirement(rs.getString("requirement"));
 			}
 

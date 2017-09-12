@@ -136,7 +136,7 @@ public class JdbcSearchingMatchingDao implements SearchingMatchingDao {
 				m.setPhoneNum(rs.getString("phoneNum"));
 				m.setAddress(rs.getString("address"));
 				m.setReqDate(rs.getDate("reqDate"));
-				m.setBepumDate(rs.getDate("bepumDate"));
+				m.setBepumDate(rs.getString("bepumDate"));
 				m.setStartTime(rs.getString("startTime"));
 				m.setEndTime(rs.getString("endTime"));
 				m.setStatus(rs.getString("status"));

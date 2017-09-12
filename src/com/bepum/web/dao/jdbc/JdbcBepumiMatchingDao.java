@@ -143,7 +143,7 @@ public class JdbcBepumiMatchingDao implements BepumiMatchingDao {
 				m.setPhoneNum(rs.getString("phoneNum"));
 				m.setAddress(rs.getString("address"));
 				m.setReqDate(rs.getDate("reqDate"));
-				m.setBepumDate(rs.getDate("bepumDate"));
+				m.setBepumDate(rs.getString("bepumDate"));
 				m.setRequirement(rs.getString("requirement"));
 				m.setStartTime(rs.getString("startTime"));
 				m.setEndTime(rs.getString("endTime"));
