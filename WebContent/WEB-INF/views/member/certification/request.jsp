@@ -56,6 +56,26 @@ function checkAll(){
 				</div>
 			</div>
 			
+			<!-- 전체동의했는지 폼 체크 -->
+			
+			<script>
+				function check() {
+				  if(agreeSubmit.agr-btn.value == "") {
+				    alert("모두 동의해 주세요.");
+				    agreeSubmit.agr-btn.focus();
+				    return false;
+				  }
+				  else if(agreeSubmit.allcheck.value == "") {
+					    alert("모두 동의해 주세요.");
+					    agreeSubmit.allcheck.focus();
+					    return false;
+					  }
+				  else return true;
+				}
+			</script>		
+				
+				
+			<form  method="post" enctype="Multipart/form-data" name="agreeSubmit" onsubmit="return check()">			
 			<div class="agreement-container">
 				<div class="bepumi-agreement">
 					<div class="agree-title">
@@ -382,6 +402,7 @@ function checkAll(){
 					</div>
 				</div>
 			</div>
+			
 
 			<div class="agreement-container">
 				<div class="bepumi-agreement">
@@ -613,6 +634,7 @@ function checkAll(){
 					<a href="certification-identify">다음</a>
 				</div>
 			</div>
+			</form>
 			</main>
 		</div>
 	</div>
