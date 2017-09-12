@@ -162,15 +162,20 @@
 			    <tbody>
 			    <tr>
 			        <th scope="row">이름</th>
-			        <td>이아영</td>
+			        <td>${reqprofile.babyName}</td>
 			    </tr>
 			    <tr>
 			        <th scope="row">나이</th>
-			        <td >20개월</td>
+			        <td >${reqprofile.babyAge}세</td>
 			    </tr>
+			    
+			    		<c:set var="babyGender" value="남" />
+						<c:if test="${profile.grade == 2}">
+							<c:set var="babyGender" value="여" />
+						</c:if>
 			    <tr>
 			        <th scope="row">성별</th>
-			        <td><input type="radio" name="gender" value="남" checked="checked"/>남<input type="radio" name="gender" value="여"/>여</td>
+			        <td>${babyGender}</td>
 			    </tr>
 			    </tbody>
 				</table>	

@@ -9,16 +9,18 @@ public class Baby extends Bepumi {
 	private String name;
 	private String age;
 	private String bepumiID;
+	private int gender;
 
 	public Baby() {
 		
 	}
 
-	public Baby(String no, String name, String age, String bepumiID) {
+	public Baby(String no, String name, String age, String bepumiID, int gender) {
 		this.no = no;
 		this.name = name;
 		this.age = age;
 		this.bepumiID = bepumiID;
+		this.gender=gender;
 	}
 
 	public String getNo() {
@@ -51,6 +53,15 @@ public class Baby extends Bepumi {
 
 	public void setBepumiID(String bepumiID) {
 		this.bepumiID = bepumiID;
+	}
+	
+
+	public int getGender() {
+		return gender;
+	}
+
+	public void setGender(int gender) {
+		this.gender = gender;
 	}
 	
 	

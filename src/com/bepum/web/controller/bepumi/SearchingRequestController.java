@@ -55,11 +55,13 @@ public class SearchingRequestController extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		HttpSession session = request.getSession();
 
-		//신청자 프로필 불러오기
+		//신청자 세션 불러오기
 		Object _id = session.getAttribute("id");
 		String id = _id.toString();
 		//돌보미 프로필 불러오기
 		String bepumID= request.getParameter("bepum-id");
+		//아이 정보 불러오기
+		
 		
 		ProfileDao dao = new JdbcProfileDao();
 		request.setAttribute("profile", dao.get(bepumID));
