@@ -377,17 +377,23 @@ div {
 	
 }
 
+.agree-btn-wrapper{
+	display:block;
+	text-align:center;
+}
+
 .agree-btn-container {
 	float: right;
     width: fit-content;
     margin: auto;
     text-align: right;
     margin-top: 30px;
+    display: inline-block;
+    border: 0px;
 }
 
 	.agree-btn-container.request {
 	    float: none;
-	    margin-top: 60px;
 	}
 
 .agree-btn-container a{

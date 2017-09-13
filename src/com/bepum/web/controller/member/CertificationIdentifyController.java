@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 public class CertificationIdentifyController extends HttpServlet {
 
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String uri  = request.getRequestURI();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+/*		String uri  = request.getRequestURI();
 		
-		request.setAttribute("uri", uri);
+		request.setAttribute("uri", uri);*/
 		
 		/*response.sendRedirect("notice.jsp");*/
 		request.getRequestDispatcher("/WEB-INF/views/member/certification/identify.jsp").forward(request, response);

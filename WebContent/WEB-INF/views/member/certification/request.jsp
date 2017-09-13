@@ -60,22 +60,21 @@ function checkAll(){
 			
 			<script>
 				function check() {
-				  if(agreeSubmit.agr-btn.value == "") {
-				    alert("모두 동의해 주세요.");
-				    agreeSubmit.agr-btn.focus();
-				    return false;
-				  }
-				  else if(agreeSubmit.allcheck.value == "") {
-					    alert("모두 동의해 주세요.");
-					    agreeSubmit.allcheck.focus();
-					    return false;
+
+					if( $("#allcheck").is(':checked')==false){
+						alert("모든 약관에 동의해주세요.");
+						agreeSubmit.allcheck.focus();
+				 		return false;}
+	
+				  else if(agreeSubmit.agr-btn.value == "on") {
+					    return true;
 					  }
-				  else return true;
+				 	
 				}
 			</script>		
 				
 				
-			<form  method="post" enctype="Multipart/form-data" name="agreeSubmit" onsubmit="return check()">			
+			<form  method="post"  name="agreeSubmit" onsubmit="return check()">			
 			<div class="agreement-container">
 				<div class="bepumi-agreement">
 					<div class="agree-title">
@@ -629,10 +628,13 @@ function checkAll(){
 				<div class="check-container">
 					<div class="check-container all-check">
 						<label for="all-check">전체동의</label> 
-						<input type="checkbox" name="allcheck" id="allcheck" onclick="checkAll()"; />
+						<input type="checkbox" name="allcheck" id="allcheck" onclick="checkAll()" />
 					</div>
-					<a href="certification-identify">다음</a>
 				</div>
+				
+			</div>
+			<div class="agree-btn-wrapper">
+			<input type="submit" value="다음" class="agree-btn-container request"/>
 			</div>
 			</form>
 			</main>
