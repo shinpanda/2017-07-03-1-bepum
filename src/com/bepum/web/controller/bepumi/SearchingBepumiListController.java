@@ -20,24 +20,40 @@ import com.bepum.web.dao.jdbc.JdbcMemberDao;
 import com.bepum.web.dao.jdbc.JdbcMemberRoleDao;
 import com.bepum.web.dao.jdbc.JdbcProfileDao;
 import com.bepum.web.dao.jdbc.JdbcSearchingBepumiDao;
+import com.bepum.web.entity.Member;
 
 
 @WebServlet("/searching/bepumi-list")
 public class SearchingBepumiListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		
+	
+		
 		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
+		Object _id = session.getAttribute("id");
+		
 		String _page = request.getParameter("p");
 		String _address = request.getParameter("a");
 		String _babyAge = request.getParameter("ka");
 		String _isbepumDay = request.getParameter("d");
 		String _startTime = request.getParameter("s");
 		String _endTime = request.getParameter("e");
+		
 		String[] _bepumDay = null;
 		String[] bepumDay = new String[7];
 		for(int i = 0;  i<bepumDay.length; i++) {
 			bepumDay[i] = "";
+		}
+		
+		
+		String sessionId = "";
+		if(_id != null) {
+			String _sessionId = _id.toString();
+			if(!_sessionId.equals(""))
+				sessionId = _sessionId;
 		}
 
 		int babyAge = 0;
@@ -71,10 +87,10 @@ public class SearchingBepumiListController extends HttpServlet {
 		SearchingBepumiDao dao = new JdbcSearchingBepumiDao();
 		request.setAttribute("list", dao.getList(page, babyAge, 
 				bepumDay[0], bepumDay[1], bepumDay[2],
-				bepumDay[3], bepumDay[4], bepumDay[5], bepumDay[6], address, startTime, endTime));
+				bepumDay[3], bepumDay[4], bepumDay[5], bepumDay[6], address, startTime, endTime, sessionId));
 		request.setAttribute("count", dao.getCount(babyAge, 
 				bepumDay[0], bepumDay[1], bepumDay[2],
-				bepumDay[3], bepumDay[4], bepumDay[5], bepumDay[6], address, startTime, endTime));		
+				bepumDay[3], bepumDay[4], bepumDay[5], bepumDay[6], address, startTime, endTime, sessionId));		
 				
 		
 		request.getRequestDispatcher("/WEB-INF/views/searching/bepumi/list.jsp").forward(request, response);
