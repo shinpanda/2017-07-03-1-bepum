@@ -45,25 +45,30 @@ public class QuestionRegController extends HttpServlet {
 			String _isPrivate = request.getParameter("sec-btn");
 			int isPrivate = 0;
 			String privateKey = "";
-
+			int error = 0;
+			if(title == null || title.equals(""))
+				error = 1;
+			if(content == null || content.equals(""))
+				error = 2;
+			
 			if (_isPrivate != null && !_isPrivate.equals("")) {
 				if (_isPrivate.equals("sec")) {
 					isPrivate = 1;
 					String _privateKey = request.getParameter("sec-key");
-					if (_privateKey == null || _privateKey.equals(""))
+					if (_privateKey != null && !_privateKey.equals(""))
 						privateKey = _privateKey;
 					else {
-						out.write("<script> alert('비밀번호를 설정해주세요.'); history.back(); </script>");
-						// 여기가 안먹힘...
-						// System.out.println() 이건 됨.. 스크립트를 실행하는게 안되는데.. 흠... 뷰단에서 체크해줘야하나..
+						error = 3;
 					}
 				}
 			}
-
-			SecretBoardDao dao = new JdbcSecretBoardDao();
-			int result = dao.insert(id, title, content, isPrivate, privateKey, "FAQ");
-
-			response.sendRedirect("question");
+			if (error == 0) {
+				SecretBoardDao dao = new JdbcSecretBoardDao();
+				int result = dao.insert(id, title, content, isPrivate, privateKey, "FAQ");
+				response.sendRedirect("question");
+			}
+			else
+				out.write("<script> alert('빈칸을 채워주세요.'); history.back(); </script>");
 		}
 	}
 
