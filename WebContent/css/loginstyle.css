@@ -279,7 +279,7 @@ html {
 	display: block;
 	position: relative;
 	width: 50%;
-	height: 70px;
+	/* height: 70px; */
 	padding: 11px 24px;
 	border-right: 1px solid #e5e5e5;
 	border-bottom: none;
@@ -291,7 +291,9 @@ html {
 	-moz-appearance: none;
 	appearance: none;
 }
-
+	.sminputs .pw-check{
+		
+	}
 .sminputs #user-gender {
 	border-right: none;
 }

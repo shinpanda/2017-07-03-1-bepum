@@ -74,7 +74,6 @@ window.onload = function(){
 					<div class="application-form-wrapper clearfix">
 						<div class="title-box dc-name">생년월일</div>
 						<div class="content-box dc-name">
-						
 						<c:set var="year" value="${fn:substringBefore(member.birth,'-')}"/>
 						<c:set var="month" value="${fn:substringBefore(fn:substringAfter(member.birth,'-'),'-')}"/>
 						<c:set var="day" value="${fn:substringAfter(fn:substringAfter(member.birth,'-'),'-')}"/>
