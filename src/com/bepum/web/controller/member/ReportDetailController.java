@@ -24,9 +24,9 @@ import com.bepum.web.entity.Board;
 import com.bepum.web.entity.BoardView;
 import com.bepum.web.entity.SecretBoardView;
 
-@WebServlet("/board/question-detail")
-public class QuestionDetailController extends HttpServlet {
-	String boardName = "FAQ";
+@WebServlet("/board/report-detail")
+public class ReportDetailController extends HttpServlet {
+	String boardName = "Report";
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -53,9 +53,9 @@ public class QuestionDetailController extends HttpServlet {
 						BoardCmtDao cmtDao = new JdbcBoardCmtDao();
 						request.setAttribute("cmtList", cmtDao.getList(no, boardName));
 					}
-					request.getRequestDispatcher("/WEB-INF/views/board/question/detail.jsp").forward(request, response);
+					request.getRequestDispatcher("/WEB-INF/views/board/report/detail.jsp").forward(request, response);
 				} else
-					response.sendRedirect("question");
+					response.sendRedirect("report");
 			}
 		} else {
 			// ´ñ±Û ºÎºÐ
@@ -114,7 +114,7 @@ public class QuestionDetailController extends HttpServlet {
 			}
 		}
 		/* response.sendRedirect("notice.jsp"); */
-		request.getRequestDispatcher("/WEB-INF/views/board/question/detail.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/board/report/detail.jsp").forward(request, response);
 
 	}
 }

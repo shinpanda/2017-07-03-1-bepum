@@ -92,7 +92,13 @@ public class SearchingBepumiListController extends HttpServlet {
 				bepumDay[0], bepumDay[1], bepumDay[2],
 				bepumDay[3], bepumDay[4], bepumDay[5], bepumDay[6], address, startTime, endTime, sessionId));		
 				
-		
+		// 정렬의 처리
+		String sort = null;
+		if(request.getParameter("sort") != null){
+			sort = request.getParameter("sort");
+		}
+	
+
 		request.getRequestDispatcher("/WEB-INF/views/searching/bepumi/list.jsp").forward(request, response);
 
 	}
