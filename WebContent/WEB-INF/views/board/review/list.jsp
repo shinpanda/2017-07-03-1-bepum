@@ -48,7 +48,7 @@
 														${regDate}
 													</c:if>
 									<c:if test="${((today - regDateNum)/(1000*60*60*24)) >= 1}">
-										<fmt:formatDate value="${n.regDate}" pattern="YY-MM-dd"
+										<fmt:formatDate value="${n.regDate}" pattern="YY.MM.dd"
 											var="regDate" />
 														${regDate}
 													</c:if>

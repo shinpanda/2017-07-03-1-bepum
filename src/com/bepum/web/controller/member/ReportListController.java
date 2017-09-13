@@ -47,8 +47,8 @@ public class ReportListController extends HttpServlet {
 		
 		SecretBoardDao dao = new JdbcSecretBoardDao();
 
-		request.setAttribute("list", dao.getList(page, cName, query, "report"));
-		request.setAttribute("count", dao.getCount("report"));
+		request.setAttribute("list", dao.getList(page, cName, query, "Report"));
+		request.setAttribute("count", dao.getCount("Report"));
 		
 		/*response.sendRedirect("notice.jsp");*/
 		request.getRequestDispatcher("/WEB-INF/views/board/report/list.jsp").forward(request, response);

@@ -50,7 +50,7 @@
 														${regDate}
 													</c:if>
 										<c:if test="${((today - regDateNum)/(1000*60*60*24)) >= 1}">
-											<fmt:formatDate value="${n.regDate}" pattern="YY-MM-dd"
+											<fmt:formatDate value="${n.regDate}" pattern="YY.MM.dd"
 												var="regDate" />
 														${regDate}
 													</c:if></div>
@@ -97,7 +97,7 @@
 					</div>
 				</div>
 				<div class="btn reg-btn">
-					<a href="./question-reg">쓰기</a>
+					<a href="./report-reg">쓰기</a>
 				</div>
 			</div>
 			</div>

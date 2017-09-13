@@ -141,7 +141,7 @@ public class JdbcBoardDao implements BoardDao {
 	}
 
 	@Override
-	public int insert(String title, String content, String tName) {
+	public int insert(String title, String content, String id, String tName) {
 		int result = 0;
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
@@ -155,7 +155,7 @@ public class JdbcBoardDao implements BoardDao {
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, title);
 			st.setString(2, content);
-			st.setString(3, "admin");
+			st.setString(3, id);
 
 			/* st.setString(1, "%"+title+"%"); */
 

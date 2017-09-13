@@ -40,8 +40,10 @@
 					<div>
 						<a href="free" class="btn">목록</a>
 						<div class="ed-wrapper">
+							<c:if test="${sessionScope.id.equals(b.writerId)}">
 							<a href="free-edit?no=${b.no}" class="btn">수정</a> <a
 								href="free-del?no=${b.no}" class="btn">삭제</a>
+							</c:if>
 						</div>
 					</div>
 				</div>

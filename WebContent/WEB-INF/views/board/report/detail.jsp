@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -20,24 +20,23 @@
 
 	<div id="body">
 		<div class="content-container">
-			<main id="main" class="main"> 
-			<c:if test="${empty b.privateKey && isSecret == 1}">
+			<main id="main" class="main"> <c:if
+				test="${empty b.privateKey && isSecret == 1}">
 				<div>
 					<img src="../images/locking.png" />
 					<p>이 글은 비밀글입니다.</p>
-					<form method="post">	
-						<input type="password" alt="글비밀번호" name = "secretKey" />
-						<input type="submit" alt="확인" value = "submit" class ="btn" />
+					<form method="post">
+						<input type="password" alt="글비밀번호" name="secretKey" /> <input
+							type="submit" alt="확인" value="submit" class="btn" />
 					</form>
 				</div>
-			</c:if>
-			<c:if test="${not empty b.privateKey || isSecret == 0}">
+			</c:if> <c:if test="${not empty b.privateKey || isSecret == 0}">
 				<div class="detail-container">
 					<div class="info-container">
 						<div class="tr-info clearfix">
 							<span class="title">${b.title}</span> <span class="reg-date">
-							<fmt:formatDate value="${b.regDate}" pattern="YY-MM-dd HH:MM"
-												var="regDate" />${regDate}</span>
+								<fmt:formatDate value="${b.regDate}" pattern="YY-MM-dd HH:MM"
+									var="regDate" />${regDate}</span>
 						</div>
 						<div class="wch-info clearfix">
 							<span class="writer">${b.writerId}</span>
@@ -50,10 +49,12 @@
 					<div class="detail-content">${fn:replace(b.content, cn, br)}
 					</div>
 					<div>
-						<a href="question" class="btn">목록</a>
+						<a href="report" class="btn">목록</a>
 						<div class="ed-wrapper">
-							<a href="question-edit?no=${b.no}" class="btn">수정</a> <a
-								href="question-del?no=${b.no}" class="btn">삭제</a>
+							<c:if test="${sessionScope.id.equals(b.writerId)}">
+								<a href="report-edit?no=${b.no}" class="btn">수정</a>
+								<a href="report-del?no=${b.no}" class="btn">삭제</a>
+							</c:if>
 						</div>
 					</div>
 
