@@ -9,12 +9,12 @@
 						<div class="member rb-container">
 							<div class="member req-date">
 								<span class="date-title">매칭 신청일</span>
-								<span>${list[0].reqDate}</span>
+								<span>${profile.reqDate}</span>
 							</div>
 							<div class="member bepum-date">
 								<span class="date-title">돌보미 날짜</span>
 								<div class="behpum-time">
-								<span class="start-time">${list[0].bepumDate} ${list[0].startTime}</span> > <span class="end-time">${list[0].bepumDate}  ${list[0].endTime}</span>
+								<span class="start-time">${profile.bepumDate} ${profile.startTime}</span> > <span class="end-time">${profile.bepumDate}  ${profile.endTime}</span>
 								</div>
 							</div>
 						</div>

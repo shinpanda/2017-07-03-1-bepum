@@ -22,14 +22,24 @@
 	
 	<div class="profile-detail">
 		<div class="profile-detail-table">
+		<div class="row">
+				<div class="cell th"><b>매칭 상태</b></div>
+				<div class="cell td"><b>${profile.status}</b></div>
+			</div>
+			<div class="row">
+				<div class="cell th">　</div>
+				<div class="cell ">　</div>
+			</div>
 			<div class="row">
 				<div class="cell th">이름</div>
 				<div class="cell td">${profile.name}</div>
 			</div>
+			<c:if test="${!profile.status.equals('신청대기') && !status.equals('신청실패')}">
 			<div class="row">
 				<div class="cell th">연락처</div>
 				<div class="cell td">${profile.phoneNum}</div>
 			</div>
+			</c:if>
 			<div class="row">
 				<div class="cell th">거주지</div>
 				<div class="cell td">${profile.address}</div>
