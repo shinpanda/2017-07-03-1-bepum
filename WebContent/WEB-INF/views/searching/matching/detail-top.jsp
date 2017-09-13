@@ -22,6 +22,14 @@
 	
 	<div class="profile-detail">
 		<div class="profile-detail-table">
+		<div class="row">
+				<div class="cell th"><b>매칭 상태</b></div>
+				<div class="cell td"><b>${profile.status}</b></div>
+			</div>
+			<div class="row">
+				<div class="cell th">　</div>
+				<div class="cell ">　</div>
+			</div>
 			<div class="row">
 				<div class="cell th">이름</div>
 				<div class="cell td">${profile.name}</div>

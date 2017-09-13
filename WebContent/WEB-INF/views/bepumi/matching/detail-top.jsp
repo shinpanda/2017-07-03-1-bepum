@@ -8,7 +8,7 @@
 <div class = "profile-container">
 	<div class="imgMsg-container">
 		<div class="profile-img">
-			<img src="../images/profile1.png" id="profile-img" alt="프로필 사진">
+			<img src="../upload/profilePic/${profile.profilePic}" id="profile-img" alt="프로필 사진">
 		</div>
 		<div class="profile-btn-wrapper">
 			<div class="btn-msg-container">
@@ -24,7 +24,7 @@
 		<div class="profile-detail-table">
 			<div class="row">
 				<div class="cell th"><b>매칭 상태</b></div>
-				<div class="cell td"><b>진행중</b></div>
+				<div class="cell td"><b>${profile.status}</b></div>
 			</div>
 			<div class="row">
 				<div class="cell th">　</div>

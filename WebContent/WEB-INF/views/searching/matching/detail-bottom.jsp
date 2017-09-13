@@ -2,9 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
 <!-- 신청자 매칭완료 후에 후기 작성하는 페이지 -->
-
 <div class="past-container">
 	<div class="table-container">
 	<h3>매칭 상세정보</h3>
