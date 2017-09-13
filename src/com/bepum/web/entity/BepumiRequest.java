@@ -2,7 +2,7 @@ package com.bepum.web.entity;
 
 import java.util.Date;
 
-public class BepumiRequest {
+public class BepumiRequest extends Member {
 	
 	private String no;
 	private String reqId;
@@ -121,7 +121,5 @@ public class BepumiRequest {
 	public void setVC_Copy(String vC_Copy) {
 		VC_Copy = vC_Copy;
 	}
-	
-	
 	
 }
