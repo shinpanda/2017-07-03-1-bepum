@@ -15,7 +15,7 @@
 				<input type="button" class="btn msg-btn"  alt="메세지 보내기" onclick=""/>
 			</div>
 			<div class="btn-profile-container">
-				<a href="../bepumi/profile"  target="_blank"  alt="프로필 상세보기" ></a>
+				<a href="../searching/detail-profile?id=${profile.id}"  target="_blank"  alt="프로필 상세보기" ></a>
 			</div>
 		</div>
 	</div>
