@@ -7,7 +7,16 @@
 	display: grid;
 }
 
- 
+.text-right{
+	text-align: right;
+}
+select.text-right {
+	width: 140px;
+	height: 24px;
+	margin-right: 10px;
+    margin-left: 10px;
+}
+
 .mem-information > h3 {
 	margin: 10px;
 }
@@ -100,11 +109,116 @@
     padding: 10px 14px;
 }
 
-.cancel{
-	height: 30px;
-    float: left;
-    font-size: 12px;
-    background: rgb(102, 156, 239);
-    width: 10%;
-    padding: 0px;
+
+/*modal*/
+.modal,
+.modal-box {
+  z-index: 900;
+}
+.modal-body.center {
+    text-align: center;
+}
+.modal-sandbox {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: transparent;
+}
+
+.modal {
+  display: none; 
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgb(0,0,0);
+  background: rgba(0,0,0,.8);
+  overflow: auto;
+}
+
+.modal-box {
+  position: relative;
+  width: 80%;
+  max-width: 920px;
+  margin: 100px auto;
+  animation-name: modalbox;
+  animation-duration: .3s;
+  animation-timing-function: ease-out;
+}
+
+.modal-header {
+  height: 50px;
+  padding: 0px 20px 40px 20px;
+  background: #546E7A;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.modal-body {
+  background: #ECEFF1;
+  padding: 30px;
+}
+
+/* Close Button */
+.close-modal {
+  text-align: right;
+  cursor: pointer;
+}
+.btn-modal {
+  text-align: right;
+  cursor: pointer;
+}
+/* Animation */
+/* @-webkit-keyframes modalbox {
+  0% {
+    top: -250px; 
+    opacity: 0;
+  }
+  100% {
+    top: 0; 
+    opacity: 1;
+  }
+}
+
+@keyframes modalbox {
+  0% {
+    top: -250px; 
+    opacity: 0;
+  }
+  100% {
+    top: 0; 
+    opacity: 1;
+  }
+} */
+
+
+.modal-trigger, button.close-modal, .btn-modal {
+  padding: 10px 20px;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  text-decoration: none;
+}
+
+.modal-trigger {
+  background: #B0BEC5;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  transition: ease .2s;
+  /* margin-left: 100px; */
+}
+
+button.close-modal, .btn-modal {
+  border: 1px solid rgba(51, 51, 51, 0.53);
+  outline: none;
+  color: #333333;
+}
+
+.modal-trigger:hover {
+  padding: 20px 60px;
 }
