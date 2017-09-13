@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -27,7 +28,8 @@
 						<span class="title">[ ${b.bepumiID} 님과의 매칭 ] - ${b.title}</span> 
 						<div class="reg-date date-wrapper">
 							<span>배품 날짜 ${b.bepumDate}</span>
-							<span>작성일 ${b.regDate}</span>
+							<span><fmt:formatDate value="${b.regDate}" pattern="YY-MM-dd HH:MM"
+												var="regDate" />작성일 ${regDate}</span>
 						</div>
 					</div>
 					<div class="wch-info clearfix">

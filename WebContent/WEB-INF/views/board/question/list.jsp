@@ -45,12 +45,12 @@
 										integerOnly="true" var="regDateNum" />
 									<div class="cell reg-date">
 										<c:if test="${((today - regDateNum)/(1000*60*60*24)) < 1}">
-											<fmt:formatDate value="${n.regDate}" pattern="hh:mm"
+											<fmt:formatDate value="${n.regDate}" pattern="HH:MM"
 												var="regDate" />
 														${regDate}
 													</c:if>
 										<c:if test="${((today - regDateNum)/(1000*60*60*24)) >= 1}">
-											<fmt:formatDate value="${n.regDate}" pattern="YY-MM-dd"
+											<fmt:formatDate value="${n.regDate}" pattern="YY.MM.dd"
 												var="regDate" />
 														${regDate}
 													</c:if></div>

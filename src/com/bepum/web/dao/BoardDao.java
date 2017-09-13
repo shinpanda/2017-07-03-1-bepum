@@ -13,7 +13,7 @@ public interface BoardDao {
 
 	int update(String no, String title, String content, String tName);
 
-	int insert(String title, String content, String tName);
+	int insert(String title, String content, String id, String tName);
 
 	int getCount();
 

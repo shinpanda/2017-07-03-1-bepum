@@ -20,9 +20,9 @@
 			<main id="main" class="main">
 			<div class="reg-container">
 				<form action="" method="post" name="reg-form" class="reg-form">
-				<input type="text" name="title" value="${b.title}"/>
-				<textarea rows="25" cols="65" name="content">${b.content}</textarea>
-				<div class="sec-container">
+					<input type="text" name="title" value="${b.title}" />
+					<textarea rows="25" cols="65" name="content">${b.content}</textarea>
+					<div class="sec-container">
 						<div class="sec-btn-container">
 							<label class="sec-header">비밀글 설정</label> <input type="radio"
 								name="sec-btn" value="open" id="op-btn"> <label
@@ -34,7 +34,7 @@
 								name="sec-key" />
 						</div>
 					</div>
-				<div class="reg-btn-container">
+					<div class="reg-btn-container">
 						<input type="hidden" name="no" value="${b.no}" /> 
 						<input type="submit" class="btn reg-btn" value="등록" />
 						<button type="button" onclick="history.back()"

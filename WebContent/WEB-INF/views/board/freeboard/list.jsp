@@ -44,16 +44,16 @@
 									<jsp:useBean id="now" class="java.util.Date"></jsp:useBean>
 									<fmt:parseNumber value="${now.time}" integerOnly="true"
 										var="today" />
-									<fmt:parseNumber value="${notice.regDate.time}"
-										integerOnly="true" var="regDateNum" />
+									<fmt:parseNumber value="${notice.regDate.time}" integerOnly="true"
+										var="regDateNum" />
 									<div class="cell reg-date">
 										<c:if test="${((today - regDateNum)/(1000*60*60*24)) < 1}">
-											<fmt:formatDate value="${notice.regDate}" pattern="hh:mm"
+											<fmt:formatDate value="${notice.regDate}" pattern="HH:MM"
 												var="regDate" />
 														${regDate}
 													</c:if>
 										<c:if test="${((today - regDateNum)/(1000*60*60*24)) >= 1}">
-											<fmt:formatDate value="${notice.regDate}" pattern="YY-MM-dd"
+											<fmt:formatDate value="${notice.regDate}" pattern="YY.MM.dd"
 												var="regDate" />
 														${regDate}
 													</c:if>
@@ -70,22 +70,22 @@
 										(${n.countCmt})</a>
 								</div>
 								<div class="cell writer-id">${n.writerId}</div>
-								<fmt:parseNumber value="${now.time}" integerOnly="true"
-									var="today" />
-								<fmt:parseNumber value="${n.regDate.time}" integerOnly="true"
-									var="regDateNum" />
-								<div class="cell reg-date">
-									<c:if test="${((today - regDateNum)/(1000*60*60*24)) < 1}">
-										<fmt:formatDate value="${n.regDate}" pattern="hh:mm"
-											var="regDate" />
+									<fmt:parseNumber value="${now.time}" integerOnly="true"
+										var="today" />
+									<fmt:parseNumber value="${n.regDate.time}" integerOnly="true"
+										var="regDateNum" />
+									<div class="cell reg-date">
+										<c:if test="${((today - regDateNum)/(1000*60*60*24)) < 1}">
+											<fmt:formatDate value="${n.regDate}" pattern="HH:MM"
+												var="regDate" />
 														${regDate}
 													</c:if>
-									<c:if test="${((today - regDateNum)/(1000*60*60*24)) >= 1}">
-										<fmt:formatDate value="${n.regDate}" pattern="YY-MM-dd"
-											var="regDate" />
+										<c:if test="${((today - regDateNum)/(1000*60*60*24)) >= 1}">
+											<fmt:formatDate value="${n.regDate}" pattern="YY.MM.dd"
+												var="regDate" />
 														${regDate}
 													</c:if>
-								</div>
+									</div>
 								<div class="cell hit">${n.hit}</div>
 							</div>
 						</c:forEach>

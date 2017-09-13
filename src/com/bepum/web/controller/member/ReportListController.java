@@ -22,8 +22,8 @@ import com.bepum.web.dao.jdbc.JdbcSecretBoardDao;
 import com.bepum.web.entity.Board;
 
 
-@WebServlet("/board/question")
-public class QuestionListController extends HttpServlet {
+@WebServlet("/board/report")
+public class ReportListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String _cName = request.getParameter("search-sel");
@@ -47,11 +47,11 @@ public class QuestionListController extends HttpServlet {
 		
 		SecretBoardDao dao = new JdbcSecretBoardDao();
 
-		request.setAttribute("list", dao.getList(page, cName, query, "FAQ"));
-		request.setAttribute("count", dao.getCount("FAQ"));
+		request.setAttribute("list", dao.getList(page, cName, query, "Report"));
+		request.setAttribute("count", dao.getCount("Report"));
 		
 		/*response.sendRedirect("notice.jsp");*/
-		request.getRequestDispatcher("/WEB-INF/views/board/question/list.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/board/report/list.jsp").forward(request, response);
 		
 	}
 }

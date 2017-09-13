@@ -12,6 +12,16 @@
 <!-- 신청자 매칭목록 (요청, 진행 중,  완료) -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var str = $(location).attr('search');	
+	var index = str.indexOf('=');
+	var res = str.substr(index+1);
+	$("a[href*='"+res+"']").siblings().children().removeClass('present');
+	$("a[href*='"+res+"']").children().addClass('present');
+});
+
+</script>
 </head>
 
 <body>
@@ -23,44 +33,57 @@
 
 			<div class="matching-progress-container">
 				<div class="matching-progress-wrapper">
+					<a href="./bepumi-list">
 					<div class="matching-progress step1-container">
 						<div class="step-wrapper">
 							<p class="step">매칭 신청</p>
 							<p>매칭 접수 단계</p>
 						</div>
 					</div>
+					</a>
+					<a href="?arr=1">
 					<div class="matching-progress step2-container">
 						<div class="step-wrapper">
 							<p class="step">승인 중</p>
 							<p>돌보미 승인 단계</p>
 						</div>
 					</div>
+					</a>
+					<a href="?arr=2">
 					<div class="matching-progress step3-container">
 						<div class="step-wrapper">
-							<p class="step">결제 확인</p>
-							<p>결제 확인 단계</p>
+							<p class="step">결제 대기</p>
+							<p>결제 대기 단계</p>
 						</div>
 					</div>
+					</a>
+					<a href="?arr=3">
 					<div class="matching-progress step4-container">
 						<div class="step-wrapper">
 							<p class="step">매칭 진행</p>
 							<p>승인 후 매칭 진행단계</p>
 						</div>
 					</div>
+					</a>
+					<a href="?arr=4">
 					<div class="matching-progress step5-container">
-						<div class="step-wrapper">
-							<p class="step">매칭 완료</p>
-							<p>매칭 완료 단계</p>
+							<div class="step-wrapper">
+								<p class="step">매칭 완료</p>
+								<p>매칭 완료 단계</p>
+							</div>
 						</div>
-					</div>
+					</a>
 				</div>
 			</div>
-			<script>
+			<!-- <script>
+			
+				
+				/* 
 				$(".matching-progress").click(function(){
 					$(this).siblings().removeClass("present");
 					$(this).addClass("present");
-				});
-			</script>
+				}); */
+			</script> -->
 			
 			
 			<div class="table-container">

@@ -22,7 +22,7 @@
 		<div class="bg-profile-header">
 			<div class="content-container">
 				<div class="btn-header">
-					<a href="request?bepum-id=${profile.id}" name="request-btn" value="" class="agree-btn-container">매칭 신청하기</a>
+					<a href="request?bepum-id=${profile.id}" name="request-btn" value="" class="agree-btn-container">신청하기</a>
 				</div>
 				<div class="bepum-definite-wrapper">
 					<p>

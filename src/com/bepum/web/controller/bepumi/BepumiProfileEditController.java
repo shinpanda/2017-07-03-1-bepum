@@ -22,6 +22,7 @@ public class BepumiProfileEditController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
@@ -42,7 +43,7 @@ public class BepumiProfileEditController extends HttpServlet {
 
 				request.setCharacterEncoding("UTF-8");
 
-				String saveDirectory = request.getSession().getServletContext().getRealPath("/upload/profilePic");
+				String saveDirectory = request.getServletContext().getRealPath("/upload/profilePic");
 				System.out.println(saveDirectory);
 				int maxPostSize = 1024 * 1024 * 5;// 5MB
 				MultipartRequest multi = new MultipartRequest(request, saveDirectory, maxPostSize, "UTF-8",

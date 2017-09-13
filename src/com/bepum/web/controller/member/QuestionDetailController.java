@@ -30,7 +30,7 @@ public class QuestionDetailController extends HttpServlet {
 		String no = request.getParameter("no");
 		String _privateKey = request.getParameter("secretKey");
 		System.out.println(_privateKey);
-		if (_privateKey == null && _privateKey == "")
+		if (_privateKey == null || _privateKey.equals(""))
 			response.sendRedirect("question");
 		else {
 			SecretBoardDao dao = new JdbcSecretBoardDao();

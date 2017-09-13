@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -24,7 +25,8 @@
 			<div class="detail-container">
 				<div class="info-container">
 					<div class="tr-info clearfix">
-						<span class="title">${b.title}</span> <span class="reg-date">${b.regDate}</span>
+						<span class="title">${b.title}</span> <span class="reg-date"><fmt:formatDate value="${b.regDate}" pattern="YY-MM-dd HH:MM"
+												var="regDate" />${regDate}</span></span>
 					</div>
 					<div class="wch-info clearfix">
 						<span class="writer">${b.writerId}</span>
@@ -38,8 +40,10 @@
 					<div>
 						<a href="free" class="btn">목록</a>
 						<div class="ed-wrapper">
+							<c:if test="${sessionScope.id.equals(b.writerId)}">
 							<a href="free-edit?no=${b.no}" class="btn">수정</a> <a
 								href="free-del?no=${b.no}" class="btn">삭제</a>
+							</c:if>
 						</div>
 					</div>
 				</div>

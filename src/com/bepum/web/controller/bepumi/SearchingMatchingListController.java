@@ -34,7 +34,7 @@ public class SearchingMatchingListController extends HttpServlet {
 		Object _id = session.getAttribute("id");
 		String id = _id.toString();
 		
-		String _query = request.getParameter("search");  //얘 "매칭완료" 아니고 "search"인 이유가 궁금하다
+		String _query = request.getParameter("arr");  //얘 "매칭완료" 아니고 "search"인 이유가 궁금하다
 		
 		String _page = request.getParameter("p");
 
@@ -45,8 +45,19 @@ public class SearchingMatchingListController extends HttpServlet {
 		String query = "";
 		if (_query != null && !(_query.equals("")))
 			query = _query;
-		
-		
+		/*
+		 * 베푸미 찾기 - 매칭 내역 
+		 * 매칭 신청 
+		 * 승인 중 -> 신청 대기, 매칭 실패 1
+		 * 결제 확인 -> 결제 대기, 결제 실패  2
+		 *  매칭 진행 -> 결제 완료 3
+		 *  매칭 완료 4
+		 */
+		if (query.equals("3"))
+			query = "결제완료";
+		if (query.equals("4"))
+			query = "매칭완료";
+
 		SearchingMatchingDao dao = new JdbcSearchingMatchingDao();
 		request.setAttribute("list", dao.getList(id, page, query));
 		request.setAttribute("count", dao.getCount(id));

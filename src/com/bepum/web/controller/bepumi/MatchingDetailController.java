@@ -27,12 +27,17 @@ public class MatchingDetailController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
-
+		
+		String no = request.getParameter("no");
+		String btn = request.getParameter("ok-btn");
+		
 		Object _id = session.getAttribute("id");
+		
 
 		if (_id == null)
 			out.write("<script> alert('로그인이 필요한 요청입니다.'); history.back(); </script>");
@@ -45,10 +50,13 @@ public class MatchingDetailController extends HttpServlet {
 				out.write("<script> alert('잘못된 요청입니다.'); history.back(); </script>");
 			else {
 				BepumiMatchingDao dao = new JdbcBepumiMatchingDao();
-				request.setAttribute("list", dao.get(id, "1"));
-
-				/* response.sendRedirect("notice.jsp"); */
-				request.getRequestDispatcher("/WEB-INF/views/bepumi/matching/detail.jsp").forward(request, response);
+				int result = 0;
+				if(btn.equals("승인"))
+					result = dao.updateStatus(no, "결제대기");
+				else
+					result = dao.updateStatus(no, "매칭실패");
+				
+				response.sendRedirect(request.getHeader("Referer"));
 			}
 		}
 	}
@@ -62,6 +70,13 @@ public class MatchingDetailController extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		Object _id = session.getAttribute("id");
+		
+		String _no = request.getParameter("no");
+		
+		String no = "";
+		if(_no != null && !_no.equals(""))
+			no = _no;
+		
 
 		if (_id == null)
 			out.write("<script> alert('로그인이 필요한 요청입니다.'); history.back(); </script>");
@@ -74,7 +89,7 @@ public class MatchingDetailController extends HttpServlet {
 				out.write("<script> alert('잘못된 요청입니다.'); history.back(); </script>");
 			else {
 				BepumiMatchingDao dao = new JdbcBepumiMatchingDao();
-				request.setAttribute("list", dao.get(id, "1"));
+				request.setAttribute("profile", dao.get(no));
 
 				/* response.sendRedirect("notice.jsp"); */
 				request.getRequestDispatcher("/WEB-INF/views/bepumi/matching/detail.jsp").forward(request, response);

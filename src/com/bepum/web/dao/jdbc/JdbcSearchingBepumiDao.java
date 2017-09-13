@@ -23,6 +23,7 @@ public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
 		List<SearchingBepumiView> list = null;
 		int offset = (page - 1) * 9; // 0,10,20,30, .. . .
 		String sql = "";
+
 		System.out.println(babyAge);
 		System.out.println(sessionId);
 		if (!sessionId.equals("")) {
@@ -37,6 +38,13 @@ public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
 				sql = "select * from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?)  and replace(address, ' ', '') like ? and startTime <= ? and endTime >= ?  order by regDate desc limit ?,9";
 		}
 		System.out.println(sql);
+
+		if (startTime.equals(""))
+			sql = "select * from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) and replace(address, ' ', '') like ? order by regDate desc limit ?,9";
+		else
+			sql = "select * from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) and  startTime <= ? and endTime >= ? and replace(address, ' ', '') like ? order by regDate desc limit ?,9";
+
+
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
 		// Jdbc 드라이버 로드
@@ -100,7 +108,7 @@ public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
 				n.setStrTime(rs.getString("startTime"));
 				n.setEndTime(rs.getString("endTime"));
 				n.setBepumDay(rs.getString("bepumDay"));
-				n.setRegDate(rs.getDate("regDate"));
+				n.setRegDate(rs.getTimestamp("regDate"));
 				n.setIntro(rs.getString("intro"));
 				n.setEtc(rs.getString("etc"));
 				n.setPay(rs.getString("pay"));

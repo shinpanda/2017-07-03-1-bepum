@@ -42,7 +42,7 @@ public class BepumiProfileRegController extends HttpServlet {
 			else {
 				request.setCharacterEncoding("UTF-8");
 
-				String saveDirectory = request.getSession().getServletContext().getRealPath("/upload/profilePic");
+				String saveDirectory = request.getServletContext().getRealPath("/upload/profilePic");
 				System.out.println(saveDirectory);
 				int maxPostSize = 1024 * 1024 * 5;// 5MB
 				MultipartRequest multi = new MultipartRequest(request, saveDirectory, maxPostSize, "UTF-8",
