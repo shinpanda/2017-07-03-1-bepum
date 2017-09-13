@@ -1,6 +1,7 @@
 package com.bepum.web.controller.member;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -26,19 +27,30 @@ public class QuestionRegController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-
+		
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		String _isPrivate = request.getParameter("sec-btn");
 		int isPrivate = 0;
-		String privateKey = null;
+		String privateKey = "";
+		
 		if (_isPrivate != null && !_isPrivate.equals("")) {
 			if (_isPrivate.equals("sec")) {
 				isPrivate = 1;
-				privateKey = request.getParameter("sec-key");
+				String _privateKey = request.getParameter("sec-key");
+				if(_privateKey==null && _privateKey.equals(""))
+					privateKey = _privateKey;
+				else {
+					response.setCharacterEncoding("UTF-8");
+					response.setContentType("text/html; charset=UTF-8");
+					PrintWriter out = response.getWriter();
+					out.write("<script> alert('비밀번호를 설정해주세요.'); history.back(); </script>");
+					//여기가 안먹힘...
+					//System.out.println() 이건 됨.. 스크립트를 실행하는게 안되는데.. 흠... 뷰단에서 체크해줘야하나..
+				}
 			}
 		}
-
+		
 		SecretBoardDao dao = new JdbcSecretBoardDao();
 		int result = dao.insert(title, content, isPrivate, privateKey, "FAQ");
 

@@ -49,7 +49,7 @@ public class JdbcBoardDao implements BoardDao {
 				b.setTitle(rs.getString("title"));
 				b.setContent(rs.getString("content"));
 				b.setWriterId(rs.getString("writerID"));
-				b.setRegDate(rs.getDate("regDate"));
+				b.setRegDate(rs.getTimestamp("regDate"));
 				b.setHit(rs.getInt("hit"));
 				b.setCountCmt(rs.getInt("countCmt"));
 				list.add(b);
@@ -205,7 +205,7 @@ public class JdbcBoardDao implements BoardDao {
 				b.setTitle(rs.getString("title"));
 				b.setContent(rs.getString("content"));
 				b.setWriterId(rs.getString("writerID"));
-				b.setRegDate(rs.getDate("regDate"));
+				b.setRegDate(rs.getTimestamp("regDate"));
 				b.setHit(rs.getInt("hit"));
 				b.setCountCmt(rs.getInt("countCmt"));
 			}

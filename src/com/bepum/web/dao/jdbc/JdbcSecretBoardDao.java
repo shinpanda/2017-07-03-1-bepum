@@ -51,7 +51,7 @@ public class JdbcSecretBoardDao implements SecretBoardDao {
 				b.setTitle(rs.getString("title"));
 				b.setContent(rs.getString("content"));
 				b.setWriterId(rs.getString("writerID"));
-				b.setRegDate(rs.getDate("regDate"));
+				b.setRegDate(rs.getTimestamp("regDate"));
 				b.setHit(rs.getInt("hit"));
 				b.setCountCmt(rs.getInt("countCmt"));
 				list.add(b);
@@ -213,7 +213,7 @@ public class JdbcSecretBoardDao implements SecretBoardDao {
 				b.setTitle(rs.getString("title"));
 				b.setContent(rs.getString("content"));
 				b.setWriterId(rs.getString("writerID"));
-				b.setRegDate(rs.getDate("regDate"));
+				b.setRegDate(rs.getTimestamp("regDate"));
 				b.setHit(rs.getInt("hit"));
 				b.setIsPrivate(rs.getInt("isPrivate"));
 				b.setPrivateKey(rs.getString("privateKey"));

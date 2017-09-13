@@ -22,15 +22,30 @@ public class JdbcSearchingMatchingDao implements SearchingMatchingDao {
 		// JDBC 드라이버 로드
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String sql = "select * from SearchingMatchingView where requestID = ? and status like ? order by reqDate desc limit ?, 15";
-
+			String sql = "";
+			if(query.equals("") || query.equals("결제완료") || query.equals("매칭완료"))
+				sql = "select * from SearchingMatchingView where requestID = ? and status like ? order by reqDate desc limit ?, 15";
+			else
+				sql = "select * from SearchingMatchingView where requestID = ? and (status like ? or status like ?) order by reqDate desc limit ?, 15";
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
 
 			st.setString(1, id);
-			st.setString(2, String.format("%%%s%%", query));
-			st.setInt(3, offset);
+			if(query.equals("") || query.equals("결제완료") || query.equals("매칭완료")) {
+				st.setString(2, String.format("%%%s%%", query));
+				st.setInt(3, offset);
+			}
+			else if(query.equals("1")){
+				st.setString(2, String.format("%%%s%%", "신청대기"));
+				st.setString(3, String.format("%%%s%%", "매칭실패"));
+				st.setInt(4, offset);
+			}
+			else if(query.equals("2")){
+				st.setString(2, String.format("%%%s%%", "결제대기"));
+				st.setString(3, String.format("%%%s%%", "결제실패"));
+				st.setInt(4, offset);
+			}
 			/* st.setString(1, "%"+title+"%"); */
 
 			// 결과 가져오기

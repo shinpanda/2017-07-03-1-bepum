@@ -28,6 +28,7 @@ public class MatchingDetailController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
@@ -51,12 +52,11 @@ public class MatchingDetailController extends HttpServlet {
 				BepumiMatchingDao dao = new JdbcBepumiMatchingDao();
 				int result = 0;
 				if(btn.equals("승인"))
-					result = dao.update(no, "결제대기");
+					result = dao.updateStatus(no, "결제대기");
 				else
-					result = dao.update(no, "매칭실패");
+					result = dao.updateStatus(no, "매칭실패");
 				
-				/* response.sendRedirect("notice.jsp"); */
-				request.getRequestDispatcher(request.getHeader("Referer")).forward(request, response);
+				response.sendRedirect(request.getHeader("Referer"));
 			}
 		}
 	}

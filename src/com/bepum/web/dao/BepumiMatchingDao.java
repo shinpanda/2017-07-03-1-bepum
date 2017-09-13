@@ -12,6 +12,6 @@ public interface BepumiMatchingDao {
 	
 	int getCount(String id);
 
-	int update(String no, String query);
+	int updateStatus(String no, String query);
 
 }

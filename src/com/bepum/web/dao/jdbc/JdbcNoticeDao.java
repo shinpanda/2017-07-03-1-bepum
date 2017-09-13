@@ -50,7 +50,7 @@ public class JdbcNoticeDao implements NoticeDao {
 				b.setTitle(rs.getString("title"));
 				b.setContent(rs.getString("content"));
 				b.setWriterId(rs.getString("adminID"));
-				b.setRegDate(rs.getDate("regDate"));
+				b.setRegDate(rs.getTimestamp("regDate"));
 				b.setHit(rs.getInt("hit"));
 				list.add(b);
 			}
@@ -205,7 +205,7 @@ public class JdbcNoticeDao implements NoticeDao {
 				b.setTitle(rs.getString("title"));
 				b.setContent(rs.getString("content"));
 				b.setWriterId(rs.getString("adminID"));
-				b.setRegDate(rs.getDate("regDate"));
+				b.setRegDate(rs.getTimestamp("regDate"));
 				b.setHit(rs.getInt("hit"));
 			}
 
