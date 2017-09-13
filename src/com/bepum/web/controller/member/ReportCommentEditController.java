@@ -24,8 +24,8 @@ import com.bepum.web.dao.jdbc.JdbcMemberRoleDao;
 import com.bepum.web.entity.Board;
 import com.bepum.web.entity.BoardComment;
 
-@WebServlet("/board/free-cmt-edit")
-public class FreeCommentEditController extends HttpServlet {
+@WebServlet("/board/report-cmt-edit")
+public class ReportCommentEditController extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -39,12 +39,12 @@ public class FreeCommentEditController extends HttpServlet {
 		String content = request.getParameter("content");
 		
 		BoardCmtDao dao = new JdbcBoardCmtDao();
-		int result = dao.update(no, content, "Free");
+		int result = dao.update(no, content, "Report");
 		Object _return = request.getSession().getAttribute("returnURI");
 		if(_return != null)
 			response.sendRedirect(_return.toString());
 		else
-			response.sendRedirect("Free");
+			response.sendRedirect("report");
 	}
 
 	@Override
@@ -64,15 +64,14 @@ public class FreeCommentEditController extends HttpServlet {
 			String no = request.getParameter("no");
 	
 			BoardCmtDao dao = new JdbcBoardCmtDao();
-			BoardComment b = dao.get(no, "Free");
+			BoardComment b = dao.get(no, "Report");
 			if(id.equals(b.getWriterId())) {	
 				request.setAttribute("b", b);
 				/* response.sendRedirect("notice.jsp"); */
-				request.getRequestDispatcher("/WEB-INF/views/board/freeboard/cmt-edit.jsp").forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/views/board/report/cmt-edit.jsp").forward(request, response);
 			}else {
 				out.write("<script> alert('잘못된 접근입니다.'); history.back(); </script>");
 			}
 		}
-
 	}
 }

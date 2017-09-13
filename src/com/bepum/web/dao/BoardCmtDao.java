@@ -14,6 +14,6 @@ public interface BoardCmtDao {
 
 	int update(String no, String content, String tName);
 
-	Object get(String no, String tName);
+	BoardComment get(String no, String tName);
 
 }
