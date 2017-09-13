@@ -230,11 +230,11 @@
 	}	
 		
 .cmt-reg {
-    display: inline-flex;
+    display: flex;
 }
 	.cmt-reg textarea {
 	    resize: none;
-	    width: 920px;
+	    width: 90%;
 	    height: 60px;
 	    border-radius: 6px;
 	    overflow: auto;
