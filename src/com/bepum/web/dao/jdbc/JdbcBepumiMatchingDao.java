@@ -27,8 +27,8 @@ public class JdbcBepumiMatchingDao implements BepumiMatchingDao {
 			Class.forName("com.mysql.jdbc.Driver");
 			// BepumiMatchingView는 목록에서만 작동... 뷰단에서 select 하는 거는 다른 객체를 만드는 것이 맞을 듯 아기가 2이상일
 			// 수도 있으니까..
-			String sql="";
-			if(query.equals("")&&!query.equals("과거매칭")&&!query.equals("매칭진행"))
+			String sql = "";
+			if ((query.equals("") && !query.equals("과거매칭") && !query.equals("매칭진행")) || query.equals("신청대기"))
 				sql = "select * from BepumiMatchingView where bepumiID = ? and status like ? order by reqDate desc limit ?, 15";
 			else
 				sql = "select * from BepumiMatchingView where bepumiID = ? and (status like ? or status like ?) order by reqDate desc limit ?, 15";
@@ -37,21 +37,19 @@ public class JdbcBepumiMatchingDao implements BepumiMatchingDao {
 			PreparedStatement st = con.prepareStatement(sql);
 
 			st.setString(1, id);
-			
-				if(query.equals("")&&!query.equals("과거매칭")&&!query.equals("매칭진행")) {
-					st.setString(2, String.format("%%%s%%", query));
-					st.setInt(3, offset);
-				}
-				else if(query.equals("과거매칭")){
-					st.setString(2, String.format("%%%s%%", "매칭완료"));
-					st.setString(3, String.format("%%%s%%", "매칭실패"));
-					st.setInt(4, offset);
-				}
-				else if(query.equals("매칭진행")){
-					st.setString(2, String.format("%%%s%%", "결제대기"));
-					st.setString(3, String.format("%%%s%%", "결제완료"));
-					st.setInt(4, offset);
-				}
+
+			if ((query.equals("") && !query.equals("과거매칭") && !query.equals("매칭진행") ) || query.equals("신청대기")) {
+				st.setString(2, String.format("%%%s%%", query));
+				st.setInt(3, offset);
+			} else if (query.equals("과거매칭")) {
+				st.setString(2, String.format("%%%s%%", "매칭완료"));
+				st.setString(3, String.format("%%%s%%", "매칭실패"));
+				st.setInt(4, offset);
+			} else if (query.equals("매칭진행")) {
+				st.setString(2, String.format("%%%s%%", "결제대기"));
+				st.setString(3, String.format("%%%s%%", "결제완료"));
+				st.setInt(4, offset);
+			}
 			/* st.setString(1, "%"+title+"%"); */
 
 			// 결과 가져오기
@@ -166,9 +164,10 @@ public class JdbcBepumiMatchingDao implements BepumiMatchingDao {
 				m.setBabyName(rs.getString("babyName"));
 				m.setBabyAge(rs.getInt("babyAge"));
 				m.setBabyGender(rs.getInt("babyGender"));
-/*				m.setBabyAge(rs.getInt("babyAge"));
-				m.setBabyName(rs.getString("babyName"));
-				m.setBabyGender(rs.getInt("babyGender"));*/
+				/*
+				 * m.setBabyAge(rs.getInt("babyAge")); m.setBabyName(rs.getString("babyName"));
+				 * m.setBabyGender(rs.getInt("babyGender"));
+				 */
 			}
 			rs.close();
 			st.close();
@@ -205,7 +204,7 @@ public class JdbcBepumiMatchingDao implements BepumiMatchingDao {
 			// 업데이트된 row 개수 알려줌
 
 			st.close();
-			
+
 			sql = "update Matching set acceptDate = sysdate() where no = ?";
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st2 = con.prepareStatement(sql);
