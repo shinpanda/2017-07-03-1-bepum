@@ -37,9 +37,6 @@ public class ProfileController extends HttpServlet {
 		request.setAttribute("uri", uri);*/
 	}
 	
-		
-		
-	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -58,7 +55,7 @@ public class ProfileController extends HttpServlet {
 		String birthYear = request.getParameter("birth-year");
 		String birthMonth = request.getParameter("birth-month");
 		String birthDay = request.getParameter("birth-day");
-		String birth = birthYear+birthMonth+birthDay;
+		String birth = birthYear+"-"+birthMonth+"-"+birthDay;
 		String email = request.getParameter("email");
 		
 		MemberDao memberDao = new JdbcMemberDao();

@@ -21,7 +21,14 @@ public class SearchingMatchingListDetailController extends HttpServlet{
 		String no = request.getParameter("no");
 		
 		SearchingMatchingDao dao = new JdbcSearchingMatchingDao();
-		request.setAttribute("profile", dao.get(no));
+		String status = dao.get(no).getStatus();
+		
+		if(!status.equals("신청대기")&&!status.equals("매칭실패"))
+			request.setAttribute("profile", dao.get(no));
+		else {
+			JdbcBepumiMatchingDao requestDao = new JdbcBepumiMatchingDao();
+			request.setAttribute("profile", requestDao.get(no));
+		}
 		
 		//매칭상태에 따라 다른 화면 반환하기
 		

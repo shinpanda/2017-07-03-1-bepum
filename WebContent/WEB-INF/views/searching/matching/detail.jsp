@@ -21,8 +21,10 @@
 		<div class="content-container">
 			<main id="main" class="main">
 				<jsp:include page = "detail-top.jsp" />
-				
-				<c:if test="${profile.status.equals('결제대기') || status.equals('결제완료')}">
+				<c:if test="${profile.status.equals('신청대기') || profile.status.equals('매칭실패')}">
+					<jsp:include page = "detail-bottom-first.jsp" />
+				</c:if>
+				<c:if test="${profile.status.equals('결제대기') || profile.status.equals('결제완료')}">
 					<jsp:include page = "detail-bottom-pay.jsp" />
 				</c:if>
 				<c:if test="${profile.status.equals('매칭완료')}">
