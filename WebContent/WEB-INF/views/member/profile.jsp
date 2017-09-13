@@ -113,6 +113,10 @@ window.onload = function(){
 							<c:if test="${member.grade == 2}">
 								<c:set var="grade" value="슈퍼베푸미" />
 							</c:if>
+							<c:if test="${member.grade == 999}">
+								<c:set var="grade" value="관리자" />
+							</c:if>
+							
 						<label class="content-box dc-name mem-fixed">${grade}</label>
 					</div>
 					</div>
