@@ -97,7 +97,7 @@
 					</div>
 				</div>
 				<div class="btn reg-btn">
-					<a href="./question-reg">쓰기</a>
+					<a href="./report-reg">쓰기</a>
 				</div>
 			</div>
 			</div>

@@ -14,7 +14,7 @@ public interface SecretBoardDao {
 
 	int update(String no, String title, String content, int isPrivate, String privateKey, String tName);
 
-	int insert(String title, String content, int isPrivate, String privateKey, String tName);
+	int insert(String id, String title, String content, int isPrivate, String privateKey, String tName);
 
 	int getCount(String string);
 

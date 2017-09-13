@@ -145,7 +145,7 @@ public class JdbcSecretBoardDao implements SecretBoardDao {
 	}
 
 	@Override
-	public int insert(String title, String content, int isPrivate, String privateKey, String tName) {
+	public int insert(String id, String title, String content, int isPrivate, String privateKey, String tName) {
 		int result = 0;
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
@@ -161,7 +161,7 @@ public class JdbcSecretBoardDao implements SecretBoardDao {
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, title);
 			st.setString(2, content);
-			st.setString(3, "testpumi");
+			st.setString(3, id);
 			st.setInt(4, isPrivate);
 			st.setString(5, privateKey);
 

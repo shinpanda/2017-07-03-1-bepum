@@ -21,8 +21,8 @@ import com.bepum.web.dao.jdbc.JdbcBoardDao;
 import com.bepum.web.dao.jdbc.JdbcSecretBoardDao;
 import com.bepum.web.entity.Board;
 
-@WebServlet("/board/question-reg")
-public class QuestionRegController extends HttpServlet {
+@WebServlet("/board/report-reg")
+public class ReportRegController extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -61,9 +61,9 @@ public class QuestionRegController extends HttpServlet {
 			}
 
 			SecretBoardDao dao = new JdbcSecretBoardDao();
-			int result = dao.insert(id, title, content, isPrivate, privateKey, "FAQ");
+			int result = dao.insert(id, title, content, isPrivate, privateKey, "Report");
 
-			response.sendRedirect("question");
+			response.sendRedirect("report");
 		}
 	}
 
@@ -81,7 +81,7 @@ public class QuestionRegController extends HttpServlet {
 			out.write("<script> alert('로그인이 필요한 요청입니다.'); history.back(); </script>");
 		else {
 			/* response.sendRedirect("notice.jsp"); */
-			request.getRequestDispatcher("/WEB-INF/views/board/question/reg.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/board/report/reg.jsp").forward(request, response);
 		}
 
 	}
