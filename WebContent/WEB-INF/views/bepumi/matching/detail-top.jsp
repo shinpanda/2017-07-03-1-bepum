@@ -34,10 +34,12 @@
 				<div class="cell th">이름</div>
 				<div class="cell td">${profile.name}</div>
 			</div>
+			<c:if test="${!profile.status.equals('신청대기') && !status.equals('신청실패')}">
 			<div class="row">
 				<div class="cell th">연락처</div>
 				<div class="cell td">${profile.phoneNum}</div>
 			</div>
+			</c:if>
 			<div class="row">
 				<div class="cell th">거주지</div>
 				<div class="cell td">${profile.address}</div>
