@@ -27,13 +27,10 @@ public class LoginController extends HttpServlet {
 		
 		String id =request.getParameter("id");
 		String pwd = request.getParameter("pwd");
-		
 		MemberDao memberDao = new JdbcMemberDao();
 		
 		Member member = memberDao.get(id);
-		if(member == null) 
-			out.println("<script>alert('아이디 또는 비밀번호를 확인하세요');history.go(-1);</script>");
-		else if(!member.getPwd().equals(pwd))
+		if(member == null || member.getGrade() == 44444 || !member.getPwd().equals(pwd)) 
 			out.println("<script>alert('아이디 또는 비밀번호를 확인하세요');history.go(-1);</script>");
 		else {
 			request.getSession().setAttribute("id", id);
