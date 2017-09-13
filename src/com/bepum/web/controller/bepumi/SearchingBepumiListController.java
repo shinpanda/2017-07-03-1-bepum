@@ -92,6 +92,7 @@ public class SearchingBepumiListController extends HttpServlet {
 				bepumDay[3], bepumDay[4], bepumDay[5], bepumDay[6], address, startTime, endTime, sessionId));		
 				
 		request.setAttribute("address", address);
+
 		request.getRequestDispatcher("/WEB-INF/views/searching/bepumi/list.jsp").forward(request, response);
 
 	}

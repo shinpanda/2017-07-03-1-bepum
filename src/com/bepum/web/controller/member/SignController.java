@@ -95,7 +95,7 @@ public class SignController extends HttpServlet {
 		MemberDao memberDao = new JdbcMemberDao();
 		
 		Member member = new Member(id, name, pwd, Integer.parseInt(gender), birth, email, grade, new Date());
-		if(count == 6)
+		if(count >= 6)
 			result = memberDao.insert(member);
 		
 		if(result>0) {

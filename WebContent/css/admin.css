@@ -228,3 +228,41 @@
 .reg-cancel {
     margin-left: 10px;
 }
+
+
+/*테이블부분*/
+.td {
+    border-left: 1px solid #a2a2a2;
+    text-align: left;
+    padding: 0px 10px;
+}
+.cell {
+    display: table-cell;
+        line-height: 28px;
+    font-size: 14px;
+}
+.row {
+    display: table-row;
+}
+
+.cell.th1{
+	width:300px;
+}
+
+
+/*request-list-detail 부분*/
+
+.profile-detail-table.request {
+	margin-top: 40px;
+	text-align: left;
+    width: auto;
+    display: inline-block;
+}
+
+.document-detail-table.request {
+    margin-top: 40px;
+    text-align: left;
+    width: auto;
+    display: inline-block;
+}
+
