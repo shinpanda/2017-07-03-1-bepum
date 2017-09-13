@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bepum.web.dao.BepumiRequestDao;
 import com.bepum.web.dao.jdbc.JdbcBepumiRequestDao;
@@ -94,7 +95,11 @@ public class CertificationSubmitController extends HttpServlet {
 		
 		BepumiRequestDao dao = new JdbcBepumiRequestDao();
 		
-		int result = dao.insert(applicationFormCopy,applicationForm,HCCopy,HC,FRCCopy,FRC,VCCopy,VC);
+		HttpSession session = request.getSession();
+		Object _id = session.getAttribute("id");
+		String reqID = _id.toString();
+		
+		int result = dao.insert(reqID, applicationFormCopy,applicationForm,HCCopy,HC,FRCCopy,FRC,VCCopy,VC);
 		
 		
 		response.sendRedirect("certification-complete");
