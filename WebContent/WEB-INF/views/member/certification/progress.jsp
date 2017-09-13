@@ -40,7 +40,7 @@
 				<div class="application-form-wrapper clearfix">
 						<div class="title-box dc-name">신청서</div>
 						<div class="progress">
-							<span>제출 전</span> <span>제출 완료</span> <span>심사 중</span> <span>심사
+							<span>제출 전</span> <span>제출 완료</span> <span>심사
 								완료</span>
 								<span class="progress-status">
 								<a href="#layer2" class="btn-recheck">재심사 필요</a>
@@ -51,7 +51,7 @@
 				<div class="family-rc-wrapper clearfix">
 					<div class="title-box dc-name">가족관계증명서</div>
 					<div class="progress">
-						<span>제출 전</span> <span>제출 완료</span> <span>심사 중</span> <span>심사완료</span>
+						<span>제출 전</span> <span>제출 완료</span> <span>심사완료</span>
 						<span class="progress-status">
 						<a href="#layer3" class="btn-recheck">재심사 필요</a>
 						</span>
@@ -64,7 +64,6 @@
 					<div class="progress">
 						<span>제출 전</span>
 						<span>제출 완료</span>
-						<span>심사 중</span> 
 						<span>심사완료</span>
 						<span class="progress-status">
 						<a href="#layer4" class="btn-recheck">재심사 필요</a>
@@ -78,7 +77,6 @@
 					<div class="progress">
 						<span>제출 전</span>
 						<span>제출 완료</span>
-						<span>심사 중</span>
 						<span>심사완료</span>
 						<span class="progress-status">
 						<a href="#layer5" class="btn-recheck">재심사 필요</a>

@@ -12,4 +12,6 @@ public interface BepumiRequestDao {
 	List<BepumiRequest> getList(int page, String query, String cName);
 	
 	int getCount();
+
+	BepumiRequest get(String id);
 }
