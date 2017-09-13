@@ -27,17 +27,14 @@
 					<div id="child-age" class="flex optional child-age">
 						<div class="flex age-group">
 							<span class="input-title">아이나이</span> <label class="age-label">
-								<input name="ka" type="radio"  id="kid_age1"  value = "1" >
+								<input name="ka" type="radio" id="kid_age1" value="1">
 								<span class="inner-label">1~2세</span>
-							</label> <label class="age-label"> <input name="ka"
-								type="radio" id="kid_age2" value = "3" > <span
-								class="inner-label">3~4세</span>
-							</label> <label class="age-label"> <input name="ka"
-								type="radio" id="kid_age3" value = "5"  > <span
-								class="inner-label">5~6세</span>
-							</label> <label class="age-label"> <input name="ka"
-								type="radio" id="kid_age4" value = "7"  > <span
-								class="inner-label">7~8세</span>
+							</label> <label class="age-label"> <input name="ka" type="radio"
+								id="kid_age2" value="3"> <span class="inner-label">3~4세</span>
+							</label> <label class="age-label"> <input name="ka" type="radio"
+								id="kid_age3" value="5"> <span class="inner-label">5~6세</span>
+							</label> <label class="age-label"> <input name="ka" type="radio"
+								id="kid_age4" value="7"> <span class="inner-label">7~8세</span>
 							</label>
 						</div>
 					</div>
@@ -45,18 +42,16 @@
 
 						<div class="flex checkbox-group">
 							<span class="input-title">요일 </span> <input type="checkbox"
-								id="_01" name="d" value="Mon" > <label
-								for="_01"> 월 </label> <input type="checkbox" id="_02"
-								name="d" value="Tue" > <label for="_02">
-								화 </label> <input type="checkbox" id="_03" name="d" value="Wed"
-								> <label for="_03"> 수 </label> <input
-								type="checkbox" id="_04" name="d" value="Thu" >
+								id="_01" name="d" value="Mon"> <label for="_01">
+								월 </label> <input type="checkbox" id="_02" name="d" value="Tue">
+							<label for="_02"> 화 </label> <input type="checkbox" id="_03"
+								name="d" value="Wed"> <label for="_03">
+								수 </label> <input type="checkbox" id="_04" name="d" value="Thu">
 							<label for="_04"> 목 </label> <input type="checkbox" id="_05"
-								name="d" value="Fri" > <label for="_05">
-								금 </label> <input type="checkbox" id="_06" name="d" value="Sat"
-								> <label for="_06"> 토 </label> <input
-								type="checkbox" id="_07" name="d" value="Sun" >
-							<label for="_07"> 일 </label>
+								name="d" value="Fri"> <label for="_05"> 금 </label> <input
+								type="checkbox" id="_06" name="d" value="Sat">
+							<label for="_06"> 토 </label> <input type="checkbox" id="_07"
+								name="d" value="Sun"> <label for="_07"> 일 </label>
 						</div>
 					</div>
 				</div>
@@ -64,72 +59,72 @@
 
 			<div class="search-input flex">
 				<div class="flex optional">
-					<span class="input-title input-time">시작시간</span>
-					<select aria-label="시작시간" id="start_time" name="start_time" class="search-time" >
-											<option value="">시간선택</option>
-											<option value="00:00">00:00</option>
-											<option value="01:00">01:00</option>
-											<option value="02:00">02:00</option>
-											<option value="03:00">03:00</option>
-											<option value="04:00">04:00</option>
-											<option value="05:00">05:00</option>
-											<option value="06:00">06:00</option>
-											<option value="07:00">07:00</option>
-											<option value="08:00">08:00</option>
-											<option value="09:00">09:00</option>
-											<option value="10:00">10:00</option>
-											<option value="11:00">11:00</option>
-											<option value="12:00">12:00</option>
-											<option value="13:00">13:00</option>
-											<option value="14:00">14:00</option>
-											<option value="15:00">15:00</option>
-											<option value="16:00">16:00</option>
-											<option value="17:00">17:00</option>
-											<option value="18:00">18:00</option>
-											<option value="19:00">19:00</option>
-											<option value="20:00">20:00</option>
-											<option value="21:00">21:00</option>
-											<option value="22:00">22:00</option>
-											<option value="23:00">23:00</option>
-											<option value="24:00">24:00</option>
-											</select>
+					<span class="input-title input-time">시작시간</span> <select
+						aria-label="시작시간" id="start_time" name="s" class="search-time">
+						<option value="">시간선택</option>
+						<option value="00:00">00:00</option>
+						<option value="01:00">01:00</option>
+						<option value="02:00">02:00</option>
+						<option value="03:00">03:00</option>
+						<option value="04:00">04:00</option>
+						<option value="05:00">05:00</option>
+						<option value="06:00">06:00</option>
+						<option value="07:00">07:00</option>
+						<option value="08:00">08:00</option>
+						<option value="09:00">09:00</option>
+						<option value="10:00">10:00</option>
+						<option value="11:00">11:00</option>
+						<option value="12:00">12:00</option>
+						<option value="13:00">13:00</option>
+						<option value="14:00">14:00</option>
+						<option value="15:00">15:00</option>
+						<option value="16:00">16:00</option>
+						<option value="17:00">17:00</option>
+						<option value="18:00">18:00</option>
+						<option value="19:00">19:00</option>
+						<option value="20:00">20:00</option>
+						<option value="21:00">21:00</option>
+						<option value="22:00">22:00</option>
+						<option value="23:00">23:00</option>
+						<option value="24:00">24:00</option>
+					</select>
 				</div>
 				<div class="flex optional">
-					<span class="input-title input-time">끝나는시간 </span>
-					<select aria-label="끝나는시간" id="end_time" name="end_time" class="search-time">
-											<option value="">시간선택</option>
-											<option value="00:00">00:00</option>
-											<option value="01:00">01:00</option>
-											<option value="02:00">02:00</option>
-											<option value="03:00">03:00</option>
-											<option value="04:00">04:00</option>
-											<option value="05:00">05:00</option>
-											<option value="06:00">06:00</option>
-											<option value="07:00">07:00</option>
-											<option value="08:00">08:00</option>
-											<option value="09:00">09:00</option>
-											<option value="10:00">10:00</option>
-											<option value="11:00">11:00</option>
-											<option value="12:00">12:00</option>
-											<option value="13:00">13:00</option>
-											<option value="14:00">14:00</option>
-											<option value="15:00">15:00</option>
-											<option value="16:00">16:00</option>
-											<option value="17:00">17:00</option>
-											<option value="18:00">18:00</option>
-											<option value="19:00">19:00</option>
-											<option value="20:00">20:00</option>
-											<option value="21:00">21:00</option>
-											<option value="22:00">22:00</option>
-											<option value="23:00">23:00</option>
-											<option value="24:00">24:00</option>
-											</select>
+					<span class="input-title input-time">끝나는시간 </span> <select
+						aria-label="끝나는시간" id="end_time" name="e" class="search-time">
+						<option value="">시간선택</option>
+						<option value="00:00">00:00</option>
+						<option value="01:00">01:00</option>
+						<option value="02:00">02:00</option>
+						<option value="03:00">03:00</option>
+						<option value="04:00">04:00</option>
+						<option value="05:00">05:00</option>
+						<option value="06:00">06:00</option>
+						<option value="07:00">07:00</option>
+						<option value="08:00">08:00</option>
+						<option value="09:00">09:00</option>
+						<option value="10:00">10:00</option>
+						<option value="11:00">11:00</option>
+						<option value="12:00">12:00</option>
+						<option value="13:00">13:00</option>
+						<option value="14:00">14:00</option>
+						<option value="15:00">15:00</option>
+						<option value="16:00">16:00</option>
+						<option value="17:00">17:00</option>
+						<option value="18:00">18:00</option>
+						<option value="19:00">19:00</option>
+						<option value="20:00">20:00</option>
+						<option value="21:00">21:00</option>
+						<option value="22:00">22:00</option>
+						<option value="23:00">23:00</option>
+						<option value="24:00">24:00</option>
+					</select>
 				</div>
 			</div>
 
 			<div class="search-input flex">
 				<div class="flex optional">
-					<input type="submit" class="bttn col" value = "검색">
+					<input type="submit" class="bttn col" value="검색">
 				</div>
 			</div>
 		</form>
