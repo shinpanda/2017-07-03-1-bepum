@@ -26,7 +26,7 @@ public class ProfileController extends HttpServlet {
 		HttpSession session = request.getSession();
 		Object _id = session.getAttribute("id");
 		if (_id == null)
-			out.write("<script> alert('로그인이 필요한 요청입니다.'); location.href='../index'; </script>");
+			out.write("<script> alert('로그인이 필요한 요청입니다.'); history.go(-1); </script>");
 		else {
 			String id = _id.toString();
 			MemberDao memberDao = new JdbcMemberDao();
