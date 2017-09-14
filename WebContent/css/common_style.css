@@ -161,7 +161,7 @@ input[type="text"], textarea {
 
 
 /* Tablet & Desktop Device */
-@media all and (min-width:768px) and (max-width:1140px){
+/* @media all and (min-width:768px) and (max-width:1140px){
 	.content-container {
 	margin: auto;
 	width: 100%;
@@ -171,7 +171,7 @@ input[type="text"], textarea {
 	
 }
 
-/* Mobile Device 768px 미만의 해상도*/
+Mobile Device 768px 미만의 해상도
 @media all and (max-width:768px){
 	.content-container {
 	margin: auto;
@@ -184,7 +184,7 @@ input[type="text"], textarea {
 		padding-top:10px;
 	}
 	
-}
+} */
 /* dropdown css */
 
 
