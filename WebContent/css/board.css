@@ -143,6 +143,7 @@
 /* detail 부분 */
 .detail-container {
     text-align: left;
+    margin-bottom : 10px;
 }
 
 .tr-info {
@@ -191,6 +192,61 @@
 	.ed-wrapper{
 		float:right;
 		padding-right:5px;
+	}
+.cmt-container{
+	border-top: 1px solid rgba(214, 214, 214, 0.7);
+}
+.cmt-row {
+    text-align: left;
+    padding: 15px;
+    font-size: 13px;
+}
+.cmt-row {
+	border-top: 1px solid rgba(214, 214, 214, 0.7);
+}
+.cmt-row:first-child {
+	border-top: 0px;
+}
+
+	.cmt-info {
+	    margin-bottom: 5px;
+	}	
+		.cmt-info span:first-child ~ span {
+		    margin-left: 10px;
+		    font-size: 12px;
+		    color: #515151;
+		}
+	.cmt-row .cmt-btn-wrapper {
+	    display: inline-block;
+	    float: right;
+	}	
+	.cmt-row .btn-a {
+	    border: none;
+	    background: none;
+	    font-size: 12px;
+	    padding: 0px 1px;
+	    color: #8b8888;
+	    font-family: 맑은 고딕, 고딕, sans-serif;
+	}	
+		
+.cmt-reg {
+    display: flex;
+}
+	.cmt-reg textarea {
+	    resize: none;
+	    width: 90%;
+	    height: 60px;
+	    border-radius: 6px;
+	    overflow: auto;
+	}	
+	
+	.cmt-reg .comment-btn {
+	    display: inline-block;
+	    padding: 0px 30px;
+	    font-size: 12px;
+	    border: 1px solid #d6d6d6;
+	    border-radius: 3px;
+	    margin-left: 16px;
 	}
 /* reg 부분 */
 .reg-container {

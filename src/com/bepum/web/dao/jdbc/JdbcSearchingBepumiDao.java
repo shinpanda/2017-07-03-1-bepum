@@ -18,27 +18,41 @@ public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
 	@Override
 	public List<SearchingBepumiView> getList(int page, int babyAge, String bepumDay1, String bepumDay2,
 			String bepumDay3, String bepumDay4, String bepumDay5, String bepumDay6, String bepumDay7, String address,
-			String startTime, String endTime, String sessionId) {
+			String startTime, String  endTime, String sessionId) {
 
 		List<SearchingBepumiView> list = null;
 		int offset = (page - 1) * 9; // 0,10,20,30, .. . .
 		String sql = "";
 
-		System.out.println(babyAge);
-		System.out.println(sessionId);
 		if (!sessionId.equals("")) {
-			if (startTime.equals(""))
-				sql = "select * from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) and replace(address, ' ', '') like ? and (ID NOT IN (?)) order by regDate desc limit ?,9";
-			else
+			if (startTime.equals("")&&endTime.equals("")) {
+				sql = "select * from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) "
+						+ "and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) "
+						+ "and replace(address, ' ', '') like ? and (ID NOT IN (?)) order by regDate desc limit ?,9";
+			}
+			else if(!startTime.equals("")&&endTime.equals("")) {
+				sql = "select * from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) and replace(address, ' ', '') like ? and (ID NOT IN (?)) and startTime <= ? order by regDate desc limit ?,9";
+			}
+			else if(startTime.equals("")&&!endTime.equals("")) {
+				sql = "select * from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) and replace(address, ' ', '') like ? and (ID NOT IN (?)) and endTime >= ?  order by regDate desc limit ?,9";
+			}
+			else {
 				sql = "select * from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) and replace(address, ' ', '') like ? and (ID NOT IN (?)) and startTime <= ? and endTime >= ?  order by regDate desc limit ?,9";
+			}
 		} else {
-			if (startTime.equals(""))
+			if (startTime.equals("")&&endTime.equals("")) {
 				sql = "select * from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?)  and replace(address, ' ', '') like ? order by regDate desc limit ?,9";
-			else
+			}
+			else if(!startTime.equals("")&&endTime.equals("")) {
+				sql = "select * from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) and replace(address, ' ', '') like ? and startTime <= ? order by regDate desc limit ?,9";
+			}
+			else if(startTime.equals("")&&!endTime.equals("")) {
+				sql = "select * from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?)  and replace(address, ' ', '') like ? and endTime >= ?  order by regDate desc limit ?,9";
+			}
+			else {
 				sql = "select * from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?)  and replace(address, ' ', '') like ? and startTime <= ? and endTime >= ?  order by regDate desc limit ?,9";
+			}
 		}
-		System.out.println(sql);
-
 	
 
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
@@ -70,17 +84,31 @@ public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
 			st.setString(10, String.format("%%%s%%", address));
 			if (!sessionId.equals("")) {
 				st.setString(11, sessionId);
-				if (startTime.equals("")) {
+				if (startTime.equals("")&&endTime.equals("")) {
 					st.setInt(12, offset);
-				} else {
+				} else if(!startTime.equals("")&&endTime.equals("")) {
+					st.setString(12, startTime);
+					st.setInt(13, offset);
+				} else if(startTime.equals("")&&!endTime.equals("")){
+					st.setString(12, endTime);
+					st.setInt(13, offset);
+				}
+				else {
 					st.setString(12, startTime);
 					st.setString(13, endTime);
 					st.setInt(14, offset);
 				}
 			} else {
-				if (startTime.equals("")) {
+				if (startTime.equals("")&&endTime.equals("")) {
 					st.setInt(11, offset);
-				} else {
+				} else if((!startTime.equals("")&&endTime.equals(""))) {
+					st.setString(11, startTime);
+					st.setInt(12, offset);
+				} else if(startTime.equals("")&&!endTime.equals("")){
+					st.setString(11, endTime);
+					st.setInt(12, offset);
+				}
+				else {
 					st.setString(11, startTime);
 					st.setString(12, endTime);
 					st.setInt(13, offset);
@@ -134,10 +162,35 @@ public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
 		int count = 0;
 		String sqlcount = "";
 
-		if (startTime.equals(""))
-			sqlcount = "select count(ID) as count from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) and (ID NOT IN (?)) and replace(address, ' ', '') like ?";
-		else
-			sqlcount = "select count(ID) as count from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) and (ID NOT IN (?)) and replace(address, ' ', '') like ? and startTime <= ? and endTime >= ? ";
+		if (!sessionId.equals("")) {
+			if (startTime.equals("")&&endTime.equals("")) {
+				sqlcount = "select count(ID) as count  from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) "
+						+ "and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) "
+						+ "and replace(address, ' ', '') like ? and (ID NOT IN (?))";
+			}
+			else if(!startTime.equals("")&&endTime.equals("")) {
+				sqlcount = "select count(ID) as count from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) and replace(address, ' ', '') like ? and (ID NOT IN (?)) and startTime <= ?";
+			}
+			else if(startTime.equals("")&&!endTime.equals("")) {
+				sqlcount = "select count(ID) as count  from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) and replace(address, ' ', '') like ? and (ID NOT IN (?)) and endTime >= ? ";
+			}
+			else {
+				sqlcount = "select count(ID) as count  from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) and replace(address, ' ', '') like ? and (ID NOT IN (?)) and startTime <= ? and endTime >= ?";
+			}
+		} else {
+			if (startTime.equals("")&&endTime.equals("")) {
+				sqlcount = "select count(ID) as count  from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?)  and replace(address, ' ', '') like ?";
+			}
+			else if(!startTime.equals("")&&endTime.equals("")) {
+				sqlcount = "select count(ID) as count  from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?) and replace(address, ' ', '') like ? and startTime <= ?";
+			}
+			else if(startTime.equals("")&&!endTime.equals("")) {
+				sqlcount = "select count(ID) as count  from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?)  and replace(address, ' ', '') like ? and endTime >= ?";
+			}
+			else {
+				sqlcount = "select count(ID) as count  from SearchingBepumiView where (grade = 1 or grade = 2) and secret = 0 and (babyAge >= ? and babyAge <= ?) and (bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ? and bepumDay like ?)  and replace(address, ' ', '') like ? and startTime <= ? and endTime >= ?";
+			}
+		}
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
 		// Jdbc 드라이버 로드
@@ -163,12 +216,32 @@ public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
 			st.setString(7, String.format("%%%s%%", bepumDay5));
 			st.setString(8, String.format("%%%s%%", bepumDay6));
 			st.setString(9, String.format("%%%s%%", bepumDay7));
-			st.setString(10, sessionId);
-			st.setString(11, String.format("%%%s%%", address));
-			if (!startTime.equals("")) {
-				st.setString(12, startTime);
-				st.setString(13, endTime);
+			st.setString(10, String.format("%%%s%%", address));
+			if (!sessionId.equals("")) {
+				st.setString(11, sessionId);
+				if (startTime.equals("")&&endTime.equals("")) {
+				} else if(!startTime.equals("")&&endTime.equals("")) {
+					st.setString(12, startTime);
+				} else if(startTime.equals("")&&!endTime.equals("")){
+					st.setString(12, endTime);
+				}
+				else {
+					st.setString(12, startTime);
+					st.setString(13, endTime);
+				}
+			} else {
+				if (startTime.equals("")&&endTime.equals("")) {
+				} else if((!startTime.equals("")&&endTime.equals(""))) {
+					st.setString(11, startTime);
+				} else if(startTime.equals("")&&!endTime.equals("")){
+					st.setString(11, endTime);
+				}
+				else {
+					st.setString(11, startTime);
+					st.setString(12, endTime);
+				}
 			}
+
 
 			// 결과 가져오기
 			ResultSet rs = st.executeQuery();

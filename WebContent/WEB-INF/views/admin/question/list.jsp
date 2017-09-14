@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,20 +33,40 @@
 							<div class="cell w120">작성날짜</div>
 							<div class="cell w80">조회수</div>
 						</div>
-										
-						<c:forEach var="n" items="${list}" begin="0" end="14">					
-						<div class="row">
-							<div class="cell">${n.no}</div>
-							<div class="cell title"><a href="./question-detail?no=${n.no}">${n.title} (${n.countCmt})</a></div>
-							<div class="cell">${n.writerId}</div>
-							<div class="cell">${n.regDate}</div>
-							<div class="cell">${n.hit}</div>
-						</div>
+
+						<c:forEach var="n" items="${list}" begin="0" end="14">
+							<div class="row">
+								<div class="cell">${n.no}</div>
+								<div class="cell title">
+									<a href="detail?no=${n.no}">${n.title}
+										(${n.countCmt})</a>
+								</div>
+								<div class="cell">${n.writerId}</div>
+								<div class="cell"><jsp:useBean id="now"
+										class="java.util.Date"></jsp:useBean>
+									<fmt:parseNumber value="${now.time}" integerOnly="true"
+										var="today" />
+									<fmt:parseNumber value="${n.regDate.time}" integerOnly="true"
+										var="regDateNum" />
+										<c:if test="${((today - regDateNum)/(1000*60*60*24)) < 1}">
+											<fmt:formatDate value="${n.regDate}" pattern="HH:MM"
+												var="regDate" />
+														${regDate}
+													</c:if>
+										<c:if test="${((today - regDateNum)/(1000*60*60*24)) >= 1}">
+											<fmt:formatDate value="${n.regDate}" pattern="YY.MM.dd"
+												var="regDate" />
+														${regDate}
+													</c:if>
+								</div>
+								<div class="cell">${n.hit}</div>
+							</div>
 						</c:forEach>
 					</div>
-				<c:set var="page" value="${param.p}" />
+					<c:set var="page" value="${param.p}" />
 					<c:set var="startNum" value="${page-(page-1)%10}" />
-					<c:set var="lastNum" value="${fn:substringBefore((count%15 == 0 ? (count/15) : (count/15)+1) , '.')}" />
+					<c:set var="lastNum"
+						value="${fn:substringBefore((count%15 == 0 ? (count/15) : (count/15)+1) , '.')}" />
 					<div class="paging-container clearfix">
 						<div>
 							<c:if test="${startNum<=10 || startNum == null}">
@@ -82,9 +103,9 @@
 					</div>
 				</div>
 			</div>
-			</div>
-			</main>
 		</div>
+		</main>
+	</div>
 	</div>
 
 	<jsp:include page="../../inc/footer.jsp"></jsp:include>

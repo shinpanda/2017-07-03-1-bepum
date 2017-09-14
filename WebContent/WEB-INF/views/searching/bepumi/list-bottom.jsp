@@ -5,19 +5,35 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
+<script type="text/javascript">
+$(document).ready(function(){
+   console.log($("input[name=sort]:checked").val());
+});
+</script>
+
 <div id="result" class="result-container">
 	<h3 class=hidden>검색 결과</h3>
 	<div id="resultsetting" class="result-setting-container">
-
 		<div id="resultinfo">
-			<p id="resultaddress" class="resultaddress">검색지역 : 전국</p>
+
+		
+		
+		<c:if test="${fn:length(address) == 0}">
+		<c:set var="searchingaddress" value= "전국"/></c:if>
+		<c:if test="${fn:length(address) != 0}">
+			<c:set var="searchingaddress" value="${address}" /></c:if>
+			
+			
+			
+			<p id="resultaddress" class="resultaddress">검색지역 : ${searchingaddress}	</p>
 			<p id="resultcount" class="resultcount">${count}명의 베푸미가 검색되었습니다.</p>
+
 		</div>
 		<div id="resultsort" class="resultsort">
-			<input id="time" type="radio" name="sort" checked="checked"
-				value="time"> <label for="time"><span></span>시간순</label> <input
-				id="grade" type="radio" name="sort" value="grade"> <label
-				for="grade"><span></span>등급순</label>
+			<input id="time" type="radio" name="sort" checked="checked"	value="time" onclick=""> 
+				<label for="time"><span></span><a href="?sort=time">시간순</a></label> 
+			<input id="grade" type="radio" name="sort" value="grade" onclick=""> 
+				<label for="grade"><span></span><a href="?sort=grade">등급순</a></label>
 
 
 		</div>
@@ -33,7 +49,7 @@
 					varStatus="status">
 					<c:set var="startrowNum" value="${(page-1)*9}" />
 					<div class="floor">
-					
+
 						<c:forEach begin="${status.index}" end="${status.index+2}" var="i">
 							<c:if test="${startrowNum + i < count}">
 								<%-- 								<c:forEach var = "i" begin = "0" end = "2"  >			 --%>
@@ -43,7 +59,7 @@
 										<!-- Thumbnail-->
 										<div class="thumbnail">
 											<a href="detail-profile?id=${list[i].id}"><img
-												src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg" /></a>
+												src="../upload/profilePic/${list[i].profilePic}" /></a>
 										</div>
 										<!-- Post Content-->
 										<div class="post-content">
@@ -64,11 +80,12 @@
 
 
 											<jsp:useBean id="now" class="java.util.Date"></jsp:useBean>
+
 											
 											
 											<c:set var="birth" value="${list[i].birth}"/>
 											<c:set var="birthyear" value="${fn:substring(birth,0,4)}"/>											
-											<fmt:parseNumber value="${birthyear}}" integerOnly="true" var = "birthyearNum" />
+											<fmt:parseNumber value="${birthyear}" integerOnly="true" var = "birthyearNum" />
 											
 											<fmt:formatDate value="${now}" pattern="yyyy" var="nowyear" /> 
 											<fmt:parseNumber value="${nowyear}" integerOnly="true" var = "nowyearNum" />
@@ -77,27 +94,43 @@
 											
 
 
-											<h2 class="sub_title">${list[i].name} ${age}세 ${list[i].address}</h2>
+
+											<c:set var="birth" value="${list[i].birth}" />
+											<c:set var="birthyear" value="${fn:substring(birth,0,4)}" />
+											<fmt:parseNumber value="${birthyear}}" integerOnly="true"
+												var="birthyearNum" />
+
+											<fmt:formatDate value="${now}" pattern="yyyy" var="nowyear" />
+											<fmt:parseNumber value="${nowyear}" integerOnly="true"
+												var="nowyearNum" />
+
+											<c:set var="age" value="${nowyearNum-birthyear+1}" />
+
+
+
+											<h2 class="sub_title">${list[i].name}(${age}세)	 ${list[i].address}</h2>
 											<p class="description">${list[i].etc}</p>
 											<div class="post-meta">
-											
-											
-											
-											<fmt:parseNumber value="${now.time}" integerOnly="true" var = "today" />											
-											<fmt:parseNumber value="${list[i].regDate.time}" integerOnly="true" var = "regDateNum" />
-											
-												<span class="timestamp">
-												<i class="fa fa-clock">
-													<c:if test="${((today - regDateNum)/(1000*60*60*24)) < 1}">
-														<fmt:formatDate value = "${list[i].regDate}" pattern="hh:mm" var="regDate" />
+
+
+
+												<fmt:parseNumber value="${now.time}" integerOnly="true"
+													var="today" />
+												<fmt:parseNumber value="${list[i].regDate.time}"
+													integerOnly="true" var="regDateNum" />
+
+												<span class="timestamp"> <i class="fa fa-clock">
+														<c:if test="${((today - regDateNum)/(1000*60*60*24)) < 1}">
+															<fmt:formatDate value="${list[i].regDate}"
+																pattern="hh:mm" var="regDate" />
+														${regDate}
+													</c:if> <c:if
+															test="${((today - regDateNum)/(1000*60*60*24)) >= 1}">
+															<fmt:formatDate value="${list[i].regDate}"
+																pattern="YY-MM-dd" var="regDate" />
 														${regDate}
 													</c:if>
-													<c:if test="${((today - regDateNum)/(1000*60*60*24)) >= 1}">
-														<fmt:formatDate value = "${list[i].regDate}" pattern="YY-MM-dd" var="regDate" />
-														${regDate}
-													</c:if>
-													</i>
-													<!-- 6 mins ago --></span><span class="comments"><i
+												</i> <!-- 6 mins ago --></span><span class="comments"><i
 													class="fa fa-comments"></i><a href="#">후기
 														${list[i].countReview}개 </a></span>
 											</div>
@@ -112,7 +145,7 @@
 				</c:forEach>
 				<%-- 					</c:forEach>			
  --%>
-				
+
 				<c:set var="startNum" value="${page-(page-1)%10}" />
 				<c:set var="lastNum"
 					value="${fn:substringBefore((count%9 == 0 ? (count/9) : (count/9)+1) , '.')}" />
@@ -153,7 +186,7 @@
 			</div>
 
 		</div>
-		
+
 	</div>
 </div>
 

@@ -20,15 +20,16 @@
 
 	<div id="body">
 		<div class="content-container">
+		<form method="post">
 			<main id="main" class="main"> <c:if
 				test="${empty b.privateKey && isSecret == 1}">
 				<div>
 					<img src="../images/locking.png" />
 					<p>이 글은 비밀글입니다.</p>
-					<form method="post">
+					
 						<input type="password" alt="글비밀번호" name="secretKey" /> <input
-							type="submit" alt="확인" value="submit" class="btn" />
-					</form>
+							type="submit" alt="확인" value="submit" name="sec-btn" class="btn" />
+					
 				</div>
 			</c:if> <c:if test="${not empty b.privateKey || isSecret == 0}">
 				<div class="detail-container">
@@ -56,9 +57,36 @@
 							</c:if>
 						</div>
 					</div>
-
 				</div>
-			</c:if> </main>
+				<div class="cmt-container">
+						<c:if test="${b.countCmt==0}">
+							<br />
+						</c:if>
+							<c:forEach items="${cmtList}" var="c" varStatus="i">
+								<div class="cmt-row">
+									<div class="cmt-info">
+										<span><b>${i.count}. ${c.writerId}</b></span><span><fmt:formatDate
+												value="${c.regDate}" pattern="YY-MM-dd HH:MM" var="regDate" />${regDate}</span>
+										<c:if test="${c.writerId.equals(b.writerId)}">
+											<div class="cmt-btn-wrapper">
+												<span> <a href="question-cmt-edit?no=${c.no}"
+													class="btn-a">수정</a> <a href="question-cmt-del?no=${c.no}"
+													class="btn-a">삭제</a>
+												</span>
+											</div>
+										</c:if>
+									</div>
+									<div class="cmt-content-container">${fn:replace(c.content, cn, br)}
+									</div>
+								</div>
+							</c:forEach>
+							<div class="cmt-reg">
+								<textarea name="cmt"></textarea>
+								<input type="submit" name="cmt-btn" value="등록"
+									class="btn comment-btn">
+							</div>
+					</div>
+			</c:if></main></form>
 		</div>
 	</div>
 
