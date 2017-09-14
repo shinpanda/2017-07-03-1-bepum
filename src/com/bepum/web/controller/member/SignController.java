@@ -47,23 +47,35 @@ public class SignController extends HttpServlet {
 		String birthday_month = request.getParameter("birthday_month");
 		String birthday_day = request.getParameter("birthday_day");
 		String email = request.getParameter("email");
-		String pwdCheck = request.getParameter("pwd-check");
+		String pwdCheck = request.getParameter("pwd-check");//비밀번호확인과 일치확인
 		String birth="";
-		System.out.println(pwdCheck);
+		
+		
+		
+		
+		
+		
+		
 		if(name == null || name.equals("")) {
-			out.println("<script>alert('이름을 입력해주세요.');history.go(-1);</script>");
+			out.println("<script>alert('이름을 입력해주세요.');location.href='sign?error=non';</script>");
+			
 		}else if(id == null || id.equals("")) {
 			out.println("<script>alert('아이디를 입력해주세요.');history.go(-1);</script>");
+			
 		}else if(pwd == null || pwd.equals("")) {
 			out.println("<script>alert('비밀번호를 입력해주세요.');history.go(-1);</script>");
+			
 		}else if(pwd == null || pwd.equals("")) {
 			out.println("<script>alert('비밀번호를 입력해주세요.');history.go(-1);</script>");
+			
 		}else if(pwdCheck.equals("no")) {
 			out.println("<script>alert('비밀번호가 같지 않습니다.');history.go(-1);</script>");
+			
 		}else if(birthday_year == null || birthday_year.equals("") 
 				||birthday_month == null || birthday_month.equals("") 
 				||birthday_day == null || birthday_day.equals(""))
 			out.println("<script>alert('생년월일을 입력해주세요.');history.go(-1);</script>");
+		
 		else {
 			birth = birthday_year+"-"+birthday_month+"-"+birthday_day;
 		
