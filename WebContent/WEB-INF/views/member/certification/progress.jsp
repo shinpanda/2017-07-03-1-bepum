@@ -28,7 +28,7 @@
 			</div>
 			<br>
 			<br>
-			<br>
+			<br> 
 
 			<div class="certfi-container document-container">
 				<div class="document-certification">필수서류 인증</div>
@@ -48,7 +48,7 @@
 					<script>
 						for (var i = 0; i < 4; i++) {
 							if ($('.application-form-wrapper').find('span').eq(
-									i).html().indexOf('심사 완료') >= 0) {
+									i).html().indexOf('${profile.applicationFormStatus}') >= 0) {
 								$('.application-form-wrapper').find('span').eq(
 										i).addClass('progress-status');
 							}
@@ -65,7 +65,7 @@
 					<script>
 						for (var i = 0; i < 4; i++) {
 							if ($('.family-rc-wrapper').find('span').eq(i)
-									.html().indexOf('심사 완료') >= 0) {
+									.html().indexOf('${profile.FRCStatus}') >= 0) {
 								$('.family-rc-wrapper').find('span').eq(i)
 										.addClass('progress-status');
 							}
@@ -82,7 +82,7 @@
 					<script>
 						for (var i = 0; i < 4; i++) {
 							if ($('.hc-wrapper').find('span').eq(i).html()
-									.indexOf('심사 완료') >= 0) {
+									.indexOf('${profile.HCStatus}') >= 0) {
 								$('.hc-wrapper').find('span').eq(i).addClass(
 										'progress-status');
 							}
@@ -100,7 +100,7 @@
 					<script>
 						for (var i = 0; i < 4; i++) {
 							if ($('.baby-wrapper').find('span').eq(i).html()
-									.indexOf('심사 완료') >= 0) {
+									.indexOf('${profile.VCStatus}') >= 0) {
 								$('.baby-wrapper').find('span').eq(i).addClass(
 										'progress-status');
 							}
@@ -128,7 +128,7 @@
 					<div class="pop-conts">
 						<!--content //-->
 						<p class="ctxt mb20">
-							<b>***재심사 요청 사유***111</b><br> <br> 본인 인증에 사용된 성함과 서류상의
+							<b>***재심사 요청 사유***</b><br> <br> 본인 인증에 사용된 성함과 서류상의
 							성함이 일치하지 않습니다.<br> 적합한 서류를 다시 제출해주세요!<br> <br>
 						</p>
 
@@ -157,7 +157,7 @@
 					<div class="pop-conts">
 						<!--content //-->
 						<p class="ctxt mb20">
-							<b>***재심사 요청 사유***222</b><br> <br> 본인 인증에 사용된 성함과 서류상의
+							<b>***재심사 요청 사유***</b><br> <br> 본인 인증에 사용된 성함과 서류상의
 							성함이 일치하지 않습니다.<br> 적합한 서류를 다시 제출해주세요!<br> <br>
 						</p>
 
@@ -185,7 +185,7 @@
 					<div class="pop-conts">
 						<!--content //-->
 						<p class="ctxt mb20">
-							<b>***재심사 요청 사유***333</b><br> <br> 본인 인증에 사용된 성함과 서류상의
+							<b>***재심사 요청 사유***</b><br> <br> 본인 인증에 사용된 성함과 서류상의
 							성함이 일치하지 않습니다.<br> 적합한 서류를 다시 제출해주세요!<br> <br>
 						</p>
 
@@ -213,7 +213,7 @@
 					<div class="pop-conts">
 						<!--content //-->
 						<p class="ctxt mb20">
-							<b>***재심사 요청 사유***444</b><br> <br> 본인 인증에 사용된 성함과 서류상의
+							<b>***재심사 요청 사유***</b><br> <br> 본인 인증에 사용된 성함과 서류상의
 							성함이 일치하지 않습니다.<br> 적합한 서류를 다시 제출해주세요!<br> <br>
 						</p>
 

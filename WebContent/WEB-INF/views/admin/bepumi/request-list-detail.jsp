@@ -48,38 +48,58 @@
 						<div class="cell th1">이메일</div>
 						<div class="cell td">${profile.email}</div>
 					</div>
+			</div>
 			
+			
+			<form  method="post"  name="fileCheck" onsubmit="">	
+			
+			<h3>아이 정보 입력</h3>
+				<div class="profile-detail">
+				<div class="profile-detail-table request">
+					<div class="row">
+						<div class="cell th1">이름</div>
+						<div class="cell td"><input type="test" name="babyName"/></div>
+					</div>
+					<div class="row">
+						<div class="cell th1">나이</div>
+						<div class="cell td"><input type="test" name="babyAge"/></div>
+					</div>
+					<div class="row">
+						<div class="cell th1">성별</div>
+						<div class="cell td"><input type="radio" name="gender" value="1"/>남<input type="radio" name="gender" value="2"/>여</div>
+					</div>
 				</div>
-				<form  method="post" enctype="Multipart/form-data" name="fileCheck" onsubmit="">	
+				</div>
+				
+				
+			<h3>자격심사 제출 서류</h3>
 						<!-- 서류부분 -->
 					<div class="document-detail-table request">
 						<div class="row">
-							<div class="cell th1"><input type="checkbox" name="acheckBox"/>  신청서</div>
-							<div class="cell td">${profile.applicationForm}</div>
-							
+							<div class="cell th1"><input type="checkbox" name="checkBox" value="0"/>  신청서</div>
+							<div class="cell td"><a download href="../../../upload/certification/${profile.applicationForm_Copy}">${profile.applicationForm}</a></div>						
 						</div>
 						<div class="row">
-							<div class="cell th1"><input type="checkbox" name="hcheckBox"/>  건강진단서</div>
-							<div class="cell td">${profile.HC}</div>
+							<div class="cell th1"><input type="checkbox" name="checkBox" value="1"/>  건강진단서</div>
+							<div class="cell td"><a download href="../../../upload/certification/${profile.HC_Copy}">${profile.HC}</a></div>
 						</div>
 						<div class="row">
-							<div class="cell th1"><input type="checkbox" name="fcheckBox"/>  가족관계증명서</div>
-							<div class="cell td">${profile.FRC}</div>
+							<div class="cell th1"><input type="checkbox" name="checkBox" value="2"/>  가족관계증명서</div>
+							<div class="cell td"><a download href="../../../upload/certification/${profile.FRC_Copy}">${profile.FRC}</a></div>
 						</div>
 						<div class="row">
-							<div class="cell th1"><input type="checkbox" name="vcheckBox"/>  아이 예방접종 증명서</div>
-							<div class="cell td">${profile.VC}</div>
+							<div class="cell th1"><input type="checkbox" name="checkBox" value="3"/>  아이 예방접종 증명서</div>
+							<div class="cell td"><a download href="../../../upload/certification/${profile.VC_Copy}">${profile.VC}</a></div>
 						</div>
 					</div>
 				
-				</div>
+				
 
 			
-			<!-- 네 개 다 체크하면 grade 1로 변경하고 파일 제출상태도 모두 1로 변경(심사완료 on), 
-				하나라도 통과 안되면 파일 제출상태에 0을 db에 저장하고 0인거에 대해서는 재심사필요 on 하고 사용자가 다시 제출하게 
-				사용자가 다시 제출하는거는 update 함수로 하기 -->
+			<!-- 네 개 다 통과하면 grade 1로 변경하고 파일 제출상태도 모두 '심사완료'로 변경
+				하나라도 통과 안되면 '재심사필요'  -->
 					<div>
-						<input type="submit" class="" value="저장"/>
+						<input type="submit" name="submit" class="" value="저장"/>
 					</div>
 				</form>
 			</main>

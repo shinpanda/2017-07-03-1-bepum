@@ -6,17 +6,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page import="java.sql.*" %>
 
+
 <script  src = https://ajax.googleapis.com/ajax/libx/jquery/3.0.0/jquery.min.js">
 </script>
-<script> 
-$(document).read(function(){
-	$('#btn').click(function(){
-		$('#form').submit();
-	})
-});
 
-
-</script>
 
 <div id="result" class="result-container">
 	<h3 class=hidden>검색 결과</h3>
@@ -36,6 +29,7 @@ $(document).read(function(){
 			<p id="resultcount" class="resultcount">${count}명의 베푸미가 검색되었습니다.</p>
 
 		</div>
+
 		<div id="resultsort" class="resultsort">
 			<input id="time" type="radio" name="sort" checked="checked"	value="time" > 
 				<label for="time"><span></span>시간순</label>
@@ -203,4 +197,3 @@ $(document).read(function(){
 	src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
 <script src="js/searching.js"></script>
-

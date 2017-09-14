@@ -5,12 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.bepum.web.dao.BepumiMatchingDao;
-import com.bepum.web.entity.BoardView;
 import com.bepum.web.entity.MatchingView;
 
 public class JdbcBepumiMatchingDao implements BepumiMatchingDao {

@@ -108,8 +108,31 @@ public class JdbcBepumiDao implements BepumiDao {
 	}
 
 	@Override
-	public int insert(Bepumi bepumi) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int insert(String reqID) {
+		int result =0;
+		
+		String sql = "INSERT INTO Bepumi(ID, address, phoneNum) VALUES(?,?,?)";
+		
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+			
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, reqID);
+			st.setString(2, "서울 강남구");
+			st.setString(3, "010-1234-5678");
+
+			
+			result = st.executeUpdate();
+			st.close();
+			con.close();
+
+		} catch (Exception e) {
+		}
+		
+		System.out.println(result);
+		return result;
 	}
 }

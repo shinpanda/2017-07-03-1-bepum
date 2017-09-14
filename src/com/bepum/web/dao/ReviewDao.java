@@ -13,4 +13,8 @@ public interface ReviewDao {
 	int updateHit(String no);
 
 	Object get(String no);
+
+	int insert(String id, String no, int rating, String reviewTitle, String reviewContent);
+
+	int update(String id, String no, int rating, String reviewTitle, String reviewContent);
 }

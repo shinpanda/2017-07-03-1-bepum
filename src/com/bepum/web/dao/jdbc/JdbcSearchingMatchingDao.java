@@ -144,6 +144,7 @@ public class JdbcSearchingMatchingDao implements SearchingMatchingDao {
 				m = new MatchingView();
 				m.setNo(rs.getString("no"));
 				m.setId(rs.getString("id"));
+				m.setRequestID(rs.getString("requestID"));
 				m.setName(rs.getString("name"));
 				m.setGrade(rs.getInt("grade"));
 				m.setPhoneNum(rs.getString("phoneNum"));
@@ -156,7 +157,6 @@ public class JdbcSearchingMatchingDao implements SearchingMatchingDao {
 
 				m.setPaymentOption(rs.getInt("option"));
 				m.setPaymentPayDate(rs.getDate("payDate"));
-
 				m.setReviewRating(rs.getInt("rating"));
 				m.setReviewTitle(rs.getString("title"));
 				m.setReviewContent(rs.getString("content"));

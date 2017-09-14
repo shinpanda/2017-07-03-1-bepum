@@ -50,7 +50,8 @@ public class JdbcMemberDao implements MemberDao {
 				m.setName(rs.getString("name"));
 				m.setGender(rs.getInt("gender")); 
 				m.setBirth(rs.getString("birthday"));
-				m.setEmail(rs.getString("email")); 
+				m.setEmail(rs.getString("email"));
+				
 				m.setGrade(rs.getInt("grade"));
 				list.add(m);
 			}
@@ -111,9 +112,8 @@ public class JdbcMemberDao implements MemberDao {
 	public int insert(Member member) {
 		int result =0;
 		
-		String sql = "INSERT INTO Member(ID, name, pwd, gender, birthday, email, grade) VALUES(?,?,?,?,?,?,?)";
-		/*String sql = "INSERT INTO Member(ID, name, pwd, gender) VALUES(?,?,?,?)";*/
 		
+		String sql = "INSERT INTO Member(ID, name, pwd, gender, birthday, email, grade,address, phone) VALUES(?,?,?,?,?,?,?,?,?)";
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -126,8 +126,12 @@ public class JdbcMemberDao implements MemberDao {
 			st.setString(3, member.getPwd());
 			st.setInt(4, member.getGender());
 			st.setString(5, member.getBirth());
+			
 			st.setString(6, member.getEmail());
 			st.setInt(7, member.getGrade());
+			st.setString(8, member.getAddress());
+			st.setString(9, member.getPhone());
+			
 			
 			result = st.executeUpdate();
 			st.close();
@@ -156,7 +160,7 @@ public class JdbcMemberDao implements MemberDao {
 			/* list = new ArrayList<>(); */
 			while (rs.next()) { 
 				m = new Member(rs.getString("id"), rs.getString("name"), rs.getString("pwd"), rs.getInt("gender"),
-						rs.getString("birthday"), rs.getString("email"), rs.getInt("grade"),rs.getDate("regDate"));
+						rs.getString("birthday"), rs.getString("email"), rs.getString("phone"), rs.getString("address"), rs.getInt("grade"),rs.getDate("regDate"));
 			}
 			
 //			System.out.println(m.getId());
@@ -245,4 +249,65 @@ public class JdbcMemberDao implements MemberDao {
 		}
 		return result;
 	}
+
+	public int checkId(String id) {
+		int result=0;
+		System.out.println(id+"???????");
+		String sql = "SELECT * FROM Member where id=?";
+		Member m = null;
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, id);
+			ResultSet rs = st.executeQuery();
+			System.out.println();
+			if(!rs.next()) {
+				result = 1;
+			}
+			else
+				result = 0;
+			
+			rs.close();
+			st.close();
+			con.close();
+
+		} catch (Exception e) {
+		}
+		return result;
+	}
+
+	public int updateGrade(String reqID) {		
+		int result = 0;
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+	
+		// JDBC 드라이버 로드
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+	//			ID, name, pwd, gender, birthday, email, grade
+			String sql = "update Member set grade=1 where ID = ?";
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+			/* Statement st = con.createStatement(); */
+			PreparedStatement st = con.prepareStatement(sql);
+					
+			st.setString(1, reqID);
+		
+			result = st.executeUpdate();
+			// 업데이트된 row 개수 알려줌
+	
+			st.close();
+			con.close();
+	
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+		}
 }

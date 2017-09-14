@@ -19,7 +19,7 @@
 		<div class="content-container">
 			<main id="main" class="main"> <jsp:include
 				page="detail-top.jsp" /> <jsp:include page="detail-bottom.jsp" />
-			<div class="btn-container">
+			<div class="bm btn-container">
 				<c:if test="${profile.status.equals('신청대기')}">
 					<form method="post">
 						<input type="submit" name="ok-btn" value="승인" class="btn" /> <input
