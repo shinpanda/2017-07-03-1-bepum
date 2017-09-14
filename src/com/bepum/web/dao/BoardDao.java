@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.bepum.web.entity.Board;
 import com.bepum.web.entity.BoardView;
+import com.bepum.web.entity.Profile;
 
 public interface BoardDao {
 
@@ -20,6 +21,7 @@ public interface BoardDao {
 	int delete(String no, String string);
 
 	int updateHit(String no);
+
 
 
 }

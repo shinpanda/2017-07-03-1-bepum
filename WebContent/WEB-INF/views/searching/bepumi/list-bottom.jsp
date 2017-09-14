@@ -4,18 +4,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page import="java.sql.*" %>
 
-<script>
-function sort(type) {
-var x = location.href;
-    if(type=='time'){
-        location.href=x+'?searchingbepumi_list_sort=time';
-    }
-    else if(type=='grade'){
-         location.href=x+'?searchingbepumi_list_sort=grade';
-    }
-}
+
+<script  src = https://ajax.googleapis.com/ajax/libx/jquery/3.0.0/jquery.min.js">
 </script>
+
 
 <div id="result" class="result-container">
 	<h3 class=hidden>검색 결과</h3>
@@ -35,11 +29,14 @@ var x = location.href;
 			<p id="resultcount" class="resultcount">${count}명의 베푸미가 검색되었습니다.</p>
 
 		</div>
-		<div id="resultsort" class="resultsort" >
-			<input id="time" type="radio" name="sort" checked="checked"	value="time" onclick="sort('time')"> 
-				<label for="time"><span></span>시간순</label> 
-			<input id="grade" type="radio" name="sort" value="grade" onclick="sort('grade')">
-				<label for="grade"><span></span>등급순</label>	
+
+		<div id="resultsort" class="resultsort">
+			<input id="time" type="radio" name="sort" checked="checked"	value="time" > 
+				<label for="time"><span></span>시간순</label>
+			<input id="grade" type="radio" name="sort" value="grade" > 
+				<label for="grade"><span></span>등급순</label>
+
+
 		</div>
 
 		<c:set var="page" value="${param.p}" />

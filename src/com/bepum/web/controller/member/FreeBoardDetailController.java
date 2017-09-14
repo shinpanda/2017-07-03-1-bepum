@@ -41,12 +41,10 @@ public class FreeBoardDetailController extends HttpServlet {
 		String no = request.getParameter("no");
 		Object _id = session.getAttribute("id");
 		String btnOption = request.getParameter("cmt-btn");
-		System.out.println("버튼" + btnOption);
 		if (_id == null)
 			out.write("<script> alert('로그인이 필요한 요청입니다.'); history.back(); </script>");
 		else {
 			String cmt = request.getParameter("cmt");
-			System.out.println(cmt);
 			if (cmt != null && !cmt.equals("")) {
 				String id = _id.toString();
 				BoardCmtDao cmtDao = new JdbcBoardCmtDao();
