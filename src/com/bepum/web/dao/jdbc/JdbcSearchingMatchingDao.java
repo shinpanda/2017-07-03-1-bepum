@@ -156,7 +156,6 @@ public class JdbcSearchingMatchingDao implements SearchingMatchingDao {
 
 				m.setPaymentOption(rs.getInt("option"));
 				m.setPaymentPayDate(rs.getDate("payDate"));
-
 				m.setReviewRating(rs.getInt("rating"));
 				m.setReviewTitle(rs.getString("title"));
 				m.setReviewContent(rs.getString("content"));
