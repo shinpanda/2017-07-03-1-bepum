@@ -112,7 +112,6 @@ public class JdbcMemberDao implements MemberDao {
 		int result =0;
 		
 		String sql = "INSERT INTO Member(ID, address, phoneNum) VALUES(?,?,?,?,?,?,?)";
-		/*String sql = "INSERT INTO Member(ID, name, pwd, gender) VALUES(?,?,?,?)";*/
 		
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 		try {
