@@ -14,4 +14,6 @@ public interface BepumiRequestDao {
 	int getCount();
 
 	BepumiRequest get(String id);
+
+	int update(String reqID, String applicationFormStatus, String fRCStatus, String hCStatus, String vCStatus);
 }

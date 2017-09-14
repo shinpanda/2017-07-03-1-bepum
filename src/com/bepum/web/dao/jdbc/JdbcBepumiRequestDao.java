@@ -199,6 +199,11 @@ public class JdbcBepumiRequestDao implements BepumiRequestDao {
 				b.setHC_Copy(rs.getString("HC_copy"));
 				b.setVC(rs.getString("VC"));
 				b.setVC_Copy(rs.getString("VC_copy"));
+				b.setApplicationFormStatus(rs.getString("applicationFormStatus"));
+				b.setFRCStatus(rs.getString("FRCStatus"));
+				b.setHCStatus(rs.getString("HCStatus"));
+				b.setVCStatus(rs.getString("VCStatus"));
+				
 				
 				b.setName(rs.getString("name"));
 				b.setGender(rs.getInt("gender")); 
@@ -222,6 +227,42 @@ public class JdbcBepumiRequestDao implements BepumiRequestDao {
 		return b;
 
 	
-}}
+}
 
-//자격심사 진행상황페이지에서 update도 할수있게 해야됨
+	@Override
+	public int update(String reqID, String applicationFormStatus, String fRCStatus, String hCStatus, String vCStatus) {
+		int result = 0;
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+
+		// JDBC 드라이버 로드
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			String sql = "update BepumiRequest set applicationFormStatus = ?, HCStatus = ?, FRCStatus = ?, VCStatus = ? where reqID = ?";
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+			/* Statement st = con.createStatement(); */
+			PreparedStatement st = con.prepareStatement(sql);
+			
+			st.setString(1, applicationFormStatus);
+			st.setString(2, hCStatus);
+			st.setString(3, fRCStatus);
+			st.setString(4, vCStatus);
+			st.setString(5, reqID);
+
+			
+			result = st.executeUpdate();
+			// 업데이트된 row 개수 알려줌
+
+			st.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}}
+

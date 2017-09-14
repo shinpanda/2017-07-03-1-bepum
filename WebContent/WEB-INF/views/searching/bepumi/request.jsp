@@ -16,11 +16,13 @@
 	<div id="body">
 
 		<main id="main" class="main">
+
+		
+			<form method="post"  class="form-style-7">
+			
 			<div class="matching-request-container">
 				<div class="matching-request">매칭 신청</div>
 			</div>
-		
-			<form method="post"  class="form-style-7">
 		
 				<table class="type10">
 				

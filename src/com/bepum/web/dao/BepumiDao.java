@@ -10,6 +10,6 @@ public interface BepumiDao {
 	
 	int getCount();
 	
-	int insert(Bepumi bepumi);
+	int insert(String reqID);
 
 }

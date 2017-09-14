@@ -38,7 +38,7 @@
 							<div class="row">
 								<div class="cell">${n.no}</div>
 								<div class="cell title">
-									<a href="./question-detail?no=${n.no}">${n.title}
+									<a href="detail?no=${n.no}">${n.title}
 										(${n.countCmt})</a>
 								</div>
 								<div class="cell">${n.writerId}</div>

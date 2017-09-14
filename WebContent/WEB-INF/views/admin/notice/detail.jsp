@@ -2,23 +2,23 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
-<!DOCTYPE html>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- 베푸미 공개 설정 및 자기소개 변경 -->
-<link href="../css/common_style.css" type="text/css" rel="stylesheet" />
-<link href="../css/style2.css" type="text/css" rel="stylesheet" />
-<link href="../css/board.css" type="text/css" rel="stylesheet" />
+<link href="../../css/common_style.css" type="text/css" rel="stylesheet">
+<link href="../../css/style2.css" type="text/css" rel="stylesheet">
+<link href="../../css/admin.css" type="text/css" rel="stylesheet">
+<title>베:품</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
+
 <body>
 	<jsp:include page="../../inc/header.jsp"></jsp:include>
-
-	<div id="body">
-		<div class="content-container">
+	<div id="body" class="body">
+		<div class="content-container clearfix">
+			<jsp:include page="../inc/aside.jsp"></jsp:include>
 			<main id="main" class="main">
 
 			<div class="detail-container">
@@ -37,10 +37,10 @@
 					${fn:replace(b.content, cn, br)}
 				</div>
 				<div>
-					<a href="free" class="btn">목록</a>
+					<a href="list" class="btn">목록</a>
 					<div class="ed-wrapper">
-						<a href="free-edit?no=${b.no}" class="btn">수정</a>
-						<a href="free-del" class="btn">삭제</a>
+						<a href="edit?no=${b.no}" class="btn">수정</a>
+						<a href="del?no=${b.no}" class="btn">삭제</a>
 					</div>
 				</div>
 				

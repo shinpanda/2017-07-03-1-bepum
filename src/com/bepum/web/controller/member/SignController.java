@@ -35,74 +35,68 @@ public class SignController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		int result =0;
 		int grade = 000;
-		int count = 0;
-		String _id = request.getParameter("id");
-		String _name = request.getParameter("name");
-		String _pwd = request.getParameter("pw");
-		String _gender = request.getParameter("gender");
-		String _birth="";
+		String id = request.getParameter("id");
+		String name = request.getParameter("name");
+		String pwd = request.getParameter("pw");
+		String gender = request.getParameter("gender");
 		String birthday_year = request.getParameter("birthday_year");
 		String birthday_month = request.getParameter("birthday_month");
 		String birthday_day = request.getParameter("birthday_day");
-		String _email = request.getParameter("email");
-		
-		
-		if(birthday_year != null && !birthday_year.equals("") 
-				&&birthday_month != null && !birthday_month.equals("") 
-				&&birthday_day != null && !birthday_day.equals(""))
-			_birth = birthday_year+"-"+birthday_month+"-"+birthday_day;
-
-		String id="";
-		String name="";
-		String pwd="";
-		String gender="";
+		String email = request.getParameter("email");
+		String pwdCheck = request.getParameter("pwd-check");//비밀번호확인과 일치확인
 		String birth="";
-		String email="";
-
-		if(_id != null && !_id.equals("")) {
-			id =_id;
-			count++;
-			}
-		if(_name != null && !_name.equals("")) {
-			name =_name;
-			count++;
-		}
-		if(_pwd != null && !_pwd.equals("")) {
-			pwd =_pwd;
-			count++;
-		}
-		if(_gender != null && !_gender.equals("")) {
-			gender =_gender;
-			count++;
-		}
-		if(_birth != null && !_birth.equals("")) {
-			birth =_birth;
-			count++;
-		}
-		if(_email != null && !_email.equals("")) {
-			email =_email;
-			count++;
-		}
+		
+		
+		
+		
+		
+		
+		
+		if(name == null || name.equals("")) {
+			out.println("<script>alert('이름을 입력해주세요.');location.href='sign?error=non';</script>");
+			
+		}else if(id == null || id.equals("")) {
+			out.println("<script>alert('아이디를 입력해주세요.');history.go(-1);</script>");
+			
+		}else if(pwd == null || pwd.equals("")) {
+			out.println("<script>alert('비밀번호를 입력해주세요.');history.go(-1);</script>");
+			
+		}else if(pwd == null || pwd.equals("")) {
+			out.println("<script>alert('비밀번호를 입력해주세요.');history.go(-1);</script>");
+			
+		}else if(pwdCheck.equals("no")) {
+			out.println("<script>alert('비밀번호가 같지 않습니다.');history.go(-1);</script>");
+			
+		}else if(birthday_year == null || birthday_year.equals("") 
+				||birthday_month == null || birthday_month.equals("") 
+				||birthday_day == null || birthday_day.equals(""))
+			out.println("<script>alert('생년월일을 입력해주세요.');history.go(-1);</script>");
+		
+		else {
+			birth = birthday_year+"-"+birthday_month+"-"+birthday_day;
+		
+		
 		//System.out.println(id+", "+name+", "+pwd+", "+Integer.parseInt(gender)+", "+birth+", "+email+", "+grade);
 		
-		response.setContentType("text/html; charset=UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		PrintWriter out = response.getWriter();
-		
 		MemberDao memberDao = new JdbcMemberDao();
-		
 		Member member = new Member(id, name, pwd, Integer.parseInt(gender), birth, email, grade, new Date());
-		if(count >= 6)
-			result = memberDao.insert(member);
+		result = memberDao.insert(member);
 		
 		if(result>0) {
-			out.println("<script>alert('베품에 회원가입이 완료되었습니다.로그인후 이용해주세요.');location.href='sign';</script>");
+			out.println("<script>alert('베품에 회원가입이 완료되었습니다. 로그인후 이용해주세요.');location.href='sign';</script>");
 		}else {
-			out.println("<script>alert('회원가입 실패하였습니다. 다시 시도해 주세요');history.go(-1);</script>");
+			out.println("<script>alert('회원가입중 오류가 발생하였습니다. 다시 시도해 주세요');history.go(-1);</script>");
 		}
+		
+		
+		
+		}
+		
+		
 		
 	}
 }

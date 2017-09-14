@@ -279,7 +279,7 @@ html {
 	display: block;
 	position: relative;
 	width: 50%;
-	height: 70px;
+	/* height: 70px; */
 	padding: 11px 24px;
 	border-right: 1px solid #e5e5e5;
 	border-bottom: none;
@@ -291,7 +291,9 @@ html {
 	-moz-appearance: none;
 	appearance: none;
 }
-
+	.sminputs .pw-check{
+		
+	}
 .sminputs #user-gender {
 	border-right: none;
 }
@@ -332,6 +334,17 @@ html {
 	/* cursor: pointer; */
 	line-height: 24px;
 }
+
+.sminputs #confirmId{
+    float: right;
+    width: 70px;
+    border-radius: unset;
+    background: pink;
+    color: white;
+    padding: 2px 2px 2px 2px;
+}
+
+
 
 .sminputs .input input {
 	postion: relative;

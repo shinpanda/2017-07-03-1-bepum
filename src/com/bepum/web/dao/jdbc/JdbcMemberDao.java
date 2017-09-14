@@ -111,7 +111,7 @@ public class JdbcMemberDao implements MemberDao {
 	public int insert(Member member) {
 		int result =0;
 		
-		String sql = "INSERT INTO Member(ID, name, pwd, gender, birthday, email, grade) VALUES(?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO Member(ID, address, phoneNum) VALUES(?,?,?,?,?,?,?)";
 		/*String sql = "INSERT INTO Member(ID, name, pwd, gender) VALUES(?,?,?,?)";*/
 		
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
@@ -245,4 +245,65 @@ public class JdbcMemberDao implements MemberDao {
 		}
 		return result;
 	}
+
+	public int checkId(String id) {
+		int result=0;
+		System.out.println(id+"???????");
+		String sql = "SELECT * FROM Member where id=?";
+		Member m = null;
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, id);
+			ResultSet rs = st.executeQuery();
+			System.out.println();
+			if(!rs.next()) {
+				result = 1;
+			}
+			else
+				result = 0;
+			
+			rs.close();
+			st.close();
+			con.close();
+
+		} catch (Exception e) {
+		}
+		return result;
+	}
+
+	public int updateGrade(String reqID) {		
+		int result = 0;
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+	
+		// JDBC 드라이버 로드
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+	//			ID, name, pwd, gender, birthday, email, grade
+			String sql = "update Member set grade=1 where ID = ?";
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+			/* Statement st = con.createStatement(); */
+			PreparedStatement st = con.prepareStatement(sql);
+					
+			st.setString(1, reqID);
+		
+			result = st.executeUpdate();
+			// 업데이트된 row 개수 알려줌
+	
+			st.close();
+			con.close();
+	
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+		}
 }

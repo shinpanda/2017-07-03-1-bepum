@@ -187,6 +187,79 @@ public class JdbcReviewDao implements ReviewDao {
 		return result;
 	}
 
+	@Override
+	public int insert(String id, String no, int rating, String reviewTitle, String reviewContent) {
+		int result = 0;
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+
+		// JDBC 드라이버 로드
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			String sql = "INSERT INTO Review(no, writerID, matchingNo, rating, title, content) VALUES ((select IFNULL(max(cast(no as unsigned)), 0)+1 from Review r), ?, ?, ?, ?, ?)";
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+			/* Statement st = con.createStatement(); */
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, id);
+			st.setString(2, no);
+			st.setInt(3, rating);
+			st.setString(4, reviewTitle);
+			st.setString(5, reviewContent);
+
+			/* st.setString(1, "%"+title+"%"); */
+
+			// 결과 가져오기
+			result = st.executeUpdate();
+			// 업데이트된 row 개수 알려줌
+
+			st.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
+	@Override
+	public int update(String id, String no, int rating, String reviewTitle, String reviewContent) {
+		int result = 0;
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+
+		// JDBC 드라이버 로드
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			String sql = "update Review set rating = ?, title  = ?, content  = ? where matchingNo = ?";
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+			/* Statement st = con.createStatement(); */
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setInt(1, rating);
+			st.setString(2, reviewTitle);
+			st.setString(3, reviewContent);
+			st.setString(4, no);
+
+			result = st.executeUpdate();
+			// 업데이트된 row 개수 알려줌
+
+			st.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 	
 
 }
