@@ -101,6 +101,31 @@ window.onload = function(){
 					</div>
 					<div class="self">
 					<div class="application-form-wrapper clearfix">
+						<div class="title-box dc-name">주소</div>
+						<div class="content-box dc-name" style="border: none;">
+							<c:set var="address1" value="${fn:substringBefore(member.address,' ')}"/>
+							<c:set var="address2" value="${fn:substringAfter(member.address,' ')}"/>
+							<span style="font-size: 13px;">시/도: * </span><input type="text" id="address1" name="address1" value="${address1}" class="address text-center" />
+							<span style="font-size: 13px;">시/군/구: *</span> <input type="text" id="address2" name="address2" value="${address2}" class="address text-center" />
+							</div>
+					</div>
+					</div>
+					<div class="self">
+					<div class="application-form-wrapper clearfix">
+						<div class="title-box dc-name">전화번호</div>
+						<div class="content-box dc-name" style="border: none;">
+							<c:set var="phone1" value="${fn:substringBefore(member.phone,'-')}"/>
+							<c:set var="phone2" value="${fn:substringBefore(fn:substringAfter(member.phone,'-'),'-')}"/>
+							<c:set var="phone3" value="${fn:substringAfter(fn:substringAfter(member.phone,'-'),'-')}"/>
+							<input type="text" id="phone1" name="phone1" value="${phone1}" class="text-center" />-
+							<input type="text" id="phone2" name="phone2" value="${phone2}" class="text-center"/>-
+							<input type="text" id="phone3" name="phone3" value="${phone3}" class="text-center"/>
+						
+						</div>
+					</div>
+					</div>
+					<div class="self">
+					<div class="application-form-wrapper clearfix">
 						<div class="title-box dc-name">등급</div>
 						<c:set var="grade" value=" " />
 							<c:if test="${member.grade == 0}">

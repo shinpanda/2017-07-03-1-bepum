@@ -10,6 +10,9 @@
 .text-right{
 	text-align: right;
 }
+.text-center{
+	text-align: center;
+}
 select.text-right {
 	width: 140px;
 	height: 24px;

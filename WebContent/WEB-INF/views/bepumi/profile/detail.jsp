@@ -48,7 +48,12 @@
 		<div class="content-container">
 			<div class="profile-member-container">
 				<div class="profile-member-wrapper">
+					<c:if test="${not empty profile.profilePic}">
 					<img src="../upload/profilePic/${profile.profilePic}" id="profile-photo" alt="프로필 사진">
+					</c:if>
+					<c:if test="${empty profile.profilePic}">
+					<img src="../images/profile1.png" id="profile-photo" alt="프로필 사진">
+					</c:if>
 					<p id="name">${profile.name}</p>
 					<p id="address">${profile.address}</p>
 					<c:set var="grade" value="회원" />
@@ -66,9 +71,17 @@
 				<h3>집 사진</h3>
 				<div class="home-photo-wrapper">
 					<!--집사진 3개-->
-					<div class="home-photo"><img src="../upload/profilePic/${profile.houseImg1}" alt ="집 사진 1" /></div>
-					<div class="home-photo"><img src="../upload/profilePic/${profile.houseImg2}" alt ="집 사진 2" /></div>
-					<div class="home-photo"><img src="../upload/profilePic/${profile.houseImg3}" alt ="집 사진 3" /></div>
+					<div class="home-photo">
+					<c:if test="${not empty profile.houseImg1}">
+					<img src="../upload/profilePic/${profile.houseImg1}" alt ="집 사진 1" />
+					</c:if>
+					</div>
+					<div class="home-photo">
+					<c:if test="${not empty profile.houseImg2}">
+					<img src="../upload/profilePic/${profile.houseImg2}" alt ="집 사진 2" />
+					</c:if></div>
+					<div class="home-photo">
+					<c:if test="${not empty profile.houseImg3}"><img src="../upload/profilePic/${profile.houseImg3}" alt ="집 사진 3" /></c:if></div>
 				</div>
 			</div>
 
