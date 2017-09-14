@@ -18,4 +18,6 @@ public interface MemberDao {
 
 	int delete(String id, String pwd);
 
+	int updateGrade(String reqID);
+
 }

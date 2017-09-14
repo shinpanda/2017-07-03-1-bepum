@@ -14,10 +14,20 @@ $(document).ready(function(){
 <div id="result" class="result-container">
 	<h3 class=hidden>검색 결과</h3>
 	<div id="resultsetting" class="result-setting-container">
-
 		<div id="resultinfo">
-			<p id="resultaddress" class="resultaddress">검색지역 : 전국</p>
-			<p id="resultcount" class="resultcount">${count}명의베푸미가검색되었습니다.</p>
+
+		
+		
+		<c:if test="${fn:length(address) == 0}">
+		<c:set var="searchingaddress" value= "전국"/></c:if>
+		<c:if test="${fn:length(address) != 0}">
+			<c:set var="searchingaddress" value="${address}" /></c:if>
+			
+			
+			
+			<p id="resultaddress" class="resultaddress">검색지역 : ${searchingaddress}	</p>
+			<p id="resultcount" class="resultcount">${count}명의 베푸미가 검색되었습니다.</p>
+
 		</div>
 		<div id="resultsort" class="resultsort">
 			<input id="time" type="radio" name="sort" checked="checked"	value="time" onclick=""> 
@@ -49,7 +59,7 @@ $(document).ready(function(){
 										<!-- Thumbnail-->
 										<div class="thumbnail">
 											<a href="detail-profile?id=${list[i].id}"><img
-												src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg" /></a>
+												src="../upload/profilePic/${list[i].profilePic}" /></a>
 										</div>
 										<!-- Post Content-->
 										<div class="post-content">
@@ -71,6 +81,19 @@ $(document).ready(function(){
 
 											<jsp:useBean id="now" class="java.util.Date"></jsp:useBean>
 
+											
+											
+											<c:set var="birth" value="${list[i].birth}"/>
+											<c:set var="birthyear" value="${fn:substring(birth,0,4)}"/>											
+											<fmt:parseNumber value="${birthyear}" integerOnly="true" var = "birthyearNum" />
+											
+											<fmt:formatDate value="${now}" pattern="yyyy" var="nowyear" /> 
+											<fmt:parseNumber value="${nowyear}" integerOnly="true" var = "nowyearNum" />
+
+											<c:set var="age" value="${nowyearNum-birthyear+1}"/>						
+											
+
+
 
 											<c:set var="birth" value="${list[i].birth}" />
 											<c:set var="birthyear" value="${fn:substring(birth,0,4)}" />
@@ -85,8 +108,7 @@ $(document).ready(function(){
 
 
 
-											<h2 class="sub_title">${list[i].name}${age}세
-												${list[i].address}</h2>
+											<h2 class="sub_title">${list[i].name}(${age}세)	 ${list[i].address}</h2>
 											<p class="description">${list[i].etc}</p>
 											<div class="post-meta">
 

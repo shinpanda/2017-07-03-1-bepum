@@ -28,7 +28,7 @@
 			</div>
 			<br>
 			<br>
-			<br>
+			<br> 
 
 			<div class="certfi-container document-container">
 				<div class="document-certification">필수서류 인증</div>
