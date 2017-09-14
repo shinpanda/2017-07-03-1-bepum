@@ -75,12 +75,10 @@
 				</div>
 
 			
-			<!-- 네 개 다 체크하면 grade 1로 변경하고 파일 제출상태도 모두 1로 변경(심사완료 on), 
-				하나라도 통과 안되면 파일 제출상태에 0을 db에 저장하고 0인거에 대해서는 재심사필요 on 하고 사용자가 다시 제출하게 
-				사용자가 다시 제출하는거는 update 함수로 하기 -->
+			<!-- 네 개 다 통과하면 grade 1로 변경하고 파일 제출상태도 모두 '심사완료'로 변경
+				하나라도 통과 안되면 '재심사필요'  -->
 					<div>
-						<input type="submit" name="submit" class="" value="심사완료"/>
-						<!-- <input type="submit" name="submit" class="" value="재심사 필요"/> -->
+						<input type="submit" name="submit" class="" value="저장"/>
 					</div>
 				</form>
 			</main>

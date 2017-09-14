@@ -244,6 +244,10 @@ public class JdbcBepumiRequestDao implements BepumiRequestDao {
 			PreparedStatement st = con.prepareStatement(sql);
 			
 			st.setString(1, applicationFormStatus);
+			st.setString(2, hCStatus);
+			st.setString(3, fRCStatus);
+			st.setString(4, vCStatus);
+			st.setString(5, reqID);
 
 			
 			result = st.executeUpdate();
