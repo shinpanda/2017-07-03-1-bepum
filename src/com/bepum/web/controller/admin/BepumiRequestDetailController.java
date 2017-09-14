@@ -8,8 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bepum.web.dao.BepumiDao;
 import com.bepum.web.dao.BepumiRequestDao;
 import com.bepum.web.dao.MemberDao;
+import com.bepum.web.dao.jdbc.JdbcBepumiDao;
 import com.bepum.web.dao.jdbc.JdbcBepumiRequestDao;
 import com.bepum.web.dao.jdbc.JdbcMemberDao;
 
@@ -57,6 +59,8 @@ public class BepumiRequestDetailController extends HttpServlet {
 				{
 				 MemberDao dao1 = new JdbcMemberDao();
 				 dao1.updateGrade(reqID);
+				 BepumiDao dao2 = new JdbcBepumiDao();
+				 dao2.insert(reqID);
 				}
 
 			System.out.println(applicationFormStatus);
