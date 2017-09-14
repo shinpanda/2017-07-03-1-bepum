@@ -24,9 +24,9 @@ import com.bepum.web.entity.Board;
 import com.bepum.web.entity.BoardView;
 import com.bepum.web.entity.SecretBoardView;
 
-@WebServlet("/admin/question/detail")
-public class QuestionDetailController extends HttpServlet {
-	String boardName = "FAQ";
+@WebServlet("/admin/report/detail")
+public class ReportDetailController extends HttpServlet {
+	String boardName = "Report";
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -77,7 +77,7 @@ public class QuestionDetailController extends HttpServlet {
 		}
 
 		/* response.sendRedirect("notice.jsp"); */
-		request.getRequestDispatcher("/WEB-INF/views/admin/question/detail.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/admin/report/detail.jsp").forward(request, response);
 
 	}
 }

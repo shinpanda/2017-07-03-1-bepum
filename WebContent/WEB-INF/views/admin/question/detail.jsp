@@ -22,60 +22,60 @@
 			<jsp:include page="../inc/aside.jsp"></jsp:include>
 			<form method="post">
 				<main id="main" class="main">
-				<div class="detail-container">
-					<div class="info-container">
-						<div class="tr-info clearfix">
-							<span class="title">${b.title}</span> <span class="reg-date"><fmt:formatDate
-									value="${b.regDate}" pattern="YY-MM-dd HH:MM" var="regDate" />${regDate}</span></span>
-						</div>
-						<div class="wch-info clearfix">
-							<span class="writer">${b.writerId}</span>
-							<div class="ch-wrapper">
-								<span class="comment-num">댓글 수 ${b.countCmt} </span> <span
-									class="hit">조회수 ${b.hit}</span>
+					<div class="detail-container">
+						<div class="info-container">
+							<div class="tr-info clearfix">
+								<span class="title">${b.title}</span> <span class="reg-date"><fmt:formatDate
+										value="${b.regDate}" pattern="YY-MM-dd HH:MM" var="regDate" />${regDate}</span>
+							</div>
+							<div class="wch-info clearfix">
+								<span class="writer">${b.writerId}</span>
+								<div class="ch-wrapper">
+									<span class="comment-num">댓글 수 ${b.countCmt} </span> <span
+										class="hit">조회수 ${b.hit}</span>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="detail-content">${fn:replace(b.content, cn, br)}
-					</div>
-					<div>
-						<a href="question" class="btn">목록</a>
-						<div class="ed-wrapper">
-							<c:if test="${sessionScope.id.equals(b.writerId)}">
-								<a href="question-edit?no=${b.no}" class="btn">수정</a>
-								<a href="question-del?no=${b.no}" class="btn">삭제</a>
-							</c:if>
+						<div class="detail-content">${fn:replace(b.content, cn, br)}
 						</div>
-					</div>
-				</div>
-				<div class="cmt-container">
-					<c:if test="${b.countCmt==0}">
-						<br />
-					</c:if>
-					<c:forEach items="${cmtList}" var="c" varStatus="i">
-						<div class="cmt-row">
-							<div class="cmt-info">
-								<span><b>${i.count}. ${c.writerId}</b></span><span><fmt:formatDate
-										value="${c.regDate}" pattern="YY-MM-dd HH:MM" var="regDate" />${regDate}</span>
-								<c:if test="${c.writerId.equals(b.writerId)}">
-									<div class="cmt-btn-wrapper">
-										<span> <a href="question-cmt-edit?no=${c.no}"
-											class="btn-a">수정</a> <a href="question-cmt-del?no=${c.no}"
-											class="btn-a">삭제</a>
-										</span>
-									</div>
+						<div>
+							<a href="list" class="btn">목록</a>
+							<div class="ed-wrapper">
+								<c:if test="${sessionScope.id.equals(b.writerId)}">
+									<a href="edit?no=${b.no}" class="btn">수정</a>
+									<a href="del?no=${b.no}" class="btn">삭제</a>
 								</c:if>
 							</div>
-							<div class="cmt-content-container">${fn:replace(c.content, cn, br)}
-							</div>
 						</div>
-					</c:forEach>
-					<div class="cmt-reg">
-						<textarea name="cmt"></textarea>
-						<input type="submit" name="cmt-btn" value="등록"
-							class="btn comment-btn">
 					</div>
-				</div>
+					<div class="cmt-container">
+						<c:if test="${b.countCmt==0}">
+							<br />
+						</c:if>
+						<c:forEach items="${cmtList}" var="c" varStatus="i">
+							<div class="cmt-row">
+								<div class="cmt-info">
+									<span><b>${i.count}. ${c.writerId}</b></span><span><fmt:formatDate
+											value="${c.regDate}" pattern="YY-MM-dd HH:MM" var="regDate" />${regDate}</span>
+									<c:if test="${c.writerId.equals(b.writerId)}">
+										<div class="cmt-btn-wrapper">
+											<span> <a href="cmt-edit?no=${c.no}"
+												class="btn-a">수정</a> <a href="cmt-del?no=${c.no}"
+												class="btn-a">삭제</a>
+											</span>
+										</div>
+									</c:if>
+								</div>
+								<div class="cmt-content-container">${fn:replace(c.content, cn, br)}
+								</div>
+							</div>
+						</c:forEach>
+						<div class="cmt-reg">
+							<textarea name="cmt"></textarea>
+							<input type="submit" name="cmt-btn" value="등록"
+								class="btn comment-btn">
+						</div>
+					</div>
 				</main>
 			</form>
 		</div>
