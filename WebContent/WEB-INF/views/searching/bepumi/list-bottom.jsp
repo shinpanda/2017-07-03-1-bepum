@@ -4,11 +4,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page import="java.sql.*" %>
 
-<script type="text/javascript">
-$(document).ready(function(){
-   console.log($("input[name=sort]:checked").val());
+<script  src = https://ajax.googleapis.com/ajax/libx/jquery/3.0.0/jquery.min.js">
+</script>
+<script> 
+$(document).read(function(){
+	$('#btn').click(function(){
+		$('#form').submit();
+	})
 });
+
+
 </script>
 
 <div id="result" class="result-container">
@@ -30,10 +37,10 @@ $(document).ready(function(){
 
 		</div>
 		<div id="resultsort" class="resultsort">
-			<input id="time" type="radio" name="sort" checked="checked"	value="time" onclick=""> 
-				<label for="time"><span></span><a href="?sort=time">시간순</a></label> 
-			<input id="grade" type="radio" name="sort" value="grade" onclick=""> 
-				<label for="grade"><span></span><a href="?sort=grade">등급순</a></label>
+			<input id="time" type="radio" name="sort" checked="checked"	value="time" > 
+				<label for="time"><span></span>시간순</label>
+			<input id="grade" type="radio" name="sort" value="grade" > 
+				<label for="grade"><span></span>등급순</label>
 
 
 		</div>

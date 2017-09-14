@@ -12,6 +12,8 @@ import java.util.List;
 import com.bepum.web.dao.BoardDao;
 import com.bepum.web.entity.Board;
 import com.bepum.web.entity.BoardView;
+import com.bepum.web.entity.Profile;
+
 
 public class JdbcBoardDao implements BoardDao {
 
@@ -288,5 +290,7 @@ public class JdbcBoardDao implements BoardDao {
 		}
 		return result;
 	}
+
+
 
 }
