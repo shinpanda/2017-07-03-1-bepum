@@ -34,7 +34,7 @@ public class SearchingMatchingListController extends HttpServlet {
 		Object _id = session.getAttribute("id");
 		String id = _id.toString();
 		
-		String _query = request.getParameter("arr");  //얘 "매칭완료" 아니고 "search"인 이유가 궁금하다
+		String _query = request.getParameter("arr");  
 		
 		String _page = request.getParameter("p");
 

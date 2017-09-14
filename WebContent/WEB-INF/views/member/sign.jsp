@@ -20,6 +20,7 @@ function inputIdChk(){
     document.userInfo.idDuplication.value ="idUncheck";
 }
 window.onload = function(){
+	
 		$('#user-pw').keyup(function() {
 			$('font[name=check]').text('');
 		}); //#user_pass.keyup	
@@ -68,7 +69,7 @@ window.onload = function(){
 											placeholder="이름" type="text" size="50" />
 									</div>
 								</div>
-								<div class="sminputs" name="">
+								<div class="sminputs">
 									<div class="input full">
 										<div class="string optional" for="user-id">아이디 *</div>
 										<input class="string optional" maxlength="255" id="user-id" name="id"
@@ -119,7 +120,23 @@ window.onload = function(){
 											name="gender" type="radio" value="2" checked></label>
 									</div>
 								</div>
+								<div class="sminputs">
+									<div class="input full">
+										<div class="string optional" for="user-phone">전화번호 *</div>
+										<input type="text" id="phone1" name="phone_num1" placeholder="010" class="phone" size="5" />-
+										<input type="text" id="phone2" name="phone_num2" class="phone" size="10"/>-
+										<input type="text" id="phone3" name="phone_num3" class="phone" size="10"/>
 
+									</div>
+								</div>
+								<div class="sminputs">
+									<div class="input full">
+										<div class="string optional" for="user-address">주소 *</div>
+										<span style="font-size: 13px;">시/도: * </span><input type="text" id="address1" name="address1" placeholder="ex)서울,경기, 인천, 대전.." class="address" size="2" />
+										<span style="font-size: 13px;">시/군/구: *</span> <input type="text" id="address2" name="address2" placeholder="ex)마포구, 강서구, 구로구.." class="address" size="10"/>
+									</div>
+								</div>
+								
 								<div class="sminputs">
 									<div class="input full">
 										<div class="string optional" for="user-birth">생년월일 *</div>

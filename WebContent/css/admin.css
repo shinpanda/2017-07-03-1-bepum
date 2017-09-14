@@ -378,3 +378,71 @@
     display: inline-block;
 }
 
+
+
+/*member-detail*/
+.profile-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+.imgMsg-container {
+    margin-left: 120px;
+}
+
+.member.profile-img {
+	width:400px;
+}
+
+img#profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.profile-btn-wrapper{
+	display: flex;
+	justify-content: center;
+}
+
+.btn-profile-container a{
+    display: block;   
+    text-decoration: none;
+    background: url("../images/btn-profile.png") ;
+	width:35px;
+	height:27px;
+	border: none;
+	margin-left:10px;
+}
+
+.btn.msg-btn{
+	background: url("../images/btn-message.png") ;
+	width:35px;
+	height:27px;
+	border: none;
+	margin-right:10px;
+}
+/* .btn.profile-btn{
+	background: url("../images/btn-profile.png") ;
+	width:35px;
+	height:27px;
+	border: none;
+	margin-left:10px;
+} */
+
+
+.profile-container .profile-detail {
+    align-self: center;
+    padding-left: 50px;
+}
+
+.profile-container .profile-detail-table {
+    display: table;
+    box-sizing: border-box;
+    width: 400px;
+    margin: auto;
+    line-height: 28px;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
