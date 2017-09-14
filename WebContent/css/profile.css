@@ -17,53 +17,57 @@ h3 {
 }
 
 	.btn-header{
-		float: right;
+		display: flex;
+	    float: right;
 	    position: relative;
 	    top: 10px;
 	    right: 70px;
-	    width: 120px;
-	    height: 30px;
 	}
 		.btn-header form{
 			display:inline-block;
 		}
 		.sec-btn {
-			box-sizing:border-box;
-			width: 56px;
+			margin-right: 5px;
+		    box-sizing: border-box;
+		    border-radius: 5px;
+		    padding: 8px 15px;
+		    text-decoration: none;
+		    text-decoration-line: none;
+		    text-decoration-style: initial;
+		    text-decoration-color: initial;
+		    border: 0;
+		    background: rgba(0, 0, 0, 0.31);
+		    background-image: -webkit-linear-gradient(top, #ff9224, #ff9224);
+		    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(253, 185, 117, 0));
+		    width: fit-content;
+		    height: 30px;
+		    line-height: 1px;
+		    font-size: 14px;
+		    color: white;
 		}
 		
 		.edit {
-		    box-sizing: border-box;
-		    border: 1.989px outset rgb(221, 221, 221);
+		    border: none;
 		    text-decoration: none;
 		    display: inline-block;
 		    font-family: Arial;
-		    font-size: 13.3333px;
-		    height: 24.1477px;
+		    font-size: 13px;
 		    letter-spacing: normal;
 		    line-height: normal;
 		    padding: 1px 6px;
 		    text-align: center;
 		    text-rendering: auto;
-		    width: 55.9517px;
-		    -webkit-appearance: button;
-		}
-		#submit-btn{
 		    box-sizing: border-box;
+		    border-radius: 5px;
 		    text-decoration: none;
-		    background: rgb(221, 221, 221);
-		    display: inline-block;
-		    font-family: Arial;
-		    font-size: 13.3333px;
-		    height: 24.1477px;
-		    letter-spacing: normal;
-		    line-height: normal;
-		    padding: 1px 6px;
-		    text-align: center;
-		    text-rendering: auto;
-		    width: 100px;
-		    -webkit-appearance: button;
+		    text-decoration-line: none;
+		    text-decoration-style: initial;
+		    text-decoration-color: initial;
+		    font-size: 14px;
+		    line-height: 15px;
+		    color: white;
 		}
+
 		.bepum-definite-wrapper {
 		    width: 300px;
 		    height: 50px;
@@ -217,6 +221,7 @@ h3 {
 	}
 	.bepumi-day  .on {
 		color:black;
+		font-weight: bold;
 	}
 	.bepumi-day label {
     	color:gray;

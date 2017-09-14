@@ -31,10 +31,10 @@
 						</c:if>
 					</form>
 					<c:if test="${isProfile == 0}">
-						<a href="./profile-reg" class="edit">등록</a>
+						<div class="sec-btn"><a href="./profile-reg" class="edit">등록</a></div>
 					</c:if>
 					<c:if test="${isProfile != 0}">
-						<a href="./profile-edit" class="edit">수정</a>
+						<div class="sec-btn"><a href="./profile-edit" class="edit">수정</a></div>
 					</c:if>
 				</div>
 				<div class="bepum-definite-wrapper">
