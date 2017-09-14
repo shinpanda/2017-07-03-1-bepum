@@ -310,4 +310,37 @@ public class JdbcMemberDao implements MemberDao {
 		}
 		return result;
 		}
+
+	@Override
+	public int updateGrade(int grade, String id) {
+		int result = 0;
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+	
+		// JDBC 드라이버 로드
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+	//			ID, name, pwd, gender, birthday, email, grade
+			String sql = "update Member set grade=? where ID = ?";
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+			/* Statement st = con.createStatement(); */
+			PreparedStatement st = con.prepareStatement(sql);
+					
+			st.setInt(1, grade);
+			st.setString(2, id);
+		
+			result = st.executeUpdate();
+			// 업데이트된 row 개수 알려줌
+	
+			st.close();
+			con.close();
+	
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

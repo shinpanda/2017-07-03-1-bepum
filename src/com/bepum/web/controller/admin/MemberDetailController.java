@@ -35,6 +35,8 @@ public class MemberDetailController extends HttpServlet{
 	      
 	      
 	     Member m = dao.get(id);
+	     
+	     
 	      
 	   /*   List<Notice> list = null;*/
 	    

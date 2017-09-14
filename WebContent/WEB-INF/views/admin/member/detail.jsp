@@ -22,8 +22,6 @@
 			<jsp:include page="../inc/aside.jsp"></jsp:include>
 			<main id="main" class="main">
 				<jsp:include page = "detail-top.jsp" />
-<%-- 				<jsp:include page = "detail-bottom-review-list.jsp" /> --%>
-
 			</main>
 		</div>
 	</div>

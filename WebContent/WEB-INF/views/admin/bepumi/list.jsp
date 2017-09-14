@@ -50,7 +50,7 @@
 							<div class="row">
 								<div class="cell">${n.id}</div>
 								<div class="cell">
-									<a href="./member-detail?id=${n.id}">${n.name}</a>
+									<a href="./detail?id=${n.id}">${n.name}</a>
 								</div>
 								<div class="cell">${gender}</div>
 								<div class="cell">${n.birth}</div>
