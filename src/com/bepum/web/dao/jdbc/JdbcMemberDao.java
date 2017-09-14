@@ -245,4 +245,35 @@ public class JdbcMemberDao implements MemberDao {
 		}
 		return result;
 	}
+
+	@Override
+	public int checkId(String id) {
+		int result=0;
+		System.out.println(id+"???????");
+		String sql = "SELECT * FROM Member where id=?";
+		Member m = null;
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, id);
+			ResultSet rs = st.executeQuery();
+			System.out.println();
+			if(!rs.next()) {
+				result = 1;
+			}
+			else
+				result = 0;
+			
+			rs.close();
+			st.close();
+			con.close();
+
+		} catch (Exception e) {
+		}
+		return result;
+	}
 }
