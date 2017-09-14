@@ -343,7 +343,24 @@ html {
     color: white;
     padding: 2px 2px 2px 2px;
 }
-
+.sminputs .input input.phone {
+	display: inline-block;
+    font-size: 13px;
+    width: 25%;
+    height: 25px;
+    margin-right: 4%;
+    border: 1px solid gray;
+    text-align: center;
+}
+.sminputs .input input.address {
+	display: inline-block;
+    font-size: 13px;
+    width: 30%;
+    height: 25px;
+    margin-left: 3%;
+    margin-right: 3%;
+    border-bottom: 1px solid gray;
+}
 
 
 .sminputs .input input {
