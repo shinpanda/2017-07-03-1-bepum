@@ -28,9 +28,6 @@ public class SearchingBepumiListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-	
-		
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		Object _id = session.getAttribute("id");
@@ -41,7 +38,7 @@ public class SearchingBepumiListController extends HttpServlet {
 		String _isbepumDay = request.getParameter("d");
 		String _startTime = request.getParameter("s");
 		String _endTime = request.getParameter("e");
-		
+
 		String[] _bepumDay = null;
 		String[] bepumDay = new String[7];
 		for(int i = 0;  i<bepumDay.length; i++) {
@@ -84,21 +81,20 @@ public class SearchingBepumiListController extends HttpServlet {
 		if(_address != null && !_address.equals(""))
 			address = _address.replaceAll(" ", "");
 		
+		// 정렬의 처리
+				String sort = null;
+				if(request.getParameter("sort") != null){
+					sort = request.getParameter("sort");
+				}
+				
 		SearchingBepumiDao dao = new JdbcSearchingBepumiDao();
 		request.setAttribute("list", dao.getList(page, babyAge, 
 				bepumDay[0], bepumDay[1], bepumDay[2],
-				bepumDay[3], bepumDay[4], bepumDay[5], bepumDay[6], address, startTime, endTime, sessionId));
+				bepumDay[3], bepumDay[4], bepumDay[5], bepumDay[6], address, startTime, endTime, sessionId, sort));
 		request.setAttribute("count", dao.getCount(babyAge, 
 				bepumDay[0], bepumDay[1], bepumDay[2],
-				bepumDay[3], bepumDay[4], bepumDay[5], bepumDay[6], address, startTime, endTime, sessionId));		
-				
-		// 정렬의 처리
-		String sort = null;
-		if(request.getParameter("sort") != null){
-			sort = request.getParameter("sort");
-		}
-	
-
+				bepumDay[3], bepumDay[4], bepumDay[5], bepumDay[6], address, startTime, endTime, sessionId, sort));		
+		
 		request.getRequestDispatcher("/WEB-INF/views/searching/bepumi/list.jsp").forward(request, response);
 
 	}

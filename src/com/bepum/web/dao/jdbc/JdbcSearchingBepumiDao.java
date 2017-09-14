@@ -5,12 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.bepum.web.dao.SearchingBepumiDao;
-import com.bepum.web.entity.Profile;
 import com.bepum.web.entity.SearchingBepumiView;
 
 public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
@@ -18,7 +16,7 @@ public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
 	@Override
 	public List<SearchingBepumiView> getList(int page, int babyAge, String bepumDay1, String bepumDay2,
 			String bepumDay3, String bepumDay4, String bepumDay5, String bepumDay6, String bepumDay7, String address,
-			String startTime, String endTime, String sessionId) {
+			String startTime, String endTime, String sessionId, String sort) {
 
 		List<SearchingBepumiView> list = null;
 		int offset = (page - 1) * 9; // 0,10,20,30, .. . .
@@ -86,6 +84,9 @@ public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
 					st.setInt(13, offset);
 				}
 			}
+			if(sort != null){
+				sql += " order by " + sort;
+			}
 
 			// 결과 가져오기
 			ResultSet rs = st.executeQuery();
@@ -130,7 +131,7 @@ public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
 	@Override
 	public int getCount(int babyAge, String bepumDay1, String bepumDay2, String bepumDay3, String bepumDay4,
 			String bepumDay5, String bepumDay6, String bepumDay7, String address, String startTime, String endTime,
-			String sessionId) {
+			String sessionId, String sort) {
 		int count = 0;
 		String sqlcount = "";
 
@@ -187,5 +188,7 @@ public class JdbcSearchingBepumiDao implements SearchingBepumiDao {
 
 		return count;
 	}
+
+
 
 }

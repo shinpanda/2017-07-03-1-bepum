@@ -5,10 +5,16 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<script type="text/javascript">
-$(document).ready(function(){
-   console.log($("input[name=sort]:checked").val());
-});
+<script>
+function sort(type) {
+var x = location.href;
+    if(type=='time'){
+        location.href=x+'?searchingbepumi_list_sort=time';
+    }
+    else if(type=='grade'){
+         location.href=x+'?searchingbepumi_list_sort=grade';
+    }
+}
 </script>
 
 <div id="result" class="result-container">
@@ -19,13 +25,11 @@ $(document).ready(function(){
 			<p id="resultaddress" class="resultaddress">검색지역 : 전국</p>
 			<p id="resultcount" class="resultcount">${count}명의베푸미가검색되었습니다.</p>
 		</div>
-		<div id="resultsort" class="resultsort">
-			<input id="time" type="radio" name="sort" checked="checked"	value="time" onclick=""> 
-				<label for="time"><span></span><a href="?sort=time">시간순</a></label> 
-			<input id="grade" type="radio" name="sort" value="grade" onclick=""> 
-				<label for="grade"><span></span><a href="?sort=grade">등급순</a></label>
-
-
+		<div id="resultsort" class="resultsort" >
+			<input id="time" type="radio" name="sort" checked="checked"	value="time" onclick="sort('time')"> 
+				<label for="time"><span></span>시간순</label> 
+			<input id="grade" type="radio" name="sort" value="grade" onclick="sort('grade')">
+				<label for="grade"><span></span>등급순</label>	
 		</div>
 
 		<c:set var="page" value="${param.p}" />
@@ -174,4 +178,3 @@ $(document).ready(function(){
 	src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
 <script src="js/searching.js"></script>
-
