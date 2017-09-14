@@ -50,7 +50,8 @@ public class JdbcMemberDao implements MemberDao {
 				m.setName(rs.getString("name"));
 				m.setGender(rs.getInt("gender")); 
 				m.setBirth(rs.getString("birthday"));
-				m.setEmail(rs.getString("email")); 
+				m.setEmail(rs.getString("email"));
+				
 				m.setGrade(rs.getInt("grade"));
 				list.add(m);
 			}
@@ -111,7 +112,7 @@ public class JdbcMemberDao implements MemberDao {
 	public int insert(Member member) {
 		int result =0;
 		
-		String sql = "INSERT INTO Member(ID, name, pwd, gender, birthday, email, grade) VALUES(?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO Member(ID, name, pwd, gender, birthday, email, grade,address, phone) VALUES(?,?,?,?,?,?,?,?,?)";
 		/*String sql = "INSERT INTO Member(ID, name, pwd, gender) VALUES(?,?,?,?)";*/
 		
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
@@ -126,8 +127,12 @@ public class JdbcMemberDao implements MemberDao {
 			st.setString(3, member.getPwd());
 			st.setInt(4, member.getGender());
 			st.setString(5, member.getBirth());
+			
 			st.setString(6, member.getEmail());
 			st.setInt(7, member.getGrade());
+			st.setString(8, member.getAddress());
+			st.setString(9, member.getPhone());
+			
 			
 			result = st.executeUpdate();
 			st.close();
@@ -156,7 +161,7 @@ public class JdbcMemberDao implements MemberDao {
 			/* list = new ArrayList<>(); */
 			while (rs.next()) { 
 				m = new Member(rs.getString("id"), rs.getString("name"), rs.getString("pwd"), rs.getInt("gender"),
-						rs.getString("birthday"), rs.getString("email"), rs.getInt("grade"),rs.getDate("regDate"));
+						rs.getString("birthday"), rs.getString("email"), rs.getString("phone"), rs.getString("address"), rs.getInt("grade"),rs.getDate("regDate"));
 			}
 			
 //			System.out.println(m.getId());

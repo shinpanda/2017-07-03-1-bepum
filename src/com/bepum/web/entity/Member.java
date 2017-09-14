@@ -14,6 +14,8 @@ public class Member {
 	private String pwd;
 	private int gender;
 	private String birth;
+	private String phone;
+	private String address;
 	
 	private String email;
 	private int grade;
@@ -22,7 +24,7 @@ public class Member {
 	public Member() {
 		
 	}
-	public Member(String id, String name, String pwd, int gender, String birth, String email, int grade, Date regDate) {
+	public Member(String id, String name, String pwd, int gender, String birth, String email,String phone,String address, int grade, Date regDate) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -30,8 +32,12 @@ public class Member {
 		this.gender = gender;
 		this.birth = birth;
 		this.email = email;
+		this.phone = phone;
+		this.address = address;
 		this.grade = grade;
 		this.regDate = regDate;
+		
+		
 	}
 	public String getId() {
 		return id;
@@ -81,5 +87,17 @@ public class Member {
 	}
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }
