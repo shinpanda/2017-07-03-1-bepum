@@ -173,6 +173,27 @@
 	    margin-top: 35px;
 	    padding-top: 15px;
 	}
+	.bepumi.pay-info-container {
+	    width: 80%;
+	    border-top: 1px solid #e6e6e6;
+	    margin: auto;
+	    margin-top: 35px;
+	    padding-top: 15px;
+	}
+	.bepumi.pay-info-container h3 {
+	    text-align: left;
+   		padding-bottom: 0px;
+    	padding-left: 30px;
+    	margin-left: 100px;
+    	margin-bottom: 8px;
+    	font-weight: 500;
+    	font-size: 1.17em;
+    	background: url(../images/dot.png) no-repeat left center;
+	}
+	
+	.bepumi.pay-info-container .pay-info-table{
+		width:80%;
+	}
 	
 	.bepumi.baby-info-container {
 	    width: 80%;
