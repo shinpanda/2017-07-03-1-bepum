@@ -67,6 +67,7 @@ public class JdbcBepumiMatchingDao implements BepumiMatchingDao {
 				m.setStartTime(rs.getString("startTime"));
 				m.setEndTime(rs.getString("endTime"));
 				m.setStatus(rs.getString("status"));
+				m.setBepumiID(rs.getString("bepumiID"));
 				list.add(m);
 			}
 			rs.close();
@@ -154,6 +155,7 @@ public class JdbcBepumiMatchingDao implements BepumiMatchingDao {
 				m.setAddress(rs.getString("address"));
 				m.setReqDate(rs.getDate("reqDate"));
 				m.setBepumDate(rs.getString("bepumDate"));
+				m.setBepumiID(rs.getString("bepumiID"));
 				m.setRequirement(rs.getString("requirement"));
 				m.setStartTime(rs.getString("startTime"));
 				m.setEndTime(rs.getString("endTime"));
