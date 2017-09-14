@@ -76,7 +76,7 @@
 			<div class="bg-profile-header">
 				<div class="content-container">
 					<div class="btn-header">
-						<input id="submit-btn" type="submit" value="변경사항 저장" />
+						<input id="submit-btn" class="sec-btn" type="submit" value="변경사항 저장" />
 					</div>
 					<div class="bepum-definite-wrapper">
 						<p>
