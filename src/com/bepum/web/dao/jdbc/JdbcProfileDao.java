@@ -220,7 +220,7 @@ public class JdbcProfileDao implements ProfileDao {
 			PreparedStatement st = con.prepareStatement(sql);
 			
 			st.setInt(1, sec);
-			st.setString(2, "testpumi");
+			st.setString(2, id);
 			
 			result = st.executeUpdate();
 			// 업데이트된 row 개수 알려줌

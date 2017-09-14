@@ -8,8 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bepum.web.dao.BabyDao;
+import com.bepum.web.dao.BepumiDao;
 import com.bepum.web.dao.BepumiRequestDao;
 import com.bepum.web.dao.MemberDao;
+import com.bepum.web.dao.jdbc.JdbcBabyDao;
+import com.bepum.web.dao.jdbc.JdbcBepumiDao;
 import com.bepum.web.dao.jdbc.JdbcBepumiRequestDao;
 import com.bepum.web.dao.jdbc.JdbcMemberDao;
 
@@ -34,16 +38,22 @@ public class BepumiRequestDetailController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
 		String[] checkBoxes = request.getParameterValues("checkBox");
 		String applicationFormStatus ="심사 완료";
 		String FRCStatus ="심사 완료";
 		String HCStatus ="심사 완료";
 		String VCStatus ="심사 완료";
+		
+		String name;
+		int age;
+		int gender;
 
 		String reqID = request.getParameter("id");
 		
 			if(checkBoxes!=null) {
-			// 전체선택 시
 			for (int i = 0; i < checkBoxes.length; i++) {
 				if (checkBoxes[i].equals("0")) {
 					applicationFormStatus ="재심사 필요";}
@@ -57,21 +67,21 @@ public class BepumiRequestDetailController extends HttpServlet {
 				{
 				 MemberDao dao1 = new JdbcMemberDao();
 				 dao1.updateGrade(reqID);
+				 BepumiDao dao2 = new JdbcBepumiDao();
+				 dao2.insert(reqID);
 				}
 
-			System.out.println(applicationFormStatus);
-
-			System.out.println(FRCStatus);
-
-			System.out.println(HCStatus);
-
-			System.out.println(VCStatus);
-			
 
 			BepumiRequestDao dao = new JdbcBepumiRequestDao();
-			int result = dao.update(reqID, applicationFormStatus, FRCStatus, HCStatus, VCStatus);
+			dao.update(reqID, applicationFormStatus, FRCStatus, HCStatus, VCStatus);
+			
+			BabyDao dao3 = new JdbcBabyDao();
+			name=request.getParameter("babyName");
+			age=Integer.parseInt(request.getParameter("babyAge"));
+			gender=Integer.parseInt(request.getParameter("gender"));
+			
+			dao3.insert(reqID, name, age, gender);
 		 
-
 			response.sendRedirect("list");
 	}
 }
