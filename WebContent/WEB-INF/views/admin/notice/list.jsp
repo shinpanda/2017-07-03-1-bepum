@@ -10,7 +10,6 @@
 <link href="../../css/style2.css" type="text/css" rel="stylesheet">
 <link href="../../css/admin.css" type="text/css" rel="stylesheet">
 <title>베:품</title>
-<!-- 요청, 진행 중, 과거 매칭 -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>

@@ -28,69 +28,91 @@
 			</div>
 			<br>
 			<br>
-			<br>
+			<br> 
 
 			<div class="certfi-container document-container">
 				<div class="document-certification">필수서류 인증</div>
-				<div class="document-certification1">
-					재심사가 필요한 서류의 경우, [재심사 필요]버튼을 눌러 다시 제출해주세요.</div>
-					
-					
-			<div class="document-wrapper">
-				<div class="application-form-wrapper clearfix">
+				<div class="document-certification1">재심사가 필요한 서류의 경우, [재심사
+					필요]버튼을 눌러 다시 제출해주세요.</div>
+
+
+				<div class="document-wrapper">
+					<div class="application-form-wrapper clearfix">
 						<div class="title-box dc-name">신청서</div>
 						<div class="progress">
-							<span>제출 전</span> <span>제출 완료</span> <span>심사
-								완료</span>
-								<span class="progress-status">
+							<span>제출 전</span> <span>제출 완료</span> <span>심사 완료</span> <span>
 								<a href="#layer2" class="btn-recheck">재심사 필요</a>
 							</span>
 						</div>
-				</div>
-				
-				<div class="family-rc-wrapper clearfix">
-					<div class="title-box dc-name">가족관계증명서</div>
-					<div class="progress">
-						<span>제출 전</span> <span>제출 완료</span> <span>심사완료</span>
-						<span class="progress-status">
-						<a href="#layer3" class="btn-recheck">재심사 필요</a>
-						</span>
 					</div>
-				</div>
-					
-					
-				<div class="hc-wrapper clearfix">
-					<div class="title-box dc-name">건강진단서</div>
-					<div class="progress">
-						<span>제출 전</span>
-						<span>제출 완료</span>
-						<span>심사완료</span>
-						<span class="progress-status">
-						<a href="#layer4" class="btn-recheck">재심사 필요</a>
-						</span>
+					<script>
+						for (var i = 0; i < 4; i++) {
+							if ($('.application-form-wrapper').find('span').eq(
+									i).html().indexOf('심사 완료') >= 0) {
+								$('.application-form-wrapper').find('span').eq(
+										i).addClass('progress-status');
+							}
+						}
+					</script>
+					<div class="family-rc-wrapper clearfix">
+						<div class="title-box dc-name">가족관계증명서</div>
+						<div class="progress">
+							<span>제출 전</span> <span>제출 완료</span> <span>심사 완료</span> <span>
+								<a href="#layer3" class="btn-recheck">재심사 필요</a>
+							</span>
+						</div>
 					</div>
-				</div>
+					<script>
+						for (var i = 0; i < 4; i++) {
+							if ($('.family-rc-wrapper').find('span').eq(i)
+									.html().indexOf('심사 완료') >= 0) {
+								$('.family-rc-wrapper').find('span').eq(i)
+										.addClass('progress-status');
+							}
+						}
+					</script>
+					<div class="hc-wrapper clearfix">
+						<div class="title-box dc-name">건강진단서</div>
+						<div class="progress">
+							<span>제출 전</span> <span>제출 완료</span> <span>심사 완료</span> <span>
+								<a href="#layer4" class="btn-recheck">재심사 필요</a>
+							</span>
+						</div>
+					</div>
+					<script>
+						for (var i = 0; i < 4; i++) {
+							if ($('.hc-wrapper').find('span').eq(i).html()
+									.indexOf('심사 완료') >= 0) {
+								$('.hc-wrapper').find('span').eq(i).addClass(
+										'progress-status');
+							}
+						}
+					</script>
 
-
-				<div class="baby-wrapper clearfix">
-					<div class="title-box dc-name">아이 예방접종 증명서</div>
-					<div class="progress">
-						<span>제출 전</span>
-						<span>제출 완료</span>
-						<span>심사완료</span>
-						<span class="progress-status">
-						<a href="#layer5" class="btn-recheck">재심사 필요</a>
-						</span>
+					<div class="baby-wrapper clearfix">
+						<div class="title-box dc-name">아이 예방접종 증명서</div>
+						<div class="progress">
+							<span>제출 전</span> <span>제출 완료</span> <span>심사 완료</span> <span>
+								<a href="#layer5" class="btn-recheck">재심사 필요</a>
+							</span>
+						</div>
 					</div>
+					<script>
+						for (var i = 0; i < 4; i++) {
+							if ($('.baby-wrapper').find('span').eq(i).html()
+									.indexOf('심사 완료') >= 0) {
+								$('.baby-wrapper').find('span').eq(i).addClass(
+										'progress-status');
+							}
+						}
+					</script>
 				</div>
-			</div>
 			</div>
 			</main>
-			
+
 		</div>
 	</div>
-				</div>
-			</div>
+
 
 
 
@@ -106,8 +128,8 @@
 					<div class="pop-conts">
 						<!--content //-->
 						<p class="ctxt mb20">
-							<b>***재심사 요청 사유***111</b><br> <br> 본인 인증에 사용된 성함과 서류상의 성함이
-							일치하지 않습니다.<br> 적합한 서류를 다시 제출해주세요!<br> <br>
+							<b>***재심사 요청 사유***111</b><br> <br> 본인 인증에 사용된 성함과 서류상의
+							성함이 일치하지 않습니다.<br> 적합한 서류를 다시 제출해주세요!<br> <br>
 						</p>
 
 						<div class="btn-r">
@@ -125,92 +147,92 @@
 						<!--// content-->
 					</div>
 				</div>
-			</div></div>
-			<div class="dim-layer" style="display: none;">
-				<div class="dimBg"></div>
-				<div id="layer3" class="pop-layer"
-					style="margin-top: -150px; margin-left: -260px;">
-					<div class="pop-container">
-						<div class="pop-conts">
-							<!--content //-->
-							<p class="ctxt mb20">
-								<b>***재심사 요청 사유***222</b><br> <br> 본인 인증에 사용된 성함과 서류상의
-								성함이 일치하지 않습니다.<br> 적합한 서류를 다시 제출해주세요!<br> <br>
-							</p>
+			</div>
+		</div>
+		<div class="dim-layer" style="display: none;">
+			<div class="dimBg"></div>
+			<div id="layer3" class="pop-layer"
+				style="margin-top: -150px; margin-left: -260px;">
+				<div class="pop-container">
+					<div class="pop-conts">
+						<!--content //-->
+						<p class="ctxt mb20">
+							<b>***재심사 요청 사유***222</b><br> <br> 본인 인증에 사용된 성함과 서류상의
+							성함이 일치하지 않습니다.<br> 적합한 서류를 다시 제출해주세요!<br> <br>
+						</p>
 
-							<div class="btn-r">
-								<div class="edit-box-container">
-									<div class="edit-box-wrapper">
-										<input type="file" class="editBtn" id="family-rc-edit"
-											name="edit"> <label for="family-rc-edit">파일
-											찾기</label> <input type="submit" class="editBtn"
-											id="family-rc-submit" name="filesubmit"> <label
-											for="family-rc-submit">제출</label>
-									</div>
+						<div class="btn-r">
+							<div class="edit-box-container">
+								<div class="edit-box-wrapper">
+									<input type="file" class="editBtn" id="family-rc-edit"
+										name="edit"> <label for="family-rc-edit">파일 찾기</label>
+									<input type="submit" class="editBtn" id="family-rc-submit"
+										name="filesubmit"> <label for="family-rc-submit">제출</label>
 								</div>
-								<a href="#" class="btn-layerClose">Close</a>
 							</div>
-							<!--// content-->
+							<a href="#" class="btn-layerClose">Close</a>
 						</div>
-					</div>
-				</div></div>
-				<div class="dim-layer" style="display: none;">
-					<div class="dimBg"></div>
-					<div id="layer4" class="pop-layer"
-						style="margin-top: -150px; margin-left: -260px;">
-						<div class="pop-container">
-							<div class="pop-conts">
-								<!--content //-->
-								<p class="ctxt mb20">
-									<b>***재심사 요청 사유***333</b><br> <br> 본인 인증에 사용된 성함과 서류상의
-									성함이 일치하지 않습니다.<br> 적합한 서류를 다시 제출해주세요!<br> <br>
-								</p>
-
-								<div class="btn-r">
-									<div class="edit-box-container">
-										<div class="edit-box-wrapper">
-											<input type="file" class="editBtn" id="hc-edit"
-												name="edit"> <label for="hc-edit">파일
-												찾기</label> <input type="submit" class="editBtn"
-												id="hc-submit" name="filesubmit"> <label
-												for="hc-submit">제출</label>
-										</div>
-									</div>
-									<a href="#" class="btn-layerClose">Close</a>
-								</div>
-								<!--// content-->
-							</div>
-						</div>
+						<!--// content-->
 					</div>
 				</div>
-				<div class="dim-layer" style="display: none;">
-				<div class="dimBg"></div>
-				<div id="layer5" class="pop-layer"
-					style="margin-top: -150px; margin-left: -260px;">
-					<div class="pop-container">
-						<div class="pop-conts">
-							<!--content //-->
-							<p class="ctxt mb20">
-								<b>***재심사 요청 사유***444</b><br> <br> 본인 인증에 사용된 성함과 서류상의 성함이
-								일치하지 않습니다.<br> 적합한 서류를 다시 제출해주세요!<br> <br>
-							</p>
-	
-							<div class="btn-r">
-								<div class="edit-box-container">
-									<div class="edit-box-wrapper">
-										<input type="file" class="editBtn" id="baby-edit"
-											name="edit"> <label for="baby-edit">파일
-											찾기</label> <input type="submit" class="editBtn"
-											id="baby-submit" name="filesubmit"> <label
-											for="baby-submit">제출</label>
-									</div>
+			</div>
+		</div>
+		<div class="dim-layer" style="display: none;">
+			<div class="dimBg"></div>
+			<div id="layer4" class="pop-layer"
+				style="margin-top: -150px; margin-left: -260px;">
+				<div class="pop-container">
+					<div class="pop-conts">
+						<!--content //-->
+						<p class="ctxt mb20">
+							<b>***재심사 요청 사유***333</b><br> <br> 본인 인증에 사용된 성함과 서류상의
+							성함이 일치하지 않습니다.<br> 적합한 서류를 다시 제출해주세요!<br> <br>
+						</p>
+
+						<div class="btn-r">
+							<div class="edit-box-container">
+								<div class="edit-box-wrapper">
+									<input type="file" class="editBtn" id="hc-edit" name="edit">
+									<label for="hc-edit">파일 찾기</label> <input type="submit"
+										class="editBtn" id="hc-submit" name="filesubmit"> <label
+										for="hc-submit">제출</label>
 								</div>
-								<a href="#" class="btn-layerClose">Close</a>
 							</div>
-							<!--// content-->
+							<a href="#" class="btn-layerClose">Close</a>
 						</div>
+						<!--// content-->
 					</div>
-				</div></div>
+				</div>
+			</div>
+		</div>
+		<div class="dim-layer" style="display: none;">
+			<div class="dimBg"></div>
+			<div id="layer5" class="pop-layer"
+				style="margin-top: -150px; margin-left: -260px;">
+				<div class="pop-container">
+					<div class="pop-conts">
+						<!--content //-->
+						<p class="ctxt mb20">
+							<b>***재심사 요청 사유***444</b><br> <br> 본인 인증에 사용된 성함과 서류상의
+							성함이 일치하지 않습니다.<br> 적합한 서류를 다시 제출해주세요!<br> <br>
+						</p>
+
+						<div class="btn-r">
+							<div class="edit-box-container">
+								<div class="edit-box-wrapper">
+									<input type="file" class="editBtn" id="baby-edit" name="edit">
+									<label for="baby-edit">파일 찾기</label> <input type="submit"
+										class="editBtn" id="baby-submit" name="filesubmit"> <label
+										for="baby-submit">제출</label>
+								</div>
+							</div>
+							<a href="#" class="btn-layerClose">Close</a>
+						</div>
+						<!--// content-->
+					</div>
+				</div>
+			</div>
+		</div>
 	</form>
 
 
@@ -255,8 +277,7 @@
 
 		}
 	</script>
-	</div>
-	</div>
+
 	<!-- 팝업 여기까지 -->
 
 

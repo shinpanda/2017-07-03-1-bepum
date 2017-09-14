@@ -65,7 +65,7 @@ public class SearchingBepumiListController extends HttpServlet {
 			page = Integer.parseInt(_page);
 		if(_isbepumDay != null && !_isbepumDay.equals(""))
 		{
-			_bepumDay = request.getParameterValues("s");
+			_bepumDay = request.getParameterValues("d");
 			for(int i = 0;  i<_bepumDay.length; i++)
 			{
 				bepumDay[i] = _bepumDay[i];
@@ -74,16 +74,15 @@ public class SearchingBepumiListController extends HttpServlet {
 		String startTime = "";
 		if(_startTime != null && !_startTime.equals(""))
 			startTime = _startTime;
-		
+
 		String endTime = "";
 		if(_endTime != null && !_endTime.equals(""))
 			endTime = _endTime;
 
-
 		String address = "";
 		if(_address != null && !_address.equals(""))
 			address = _address.replaceAll(" ", "");
-		
+		System.out.println(endTime);
 		SearchingBepumiDao dao = new JdbcSearchingBepumiDao();
 		request.setAttribute("list", dao.getList(page, babyAge, 
 				bepumDay[0], bepumDay[1], bepumDay[2],
@@ -92,12 +91,7 @@ public class SearchingBepumiListController extends HttpServlet {
 				bepumDay[0], bepumDay[1], bepumDay[2],
 				bepumDay[3], bepumDay[4], bepumDay[5], bepumDay[6], address, startTime, endTime, sessionId));		
 				
-		// 정렬의 처리
-		String sort = null;
-		if(request.getParameter("sort") != null){
-			sort = request.getParameter("sort");
-		}
-	
+		request.setAttribute("address", address);
 
 		request.getRequestDispatcher("/WEB-INF/views/searching/bepumi/list.jsp").forward(request, response);
 

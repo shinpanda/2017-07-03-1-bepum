@@ -19,5 +19,6 @@ public interface MemberDao {
 	int delete(String id, String pwd);
 
 	int checkId(String id);
+	int updateGrade(String reqID);
 
 }
