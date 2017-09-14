@@ -15,7 +15,7 @@ $(document).ready(function(){
 	<h3 class=hidden>검색 결과</h3>
 	<div id="resultsetting" class="result-setting-container">
 		<div id="resultinfo">
-<<<<<<< HEAD
+
 		
 		
 		<c:if test="${fn:length(address) == 0}">
@@ -27,10 +27,7 @@ $(document).ready(function(){
 			
 			<p id="resultaddress" class="resultaddress">검색지역 : ${searchingaddress}	</p>
 			<p id="resultcount" class="resultcount">${count}명의 베푸미가 검색되었습니다.</p>
-=======
-			<p id="resultaddress" class="resultaddress">검색지역 : 전국</p>
-			<p id="resultcount" class="resultcount">${count}명의베푸미가검색되었습니다.</p>
->>>>>>> refs/remotes/origin/master
+
 		</div>
 		<div id="resultsort" class="resultsort">
 			<input id="time" type="radio" name="sort" checked="checked"	value="time" onclick=""> 
@@ -111,8 +108,7 @@ $(document).ready(function(){
 
 
 
-											<h2 class="sub_title">${list[i].name}${age}세
-												${list[i].address}</h2>
+											<h2 class="sub_title">${list[i].name}(${age}세)	 ${list[i].address}</h2>
 											<p class="description">${list[i].etc}</p>
 											<div class="post-meta">
 

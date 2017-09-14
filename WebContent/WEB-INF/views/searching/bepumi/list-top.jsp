@@ -12,7 +12,7 @@
 		</h1>
 	</div>
 	<div class="search-form-container">
-		<form class="search" method="get">
+		<form name ="search" class="search" method="get" onsubmit="return check()">
 
 			<div class="search-input cd-wrapper">
 				<div class="field flex cd-wrapper" id="searchform">
@@ -136,3 +136,21 @@
 <script
 	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="js/index.js"></script>
+<script>
+		function check() {
+			 if(search.start_time.value=="" &&search.end_time.value==""){
+				 return true;
+			 }
+			 else if (search.start_time.value >=search.end_time.value){
+				 alert("시간 설정을 확인해주세요.");
+			    search.start_time.value.focus();
+			    return false;	
+			}
+			 else if (search.start_time.value=="" &&!search.end_time.value==""){
+				 alert("시간 설정을 확인해주세요.");
+			    search.start_time.value.focus();
+			    return false;	
+			}
+		}
+
+</script>
