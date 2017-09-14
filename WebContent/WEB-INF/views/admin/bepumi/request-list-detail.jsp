@@ -50,24 +50,24 @@
 					</div>
 			
 				</div>
-				<form  method="post" enctype="Multipart/form-data" name="fileCheck" onsubmit="">	
+				<form  method="post"  name="fileCheck" onsubmit="">	
 						<!-- 서류부분 -->
 					<div class="document-detail-table request">
 						<div class="row">
-							<div class="cell th1"><input type="checkbox" name="acheckBox"/>  신청서</div>
+							<div class="cell th1"><input type="checkbox" name="checkBox" value="0"/>  신청서</div>
 							<div class="cell td">${profile.applicationForm}</div>
 							
 						</div>
 						<div class="row">
-							<div class="cell th1"><input type="checkbox" name="hcheckBox"/>  건강진단서</div>
+							<div class="cell th1"><input type="checkbox" name="checkBox" value="1"/>  건강진단서</div>
 							<div class="cell td">${profile.HC}</div>
 						</div>
 						<div class="row">
-							<div class="cell th1"><input type="checkbox" name="fcheckBox"/>  가족관계증명서</div>
+							<div class="cell th1"><input type="checkbox" name="checkBox" value="2"/>  가족관계증명서</div>
 							<div class="cell td">${profile.FRC}</div>
 						</div>
 						<div class="row">
-							<div class="cell th1"><input type="checkbox" name="vcheckBox"/>  아이 예방접종 증명서</div>
+							<div class="cell th1"><input type="checkbox" name="checkBox" value="3"/>  아이 예방접종 증명서</div>
 							<div class="cell td">${profile.VC}</div>
 						</div>
 					</div>
@@ -79,7 +79,8 @@
 				하나라도 통과 안되면 파일 제출상태에 0을 db에 저장하고 0인거에 대해서는 재심사필요 on 하고 사용자가 다시 제출하게 
 				사용자가 다시 제출하는거는 update 함수로 하기 -->
 					<div>
-						<input type="submit" class="" value="저장"/>
+						<input type="submit" name="submit" class="" value="심사완료"/>
+						<!-- <input type="submit" name="submit" class="" value="재심사 필요"/> -->
 					</div>
 				</form>
 			</main>

@@ -15,12 +15,19 @@ public class BepumiRequest extends Member {
 	private String FRC_Copy;
 	private String VC;
 	private String VC_Copy;
+	private String applicationFormStatus;
+	private String HCStatus;
+	private String FRCStatus;
+	private String VCStatus;
 	
 	public BepumiRequest() {
 	}
 
+	
 	public BepumiRequest(String no, String reqId, Date reqDate, String applicationForm, String applicationForm_Copy,
-			String hC, String hC_Copy, String fRC, String fRC_Copy, String vC, String vC_Copy) {
+			String hC, String hC_Copy, String fRC, String fRC_Copy, String vC, String vC_Copy,
+			String applicationFormStatus, String hCStatus, String fRCStatus, String vCStatus) {
+		super();
 		this.no = no;
 		this.reqId = reqId;
 		this.reqDate = reqDate;
@@ -32,7 +39,12 @@ public class BepumiRequest extends Member {
 		FRC_Copy = fRC_Copy;
 		VC = vC;
 		VC_Copy = vC_Copy;
+		this.setApplicationFormStatus(applicationFormStatus);
+		setHCStatus(hCStatus);
+		setFRCStatus(fRCStatus);
+		setVCStatus(vCStatus);
 	}
+
 
 	public String getNo() {
 		return no;
@@ -120,6 +132,46 @@ public class BepumiRequest extends Member {
 
 	public void setVC_Copy(String vC_Copy) {
 		VC_Copy = vC_Copy;
+	}
+
+
+	public String getApplicationFormStatus() {
+		return applicationFormStatus;
+	}
+
+
+	public void setApplicationFormStatus(String applicationFormStatus) {
+		this.applicationFormStatus = applicationFormStatus;
+	}
+
+
+	public String getHCStatus() {
+		return HCStatus;
+	}
+
+
+	public void setHCStatus(String hCStatus) {
+		HCStatus = hCStatus;
+	}
+
+
+	public String getFRCStatus() {
+		return FRCStatus;
+	}
+
+
+	public void setFRCStatus(String fRCStatus) {
+		FRCStatus = fRCStatus;
+	}
+
+
+	public String getVCStatus() {
+		return VCStatus;
+	}
+
+
+	public void setVCStatus(String vCStatus) {
+		VCStatus = vCStatus;
 	}
 	
 }
