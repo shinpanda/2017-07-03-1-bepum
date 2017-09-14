@@ -173,7 +173,7 @@ public class JdbcMemberDao implements MemberDao {
 	}
 
 	@Override
-	public int update(String id, String name, String pwd, String birth, String email) {
+	public int update(String id, String name, String pwd, String birth, String address, String phone, String email) {
 		int result = 0;
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
@@ -181,7 +181,7 @@ public class JdbcMemberDao implements MemberDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 //				ID, name, pwd, gender, birthday, email, grade
-			String sql = "update Member set name = ?, pwd = ?, birthday = ?, email = ? where ID = ?";
+			String sql = "update Member set name = ?, pwd = ?, birthday = ?, address = ? , phone = ?, email = ? where ID = ?";
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
@@ -190,8 +190,10 @@ public class JdbcMemberDao implements MemberDao {
 			st.setString(1, name);
 			st.setString(2, pwd);
 			st.setString(3, birth);
-			st.setString(4, email);
-			st.setString(5, id);
+			st.setString(4, address);
+			st.setString(5, phone);
+			st.setString(6, email);
+			st.setString(7, id);
 			
 			
 			result = st.executeUpdate();
