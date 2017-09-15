@@ -105,8 +105,8 @@ window.onload = function(){
 						<div class="content-box dc-name" style="border: none;">
 							<c:set var="address1" value="${fn:substringBefore(member.address,' ')}"/>
 							<c:set var="address2" value="${fn:substringAfter(member.address,' ')}"/>
-							<span style="font-size: 13px;">시/도: * </span><input type="text" id="address1" name="address1" value="${address1}" class="address text-center" />
-							<span style="font-size: 13px;">시/군/구: *</span> <input type="text" id="address2" name="address2" value="${address2}" class="address text-center" />
+							<span style="font-size: 13px; margin-right: 10px;">시/도:  </span><input type="text" id="address1" name="address1" value="${address1}" class="address text-center" />
+							<span style="font-size: 13px; margin-right: 10px;">시/군/구: </span> <input type="text" id="address2" name="address2" value="${address2}" class="address text-center" />
 							</div>
 					</div>
 					</div>

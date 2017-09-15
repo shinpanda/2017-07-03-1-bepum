@@ -118,7 +118,7 @@ public class BepumiProfileRegController extends HttpServlet {
 				ProfileDao dao = new JdbcProfileDao();
 
 				request.setAttribute("profile", dao.get(id));
-
+				request.setAttribute("percent", dao.getPercent(id));
 				request.getRequestDispatcher("/WEB-INF/views/bepumi/profile/reg.jsp").forward(request, response);
 			}
 		}

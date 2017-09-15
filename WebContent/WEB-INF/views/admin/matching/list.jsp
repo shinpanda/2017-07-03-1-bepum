@@ -26,8 +26,8 @@
 				<div class="table-wrapper">
 					<div class="board-table">
 						<div class="row table-header">
-							<div class="cell w130">요청 아이디</div>
-							<div class="cell w130">베푸미 아이디</div>
+							<div class="cell w100">요청 아이디</div>
+							<div class="cell w100">베푸미 아이디</div>
 							<div class="cell w100">신청일</div>
 							<div class="cell w100">베품일</div>
 							<div class="cell w100">시간</div>
@@ -40,9 +40,9 @@
 								<c:set var="grade" value="슈퍼베푸미" />
 							</c:if>
 							<div class="row">
-								<div class="cell"><a href="matching-detail?no=${n.no}">${n.id}</a></div>
+								<div class="cell"><a href="../matching-detail?no=${n.no}">${n.id}</a></div>
 								<div class="cell">
-									<a href="matching-detail?no=${n.no}">${n.bepumiID}</a>
+									<a href="../matching-detail?no=${n.no}">${n.bepumiID}</a>
 								</div>
 								<div class="cell">${n.reqDate}</div>
 								<div class="cell">${n.bepumDate}</div>

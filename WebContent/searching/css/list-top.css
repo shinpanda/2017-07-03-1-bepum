@@ -63,7 +63,7 @@ div.input-title {
 .tooltiper {
   position: relative;
   display: inline-block;
-  color: tomato;
+  color: black;
   perspective:600px;
   transform-style: preserve-3d;
 }
@@ -71,7 +71,7 @@ div.input-title {
 .tooltiper .tooltip {
   min-width: max-content;
   position: absolute;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   text-align: left;
   background: tomato;
   color: white;
@@ -193,7 +193,7 @@ span.input-title{
 
 .field>input[type=text]{
   display:block;
-  font:17px 'Montserrat Alternates';
+  font:15px 'Montserrat Alternates';
 }
 
 .field>input[type=text] {

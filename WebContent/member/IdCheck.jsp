@@ -84,7 +84,7 @@
                 // 결과값을 가져온다.
                 var resultText = httpRequest.responseText;
                 if(resultText == 0){
-                    alert("사용할수없는 아이디입니다.");
+                    alert("사용중이거나 탈퇴한 회원의 아이디입니다.");
                     document.getElementById("cancelBtn").style.visibility='visible';
                     document.getElementById("useBtn").style.visibility='hidden';
                     document.getElementById("msg").innerHTML ="";
@@ -103,6 +103,7 @@
             opener.document.userInfo.idDuplication.value ="idCheck";
             // 회원가입 화면의 ID입력란에 값을 전달
             opener.document.userInfo.id.value = document.getElementById("userId").value;
+            
             
             if (opener != null) {
                 opener.chkForm = null;
@@ -123,6 +124,7 @@
             <input type="text" name="id" id="userId">
             <input type="button" value="중복확인" onclick="idCheck()">
         </form>
+        <div class="memo" style="color: red; font-size: 12px;">**아이디는 한글 및 특수문자를 사용하실 수 없습니다.<br/></div>
         <div id="msg"></div>
         <br>
         <input id="cancelBtn" type="button" value="취소" onclick="window.close()"><br>
