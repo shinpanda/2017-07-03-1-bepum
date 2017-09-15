@@ -15,7 +15,7 @@ import com.bepum.web.dao.jdbc.JdbcMemberDao;
 import com.bepum.web.entity.Member;
 import com.bepum.web.entity.Profile;
 
-@WebServlet("/admin/member/member-detail")
+@WebServlet("/admin/member/detail")
 public class MemberDetailController extends HttpServlet{
 	
 	@Override
@@ -29,12 +29,14 @@ public class MemberDetailController extends HttpServlet{
 	      if (_id != null && !_id.equals(""))
 	         id = _id;
 	      
-	      
+	      System.out.println(id);
 	   
 	      MemberDao  dao = new JdbcMemberDao();
 	      
 	      
 	     Member m = dao.get(id);
+	     
+	     
 	      
 	   /*   List<Notice> list = null;*/
 	    
