@@ -59,8 +59,12 @@
 									<div class="post-module">
 										<!-- Thumbnail-->
 										<div class="thumbnail">
-											<a href="detail-profile?id=${list[i].id}"><img
-												src="../upload/profilePic/${list[i].profilePic}" /></a>
+											<a href="detail-profile?id=${list[i].id}"><c:if test="${not empty list[i].profilePic}">
+					<img src="../upload/profilePic/${list[i].profilePic}" id="profile-photo" alt="프로필 사진">
+					</c:if>
+					<c:if test="${empty list[i].profilePic}">
+					<img src="../images/profile1.png" id="profile-photo" alt="프로필 사진"><img
+												src="../upload/profilePic/${list[i].profilePic}" /></c:if></a>
 										</div>
 										<!-- Post Content-->
 										<div class="post-content">
