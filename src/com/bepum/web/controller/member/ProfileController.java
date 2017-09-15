@@ -56,10 +56,19 @@ public class ProfileController extends HttpServlet {
 		String birthMonth = request.getParameter("birth-month");
 		String birthDay = request.getParameter("birth-day");
 		String birth = birthYear+"-"+birthMonth+"-"+birthDay;
+		String address1 = request.getParameter("address1");
+		String address2 = request.getParameter("address2");
+		String address = address1+" "+address2;
+		String phone1 = request.getParameter("phone1");
+		String phone2 = request.getParameter("phone2");
+		String phone3 = request.getParameter("phone3");
+		String phone = phone1+"-"+phone2+"-"+phone3;
 		String email = request.getParameter("email");
 		
+		System.out.println("phone:"+phone);System.out.println("email:"+email);
+		
 		MemberDao memberDao = new JdbcMemberDao();
-		result =memberDao.update(id,name,pwd,birth,email);
+		result =memberDao.update(id,name,pwd,birth,address,phone,email);
 		
 		if(result>0) {
 			out.println("<script>alert('회원정보가 수정되었습니다.');location.href='profile';</script>");

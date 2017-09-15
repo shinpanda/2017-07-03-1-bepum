@@ -51,7 +51,9 @@ public class SignController extends HttpServlet {
 		String phone_num3 = request.getParameter("phone_num3");
 		String address1 = request.getParameter("address1");
 		String address2 = request.getParameter("address2");
-		
+		/*idDuplication*/
+		String idDuplication = request.getParameter("idDuplication");
+		System.out.println(idDuplication);//idCheck or idUncheck
 		
 		String email = request.getParameter("email");
 		String pwdCheck = request.getParameter("pwd-check");//비밀번호확인과 일치확인
@@ -64,6 +66,9 @@ public class SignController extends HttpServlet {
 			
 		}else if(id == null || id.equals("")) {
 			out.println("<script>alert('아이디를 입력해주세요.');history.go(-1);</script>");
+			
+		}else if(idDuplication.equals("idUncheck")) {
+			out.println("<script>alert('아이디 중복확인을 해주세요.');history.go(-1);</script>");
 			
 		}else if(pwd == null || pwd.equals("")) {
 			out.println("<script>alert('비밀번호를 입력해주세요.');history.go(-1);</script>");
