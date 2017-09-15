@@ -73,7 +73,7 @@ public class JdbcBepumiRequestDao implements BepumiRequestDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			String sql = "SELECT * FROM BepumiRequestView where grade=0 order by reqDate desc limit ?, 15 ";
+			String sql = "SELECT * FROM BepumiRequestView where (HCStatus='제출 완료' || applicationFormStatus='제출 완료' || FRCStatus='제출 완료' || VCStatus='제출 완료') order by reqDate desc limit ?, 15 ;";
 
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
