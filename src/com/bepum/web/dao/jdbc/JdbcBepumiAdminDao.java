@@ -20,11 +20,12 @@ public class JdbcBepumiAdminDao implements BepumiAdminDao {
 		// JDBC 드라이버 로드
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String sql = "select avg(rating) as rating , count(status) as count from SearchingMatchingView where id = ? ";
+			String sql = "select avg(rating) as rating , count(status) as countAll, (select count(status) from SearchingMatchingView where id = ? and status='매칭완료') as countComplete from SearchingMatchingView where id = ?;";
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, id);
+			st.setString(2, id);
 			/* st.setString(1, "%"+title+"%"); */
 
 			// 결과 가져오기
@@ -35,27 +36,11 @@ public class JdbcBepumiAdminDao implements BepumiAdminDao {
 			if (rs.next()) {
 				m = new BepumiAdmin();
 				m.setAvgRating(rs.getInt("rating"));
-				m.setCountStatus(rs.getInt("count"));
+				m.setCountStatus(rs.getInt("countAll"));
+				m.setCountComplete(rs.getInt("countComplete"));
 			}
 			rs.close();
-			st.close();
-
-			String sql2 = "select count(status) as cc from SearchingMatchingView where id = ? and status='매칭완료'";
-			PreparedStatement st2 = con.prepareStatement(sql2);
-			st2.setString(1, id);
-			/* st.setString(1, "%"+title+"%"); */
-
-			// 결과 가져오기
-			ResultSet rs2 = st2.executeQuery();
-
-
-			// 결과 사용
-			if (rs2.next()) {
-				m.setCountComplete(rs2.getInt("cc"));
-			}
-			rs2.close();
-			st2.close();
-			
+			st.close();	
 			con.close();
 
 		} catch (ClassNotFoundException e) {
