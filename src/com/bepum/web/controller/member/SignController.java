@@ -65,32 +65,32 @@ public class SignController extends HttpServlet {
 			out.println("<script>alert('이름을 입력해주세요.');location.href='sign?error=non';</script>");
 			
 		}else if(id == null || id.equals("")) {
-			out.println("<script>alert('아이디를 입력해주세요.');history.go(-1);</script>");
+			out.println("<script>alert('아이디를 입력해주세요.');location.href='sign?error=non'</script>");
 			
 		}else if(idDuplication.equals("idUncheck")) {
-			out.println("<script>alert('아이디 중복확인을 해주세요.');history.go(-1);</script>");
+			out.println("<script>alert('아이디 중복확인을 해주세요.');location.href='sign?error=non'</script>");
 			
 		}else if(pwd == null || pwd.equals("")) {
-			out.println("<script>alert('비밀번호를 입력해주세요.');history.go(-1);</script>");
+			out.println("<script>alert('비밀번호를 입력해주세요.');location.href='sign?error=non'</script>");
 			
 		}else if(pwdCheck.equals("no")) {
-			out.println("<script>alert('비밀번호가 같지 않습니다.');history.go(-1);</script>");
+			out.println("<script>alert('비밀번호가 같지 않습니다.');location.href='sign?error=non'</script>");
 			
 		}else if(email == null || email.equals("")) {
-			out.println("<script>alert('이메일을 입력해주세요.');history.go(-1);</script>");
+			out.println("<script>alert('이메일을 입력해주세요.');location.href='sign?error=non'</script>");
 			
 		}else if(phone_num2 == null || phone_num2.equals("") 
 				||phone_num3 == null || phone_num3.equals("")) {
-			out.println("<script>alert('전화번호를 입력해주세요.');history.go(-1);</script>");
+			out.println("<script>alert('전화번호를 입력해주세요.');location.href='sign?error=non'</script>");
 		
 		}else if(address1 == null || address1.equals("") 
 				||address2 == null || address2.equals("")) {
-			out.println("<script>alert('주소를 입력해주세요.');history.go(-1);</script>");
+			out.println("<script>alert('주소를 입력해주세요.');location.href='sign?error=non'</script>");
 		
 		}else if(birthday_year == null || birthday_year.equals("") 
 				||birthday_month == null || birthday_month.equals("") 
 				||birthday_day == null || birthday_day.equals("")){
-			out.println("<script>alert('생년월일을 입력해주세요.');history.go(-1);</script>");
+			out.println("<script>alert('생년월일을 입력해주세요.');location.href='sign?error=non'</script>");
 			
 		}else {
 			if(phone_num1 == null || phone_num1.equals(""))

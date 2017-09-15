@@ -51,7 +51,6 @@ window.onload = function(){
 					<li data-tabtar="lgm-2"><a href="">로그인</a></li>
 					<li data-tabtar="lgm-1"><a href="">회원가입</a></li>
 				</ul>
-
 				<div class="logmod__tab-wrapper">
 					<div class="logmod__tab lgm-1">
 						<!-- 회원가입 -->
