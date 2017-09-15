@@ -2,10 +2,12 @@ package com.bepum.web.dao;
 
 
 import com.bepum.web.entity.Profile;
+import com.bepum.web.entity.ProfilePercent;
+import com.bepum.web.entity.ProfileView;
 
 public interface ProfileDao {
 
-	Profile get(String id);
+	ProfileView get(String id);
 
 	int getIsProfile(String id);
 
@@ -16,5 +18,7 @@ public interface ProfileDao {
 			String homePhoto1, String homePhoto2, String homePhoto3, String pay);
 
 	int updateSecret(String id, int sec);
+
+	ProfilePercent getPercent(String id);
 
 }
