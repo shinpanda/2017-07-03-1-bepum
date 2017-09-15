@@ -16,8 +16,7 @@
 
 			<div class="search-input cd-wrapper">
 				<div class="field flex cd-wrapper" id="searchform">
-					<input type="text" id="searchterm" name="a" placeholder="지역을 입력하세요">
-					<!--  <button type="button" id="search">Find!</button> -->
+					<input type="text" id="searchterm" name="a" placeholder="베푸미를 찾고 싶은 지역을 입력해보세요." class="ui-btn-icon-location" >
 				</div>
 			</div>
 
