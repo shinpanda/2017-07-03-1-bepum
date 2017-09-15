@@ -136,7 +136,7 @@ public class BepumiProfileEditController extends HttpServlet {
 				request.setAttribute("profile", dao.get(id));
 				request.setAttribute("br", "<br/>");
 				request.setAttribute("cn", "\n");
-
+				request.setAttribute("percent", dao.getPercent(id));
 				/* response.sendRedirect("notice.jsp"); */
 				request.getRequestDispatcher("/WEB-INF/views/bepumi/profile/edit.jsp").forward(request, response);
 			}

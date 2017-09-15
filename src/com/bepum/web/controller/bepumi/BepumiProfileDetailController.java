@@ -20,10 +20,14 @@ import javax.servlet.http.HttpSession;
 import com.bepum.web.dao.MemberDao;
 import com.bepum.web.dao.MemberRoleDao;
 import com.bepum.web.dao.ProfileDao;
+import com.bepum.web.dao.SearchingMatchingDao;
 import com.bepum.web.dao.jdbc.JdbcMemberDao;
 import com.bepum.web.dao.jdbc.JdbcMemberRoleDao;
 import com.bepum.web.dao.jdbc.JdbcProfileDao;
+import com.bepum.web.dao.jdbc.JdbcSearchingBepumiDao;
+import com.bepum.web.dao.jdbc.JdbcSearchingMatchingDao;
 import com.bepum.web.entity.Profile;
+import com.bepum.web.entity.ProfilePercent;
 
 @WebServlet("/bepumi/profile")
 public class BepumiProfileDetailController extends HttpServlet {
@@ -91,6 +95,9 @@ public class BepumiProfileDetailController extends HttpServlet {
 				request.setAttribute("br", "<br/>");
 				request.setAttribute("cn", "\n");
 
+				request.setAttribute("percent", dao.getPercent(id));
+				
+			
 				request.getRequestDispatcher("/WEB-INF/views/bepumi/profile/detail.jsp").forward(request, response);
 			}
 		}

@@ -74,7 +74,6 @@ window.onload = function(){
 										<div class="string optional" for="user-id">아이디 *</div>
 										<input class="string optional" maxlength="255" id="user-id" name="id"
 											placeholder="" type="text" size="50" onkeydown="inputIdChk()"  />
-										<!-- <button id="id-check" name="id-check" >아이디중복체크</button> -->
 										<input type="button" value="중복체크" id="confirmId" class="confirmbtn" onclick="button1_click();"/>
 										<input type="hidden" name="idDuplication" value="idUncheck"/>
 																			

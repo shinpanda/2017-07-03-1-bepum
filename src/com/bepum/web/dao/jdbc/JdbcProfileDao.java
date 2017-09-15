@@ -11,12 +11,13 @@ import java.util.List;
 import com.bepum.web.dao.ProfileDao;
 import com.bepum.web.entity.BoardView;
 import com.bepum.web.entity.Profile;
+import com.bepum.web.entity.ProfilePercent;
 import com.bepum.web.entity.ProfileView;
 
 public class JdbcProfileDao implements ProfileDao {
 
 	@Override
-	public Profile get(String id) {
+	public ProfileView get(String id) {
 		ProfileView p = null;
 
 		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
@@ -236,6 +237,50 @@ public class JdbcProfileDao implements ProfileDao {
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	@Override
+	public ProfilePercent getPercent(String id) {
+		ProfilePercent p = null;
+
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+
+		// JDBC 드라이버 로드
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			String sql = "select ROUND(((select count(no) from MatchingSituation where bepumiId = ? )/ count(no))*100) as requestPercent, (select ROUND(((select count(no) from MatchingSituation where bepumiId =? and status='매칭완료')/ count(no))*100) from MatchingSituation where bepumiId = ? ) as completePercent from MatchingSituation;";
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+			/* Statement st = con.createStatement(); */
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, id);
+			st.setString(2, id);
+			st.setString(3, id);
+
+			// 결과 가져오기
+			ResultSet rs = st.executeQuery();
+
+			// model
+
+			// 결과 사용
+			if (rs.next()) {
+				p = new ProfilePercent();
+				p.setRequestPercent(rs.getInt("requestPercent"));
+				p.setCompletePercent(rs.getInt("completePercent"));
+			}
+
+			rs.close();
+			st.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return p;
 	}
 
 }

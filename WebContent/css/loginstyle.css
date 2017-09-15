@@ -9,7 +9,7 @@ html {
 .logmod {
 	display: block;
 	position: fixed;
-	top: 0;
+	top: -100px;
 	right: 0;
 	bottom: 0;
 	left: 0;
@@ -338,7 +338,7 @@ html {
 .sminputs #confirmId{
     float: right;
     width: 70px;
-    border-radius: unset;
+    border-radius: 5px;
     background: pink;
     color: white;
     padding: 2px 2px 2px 2px;
@@ -348,7 +348,8 @@ html {
     font-size: 13px;
     width: 25%;
     height: 25px;
-    margin-right: 4%;
+    margin-right: 3%;
+    margin-left: 3%;
     border: 1px solid gray;
     text-align: center;
 }
@@ -387,7 +388,7 @@ html {
 	display: inline-block;
 	position: absolute;
 	right: 0;
-	top: 0;
+	top: 0px;
 	padding: 0 15px;
 	border-left: 1px solid #e4e4e4;
 	font-size: 14px;
