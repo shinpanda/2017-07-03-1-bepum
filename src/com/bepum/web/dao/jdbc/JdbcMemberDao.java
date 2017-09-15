@@ -51,7 +51,7 @@ public class JdbcMemberDao implements MemberDao {
 				m.setGender(rs.getInt("gender")); 
 				m.setBirth(rs.getString("birthday"));
 				m.setEmail(rs.getString("email"));
-				
+
 				m.setGrade(rs.getInt("grade"));
 				list.add(m);
 			}

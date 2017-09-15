@@ -33,7 +33,6 @@ public class ReviewDetailController extends HttpServlet {
 		request.setAttribute("br", "<br/>");
 		request.setAttribute("cn", "\n");
 		
-
 		/*response.sendRedirect("notice.jsp");*/
 		request.getRequestDispatcher("/WEB-INF/views/board/review/detail.jsp").forward(request, response);
 		
