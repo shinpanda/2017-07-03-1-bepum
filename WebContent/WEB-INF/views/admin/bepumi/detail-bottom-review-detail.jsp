@@ -16,7 +16,7 @@
 		<div class="row">
 			<div class="cell no">${n.no}</div>
 			<div class="cell title title-content">
-				<a href="./review-detail?no=${n.no}">${n.title}</a>
+				<a href="../bepumi/reviewdetail?no=${n.no}">${n.title}</a>
 			</div>
 			<div class="cell writer-id">${n.writerID}</div>
 			<div class="cell reg-date">

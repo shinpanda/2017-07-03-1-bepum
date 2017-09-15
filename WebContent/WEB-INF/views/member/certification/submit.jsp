@@ -42,83 +42,160 @@
 					</div>
 				</div>
 			</div>
-			
-			
-			<!-- 파일 냈는지 폼 체크 -->
-			
-				<script>
-				function check() {
-				  if(fileSubmit.application.value == "") {
-				    alert("신청서를 업로드해 주세요.");
-				    fileSubmit.application.focus();
-				    return false;
-				  }
-				  else if(fileSubmit.family.value == "") {
-				    alert("가족관계증명서를 업로드해 주세요.");
-				    fileSubmit.family.focus();
-				    return false;
-				  }
-				  else if(fileSubmit.hc.value == "") {
-					    alert("건강진단서를 업로드해 주세요.");
-					    fileSubmit.hc.focus();
-					    return false;
-			      }
-				  else if(fileSubmit.baby.value == "") {
-					    alert("아이 예방접종 증명서를 업로드해 주세요.");
-					    fileSubmit.baby.focus();
-					    return false;
-				  }
-				  else return true;
-				}
-				</script>			
 
-				<form  method="post" enctype="Multipart/form-data" name="fileSubmit" onsubmit="return check()">
+
+			<!-- 파일 냈는지 폼 체크 --> <c:if test="${grade == 0}">
+				<script>
+					function check() {
+						if (fileSubmit.application.value == "") {
+							alert("신청서를 업로드해 주세요.");
+							fileSubmit.application.focus();
+							return false;
+						} else if (fileSubmit.family.value == "") {
+							alert("가족관계증명서를 업로드해 주세요.");
+							fileSubmit.family.focus();
+							return false;
+						} else if (fileSubmit.hc.value == "") {
+							alert("건강진단서를 업로드해 주세요.");
+							fileSubmit.hc.focus();
+							return false;
+						} else if (fileSubmit.baby.value == "") {
+							alert("아이 예방접종 증명서를 업로드해 주세요.");
+							fileSubmit.baby.focus();
+							return false;
+						} else
+							return true;
+					}
+				</script>
+
+				<form method="post" enctype="Multipart/form-data" name="fileSubmit"
+					onsubmit="return check()">
 					<div class="submit-table-container">
-						<div class = "submit-table">
+						<div class="submit-table">
 							<div class="row">
 								<div class="cell th">신청서</div>
-								<div class="cell td"><input type="text" class="file_route" readonly="readonly" id="file_route1"/></div>
 								<div class="cell td">
-									<input type="file" class="submitBtn" id="application-form" name="application"
-										onchange="javascript:document.getElementById('file_route1').value=this.value"/>
+									<input type="text" class="file_route" readonly="readonly"
+										id="file_route1" />
+								</div>
+								<div class="cell td">
+									<input type="file" class="submitBtn" id="application-form"
+										name="application"
+										onchange="javascript:document.getElementById('file_route1').value=this.value" />		
 									<label for="application-form">파일찾기</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="cell th">가족관계증명서</div>
-								<div class="cell td"><input type="text" class="file_route" readonly="readonly" id="file_route2"/></div>
 								<div class="cell td">
-									<input type="file" class="submitBtn" id="family-rc-form" name="family" 
-									onchange="javascript:document.getElementById('file_route2').value=this.value"/>
+									<input type="text" class="file_route" readonly="readonly"
+										id="file_route2" />
+								</div>
+								<div class="cell td">
+									<input type="file" class="submitBtn" id="family-rc-form"
+										name="family"
+										onchange="javascript:document.getElementById('file_route2').value=this.value" />
 									<label for="family-rc-form">파일찾기</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="cell th">건강진단서</div>
-								<div class="cell td"><input type="text" class="file_route" readonly="readonly" id="file_route3"/></div>
+								<div class="cell td">
+									<input type="text" class="file_route" readonly="readonly"
+										id="file_route3" />
+								</div>
 								<div class="cell td">
 									<input type="file" class="submitBtn" id="hc-form" name="hc"
-									onchange="javascript:document.getElementById('file_route3').value=this.value"/>
+										onchange="javascript:document.getElementById('file_route3').value=this.value" />
 									<label for="hc-form">파일찾기</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="cell th">아이 예방접종 증명서</div>
-								<div class="cell td"><input type="text" class="file_route" readonly="readonly" id="file_route4"/></div>
+								<div class="cell td">
+									<input type="text" class="file_route" readonly="readonly"
+										id="file_route4" />
+								</div>
 								<div class="cell td">
 									<input type="file" class="submitBtn" id="baby-form" name="baby"
-									onchange="javascript:document.getElementById('file_route4').value=this.value"/>
+										onchange="javascript:document.getElementById('file_route4').value=this.value" />
 									<label for="baby-form">파일찾기</label>
 								</div>
 							</div>
 						</div>
 					</div>
-						
-						<input type="submit" value="다음" class="agree-btn-container"/>
-					</form>	
-					</main>
-				</div>
-			</div>
+					<input type="submit" value="다음" class="agree-btn-container" />
+				</form>
+			</c:if> <c:if test="${grade > 0}">
+				<form method="post" enctype="Multipart/form-data" name="fileSubmit">
+					<div class="submit-table-container">
+						<div class="submit-table">
+							<div class="row">
+								<div class="cell th">신청서</div>
+								<div class="cell td">
+									<input type="text" class="file_route" readonly="readonly"
+										id="file_route1" />
+									<input type="hidden" name = "application-orgin" value="${brDoc.applicationForm}"/>
+								</div>
+								<div class="cell td">
+									<input type="file" class="submitBtn" id="application-form"
+										name="application"
+										onchange="javascript:document.getElementById('file_route1').value=this.value" />
+										<input type="hidden" name = "application-orgin-after" value="${brDoc.applicationForm_Copy}"/>
+									<label for="application-form">파일찾기</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="cell th">가족관계증명서</div>
+								<div class="cell td">
+									<input type="text" class="file_route" readonly="readonly"
+										id="file_route2" />
+										<input type="hidden" name = "frc-orgin" value="${brDoc.FRC}"/>
+								</div>
+								<div class="cell td">
+									<input type="file" class="submitBtn" id="family-rc-form"
+										name="family"
+										onchange="javascript:document.getElementById('file_route2').value=this.value" />
+										<input type="hidden" name = "frc-orgin-after" value="${brDoc.FRC_Copy}"/>
+									<label for="family-rc-form">파일찾기</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="cell th">건강진단서</div>
+								<div class="cell td">
+									<input type="text" class="file_route" readonly="readonly"
+										id="file_route3" />
+										<input type="hidden" name = "hc-orgin" value="${brDoc.HC}"/>
+								</div>
+								<div class="cell td">
+									<input type="file" class="submitBtn" id="hc-form" name="hc"
+										onchange="javascript:document.getElementById('file_route3').value=this.value" />
+										<input type="hidden" name = "hc-orgin-after" value="${brDoc.HC_Copy}"/>
+									<label for="hc-form">파일찾기</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="cell th">아이 예방접종 증명서</div>
+								<div class="cell td">
+									<input type="text" class="file_route" readonly="readonly"
+										id="file_route4" />
+										<input type="hidden" name = "vc-orgin" value="${brDoc.VC}"/>
+								</div>
+								<div class="cell td">
+									<input type="file" class="submitBtn" id="baby-form" name="baby"
+										onchange="javascript:document.getElementById('file_route4').value=this.value" />
+									<input type="hidden" name = "vc-orgin-after" value="${brDoc.VC_Copy}"/>
+									<label for="baby-form">파일찾기</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<input type="hidden" name="grade" value="${grade}" />
+					<input type="submit" value="다음" class="agree-btn-container" />
+				</form>
+			</c:if> </main>
+		</div>
+	</div>
 
 	<!--  footer 집중화 -->
 	<jsp:include page="../../inc/footer.jsp"></jsp:include>
