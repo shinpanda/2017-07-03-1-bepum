@@ -117,7 +117,7 @@
 							<div class="chart1"></div>
 							<div class="chart2"></div>
 							<div class="chart-center">
-								<span>50%</span>
+								<span></span>
 							</div>
 						</div>
 						<p class="chart-name">매칭 요청률</p>
@@ -128,7 +128,7 @@
 							<div class="chart1"></div>
 							<div class="chart2"></div>
 							<div class="chart-center">
-								<span>75%</span>
+								<span></span>
 							</div>
 						</div>
 						<p class="chart-name2">매칭 성공률</p>
@@ -161,8 +161,8 @@
 							per + "%");
 
 				};
-				setChart("bepumi-request-chart", 50, "#85DDC8");
-				setChart("bepumi-success-chart", 75, "#cba9e2");
+				setChart("bepumi-request-chart", ${percent.requestPercent}, "#85DDC8");
+				setChart("bepumi-success-chart", ${percent.completePercent}, "#cba9e2");
 			</script>
 		</div>
 

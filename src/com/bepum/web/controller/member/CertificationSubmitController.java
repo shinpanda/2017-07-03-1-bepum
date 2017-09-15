@@ -12,7 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.bepum.web.dao.BepumiRequestDao;
+import com.bepum.web.dao.MemberRoleDao;
 import com.bepum.web.dao.jdbc.JdbcBepumiRequestDao;
+import com.bepum.web.dao.jdbc.JdbcMemberRoleDao;
+import com.bepum.web.entity.BepumiRequest;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -21,10 +24,28 @@ public class CertificationSubmitController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		//String uri  = request.getRequestURI();
-		request.getRequestDispatcher("/WEB-INF/views/member/certification/submit.jsp").forward(request, response);
-
+		HttpSession session = request.getSession();
+		Object _id = session.getAttribute("id");
+		
+		if(_id == null) {
+			
+		}else {
+			String id = _id.toString();
+			
+			MemberRoleDao roleDao = new JdbcMemberRoleDao();
+			int grade = roleDao.getRole(id);
+				
+			request.setAttribute("grade", grade);
+			
+			if (grade > 0)
+			{
+				BepumiRequestDao dao = new JdbcBepumiRequestDao();
+				request.setAttribute("brDoc", dao.get(id));
+			}
+			
+			//String uri  = request.getRequestURI();
+			request.getRequestDispatcher("/WEB-INF/views/member/certification/submit.jsp").forward(request, response);
+		}
 	}
 	
 	@Override
@@ -33,7 +54,7 @@ public class CertificationSubmitController extends HttpServlet {
 		String uploadPath=request.getSession().getServletContext().getRealPath("/upload/certification");
 		//getServletContextPath().getRealPath("upload");
 		System.out.print("realPath:"+uploadPath);
-		int size=10*1024*1024;
+		int size=50*1024*1024;
 	/* 	String name="";
 		String subject=""; */
 		
@@ -77,8 +98,7 @@ public class CertificationSubmitController extends HttpServlet {
 			applicationFormCopy = multi.getFilesystemName(file1);		
 			//multi에서 알고있는 (파일)원본이름을 file1을 통해서 알아낸다.
 			applicationForm = multi.getOriginalFileName(file1);
-			
-			
+
 			HCCopy= multi.getFilesystemName(file2);
 			HC=multi.getOriginalFileName(file2);		
 			
@@ -86,12 +106,38 @@ public class CertificationSubmitController extends HttpServlet {
 			FRC=multi.getOriginalFileName(file3);	
 			
 			VCCopy= multi.getFilesystemName(file4);
-			VC=multi.getOriginalFileName(file4);	
+			VC=multi.getOriginalFileName(file4);
+			
+			if(applicationFormCopy == null)
+			{
+				applicationForm = "";
+				applicationFormCopy = "";
+			}
+			
+			if(HCCopy == null)
+			{
+				HC = "";
+				HCCopy = "";
+			}
+			
+			if(FRCCopy == null)
+			{
+				FRC = "";
+				FRCCopy = "";
+			}
+			if(VCCopy == null)
+			{
+				VC = "";
+				VCCopy = "";
+			}
+			
 			
 			}catch(Exception e){
 				System.out.print(e.getMessage());
 				System.out.print("파일 업로드 문제 발생: "+e.getMessage()); //로그 기록			
 		}
+		
+		
 		
 		BepumiRequestDao dao = new JdbcBepumiRequestDao();
 		
@@ -99,8 +145,43 @@ public class CertificationSubmitController extends HttpServlet {
 		Object _id = session.getAttribute("id");
 		String reqID = _id.toString();
 		
-		int result = dao.insert(reqID, applicationFormCopy,applicationForm,HCCopy,HC,FRCCopy,FRC,VCCopy,VC);
-		
+		String _grade = multi.getParameter("grade");
+		int grade = 0;
+		if(_grade != null && !_grade.equals("")) {
+			grade = Integer.parseInt(_grade);
+			
+			if(grade > 0) {
+				String applicationFormStatus = "제출 완료";
+				String HCStatus = "제출 완료"; 
+				String FRCStatus = "제출 완료"; 
+				String VCStatus = "제출 완료"; 
+				
+				if(applicationFormCopy.equals("") || applicationFormCopy == null) {
+					applicationForm = request.getParameter("application-orgin");
+					applicationFormCopy = request.getParameter("application-orgin-after");
+					applicationFormStatus = "심사 완료";
+				}
+				if(FRCCopy.equals("") || FRCCopy == null) {
+					FRC = request.getParameter("frc-orgin");
+					FRCCopy = request.getParameter("frc-orgin-after");
+					HCStatus = "심사 완료";
+				}
+				if(HCCopy.equals("") || HCCopy == null) {
+					HC = request.getParameter("hc-orgin");
+					HCCopy = request.getParameter("hc-orgin-after");
+					FRCStatus = "심사 완료";
+				}
+				if(VCCopy.equals("") || VCCopy == null) {
+					VC = request.getParameter("vc-orgin");
+					VCCopy = request.getParameter("vc-orgin-after");
+					VCStatus = "심사 완료";
+				}
+				
+				int result = dao.updateDoc(reqID, applicationFormCopy,applicationForm,HCCopy,HC,FRCCopy,FRC,VCCopy,VC, applicationFormStatus, HCStatus, FRCStatus, VCStatus);
+			}
+		} else {
+			int result = dao.insert(reqID, applicationFormCopy,applicationForm,HCCopy,HC,FRCCopy,FRC,VCCopy,VC);
+		}
 		
 		response.sendRedirect("certification-complete");
 	}

@@ -43,6 +43,7 @@ public class SearchingBepumiListProfileDetailController extends HttpServlet {
 		
 		ProfileDao dao = new JdbcProfileDao();
 		request.setAttribute("profile", dao.get(id));
+		request.setAttribute("percent", dao.getPercent(id));
 		request.getRequestDispatcher("/WEB-INF/views/searching/bepumi/detail-profile.jsp").forward(request, response);
 	}
 }

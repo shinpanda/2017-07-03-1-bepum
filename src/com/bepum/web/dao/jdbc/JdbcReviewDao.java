@@ -260,6 +260,60 @@ public class JdbcReviewDao implements ReviewDao {
 		return result;
 	}
 
+	@Override
+	public List<ReviewView> getListByBepumi(String id) {
+		String url = "jdbc:mysql://211.238.142.247/bepumdb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+
+		List<ReviewView> list = null;
+		//int offset = ((page - 1) * 5);
+
+		// JDBC 드라이버 로드
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			// BepumiMatchingView는 목록에서만 작동... 뷰단에서 select 하는 거는 다른 객체를 만드는 것이 맞을 듯 아기가 2이상일
+			// 수도 있으니까..
+			String sql = "select * from ReviewView where bepumiID = ? order by regDate desc limit 0, 5";
+
+			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
+			/* Statement st = con.createStatement(); */
+			PreparedStatement st = con.prepareStatement(sql);
+
+			st.setString(1, id);
+			//st.setInt(2, offset);
+			/* st.setString(1, "%"+title+"%"); */
+
+			// 결과 가져오기
+			ResultSet rs = st.executeQuery();
+
+			// model
+			list = new ArrayList<>();
+
+			// 결과 사용
+			while (rs.next()) {
+				ReviewView m = new ReviewView();
+				m.setNo(rs.getString("no"));
+				m.setBepumiID(rs.getString("bepumiID"));
+				m.setWriterID(rs.getString("writerID"));
+				m.setTitle(rs.getString("title"));
+				m.setRegDate(rs.getTimestamp("regDate"));
+				m.setHit(rs.getInt("hit"));
+				list.add(m);
+			}
+			rs.close();
+			st.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+
 	
 
 }
