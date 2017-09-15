@@ -73,6 +73,7 @@
 				
 				
 			<h3>자격심사 제출 서류</h3>
+			<div>재심사 요청할 파일에 체크 후 저장하세요. 아무것도 체크하지 않고 저장하면 심사가 완료됩니다.</div>
 						<!-- 서류부분 -->
 					<div class="document-detail-table request">
 						<div class="row">

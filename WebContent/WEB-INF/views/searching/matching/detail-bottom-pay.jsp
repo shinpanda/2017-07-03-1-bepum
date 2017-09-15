@@ -4,7 +4,7 @@
  
  <!-- 신청자 매칭목록 세부페이지 [결제요청] -->
     
-				<form>
+				<form method="post">
 					<div class="member rb-wrapper">
 						<div class="member rb-container">
 							<div class="member req-date">
@@ -57,8 +57,8 @@
 							</div>
 						</div>
 					</div>
-
-					<input type="button" class="btn pay-btn" value="결제하기"/>
+				
+					<input type="submit" class="btn pay-btn" name="pay-btn" value="결제하기"/>
 				</form>
 
 	

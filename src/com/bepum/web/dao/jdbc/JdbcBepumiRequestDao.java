@@ -27,7 +27,7 @@ public class JdbcBepumiRequestDao implements BepumiRequestDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String sql = "INSERT INTO BepumiRequest(no, reqID, reqDate, applicationForm, applicationForm_copy, HC, HC_copy, FRC, FRC_copy, VC, VC_copy) VALUES ((select IFNULL(max(cast(no as unsigned)), 0)+1 from BepumiRequest br), ?, sysdate(), ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO BepumiRequest(no, reqID, reqDate, applicationForm, applicationForm_copy, HC, HC_copy, FRC, FRC_copy, VC, VC_copy, applicationFormStatus, FRCStatus,  HCStatus, VCStatus) VALUES ((select IFNULL(max(cast(no as unsigned)), 0)+1 from BepumiRequest br), ?, sysdate(), ?, ?, ?, ?, ?, ?, ?, ?, '제출 완료','제출 완료','제출 완료','제출 완료')";
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */
 			PreparedStatement st = con.prepareStatement(sql);
@@ -73,7 +73,7 @@ public class JdbcBepumiRequestDao implements BepumiRequestDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			String sql = "SELECT * FROM BepumiRequestView where grade=0 order by reqDate desc limit ?, 15 ";
+			String sql = "SELECT * FROM BepumiRequestView where (HCStatus='제출 완료' || applicationFormStatus='제출 완료' || FRCStatus='제출 완료' || VCStatus='제출 완료') order by reqDate desc limit ?, 15 ;";
 
 			Connection con = DriverManager.getConnection(url, "bepum", "bepum123");
 			/* Statement st = con.createStatement(); */

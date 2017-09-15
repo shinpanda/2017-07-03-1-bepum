@@ -142,6 +142,7 @@
 										name="application"
 										onchange="javascript:document.getElementById('file_route1').value=this.value" />
 										<input type="hidden" name = "application-orgin-after" value="${brDoc.applicationForm_Copy}"/>
+										<input type="hidden" name = "application-orgin-status" value="${brDoc.applicationFormStatus}"/>
 									<label for="application-form">파일찾기</label>
 								</div>
 							</div>
@@ -157,6 +158,7 @@
 										name="family"
 										onchange="javascript:document.getElementById('file_route2').value=this.value" />
 										<input type="hidden" name = "frc-orgin-after" value="${brDoc.FRC_Copy}"/>
+										<input type="hidden" name = "frc-orgin-status" value="${brDoc.FRCStatus}"/>
 									<label for="family-rc-form">파일찾기</label>
 								</div>
 							</div>
@@ -171,6 +173,7 @@
 									<input type="file" class="submitBtn" id="hc-form" name="hc"
 										onchange="javascript:document.getElementById('file_route3').value=this.value" />
 										<input type="hidden" name = "hc-orgin-after" value="${brDoc.HC_Copy}"/>
+										<input type="hidden" name = "hc-orgin-status" value="${brDoc.HCStatus}"/>
 									<label for="hc-form">파일찾기</label>
 								</div>
 							</div>
@@ -185,6 +188,7 @@
 									<input type="file" class="submitBtn" id="baby-form" name="baby"
 										onchange="javascript:document.getElementById('file_route4').value=this.value" />
 									<input type="hidden" name = "vc-orgin-after" value="${brDoc.VC_Copy}"/>
+									<input type="hidden" name = "vc-orgin-status" value="${brDoc.VCStatus}"/>
 									<label for="baby-form">파일찾기</label>
 								</div>
 							</div>

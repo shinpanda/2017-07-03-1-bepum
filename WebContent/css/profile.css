@@ -244,6 +244,7 @@ h3 {
 		}
 		.bepumi-day input[type="checkbox"]:checked + label {
 			color:black;
+			font-weight: bold;
 		}
 
 		.bepumi-time span {
