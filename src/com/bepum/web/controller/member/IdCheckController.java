@@ -29,7 +29,6 @@ public class IdCheckController extends HttpServlet {
 		String id =request.getParameter("id");
 		MemberDao memberDao = new JdbcMemberDao();
 		result = memberDao.checkId(id);
-		System.out.println(result);
 		if(result == 1) {
 			request.setAttribute("result", result);
 			out.println("1");
