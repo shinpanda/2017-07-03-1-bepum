@@ -33,7 +33,7 @@ public class CertificationSubmitController extends HttpServlet {
 		String uploadPath=request.getSession().getServletContext().getRealPath("/upload/certification");
 		//getServletContextPath().getRealPath("upload");
 		System.out.print("realPath:"+uploadPath);
-		int size=10*1024*1024;
+		int size=50*1024*1024;
 	/* 	String name="";
 		String subject=""; */
 		
