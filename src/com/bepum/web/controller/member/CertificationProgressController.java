@@ -1,6 +1,7 @@
 package com.bepum.web.controller.member;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,9 +22,16 @@ public class CertificationProgressController extends HttpServlet {
 		
 		
 		request.setCharacterEncoding("UTF-8");
-
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
+
 		Object _id = session.getAttribute("id");
+
+		if (_id == null)
+			out.write("<script> alert('로그인이 필요한 요청입니다.'); history.back(); </script>");
+		else {
 		String id = _id.toString();
 
 
@@ -31,7 +39,7 @@ public class CertificationProgressController extends HttpServlet {
 		request.setAttribute("profile", dao.get(id));
 		
 		request.getRequestDispatcher("/WEB-INF/views/member/certification/progress.jsp").forward(request, response);
-
+		}
 	}
 
 }

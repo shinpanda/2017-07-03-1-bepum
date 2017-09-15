@@ -17,8 +17,10 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.PageContext;
 
 import com.bepum.web.dao.BoardCmtDao;
+import com.bepum.web.dao.MemberRoleDao;
 import com.bepum.web.dao.SecretBoardDao;
 import com.bepum.web.dao.jdbc.JdbcBoardCmtDao;
+import com.bepum.web.dao.jdbc.JdbcMemberRoleDao;
 import com.bepum.web.dao.jdbc.JdbcSecretBoardDao;
 import com.bepum.web.entity.Board;
 import com.bepum.web.entity.BoardView;
@@ -61,23 +63,39 @@ public class QuestionDetailController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession();
 
-		String no = request.getParameter("no");
+		Object _adminId = session.getAttribute("id");
 
-		SecretBoardDao dao = new JdbcSecretBoardDao();
+		if (_adminId == null)
+			out.write("<script> alert('로그인이 필요한 요청입니다.'); history.back(); </script>");
+		else {
+			String adminId = _adminId.toString();
+			MemberRoleDao roleDao = new JdbcMemberRoleDao();
+			int role = roleDao.getRole(adminId);
 
-		int result = dao.updateHit(no, boardName);
-		SecretBoardView b = dao.get(no, boardName);
-		request.setAttribute("b", b);
-		request.setAttribute("br", "<br/>");
-		request.setAttribute("cn", "\n");
-		if (b.getCountCmt() > 0) {
-			BoardCmtDao cmtDao = new JdbcBoardCmtDao();
-			request.setAttribute("cmtList", cmtDao.getList(no, boardName));
+			if (role == 999) {
+				String no = request.getParameter("no");
+
+				SecretBoardDao dao = new JdbcSecretBoardDao();
+
+				int result = dao.updateHit(no, boardName);
+				SecretBoardView b = dao.get(no, boardName);
+				request.setAttribute("b", b);
+				request.setAttribute("br", "<br/>");
+				request.setAttribute("cn", "\n");
+				if (b.getCountCmt() > 0) {
+					BoardCmtDao cmtDao = new JdbcBoardCmtDao();
+					request.setAttribute("cmtList", cmtDao.getList(no, boardName));
+				}
+
+				/* response.sendRedirect("notice.jsp"); */
+				request.getRequestDispatcher("/WEB-INF/views/admin/question/detail.jsp").forward(request, response);
+			} else {
+				out.write("<script> alert('잘못된 접근입니다.'); history.back(); </script>");
+			}
 		}
-
-		/* response.sendRedirect("notice.jsp"); */
-		request.getRequestDispatcher("/WEB-INF/views/admin/question/detail.jsp").forward(request, response);
-
 	}
 }

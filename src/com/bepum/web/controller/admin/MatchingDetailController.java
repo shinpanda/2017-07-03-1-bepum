@@ -81,7 +81,7 @@ public class MatchingDetailController extends HttpServlet {
 			MemberRoleDao roleDao = new JdbcMemberRoleDao();
 			int role = roleDao.getRole(id);
 
-			if (role < 2)
+			if (role < 999)
 				out.write("<script> alert('잘못된 요청입니다.'); history.back(); </script>");
 			else {
 				BepumiMatchingDao dao = new JdbcBepumiMatchingDao();

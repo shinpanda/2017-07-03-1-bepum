@@ -1,6 +1,7 @@
 package com.bepum.web.controller.admin;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -8,10 +9,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bepum.web.dao.MemberDao;
+import com.bepum.web.dao.MemberRoleDao;
 import com.bepum.web.dao.jdbc.JdbcMemberDao;
-
+import com.bepum.web.dao.jdbc.JdbcMemberRoleDao;
 
 @WebServlet("/admin/member/list")
 public class MemberListController extends HttpServlet {
@@ -19,30 +22,49 @@ public class MemberListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		String _cName = request.getParameter("search-sel");
-		String _query = request.getParameter("search");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession();
 
-		String _page = request.getParameter("p");
+		Object _adminId = session.getAttribute("id");
 
-		int page = 1;
-		if (_page != null && !(_page.equals("")))
-			page = Integer.parseInt(_page);
+		if (_adminId == null)
+			out.write("<script> alert('로그인이 필요한 요청입니다.'); history.back(); </script>");
+		else {
+			String adminId = _adminId.toString();
+			MemberRoleDao roleDao = new JdbcMemberRoleDao();
+			int role = roleDao.getRole(adminId);
 
-		String query = "";
-		if (_query != null && !(_query.equals("")))
-			query = _query;
+			if (role == 999) {
 
-		String cName = "id";
-		if (_cName != null && !(_cName.equals("")))
-			cName = _cName;
+				String _cName = request.getParameter("search-sel");
+				String _query = request.getParameter("search");
 
-		MemberDao dao = new JdbcMemberDao();
+				String _page = request.getParameter("p");
 
-		request.setAttribute("list", dao.getList(page, query, cName));
-		request.setAttribute("count", dao.getCount());
+				int page = 1;
+				if (_page != null && !(_page.equals("")))
+					page = Integer.parseInt(_page);
 
-		request.getRequestDispatcher("/WEB-INF/views/admin/member/list.jsp").forward(request, response);
+				String query = "";
+				if (_query != null && !(_query.equals("")))
+					query = _query;
+
+				String cName = "id";
+				if (_cName != null && !(_cName.equals("")))
+					cName = _cName;
+
+				MemberDao dao = new JdbcMemberDao();
+
+				request.setAttribute("list", dao.getList(page, query, cName));
+				request.setAttribute("count", dao.getCount());
+
+				request.getRequestDispatcher("/WEB-INF/views/admin/member/list.jsp").forward(request, response);
+
+			} else {
+				out.write("<script> alert('잘못된 접근입니다.'); history.back(); </script>");
+			}
+		}
 	}
 
 }

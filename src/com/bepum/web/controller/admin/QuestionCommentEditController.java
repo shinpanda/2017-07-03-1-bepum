@@ -33,14 +33,16 @@ public class QuestionCommentEditController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		String no = request.getParameter("no");
-		/*title = title.replaceAll("\n", "<br>"); // 줄바꿈처리
-		title = title.replaceAll("\u0020", "&nbsp;"); // 스페이스바로 띄운 공백처리*/		
+		/*
+		 * title = title.replaceAll("\n", "<br>"); // 줄바꿈처리 title =
+		 * title.replaceAll("\u0020", "&nbsp;"); // 스페이스바로 띄운 공백처리
+		 */
 		String content = request.getParameter("content");
-		
+
 		BoardCmtDao dao = new JdbcBoardCmtDao();
 		int result = dao.update(no, content, "FAQ");
 		Object _return = request.getSession().getAttribute("returnURI");
-		if(_return != null)
+		if (_return != null)
 			response.sendRedirect(_return.toString());
 		else
 			response.sendRedirect("list");
@@ -59,16 +61,25 @@ public class QuestionCommentEditController extends HttpServlet {
 		if (_id == null)
 			out.write("<script> alert('로그인이 필요한 요청입니다.'); history.back(); </script>");
 		else {
-			String id = _id.toString();			
-			String no = request.getParameter("no");
-	
-			BoardCmtDao dao = new JdbcBoardCmtDao();
-			BoardComment b = dao.get(no, "FAQ");
-			if(id.equals(b.getWriterId())) {	
-				request.setAttribute("b", b);
-				/* response.sendRedirect("notice.jsp"); */
-				request.getRequestDispatcher("/WEB-INF/views/admin/question/cmt-edit.jsp").forward(request, response);
-			}else {
+			String id = _id.toString();
+			MemberRoleDao roleDao = new JdbcMemberRoleDao();
+			int role = roleDao.getRole(id);
+
+			if (role == 999) {
+
+				String no = request.getParameter("no");
+
+				BoardCmtDao dao = new JdbcBoardCmtDao();
+				BoardComment b = dao.get(no, "FAQ");
+				if (id.equals(b.getWriterId())) {
+					request.setAttribute("b", b);
+					/* response.sendRedirect("notice.jsp"); */
+					request.getRequestDispatcher("/WEB-INF/views/admin/question/cmt-edit.jsp").forward(request,
+							response);
+				} else {
+					out.write("<script> alert('잘못된 접근입니다.'); history.back(); </script>");
+				}
+			} else {
 				out.write("<script> alert('잘못된 접근입니다.'); history.back(); </script>");
 			}
 		}
