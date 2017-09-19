@@ -92,7 +92,7 @@
 			<div class="submenu">
                 <ul class="submenu-items">
                     <li class="submenu-item"><a href="${p}/member/profile" class="submenu-link">내 정보</a></li>
-                    <!-- <li class="submenu-item"><a href="" class="submenu-link">메시지</a></li> -->
+                    <li class="submenu-item"><a href="" class="submenu-link">메시지</a></li>
                     <c:if test="${grade == 999}">
                     <li class="submenu-item"><a href="${p}/admin/index" class="submenu-link">관리자페이지</a></li>
                     </c:if>

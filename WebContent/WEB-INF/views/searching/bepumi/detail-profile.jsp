@@ -22,7 +22,9 @@
 		<div class="bg-profile-header">
 			<div class="content-container">
 				<div class="btn-header">
+				<c:if test="${not empty sessionScope.id}">
 					<a href="request?bepum-id=${profile.id}" name="request-btn" value="" class="agree-btn-container">신청하기</a>
+				</c:if>
 				</div>
 				<div class="bepum-definite-wrapper">
 					<p>

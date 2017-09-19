@@ -106,6 +106,13 @@
 			width:120px;
 		}
 		
+		.board-table .cell.email{
+			white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    text-align: left;
+		}
+		
 		
 		.board-table .title {
 		    white-space: nowrap;
