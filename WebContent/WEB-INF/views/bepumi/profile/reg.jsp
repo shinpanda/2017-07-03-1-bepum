@@ -206,62 +206,71 @@
 					</div>
 				</div>
 				<div class="chart-container">
-				<h3>매칭</h3>
-				<div class="chart-wrapper">
-					<!-- 매칭 요청률 -->
-					<div class="chart-wrapper-default request-chart-wrapper">
-						<div class="chart-default bepumi-request-chart">
-							<div class="chart1"></div>
-							<div class="chart2"></div>
-							<div class="chart-center">
-								<span></span>
+					<h3>매칭</h3>
+					<div class="chart-wrapper">
+						<!-- 매칭 요청률 -->
+						<div class="chart-wrapper-default request-chart-wrapper">
+							<div class="chart-default bepumi-request-chart">
+								<div class="chart1"></div>
+								<div class="chart2"></div>
+								<div class="chart-center">
+									<span></span>
+								</div>
 							</div>
+							<p class="chart-name">매칭 요청률</p>
 						</div>
-						<p class="chart-name">매칭 요청률</p>
-					</div>
-					<div class="chart-wrapper-default success-chart-wrapper">
-						<!-- 매칭 성공률 -->
-						<div class="chart-default bepumi-success-chart">
-							<div class="chart1"></div>
-							<div class="chart2"></div>
-							<div class="chart-center">
-								<span></span>
+						<div class="chart-wrapper-default success-chart-wrapper">
+							<!-- 매칭 성공률 -->
+							<div class="chart-default bepumi-success-chart">
+								<div class="chart1"></div>
+								<div class="chart2"></div>
+								<div class="chart-center">
+									<span></span>
+								</div>
 							</div>
+							<p class="chart-name2">매칭 성공률</p>
 						</div>
-						<p class="chart-name2">매칭 성공률</p>
 					</div>
 				</div>
-			</div>
-			<script>
+				<script>
 				var setChart = function(c, per, color) {
 					var c_name = '.' + c;
+					var chartName = document.querySelector(c_name); 
+					
 					if (per >= 50) {
 						var d = (per / 100 * 360) - 90;
-						$(c_name).find(".chart1").css({
+						chartName.querySelector('.chart1').style.background = color;
+						chartName.querySelector('.chart2').style.transform = "rotate(" + d + "deg)";
+						chartName.querySelector('.chart2').style.background = color;
+						/* $(c_name).find(".chart1").css({
 							"background" : color
-						});
-						$(c_name).find(".chart2").css({
+						}); */
+						/* $(c_name).find(".chart2").css({
 							"transform" : "rotate(" + d + "deg)",
 							"background" : color
-						});
+						}); */
 					} else {
 						var d = ((per + 50) / 100 * 360) - 90;
-						$(c_name).find(".chart1").css({
+						chartName.querySelector('.chart1').style.background = color;
+						chartName.querySelector('.chart2').style.transform = "rotate(" + d + "deg)";
+						chartName.querySelector('.chart2').style.background = "#a2a2a2";
+						/* $(c_name).find(".chart1").css({
 							"background" : color
 						});
 						$(c_name).find(".chart2").css({
 							"transform" : "rotate(" + d + "deg)",
 							"background" : "#a2a2a2"
-						});
+						}); */
 					}
-					$(c_name).find(".chart-center").children("span").text(
-							per + "%");
+					chartName.querySelector('.chart-center').querySelector("span").innerHTML = per + "%";
+					/* $(c_name).find(".chart-center").children("span").text(
+							per + "%"); */
 
 				};
 				setChart("bepumi-request-chart", ${percent.requestPercent}, "#85DDC8");
 				setChart("bepumi-success-chart", ${percent.completePercent}, "#cba9e2");
 			</script>
-		</div>
+			</div>
 		</form>
 		</main>
 	</div>

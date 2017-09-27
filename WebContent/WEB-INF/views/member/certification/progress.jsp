@@ -8,6 +8,7 @@
 <link href="../css/common_style.css" type="text/css" rel="stylesheet">
 <link href="../css/style2.css" type="text/css" rel="stylesheet">
 <link href="../css/certification.css" type="text/css" rel="stylesheet">
+
 <title>베:품</title>
 </head>
 
@@ -46,13 +47,22 @@
 						</div>
 					</div>
 					<script>
-						for (var i = 0; i < 4; i++) {
+						var spans = document.querySelector('.application-form-wrapper').querySelectorAll('span');
+						for(var i in spans){
+							var spanText = spans[i].innerHTML;
+							if(typeof spanText != "undefined"){
+								if(spanText.indexOf('${profile.applicationFormStatus}')>=0){
+									spans[i].classList.add('progress-status');
+								}
+							}
+						}
+						/* for (var i = 0; i < 4; i++) {
 							if ($('.application-form-wrapper').find('span').eq(
 									i).html().indexOf('${profile.applicationFormStatus}') >= 0) {
 								$('.application-form-wrapper').find('span').eq(
 										i).addClass('progress-status');
 							}
-						}
+						} */
 					</script>
 					<div class="family-rc-wrapper clearfix">
 						<div class="title-box dc-name">가족관계증명서</div>
@@ -63,13 +73,22 @@
 						</div>
 					</div>
 					<script>
-						for (var i = 0; i < 4; i++) {
+						var spans = document.querySelector('.family-rc-wrapper').querySelectorAll('span');
+						for(var i in spans){
+							var spanText = spans[i].innerHTML;
+							if(typeof spanText != "undefined"){
+								if(spanText.indexOf('${profile.FRCStatus}')>=0){
+									spans[i].classList.add('progress-status');
+								}
+							}
+						}
+						/* for (var i = 0; i < 4; i++) {
 							if ($('.family-rc-wrapper').find('span').eq(i)
 									.html().indexOf('${profile.FRCStatus}') >= 0) {
 								$('.family-rc-wrapper').find('span').eq(i)
 										.addClass('progress-status');
 							}
-						}
+						} */
 					</script>
 					<div class="hc-wrapper clearfix">
 						<div class="title-box dc-name">건강진단서</div>
@@ -80,13 +99,22 @@
 						</div>
 					</div>
 					<script>
-						for (var i = 0; i < 4; i++) {
+					var spans = document.querySelector('.hc-wrapper').querySelectorAll('span');
+					for(var i in spans){
+						var spanText = spans[i].innerHTML;
+						if(typeof spanText != "undefined"){
+							if(spanText.indexOf('${profile.HCStatus}')>=0){
+								spans[i].classList.add('progress-status');
+							}
+						}
+					}
+						/* for (var i = 0; i < 4; i++) {
 							if ($('.hc-wrapper').find('span').eq(i).html()
 									.indexOf('${profile.HCStatus}') >= 0) {
 								$('.hc-wrapper').find('span').eq(i).addClass(
 										'progress-status');
 							}
-						}
+						} */
 					</script>
 
 					<div class="baby-wrapper clearfix">
@@ -98,13 +126,22 @@
 						</div>
 					</div>
 					<script>
-						for (var i = 0; i < 4; i++) {
+					var spans = document.querySelector('.baby-wrapper').querySelectorAll('span');
+					for(var i in spans){
+						var spanText = spans[i].innerHTML;
+						if(typeof spanText != "undefined"){
+							if(spanText.indexOf('${profile.VCStatus}')>=0){
+								spans[i].classList.add('progress-status');
+							}
+						}
+					}
+						/* for (var i = 0; i < 4; i++) {
 							if ($('.baby-wrapper').find('span').eq(i).html()
 									.indexOf('${profile.VCStatus}') >= 0) {
 								$('.baby-wrapper').find('span').eq(i).addClass(
 										'progress-status');
 							}
-						}
+						} */
 					</script>
 				</div>
 			</div>
@@ -237,20 +274,168 @@
 
 
 	<script type="text/javascript">
-		$('.btn-recheck').click(function() {
+		var btnRecheck = document.querySelectorAll('.btn-recheck')
+		for(var a in btnRecheck){
+			btnRecheck[a].onclick = function() {
+				var href = this.getAttribute('href');// 이렇게 하면 전체 href를 가져옴
+				
+				//alert(typeof href);
+				layer_popup(href);
+			};
+		}
+		
+		
+ 		function layer_popup(el) {
+ 			var el = document.querySelector(el);
+			/* var el = $(el); //레이어의 id를 $el 변수에 저장
+			var isDim = el.prev().hasClass('dimBg'); //dimmed 레이어를 감지하기 위한 boolean 변수 */
+			//alert(el.previousElementSibling);
+			var isDim = el.previousElementSibling.classList.contains('dimBg'); //dimmed 레이어를 감지하기 위한 boolean 변수
+			
+			function fadeIn(element){
+				var timeId = null;
+				element.style.opacity = 0;
+				
+				element.style.display="block";
+				
+				if(timeId == null){
+					timeId = setInterval(function(){
+						var opacity = parseFloat(element.style.opacity);
+						if((opacity + 0.2) >= 1.0){
+							clearInterval(timeId);
+							timeId = null;
+						}
+						element.style.opacity = opacity + 0.2;
+					}, 50);
+				}
+
+			};
+			
+			function fadeOut(element){
+				var timeId = null;
+				var opacity = parseInt(element.style.opacity);				
+				if(timeId == null){
+					timeId = setInterval(function(){
+						var opacity = parseFloat(element.style.opacity);	
+						if((opacity - 0.2) <= 0){
+							clearInterval(timeId);
+							timeId = null;
+							element.style.display="none";
+						}
+						element.style.opacity = (opacity - 0.2);
+					}, 30);
+				}
+			};
+			isDim ? fadeIn(el.parentNode) : fadeIn(el);
+			//isDim ? el.parentNode.style.display="block" : el.display="block";
+			
+			/*  if(isDim == true){
+				el.parentNode.style.opacity = 0;
+				el.parentNode.style.display="block";
+				var timeId = null;
+				if(timeId == null){
+					 timerId = setInterval(function() {
+						var opacity = el.parentNode.style.opacity;
+						if(timeId == null){
+							timeId = setInterval(function(){
+								el.parentNode.style.opacity += 1;
+								if(opacity == 1)
+									timeId = null;
+							}, 1000);
+						}
+					});
+				}
+				
+			}else{
+				el.style.opacity = 0;
+				el.style.display="block";
+				var timeId = null;
+				if(timeId == null){
+					timerId = setInterval(function() {
+						el.style.opacity = 0;
+						if(timeId == null){
+							timeId = setInterval(function(){
+								el.style.opacity += 0.1;
+								if(el.style.opacity == 1)
+									timeId = null;
+							}, 50);
+						}
+					});
+				}
+			} */
+
+			/* var elWidth = ~~(el.outerWidth), elHeight = ~~(el.outerHeight), docWidth = document.width, docHeight = document.height;
+
+			// 화면의 중앙에 레이어를 띄운다.
+			if (elHeight < docHeight || elWidth < docWidth) {
+				el.style.marginTop = -elHeight / 2;
+				el.style.marginLeft = -elWidth / 2;
+			} else {
+				el.style.top = 0;
+				el.style.left = 0;
+			}  */
+			
+			el.querySelector('a.btn-layerClose').onclick = function() {
+				isDim ? fadeOut(el.parentNode) : fadeOut(el);
+				//isDim ? el.parentNode.style.display="none" : el.style.display="none"; // 닫기 버튼을 클릭하면 레이어가 닫힌다.
+				return false;
+			};
+
+			/* el.querySelector('.layer .dimBg').onclick = function() {
+				fadeOut(el.parentNode);
+				//el.parentNode.style.display="none";
+				return false;
+			}; */
+			
+		}
+		/* $('.btn-recheck').click(function() {
 			var $href = $(this).attr('href');
 			layer_popup($href);
 		});
 		function layer_popup(el) {
+			//var $el = $(el);
+			var $el = $("a[href*='"+el+"']");
+			var el = new jQuery(el); //레이어의 id를 $el 변수에 저장
+			if(el.previousElementSibling != "undefined")
+				var isDim = el.previousElementSibling.classList.contains('dimBg'); //dimmed 레이어를 감지하기 위한 boolean 변수
+		
+			//isDim ? $el.parentNode.fadeIn() : $el.fadeIn();
 
-			var $el = $(el); //레이어의 id를 $el 변수에 저장
+			 /*var $elWidth = ~~($el.outerWidth()), $elHeight = ~~($el.outerHeight()), docWidth = $(document).width(), docHeight = $(document).height();
+
+			// 화면의 중앙에 레이어를 띄운다.
+			if ($elHeight < docHeight || $elWidth < docWidth) {
+				$el.css({
+					marginTop : -$elHeight / 2,
+					marginLeft : -$elWidth / 2
+				})
+			} else {
+				$el.css({
+					top : 0,
+					left : 0
+				});
+			}
+
+			$el.find('a.btn-layerClose').click(function() {
+				isDim ? $el.parent(".dim-layer").fadeOut() : $el.fadeOut(); // 닫기 버튼을 클릭하면 레이어가 닫힌다.
+				return false;
+			});
+
+			$('.layer .dimBg').click(function() {
+				$el.parent(".dim-layer").fadeOut();
+				return false;
+			}); 
+
+		} */
+		
+		/* function layer_popup(el) {
+			//var $el = $(el);
+			var $el = new jQuery(el); //레이어의 id를 $el 변수에 저장
 			var isDim = $el.prev().hasClass('dimBg'); //dimmed 레이어를 감지하기 위한 boolean 변수
 
 			isDim ? $el.parent(".dim-layer").fadeIn() : $el.fadeIn();
 
-			var $elWidth = ~~($el.outerWidth()), $elHeight = ~~($el
-					.outerHeight()), docWidth = $(document).width(), docHeight = $(
-					document).height();
+			var $elWidth = ~~($el.outerWidth()), $elHeight = ~~($el.outerHeight()), docWidth = $(document).width(), docHeight = $(document).height();
 
 			// 화면의 중앙에 레이어를 띄운다.
 			if ($elHeight < docHeight || $elWidth < docWidth) {
@@ -275,7 +460,7 @@
 				return false;
 			});
 
-		}
+		} */
 	</script>
 
 	<!-- 팝업 여기까지 -->

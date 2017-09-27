@@ -76,13 +76,13 @@
 			<div class="bg-profile-header">
 				<div class="content-container">
 					<div class="btn-header">
-						<input id="submit-btn" class="sec-btn" type="submit" value="변경사항 저장" />
+						<input id="submit-btn" class="sec-btn" type="submit"
+							value="변경사항 저장" />
 					</div>
 					<div class="bepum-definite-wrapper">
 						<p>
-							희망 시급 : <span><input type="text"
-								value="${profile.pay}" placeholder="8000" class="profile-num" name="pay" /></span>
-							원
+							희망 시급 : <span><input type="text" value="${profile.pay}"
+								placeholder="8000" class="profile-num" name="pay" /></span> 원
 						</p>
 
 					</div>
@@ -153,23 +153,49 @@
 						</c:if>
 
 						<script>
-							function previewFile(num) {
-								var file = document
-										.querySelector('#home-img-edit' + num).files[0];
+							var wrapper = document.querySelector(".home-photo-wrapper");
+							
+							wrapper.onclick = function(e) {
+								var file = document.querySelector(e.target).files[0];
 								var reader = new FileReader();
 								reader.addEventListener("load", function() {
-									$("#home-img-edit" + num).parent().css(
+									/* $("#home-img-edit" + num).parent().css(
 											{
 												"background" : "url("
 														+ reader.result
 														+ ") no-repeat center",
 												"background-size" : "contain"
-											});
+											}); */
+											
+									var container = document.querySelector(e.target).parentNode;
+									container.style.background = "url("+reader.result+") no-repeat center";
+									container.style["background-size"] = "contain";
 								}, false);
 								if (file) {
 									reader.readAsDataURL(file);
 								}
 							}
+							
+							/* function previewFile(num) {
+								var homeImgEdit = '#home-img-edit'+num;
+								var file = document.querySelector(homeImgEdit).files[0];
+								var reader = new FileReader();
+								reader.addEventListener("load", function() {
+									/* $("#home-img-edit" + num).parent().css(
+											{
+												"background" : "url("
+														+ reader.result
+														+ ") no-repeat center",
+												"background-size" : "contain"
+											}); */
+									var container = document.querySelector(homeImgEdit).parentNode;
+									container.style.background = "url("+reader.result+") no-repeat center";
+									container.style["background-size"] = "contain";
+								}, false);
+								if (file) {
+									reader.readAsDataURL(file);
+								}
+							} */
 						</script>
 					</div>
 				</div>
@@ -209,12 +235,12 @@
 					</script>
 
 					<p>
-						<span><input type="text" value="${profile.strTime}" placeholder="08:00"
-							class="profile-num" pattern="[0-2]\d:[0-5]\d"
+						<span><input type="text" value="${profile.strTime}"
+							placeholder="08:00" class="profile-num" pattern="[0-2]\d:[0-5]\d"
 							title="08:00 형식으로 넣어주세요" name="start-time" /></span> ~ <span><input
-							type="text" value="${profile.endTime}" placeholder="15:00" class="profile-num"
-							pattern="[0-2]\d:[0-5]\d" title="08:00 형식으로 넣어주세요"
-							name="end-time" /></span>
+							type="text" value="${profile.endTime}" placeholder="15:00"
+							class="profile-num" pattern="[0-2]\d:[0-5]\d"
+							title="08:00 형식으로 넣어주세요" name="end-time" /></span>
 					</p>
 				</div>
 
@@ -241,62 +267,71 @@
 					</div>
 				</div>
 				<div class="chart-container">
-				<h3>매칭</h3>
-				<div class="chart-wrapper">
-					<!-- 매칭 요청률 -->
-					<div class="chart-wrapper-default request-chart-wrapper">
-						<div class="chart-default bepumi-request-chart">
-							<div class="chart1"></div>
-							<div class="chart2"></div>
-							<div class="chart-center">
-								<span></span>
+					<h3>매칭</h3>
+					<div class="chart-wrapper">
+						<!-- 매칭 요청률 -->
+						<div class="chart-wrapper-default request-chart-wrapper">
+							<div class="chart-default bepumi-request-chart">
+								<div class="chart1"></div>
+								<div class="chart2"></div>
+								<div class="chart-center">
+									<span></span>
+								</div>
 							</div>
+							<p class="chart-name">매칭 요청률</p>
 						</div>
-						<p class="chart-name">매칭 요청률</p>
-					</div>
-					<div class="chart-wrapper-default success-chart-wrapper">
-						<!-- 매칭 성공률 -->
-						<div class="chart-default bepumi-success-chart">
-							<div class="chart1"></div>
-							<div class="chart2"></div>
-							<div class="chart-center">
-								<span></span>
+						<div class="chart-wrapper-default success-chart-wrapper">
+							<!-- 매칭 성공률 -->
+							<div class="chart-default bepumi-success-chart">
+								<div class="chart1"></div>
+								<div class="chart2"></div>
+								<div class="chart-center">
+									<span></span>
+								</div>
 							</div>
+							<p class="chart-name2">매칭 성공률</p>
 						</div>
-						<p class="chart-name2">매칭 성공률</p>
 					</div>
 				</div>
-			</div>
-			<script>
+				<script>
 				var setChart = function(c, per, color) {
 					var c_name = '.' + c;
+					var chartName = document.querySelector(c_name); 
+					
 					if (per >= 50) {
 						var d = (per / 100 * 360) - 90;
-						$(c_name).find(".chart1").css({
+						chartName.querySelector('.chart1').style.background = color;
+						chartName.querySelector('.chart2').style.transform = "rotate(" + d + "deg)";
+						chartName.querySelector('.chart2').style.background = color;
+						/* $(c_name).find(".chart1").css({
 							"background" : color
-						});
-						$(c_name).find(".chart2").css({
+						}); */
+						/* $(c_name).find(".chart2").css({
 							"transform" : "rotate(" + d + "deg)",
 							"background" : color
-						});
+						}); */
 					} else {
 						var d = ((per + 50) / 100 * 360) - 90;
-						$(c_name).find(".chart1").css({
+						chartName.querySelector('.chart1').style.background = color;
+						chartName.querySelector('.chart2').style.transform = "rotate(" + d + "deg)";
+						chartName.querySelector('.chart2').style.background = "#a2a2a2";
+						/* $(c_name).find(".chart1").css({
 							"background" : color
 						});
 						$(c_name).find(".chart2").css({
 							"transform" : "rotate(" + d + "deg)",
 							"background" : "#a2a2a2"
-						});
+						}); */
 					}
-					$(c_name).find(".chart-center").children("span").text(
-							per + "%");
+					chartName.querySelector('.chart-center').querySelector("span").innerHTML = per + "%";
+					/* $(c_name).find(".chart-center").children("span").text(
+							per + "%"); */
 
 				};
 				setChart("bepumi-request-chart", ${percent.requestPercent}, "#85DDC8");
 				setChart("bepumi-success-chart", ${percent.completePercent}, "#cba9e2");
 			</script>
-		</div>
+			</div>
 		</form>
 		</main>
 	</div>

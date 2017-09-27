@@ -72,13 +72,15 @@
 			</div>
 			<c:if test="${not empty profile.reviewRating}">
 				<script>
+				
 					var rating = '${profile.reviewRating}';
-					$('input:radio[name="rating"]:input[value=' + rating + ']')
+					document.querySelector('input:radio[name="rating"]:input[value=' + rating + ']').checked = true;
+					/* $('input:radio[name="rating"]:input[value=' + rating + ']')
 							.attr("checked", true);
 					$(
 							'input:radio[name="rating"]:input[value=' + rating
 									+ '] + label').addClass("active").prevAll(
-							".rating").addClass("active");
+							".rating").addClass("active"); */
 				</script>
 			</c:if>
 			<script>

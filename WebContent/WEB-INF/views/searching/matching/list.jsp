@@ -13,14 +13,13 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
+/* $(document).ready(function(){
 	var str = $(location).attr('search');	
 	var index = str.indexOf('=');
 	var res = str.substr(index+1);
 	$("a[href*='"+res+"']").siblings().children().removeClass('present');
 	$("a[href*='"+res+"']").children().addClass('present');
-});
-
+}); */
 </script>
 </head>
 
@@ -75,6 +74,13 @@ $(document).ready(function(){
 					</a>
 				</div>
 			</div>
+			<script>
+				var str = location.search;	
+				var index = str.indexOf('?');
+				var res = str.substr(index+1);
+				var present = "a[href*='"+res+"']";
+				document.querySelector(present).firstElementChild.classList.add('present');
+			</script>
 			<!-- <script>
 			
 				

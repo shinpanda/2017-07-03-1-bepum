@@ -9,8 +9,8 @@
 <link href="../css/style2.css" type="text/css" rel="stylesheet">
 <link href="../css/profile.css" type="text/css" rel="stylesheet">
 <title>베품</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 
 </head>
 
@@ -108,7 +108,8 @@
 						arr[i] = str;
 
 						for(var index in arr){
-							$('.'+arr[index]).addClass('on');
+							/* $('.'+arr[index]).addClass('on'); */
+							document.querySelector('.'+arr[index]).classList.add('on');
 						}
 						
 					</script>
@@ -165,27 +166,36 @@
 
 				var setChart = function(c, per, color) {
 					var c_name = '.' + c;
+					var chartName = document.querySelector(c_name); 
+					
 					if (per >= 50) {
 						var d = (per / 100 * 360) - 90;
-						$(c_name).find(".chart1").css({
+						chartName.querySelector('.chart1').style.background = color;
+						chartName.querySelector('.chart2').style.transform = "rotate(" + d + "deg)";
+						chartName.querySelector('.chart2').style.background = color;
+						/* $(c_name).find(".chart1").css({
 							"background" : color
-						});
-						$(c_name).find(".chart2").css({
+						}); */
+						/* $(c_name).find(".chart2").css({
 							"transform" : "rotate(" + d + "deg)",
 							"background" : color
-						});
+						}); */
 					} else {
 						var d = ((per + 50) / 100 * 360) - 90;
-						$(c_name).find(".chart1").css({
+						chartName.querySelector('.chart1').style.background = color;
+						chartName.querySelector('.chart2').style.transform = "rotate(" + d + "deg)";
+						chartName.querySelector('.chart2').style.background = "#a2a2a2";
+						/* $(c_name).find(".chart1").css({
 							"background" : color
 						});
 						$(c_name).find(".chart2").css({
 							"transform" : "rotate(" + d + "deg)",
 							"background" : "#a2a2a2"
-						});
+						}); */
 					}
-					$(c_name).find(".chart-center").children("span").text(
-							per + "%");
+					chartName.querySelector('.chart-center').querySelector("span").innerHTML = per + "%";
+					/* $(c_name).find(".chart-center").children("span").text(
+							per + "%"); */
 
 				};
 				setChart("bepumi-request-chart", ${percent.requestPercent}, "#85DDC8");
