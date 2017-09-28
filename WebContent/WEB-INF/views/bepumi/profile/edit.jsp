@@ -117,9 +117,12 @@
 					<div class="home-photo-wrapper">
 						<div class="home-photo">
 							<label for="home-img-edit1"><img
-								src="../images/add_icon.png" /></label> <input type="file"
+								src="../images/add_icon.png" /></label> <!-- <input type="file"
 								onchange="previewFile(1)" accept=".bmp, .jpg, .png"
-								id="home-img-edit1" name="home-photo1"> <input
+								id="home-img-edit1" name="home-photo1"> --> <input type="file"
+								accept=".bmp, .jpg, .png"
+								id="home-img-edit1" name="home-photo1">
+								<input
 								type="hidden" value="${profile.houseImg1}" name="originhome1" />
 						</div>
 						<c:if test="${not empty profile.houseImg1}">
@@ -130,8 +133,12 @@
 						<div class="home-photo">
 							<label for="home-img-edit2"><img
 								src="../images/add_icon.png" /></label> <input type="file"
+								accept=".bmp, .jpg, .png"
+								id="home-img-edit2" name="home-photo2">
+								<!-- <input type="file"
 								onchange="previewFile(2)" accept=".bmp, .jpg, .png"
-								id="home-img-edit2" name="home-photo2"> <input
+								id="home-img-edit2" name="home-photo2"> -->
+								 <input
 								type="hidden" value="${profile.houseImg2}" name="originhome2" />
 						</div>
 						<c:if test="${not empty profile.houseImg2}">
@@ -141,8 +148,10 @@
 						</c:if>
 						<div class="home-photo">
 							<label for="home-img-edit3"><img
-								src="../images/add_icon.png" /></label> <input type="file"
+								src="../images/add_icon.png" /></label> <!-- <input type="file"
 								onchange="previewFile(3)" accept=".bmp, .jpg, .png"
+								id="home-img-edit3" name="home-photo3"> --><input type="file"
+								accept=".bmp, .jpg, .png"
 								id="home-img-edit3" name="home-photo3"> <input
 								type="hidden" value="${profile.houseImg3}" name="originhome3" />
 						</div>
@@ -153,21 +162,13 @@
 						</c:if>
 
 						<script>
-							var wrapper = document.querySelector(".home-photo-wrapper");
+							var homePhoto = document.querySelector(".home-photo-wrapper");
 							
-							wrapper.onclick = function(e) {
-								var file = document.querySelector(e.target).files[0];
+							homePhoto.onchange = function(e) {
+								var file = e.target.files[0];
 								var reader = new FileReader();
 								reader.addEventListener("load", function() {
-									/* $("#home-img-edit" + num).parent().css(
-											{
-												"background" : "url("
-														+ reader.result
-														+ ") no-repeat center",
-												"background-size" : "contain"
-											}); */
-											
-									var container = document.querySelector(e.target).parentNode;
+									var container = e.target.parentNode;
 									container.style.background = "url("+reader.result+") no-repeat center";
 									container.style["background-size"] = "contain";
 								}, false);
@@ -188,7 +189,7 @@
 														+ ") no-repeat center",
 												"background-size" : "contain"
 											}); */
-									var container = document.querySelector(homeImgEdit).parentNode;
+											/*var container = document.querySelector(homeImgEdit).parentNode;
 									container.style.background = "url("+reader.result+") no-repeat center";
 									container.style["background-size"] = "contain";
 								}, false);
